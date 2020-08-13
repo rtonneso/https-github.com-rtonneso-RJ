@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="account_bank_statement_import assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- scss -->
+            <link rel="stylesheet" type="text/scss" href="/web_ent_customize/static/src/scss/web_form.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web_ent_customize/static/src/scss/left_menu.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web_ent_customize/static/src/scss/responsive/r_left_menu.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web_ent_customize/static/src/scss/web_studio.scss"/>
+            <!-- Js -->
+            <script type="templatext/javascript" src="/web_ent_customize/static/src/js/menu.js"/>
+            <script type="templatext/javascript" src="/web_ent_customize/static/src/js/main_view.js"/>
+
+            <!-- Form -->
+            <script type="templatext/javascript" src="/web_ent_customize/static/src/js/form/form_reneder.js"/>
+            <script type="templatext/javascript" src="/web_ent_customize/static/src/js/favorite_menu.js"/>
+        </xpath>
+    </template>
+</odoo>

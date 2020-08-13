@@ -1,0 +1,32 @@
+.searchbar{
+    background-color: transparent;
+    /* border-radius: 30px; */
+    padding: 10px;
+    margin: 6px;
+    border-color: teal;
+    border-bottom: 2px solid;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+    background: none;
+    width: 350px;
+    caret-color:red;
+    transition: width 0.4s linear;
+}
+
+.search_icon{
+    float: right;
+    margin: -20px;
+    margin-right: 8px;
+}
+
+.search_input [type="text"] {
+    display: initial;
+}

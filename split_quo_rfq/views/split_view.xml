@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<record id="split_quo_rfq_sale_order_form_selection" model="ir.ui.view">
+		<field name="name">split.quo.rfq.sale.order.form.selection</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"></field>
+		<field name="arch" type="xml">
+			<xpath expr="//tree/field[@name='product_id']" position="before">
+				<field name="tick" groups="split_quo_rfq.group_split_quo"/>
+			</xpath>
+			
+			<xpath expr="//header/button[@name='action_cancel']" position="after">
+				 <button name="action_split" states="draft,sent" type="object" string="Split Quotation" groups="split_quo_rfq.group_split_quo" />
+			</xpath>	
+			
+			<xpath expr="//header/button[@name='action_cancel']" position="after">
+				 <button name="action_extract" states="draft,sent,sale" type="object" string="Extract Quotation" groups="split_quo_rfq.group_split_quo"/>
+			</xpath>		
+		</field>
+	</record>
+	
+	
+	<record id="split_quo_rfq_purchase_order_form" model="ir.ui.view">
+		<field name="name">split.quo.rfq.purchase.order.form</field>
+		<field name="model">purchase.order</field>
+		<field name="inherit_id" ref="purchase.purchase_order_form"></field>
+		<field name="arch" type="xml">
+			
+			<xpath expr="//tree/field[@name='product_id']" position="before">
+				<field name="tick" groups="split_quo_rfq.group_split_rfq"/>
+			</xpath>
+			
+			<xpath expr="//header/button[@name='button_cancel']" position="after">
+				 <button name="action_split" states="draft,sent" type="object" string="Split RFQ" groups="split_quo_rfq.group_split_rfq" />
+			</xpath>	
+			
+			<xpath expr="//header/button[@name='button_cancel']" position="after">
+				 <button name="action_extract" states="draft,sent,purchase" type="object" string="Extract RFQ" groups="split_quo_rfq.group_split_rfq" />
+			</xpath>		
+		
+		</field>
+	</record>
+	
+	
+
+</data>
+</odoo>

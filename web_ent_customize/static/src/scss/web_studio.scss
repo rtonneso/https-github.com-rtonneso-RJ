@@ -1,0 +1,56 @@
+.o_web_client.o_in_studio {
+    header {
+        .o_web_studio_menu {
+            margin-left: 50px;
+            transition: margin-left 0.3s;
+            .o_web_studio_breadcrumb {
+                .breadcrumb {
+                    padding-left: 30px;
+                    padding-top: 7px;
+                }
+            }
+        }
+        .oe_favorite_view {
+            #av_full_view {
+                .fa.fa-bars {
+                    color: white;
+                }
+            }
+        }
+    }
+    .o_action_manager {
+        .o_action {
+            .o_control_panel {
+                .breadcrumb {
+                    padding-left: 0 !important;
+                }
+            }
+            .o_content {
+                .o_web_studio_editor_manager {
+                    .o_web_studio_view_renderer {
+                        .o_list_view {
+                            .table-responsive {
+                                .o_list_table {
+                                    tbody {
+                                        .o_data_row {
+                                            .o_attachment {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.ad_full_view {
+        header {
+            .o_web_studio_menu {
+                margin-left: 0;
+            }
+        }
+    }
+}

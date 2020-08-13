@@ -1,0 +1,104 @@
+.o_web_client {
+    .o_content {
+        .o_form_view {
+            & > .toggle_btn_chatter {
+                position: fixed;
+                left: auto;
+                top: 180px;
+                right: 0;
+                padding: 2px 4px;
+                z-index: 1;
+                font-size: 10px;
+                border: 1px solid $o-brand-odoo;;
+                border-right: 0;
+                border-right: 0;
+                color: white;
+                background-color: $o-brand-odoo;;
+            }
+            &.side_chatter {
+                flex-flow: row nowrap;
+                height: 100%;
+                > .o_form_sheet_bg {
+                    flex: 1 1 auto;
+                    width: calc(100vw - 530px);
+                    padding: 0 16px;
+                    overflow: auto;
+                    border-bottom: none;
+                }
+                > .oe_chatter {
+                    flex: 1 1 auto; // Side chatter is disabled if this has to shrink but this was added for safety
+                    width: $o-chatter-min-width;
+                    padding: 0 10px;
+                    overflow: auto;
+                    border-left: 1px solid gray('300');
+                    background-color: white;
+
+
+
+                    .o_chatter_topbar {
+                        /*height: $o-statusbar-height + $nav-tabs-border-width;*/
+                        height: auto;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        .o_topbar_right_area {
+                            margin: auto;
+                        }
+                        .btn, .btn.o_active {
+                            border-top: 0;
+                        }
+
+                    }
+                    .o_thread_message {
+                        overflow: auto;
+                    }
+
+                    &.o_chatter_composer_active {
+                        .o_chatter_topbar {
+                            .btn, .btn.o_active {
+                                border-top: 0;
+
+                                &:first-child {
+                                    border-left: 0;
+                                }
+                            }
+                        }
+                    }
+                    .o_thread_composer {
+                        border-width: 1px 0;
+                        margin-top: 0;
+
+                        // have mention drowdown below composer
+                        .o_composer_mention_dropdown {
+                            position: absolute;
+                            top: 100%;
+
+                            > .dropdown-menu {
+                                top: 100%;
+                                bottom: auto;
+                            }
+                        }
+                    }
+                }
+            }
+            @media (min-width: 1534px) {
+                &:not(.side_chatter) {
+                    flex-flow: column nowrap;
+                    min-height: 100%;
+                    .o_form_sheet_bg {
+                        width: auto;
+                        flex: 1 0 auto;
+                    }
+                    .o_chatter {
+                        width: 100%;
+                        flex: 1 1 100%;
+                        border-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .o_dial {
+        left: 55px;
+    }
+}

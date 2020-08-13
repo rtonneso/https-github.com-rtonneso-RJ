@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <header t-name="Menu" t-extend="Menu">
+        <t t-jquery=".o_main_navbar" t-operation="after">
+            <nav class="main_navbar oe_favorite_view">
+                <ul id="av_full_view">
+                    <i class="fa fa-bars"/>
+                </ul>
+                <div class="oe_menu_layout oe_theme_menu_layout">
+                    <div class="o_quick_menu"/>
+                </div>
+            </nav>
+        </t>
+        <t t-jquery=".o_menu_systray" t-operation="replace"/>
+        <t t-jquery=".o_main_navbar" t-operation="prepend">
+            <div class="o_toggle_menu">
+                <li>
+                    <a role="button" class="user_menu" data-toggle="collapse" data-target="#o_menu_systray">
+                        <img class="rounded-circle"
+                             t-attf-src="/web/image/res.users/{{widget.user_id}}/image_256/40x40" alt=""/>
+                    </a>
+                    <ul id="o_menu_systray" class="collapse o_menu_systray">
+                    </ul>
+                </li>
+            </div>
+        </t>
+    </header>
+
+    <t t-name="menu.FavoriteMenu">
+        <nav class="oe_favorite_menu">
+            <div class="oe_apps_menu" id="oe_shorting"/>
+        </nav>
+    </t>
+
+    <t t-name="menu.FavoriteMenuItem">
+        <t t-if="!_.isEmpty(widget.menus)">
+            <t t-foreach="widget.menus" t-as="app">
+                <a class="dropdown-item o_app oe_favorite ui-draggable ui-draggable-handle"
+                   role="menuitem"
+                   t-att-data-id="app['id']"
+                   t-att-data-menu-id="app['favorite_menu_id'][0]"
+                   t-att-data-menu-xmlid="app['favorite_menu_xml_id']"
+                   t-att-data-action-id="app['favorite_menu_action_id']"
+                   t-att-data-menu-sequence="app['sequence']"
+                   t-attf-href="/web#{widget.debug}#menu_id=#{app['favorite_menu_id'][0]}&amp;action=#{app['favorite_menu_action_id'] or ''}"
+                   t-att-title="app['favorite_menu_id'][1]">
+                    <img t-attf-src="/web/image/ir.ui.menu/{{app['favorite_menu_id'][0]}}/web_icon_data/30x30"/>
+                    <span>
+                        <t t-esc="_t(app['favorite_menu_id'][1])"/>
+                    </span>
+                </a>
+            </t>
+        </t>
+        <t t-else="">
+            <div class="oe_no_menu" t-if="!widget.isTouchDevice">
+                <span><abbr title="Click and hold menu to start dragging it and drop it here to make it favourited." class="initialism">Drag &amp; drop favourite menus here</abbr></span>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="UserMenu">
+        <t t-jquery=".dropdown-menu-right" t-operation="attributes">
+            <attribute name="class" value="dropdown-menu dropdown-menu-right ad_active"/>
+        </t>
+        <t t-jquery=".oe_topbar_name" t-operation="replace"/>
+        <t t-jquery=".dropdown-menu-right" t-operation="prepend">
+            <div class="ad_user_details_box mb16 mt16">
+                <div class="ad_user_details">
+                    <div class="ad_avtar_image">
+                        <img class="img-circle oe_topbar_avatar"
+                             t-att-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
+                    </div>
+                    <div class="oe_user p-2 text-center">
+                        <b><span class="oe_topbar_name"/></b>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+</templates>

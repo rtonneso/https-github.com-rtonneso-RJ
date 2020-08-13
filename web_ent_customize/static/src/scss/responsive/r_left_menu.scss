@@ -1,0 +1,167 @@
+@include media-breakpoint-down(sm) {
+    body.o_web_client {
+        header {
+            .oe_favorite_view {
+                display: none;
+            }
+            .o_main_navbar {
+                display: flex;
+                .o_toggle_menu {
+                    margin: 0 !important;
+                    margin-left: auto !important;
+                    order: 1;
+                    display: inline-block;
+                    & > li {
+                        list-style: none;
+                        height: 100%;
+                        .user_menu {
+                            display: none;
+                        }
+                        #o_menu_systray {
+                            display: flex;
+                            padding: 0;
+                            margin-bottom: 0;
+                            height: 100%;
+                            li {
+                                padding: 5px 10px;
+                                list-style: none;
+                                height: 100%;
+                                display: inline-flex;
+                                justify-content: center;
+                                align-items: center;
+                                .dropdown-toggle , .gift_icon {
+                                    color: white;
+                                }
+                                .dropdown-menu.show {
+                                    top: 46px;
+                                    left: 0;
+                                    bottom: 0;
+                                    right: 0;
+                                    position: fixed;
+                                    width: auto;
+                                    max-height: none;
+                                }
+                            }
+                            & > .o_mail_systray_item.show {
+                                background-color: #68465f;
+                            }
+                        }
+                    }
+                }
+                .o_menu_toggle {
+                    order: 0;
+                }
+                .o_mobile_menu_toggle {
+                    order: 4;
+                }
+                .o_menu_brand {
+                    color: white !important;
+                }
+            }
+        }
+        .o_action_manager {
+            transition: unset !important;
+            .o_action {
+                .o_cp_controller {
+                    .o_control_panel {
+                        ol.breadcrumb {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+            .o_action {
+                .o_content {
+                    .o_form_view {
+                        .toggle_btn_chatter {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &.o_home_menu_background {
+            .o_home_menu {
+                margin-left: 0;
+            }
+        }
+        .o_burger_menu {
+            .o_burger_menu_content {
+                .o_burger_menu_app {
+                    .o_menu_sections {
+                        & > li {
+                            position: relative;
+                            & > a {
+                                padding-left: 0;
+                                &.dropdown-toggle {
+                                    position: relative;
+                                    &:before{
+                                        content: '\f054';
+                                        display: inline-block;
+                                        font: normal normal normal 14px/1 FontAwesome;
+                                        font-size: inherit;
+                                        text-rendering: auto;
+                                        -webkit-font-smoothing: antialiased;
+                                        -moz-osx-font-smoothing: grayscale;
+                                        position: absolute;
+                                        right: 15px;
+                                        top: 13px;
+                                        transition: all 0.3s;
+                                    }
+                                }
+                            }
+                            &.show {
+                                & > .dropdown-toggle {
+                                    &:before {
+                                        transform: rotate(90deg);
+                                    }
+                                }
+                                & > .dropdown-menu {
+                                    display: block;
+                                    position: relative !important;
+                                    float: unset;
+                                    background-color: transparent;
+                                    right: 0;
+                                    border: 0;
+                                    box-shadow: unset;
+                                    padding-left: 0px;
+                                    top: 100% !important;
+                                    transform: unset !important;
+                                }
+                                .dropdown-header {
+                                    text-decoration: unset;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-between(sm,md, $o-extra-grid-breakpoints) {
+    body.o_web_client {
+        .o_action_manager {
+            .o_action {
+                .o_content {
+                    .o_form_view {
+                        .toggle_btn_chatter {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    header {
+        .o_main_navbar {
+            .o_menu_brand {
+                display: none;
+            }
+        }
+    }
+}

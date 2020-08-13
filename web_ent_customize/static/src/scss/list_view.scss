@@ -1,0 +1,116 @@
+@mixin attachment-layout() {
+    position: relative;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    .o_attachment{
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        border: 0;
+        .o_attachment_download{
+            display: flex;
+            margin-right: 5px;
+            border: 1px solid $o-brand-secondary;
+            padding: 0 3px;
+            border-radius: 3px;
+            justify-content: center;
+            align-items: center;
+            .name{
+                margin-right: 5px;
+                white-space: nowrap;
+                max-width: 90px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .o_image_box{
+                display: flex;
+                margin-right: 5px;
+                .o_image{
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            .attech_link{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .attachment-counter{
+            background-color: $o-brand-secondary;
+            color: $white;
+            padding: 0px 3px;
+        }
+    }
+}
+.o_web_client {
+    .o_content {
+        .o_list_view {
+            .table-responsive {
+                table.o_list_table {
+                    tbody {
+                        & > tr {
+                            & > td:nth-child(2) {
+                                @include attachment-layout();
+                            }
+                            &.o_default {
+                                & > td {
+                                    padding-bottom: 30px !important;
+                                }
+                            }
+                            &:not(.o_default) {
+                                & > td:nth-child(2) {
+                                    .o_attachment {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &.o_compact {
+                                & > td {
+                                    padding: 2px 4px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modal-dialog {
+        .modal-content {
+            .row-fluid {
+                .o_density {
+                    border: 1px solid #dee2e6;
+                    & > .btn:not(:last-child) {
+                        border-right: 1px solid #dee2e6;
+                    }
+                }
+                .comfortable {
+                    button[data-value="comfortable"] {
+                        background-color: #00A09D;
+                        color: white;
+                    }
+                }
+                .default {
+                    button[data-value="default"] {
+                        background-color: #00A09D;
+                        color: white;   
+                    }
+                }
+                .compact {
+                    button[data-value="compact"] {
+                        background-color: #00A09D;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

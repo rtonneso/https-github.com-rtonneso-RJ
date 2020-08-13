@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template_search_menu" xml:space="preserve">
+    <t t-name="SearchMenu">
+        <li class="o_search_menu">
+            <form class="form-search form-horizontal pull-right" action="/search_main" method="POST" autocomplete="off">
+                <div class="container h-100 typeahead__container">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="searchbar">
+                            <div class="typeahead__query">
+                                <input class="js-typeahead search_input" type="text" name="search" placeholder="Search..." style="display: initial" />
+                            </div>
+                        </div>
+                        <div class="typeahead__button" style="margin: 8px;">
+                            <button type="submit" class="" style="float: right;background: transparent;border: none;color: #fff;"><i aria-label="Messages" class="fa fa-search" style="font-size: 1.5em;"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </li>
+    </t>
+</templates>
