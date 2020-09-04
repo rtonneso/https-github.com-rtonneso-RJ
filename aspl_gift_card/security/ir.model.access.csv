@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_aspl_gift_card,access_aspl_gift_card,model_aspl_gift_card,base.group_user,1,1,1,1
+access_aspl_gift_card_use,access_aspl_gift_card_use,model_aspl_gift_card_use,base.group_user,1,1,1,1
+access_aspl_gift_card_recharge,access_aspl_gift_card_recharge,model_aspl_gift_card_recharge,base.group_user,1,1,1,1
+access_aspl_gift_card_type,access_aspl_gift_card_type,model_aspl_gift_card_type,base.group_user,1,1,1,1
