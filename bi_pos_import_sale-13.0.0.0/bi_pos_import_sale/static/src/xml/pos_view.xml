@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_sale" inherit_id="point_of_sale.template" xml:space="preserve">
+	<!-- actionpad -->
+	
+	<t t-name="SaleOrderButtonWidget" name="Sale Orders">
+		<t t-if="widget.pos.config.check">
+			<div class="control-button button confirm" id="import_sales_order" style="background-color: #7f82ac; color: #fff;">
+				<i class="fa fa-university"></i> Sale Orders
+			</div>
+		</t>
+	</t>
+	
+
+	<!-- SeeAllOrdersScreenWidget -->
+
+	<t t-name="SeeAllOrdersScreenWidget">
+		<div class="clientlist-screen screen">
+			<div class="screen-content">
+				<section class="top-content">
+					<span class='button back'>
+						<i class='fa fa-angle-double-left'></i>
+						Cancel
+					</span>
+					<span class='searchbox search-order'>
+						<input placeholder='Search Orders' />
+						<span class='search-clear'></span>
+					</span>
+					<span class='refresh-order button' style="margin-left: 385px;"  id='refresh'><i class='fa fa-refresh'></i></span>
+					<span class='searchbox'></span>
+					
+				</section>
+				<section class="full-content">
+					<div class='window touch-scrollable scrollable-y'>
+						<section class='subwindow collapsed'>
+							<div class='subwindow-container'>
+								<div class='subwindow-container-fix client-details-contents'>
+								</div>
+							</div>
+						</section>
+						<section class='subwindow'>
+							<div class='subwindow-container'>
+								<div class='subwindow-container-fix touch-scrollable scrollable-y'>
+									<table class='client-list'>
+										<thead>
+											<tr style="background-color: #7f82ac; color: #fff;">
+												<th>Order Number</th>
+												<th>Order Date</th>
+												<th>Customer</th>
+												<th>Saleperson</th>
+												<th>Subtotal</th>
+												<th>Total</th>
+												<th>Import Order </th>
+												
+											</tr>
+										</thead>
+										<tbody class='client-list-contents'>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>	
+			</div>
+		</div>
+	</t>
+	<!-- OrdersLine -->
+   <t t-name="OrdersLine">
+		<tr class='order-line-sale' t-att-id='order.id'>
+			<td class='orders-line-name' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.name' /></td>
+			<td class='orders-line-date' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.date_order' /></td>
+			<td class='orders-line-partner' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.partner_id[1] or ""' /></td>
+			<td class='orders-line-saleperson' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.user_id[1]' /></td>
+			<td class='orders-line-subtotal' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.amount_untaxed' /></td>
+			<td class='orders-line-tot' t-att-id='order.id' style="cursor: pointer;"><t t-esc='widget.format_currency(order.amount_total)' /></td>
+			<td>
+				<button class="sale-order" t-att-id='order.id' style="cursor: pointer; color: #fff; background-color: #3CB371;"><i class="fa fa-refresh"></i> Import Order</button>
+			</td>
+		</tr>
+	</t>
+
+	<t t-name="SeeOrderDetailsPopupWidget">
+		<div class="modal-dialog">
+		<div class='window touch-scrollable scrollable-y'>
+			<div class="popup popup-confirm" style="height: 450px; width:700px">
+				<p class="title" style="background-color: #7f82ac; color: #fff;height: 10px;">Order Details</p>
+
+				<div class="body" style="height: 300px;">
+					
+					
+					<t t-foreach="widget.options.order || []" t-as="item" t-att-id="item.id">
+						<table style='width:100%'>
+							<tr style='line-height:30px; font-size:15px'>
+								<td style='width:20%; text-align:left'><strong>Order Ref:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>
+									<span t-esc="item['name']"/>
+								</td>
+								<td style='width:20%; text-align:left'><strong>Order Date:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>    
+									<span t-esc="item['date_order']" />
+								</td>
+							</tr>
+							
+							<tr style='line-height:30px; font-size:15px'>
+								<td style='width:20%; text-align:left'><strong>Customer:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>
+									<span t-esc="item['partner_id'][1]"/>
+								</td>
+								<td style='width:20%; text-align:left'><strong>Total Amount:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>    
+									<span t-esc="item['amount_total']" />
+								</td>
+							</tr>
+							
+							<tr style='line-height:30px; font-size:15px'>
+								<td style='width:20%; text-align:left'><strong>Company:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>
+									<span t-esc="item['company_id'][1]"/>
+								</td>
+								<td style='width:20%; text-align:left'><strong>Saleperson:</strong>
+								</td>
+								<td style='width:30%; text-align:left'>    
+									<span t-esc="item['user_id'][1]" />
+								</td>
+							</tr>
+						</table>
+					</t>
+					<br/>
+					<table style='width:100%'>
+						<thead>
+							<tr style="border:1px solid black; line-height:30px;">
+								<th style='width:25%; padding-left: 10px; text-align:left'>Product</th>
+								<th style='width:25%; padding-left: 10px; text-align:left'>Quantity</th>
+								<th style='width:25%; padding-left: 10px; text-align:left'>Price</th> 
+								<th style='width:25%; padding-left: 10px; text-align:left'>Subtotal</th> 
+							</tr>
+						</thead>
+						<tbody>
+							<tr style="border:1px solid black; line-height:30px; font-size:15px;" t-foreach="widget.options.orderline || []" t-as="line1">
+								<td style='width:25%; padding-left: 10px; text-align:left'><t t-esc='line1.product_id[1]' /></td>
+								<td style='width:25%; padding-left: 10px; text-align:left'><t t-esc='line1.product_uom_qty' /></td>
+								<td style='width:25%; padding-left: 10px; text-align:left'><t t-esc='line1.price_unit' /></td>
+								<td style='width:25%; padding-left: 10px; text-align:left'><t t-esc='line1.price_subtotal' /></td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+
+				<div class="footer" style="background-color: #7f82ac; color: #fff;">
+
+					<div class="button cancel" style="background-color: #E0E0E0; color: black;">
+						Cancel
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</t>
+
+	<t t-name="SaleOrderPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 350px !important;">
+				<p class="title" style="background-color: rgb(110,200,155); color: #fff;">Sale order Products</p>
+
+						<div class="body" style="height: 200px !important;">
+							<div class='div-container'>
+								<table class='reorder-product-list'>
+									<thead>
+										<tr class="reorder_product_header">
+											<th>Product</th>
+											<th>Order Qty</th>
+										</tr>
+									</thead>
+									<tbody class='reorder-product-list-contents'>
+										<tr class="reorder_product_body" t-foreach="widget.options.orderlines || []" t-as="item">
+											<td><t t-esc='item.product_id[1]' /></td>
+											<td class="entered_item_qty" style="    padding: 3px;">
+												<input id ="entered_item_qty" t-att-line-id='item.id' t-att-qty-id='item.product_uom_qty' type="text" class="input-field" name="code"></input>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						 </div>
+
+				<div class="footer" style="background-color: rgb(110,200,155); color: #fff;">
+					<div class="button cancel" style="background-color: #0075AC; color: #fff;">
+						Cancel
+					</div>
+					<div class="button confirm" id="apply_order" style="background-color: #0075AC; color: #fff;">
+						Apply
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+</templates>

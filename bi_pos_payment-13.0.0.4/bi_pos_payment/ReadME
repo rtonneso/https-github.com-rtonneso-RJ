@@ -1,0 +1,13 @@
+version 13.0.0.1
+	due amount not show in given field.
+	generate warning when user pay more amount larger then due amount.
+
+Version 13.0.0.2 : (16/01/20)
+		- load journals in pos and add them to selection.
+
+Version 13.0.0.3 : (18/2/20)
+		- Display journals name in pos and add them to selection and improve the layout of the popup.
+
+
+Version 13.0.0.4 : (25/2/20)
+		- Unpaid invoice are show in pos invoice screen.
