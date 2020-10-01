@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_sale" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-extend="SeeAllOrdersScreenWidget">
+			<t t-jquery=".screen-content" t-operation="replace">
+				<div class="screen-content" style="max-width: 1300px;">
+					<section class="top-content">
+						<span class='button back'>
+							<i class='fa fa-angle-double-left'></i>
+							Cancel
+						</span>
+						<div>
+							<span class='button sale state' style="margin-left: -155px;" id='sale'><i class='fa fa-credit-card' style="margin-right: 5px;"></i>Done</span>
+							<span class='button sent state' style="margin-left: -350px;" id='sent'><i class='fa fa-send' style="margin-right: 5px;"></i>Quotation Sent</span>
+							<span class='button draft state' style="margin-left: -500px;" id='draft'><i class='fa fa-file' style="margin-right: 5px;"></i>Quotation</span>
+							<span class='button my-order' style="margin-left: -45px;"  id='user'><i class='fa fa-user' style="margin-right: 5px;"></i>My Orders</span>
+							<div style="position: absolute;line-height: 32px;padding: 3px 13px;font-size: 20px;background: rgb(230, 230, 230);margin: 12px;margin-left: 750px;">
+								<span id="filter_order"></span>
+								<span id="filter_state"></span>
+							</div>
+						</div>
+						<span class='refresh-order button' style="margin-left: 385px;"  id='refresh'><i class='fa fa-refresh'></i></span>
+						<span class='searchbox search-order' style="margin-left: 450px;">
+							<input placeholder='Search Orders' />
+							<span class='search-clear'></span>
+						</span>
+						<span class='searchbox'></span>
+						
+					</section>
+					<section class="full-content">
+						<div class='window touch-scrollable scrollable-y'>
+							<section class='subwindow collapsed'>
+								<div class='subwindow-container'>
+									<div class='subwindow-container-fix client-details-contents'>
+									</div>
+								</div>
+							</section>
+							<section class='subwindow'>
+								<div class='subwindow-container'>
+									<div class='subwindow-container-fix touch-scrollable scrollable-y'>
+										<table class='client-list'>
+											<thead>
+												<tr style="background-color: #7f82ac; color: #fff;">
+													<th>Order Number</th>
+													<th>Order Date</th>
+													<th>Customer</th>
+													<th>Saleperson</th>
+													<th>Total</th>
+													<th>State</th>
+													<th>Import Order </th>
+													<th>Print</th>
+												</tr>
+											</thead>
+											<tbody class='client-list-contents'>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>	
+				</div>
+				
+			</t>
+		</t>
+
+	<t t-name="OrdersLine">
+		<tr class='order-line-sale' t-att-id='order.id'>
+			<td class='orders-line-name' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.name' /></td>
+			<td class='orders-line-date' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.date_order' /></td>
+			<td class='orders-line-partner' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.partner_id[1] or ""' /></td>
+			<td class='orders-line-saleperson' t-att-id='order.id' style="cursor: pointer;"><t t-esc='order.user_id[1]' /></td>
+			<td class='orders-line-tot' t-att-id='order.id' style="cursor: pointer;"><t t-esc='widget.format_currency(order.amount_total)' /></td>
+			<td class='orders-line-state' t-att-id='order.id' style="cursor: pointer;">
+				<t t-if="order.state == 'draft'">Quotation</t>
+				<t t-if="order.state == 'sent'">Quotation Sent</t>
+				<t t-if="order.state == 'sale'">Sale Order</t>
+				<t t-if="order.state == 'done'">Locked</t>
+				<t t-if="order.state == 'cancel'">Cancelled</t>
+			</td>
+			<td>
+				<button class="sale-order" t-att-id='order.id' style="cursor: pointer; color: #fff; background-color: #7f82ac;"><i class="fa fa-refresh"></i> Import Order</button>
+			</td>
+			<td>
+				<button class="print-sale-order" t-att-id='order.id' style="cursor: pointer; color: #fff; background-color: #7f82ac;"><i class="fa fa-print"></i></button>
+			</td>
+		</tr>
+	</t>
+
+	 <t t-name="CreateSalesOrderButtonWidget" name="Create Sales Order Button Widget">
+		<div class="control-button button confirm" id="create_sales_order" style="background-color: #7f82ac; color: #fff;">
+		   <i class="fa fa-shopping-cart"></i> Create Sales Order 
+		</div>
+	 </t>
+	
+
+	<t t-name="CreateSaleOrderPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-delivery" style="height: 550px !important;width:600px;">
+				<p class="title"><t t-esc=" widget.options.title || 'Sale Order' " /></p>
+				<section>
+					<div class="body">
+					  <div>
+						<!-- <div>
+							<div>
+								<label for="order_date">Order Date:</label>
+								<input id="order_date" type="datetime-local" name="order-date" value="2019-01-01T08:30"/>
+							</div>
+							<div>
+								<label for="order_date">Order Date:</label>
+								<input id="order_date" type="datetime-local" name="order-date" value="2019-01-01T08:30"/>
+							</div>
+						</div> -->
+						<div style="margin-top: 20px;">
+						  <ul class="tabs">
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab1" checked="checked" />
+								<label for="tab1">Shipping Address</label>   
+								<div id="tab-content1" class="content" style="min-width: 98%;margin-left: -30px;padding-right: 0px;">
+									<div class='delivery-detail1 required-field' required="required" style="margin-bottom: 10px;">
+										<span class='label'>Shipping Address</span>
+										<select class="shipping_person_id" name='person_id' required="required" style="margin-left: 15px;padding: 2px;border-radius: 5px;min-width: 40px;">
+											<t t-if="widget.options.client">
+												<t t-if="widget.options.child_name">
+													<t t-foreach='widget.options.child_name' t-as='person'>
+														<option t-att-value='person.id'> 
+															<t t-esc='person.name'/>
+														</option>
+													</t>
+												</t>
+												<t t-else="">
+													<option t-att-value='widget.options.client.id'> 
+														<t t-esc='widget.options.client.name'/>
+													</option>
+												</t>
+											</t>
+										</select>
+										<div class="form-group" id="form1" style="margin-top: 10px;">  
+											<input id="apply_shipping_address" class="pos_shipping_address" type="checkbox" />
+											<label for="pos_shipping_address">Ship to Different Address</label>
+										</div>
+										<div style="    display: flex;" class="shipping_data">
+											<div style="margin-top: 20px;"> 
+												<div class='delivery-detail required-field' style="    margin: 0px 5px;">
+
+													<input class='detail d_name' name='d_name' t-att-value='widget.options.name || ""' placeholder='Name' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='delivery-detail required-field' style="    margin: 0px 5px;">
+													
+													<input type='text' class='detail d_mobile' name='mobile' t-att-value='widget.options.mobile || ""' pattern='[0-9]' title='Only enter integer value' placeholder='9090909090' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='delivery-detail required-field' style="margin: 0px 5px;">
+													
+													<input class='detail d_location' name='address' t-att-value=' widget.options.address || ""' placeholder='Society or Building' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='delivery-detail required-field' style="margin: 0px 5px;">
+													
+													<input type='text' class='detail d_zip' name='zip' t-att-value='widget.options.zip || ""' pattern='[0-9]' placeholder='Zip Code' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												
+											</div>
+											<div style="margin-top: 20px;">
+												<div class='delivery-detail' style="margin: 0px 5px;">
+													
+													<input  type='email' class='detail d_email' name='email' t-att-value='widget.options.email || ""' placeholder='Email (Optional)' style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='delivery-detail required-field' style="margin: 0px 5px;">
+													
+													<input class='detail d_street' name='street' t-att-value=' widget.options.street || ""' placeholder='Street' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='delivery-detail' style="margin: 0px 5px;">
+													
+													<input class='detail d_city' name='city' t-att-value='widget.options.city || ""' placeholder='City/Area/Town (Optional)' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												 
+											</div>
+										</div>
+									</div>
+								<br/>
+								</div>
+							</li>
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab2" />
+								<label for="tab2">Invoice Address</label>   
+								<div id="tab-content2" class="content" style="min-width: 98%;margin-left: -30px;padding-right: 0px;">
+									<div class='delivery-detail2 required-field' required="required" style="margin-bottom: 10px;">
+										<span class='label'>Invoice Address</span>
+										<select class="invoice_person_id" name='invoice_person_id' required="required" style="margin-left: 15px;padding: 2px;border-radius: 5px;min-width: 40px;">
+											<t t-if="widget.options.client">
+												<t t-if="widget.options.child_name">
+													<t t-foreach='widget.options.child_name' t-as='person'>
+														<option t-att-value='person.id'> 
+															<t t-esc='person.name'/>
+														</option>
+													</t>
+												</t>
+												<t t-else="">
+													<option t-att-value='widget.options.client.id'> 
+														<t t-esc='widget.options.client.name'/>
+													</option>
+												</t>
+											</t>
+										</select>
+										<div class="form-group" id="form2" style="margin-top: 10px;">  
+											<input id="apply_invoice_address" class="pos_invoice_address" type="checkbox" />
+											<label for="pos_invoice_address">Invoice to Different Address</label>
+										</div>
+										<div style="display: flex;" class="invoice_data">
+											<div style="margin-top: 20px;"> 
+												<div class='invoice-detail required-field' style="    margin: 0px 5px;">
+
+													<input class='inv_detail d_name' name='d_name' t-att-value='widget.options.name || ""' placeholder='Name' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='invoice-detail required-field' style="    margin: 0px 5px;">
+													
+													<input type='text' class='inv_detail d_mobile' name='mobile' t-att-value='widget.options.mobile || ""' pattern='[0-9]' title='Only enter integer value' placeholder='9090909090' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='invoice-detail required-field' style="margin: 0px 5px;">
+													
+													<input class='inv_detail d_location' name='address' t-att-value=' widget.options.address || ""' placeholder='Society or Building' required="1" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='invoice-detail required-field' style="margin: 0px 5px;">
+													
+													<input type='text' class='inv_detail d_zip' name='zip' t-att-value='widget.options.zip || ""' pattern='[0-9]' placeholder='Zip Code' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												
+											</div>
+											<div style="margin-top: 20px;">
+												<div class='invoice-detail' style="margin: 0px 5px;">
+													
+													<input  type='email' class='inv_detail d_email' name='email' t-att-value='widget.options.email || ""' placeholder='Email (Optional)' style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='invoice-detail required-field' style="margin: 0px 5px;">
+													
+													<input class='inv_detail d_street' name='street' t-att-value=' widget.options.street || ""' placeholder='Street' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												<div class='invoice-detail' style="margin: 0px 5px;">
+													
+													<input class='inv_detail d_city' name='city' t-att-value='widget.options.city || ""' placeholder='City/Area/Town (Optional)' required="required" style="color: #000;font-size: 15px;max-width: 250px;"></input>
+												</div>
+												 
+											</div>
+										</div>
+									</div>
+								<br/>
+								</div>
+							</li>
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab3" />
+								<label for="tab3">Note</label>   
+								<div id="tab-content3" class="content" style="min-width: 98%;margin-left: -30px;padding-right: 0px;">
+									<textarea id="extra_note" rows="8" cols="35" style="margin-left: 50px;"/>
+								<br/>
+								</div>
+							</li>
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab4" />
+								<label for="tab4">Signature</label>   
+								<div id="tab-content4" class="content" style="    min-width: 77%;margin: 30px;min-height: 250px;padding: 0px;">
+									<!-- <div class="mySign">
+										<canvas id="myCanvas"></canvas><br/>
+										<input type="button" value="Reset" id='resetSign'/>
+									</div> -->
+									<div id="bcPaint" style="min-height: 250px;"></div>
+								<br/>
+								</div>
+							</li>
+						</ul>
+					  </div>
+					  </div>
+					</div>
+				</section>
+				<div class="footer">
+					<div class="button create" style="margin-right: 30px;">
+						Create
+					</div>
+					<div class="button cancel" style="margin-right: 30px;">
+						Cancel
+					</div>
+					<div class="button clear " style="margin-right: 30px;">
+						Clear
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="OpenSaleOrderPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-confirm">
+				<p class="title" style="background-color: rgb(110,200,155); color: #fff;">Created Sale Order</p>
+				<div class="body">
+					<div class='div-container'>
+						<span>Created Sale Order is:</span>
+						<span id="created_sales_order"><t t-esc="widget.options.sale_order"></t></span>
+					</div>
+				 </div>
+				<div class="footer" style="background-color: rgb(110,200,155); color: #fff;">
+					<div class="button cancel" style="background-color: #0075AC; color: #fff;">
+						Cancel
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="SeeAllInvoicesButtonWidget" name="Create Invoices Button Widget">
+		<t t-if="widget.pos.config.allow_pos_invoice == true">
+		<div class="control-button button confirm" id="create_invoice" style="background-color: #7f82ac; color: #fff;">
+			<i class="fa fa-money"></i> Invoices 
+		</div>
+		</t>
+	</t>
+
+	<t t-extend="ClientDetails">
+        <t t-jquery=".add-payment" t-operation="replace">
+        	<t t-if="widget.pos.config.allow_pos_payment == true">
+            <div class='payment-button' style="position: absolute; right: 45px;top: 10px;">
+                <div class="button add-payment" style="    background-color: rgb(110,200,155) !important;padding: 10px 10px;height: 30px;margin-top: 15px;padding-top: 17px;width: 150px;font-size: 17px;margin-right: 40px;cursor: pointer;color: white;border-radius: 3px;">
+                  <i class='fa fa-sign-in'/>  Register Payment
+                </div>
+            </div>
+        	</t>
+        </t>
+    </t>
+</templates>
+
+
+

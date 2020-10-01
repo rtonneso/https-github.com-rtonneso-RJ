@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="fee_definition_form_view">
+			<field name="name">fee.definition.form</field>
+			<field name="model">fee.definition</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_button_box" name="button_box">
+						</div>
+						<group name="main_grp">
+							<group name="first_grp">
+								<field name="product_tmpl_id" />
+								<field name="product_id" context="{'default_type':'service'}" />
+							</group>
+							<group name="second_grp">
+								<field name="quantity" />
+								<field name="uom_id" />
+							</group>
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="fee_definition_tree_view">
+			<field name="name">fee.definition.tree</field>
+			<field name="model">fee.definition</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="product_tmpl_id" />
+					<field name="product_id" />
+					<field name="quantity" />
+					<field name="uom_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_fee_definition_filter" model="ir.ui.view">
+			<field name="name">fee.definition.filter</field>
+			<field name="model">fee.definition</field>
+			<field name="arch" type="xml">
+				<search string="Search Fee">
+					<field name="product_tmpl_id" string="Applied To" />
+					<field name="product_id" string="Fee Definition Product" />
+					<separator />
+					<group expand="0" string="Group By">
+						<filter name="product" string="Fee Definition Product" domain="[]"
+							context="{'group_by':'product_id'}" />
+						<filter name="product_tmpl" string="Applied To"
+							domain="[]" context="{'group_by':'product_tmpl_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="fee_definition_list_action">
+			<field name="name">Fee Definition</field>
+			<field name="res_model">fee.definition</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create the first Fee Definition
+				</p>
+			</field>
+		</record>
+	</data>
+</odoo>

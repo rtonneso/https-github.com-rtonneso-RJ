@@ -1,0 +1,3 @@
+
+Version 13.0.0.1 :(24/08/20)
+		- Solve the issue (deleted products from pos cart after sales order is created)		

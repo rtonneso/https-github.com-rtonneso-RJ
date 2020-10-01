@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="pos_payment_template" inherit_id="point_of_sale.template" xml:space="preserve">
+   
+	<t t-name="CreatePaymentButtonWidget" name="Create Payment Button Widget">
+		<t t-if="widget.pos.config.allow_pos_payment == true">
+		<div class="control-button button confirm" id="create_payment">
+		   <i class="fa fa-money"></i> Payment 
+		</div>
+		</t>
+	</t>
+	<t t-name="SeeAllInvoicesButtonWidget" name="Create Invoices Button Widget">
+		<t t-if="widget.pos.config.allow_pos_invoice == true">
+		<div class="control-button button confirm" id="create_invoice">
+		   <i class="fa fa-money"></i> Invoices 
+		</div>
+		</t>
+	</t>
+	
+	<t t-extend="ClientDetails">
+		<t t-jquery=".edit-buttons" t-operation="after">
+			<div class='payment-button' style="position: absolute; right: 45px;top: 10px;">
+				<div class="button add-payment" style="background-color: rgb(110,200,155) !important; padding: 10px 10px; height: 16px; margin-top: 5px; font-size: 17px; margin-right:40px; cursor: pointer; border-radius: 3px;">
+				  <i class='fa fa-sign-in'/>  Register Payment
+				</div>
+			</div>
+		</t>
+	</t>
+	
+	<t t-name="SeeAllInvoicesScreenWidget">
+		<div class="clientlist-screen screen">
+			<div class="screen-content">
+				<section class="top-content">
+					<span class='button back'>
+						<i class='fa fa-angle-double-left'></i>
+						Cancel
+					</span>
+					<span class='searchbox search-invoice'>
+						<input placeholder='Search Invoices' />
+						<span class='search-clear'></span>
+					</span>
+					<span class='searchbox'></span>
+					
+				</section>
+				<section class="full-content">
+					<div class='window'>
+						<section class='subwindow collapsed'>
+							<div class='subwindow-container'>
+								<div class='subwindow-container-fix client-details-contents'>
+								</div>
+							</div>
+						</section>
+						<section class='subwindow'>
+							<div class='subwindow-container'>
+								<div class='subwindow-container-fix touch-scrollable scrollable-y'>
+									<table class='client-list'>
+										<thead>
+											<tr style="background-color: #7f82ac; color: #fff;">
+												<th>Invoice</th>
+												<th>Customer</th>
+												<th>Total Amount</th>
+												<th>Due Amount</th>
+												<th>State</th>
+												
+											</tr>
+										</thead>
+										<tbody class='invoices-list-contents'>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+				
+			</div>
+		</div>
+	</t>
+
+   <t t-name="InvoicesLine">
+		<tr class='products-line' t-att-data-id='invoice.id' style="cursor: pointer;">
+			<td><t t-esc='invoice.name or "Draft"' /></td>
+			<td><t t-esc='invoice.partner_id[1]' /></td>
+			<td><t t-esc='invoice.amount_total' /></td>
+			<td><t t-esc='invoice.amount_residual' /></td>
+			<td><t t-esc='invoice.state' /></td>
+		</tr>
+	</t>
+	
+   <t t-name="invoiceDetails">
+		<section class='client-details'>
+			<div class='client-name'>
+				<t t-esc='invoice.name'/>
+			</div>
+
+			<div class='payment-button_invoice' style="position: absolute; right: 45px;top: 10px;">
+				<div class="button invoice_payment" style="background-color: rgb(110,200,155) !important; padding: 10px 10px; height: 16px; margin-top: 5px; font-size: 17px; margin-right:40px; cursor: pointer; border-radius: 3px;">
+				  <i class='fa fa-sign-in'/>  Register Payment
+				</div>
+			</div>
+						
+			<div style="width: 100%; height:100px; overflow: scroll;">
+			<div class='client-details-box clearfix'>
+				<div class='client-details-left'>
+					
+
+					<div class='client-detail'>
+						<span class='label' style="width:100px; text-align:left">Customer</span>
+						<t>
+							<span class='detail client-label'>
+								<t t-esc='invoice.partner_id[1]' />
+							</span>
+						</t>
+					</div>
+					<div class='client-detail'>
+						<span class='label' style="width:100px; text-align:left">Total Amount</span>
+						<t>
+							<span class='detail client-label'>
+								<t t-esc='invoice.amount_total' />
+							</span>
+						</t>
+					</div>
+				</div>
+				<div class='client-details-right'>
+					<div class='client-detail'>
+						<span class='label' style="width:100px; text-align:left">Amount Due</span>
+						<span class='client-type'>
+							<t t-esc='invoice.amount_residual' />
+						</span>
+					</div>
+					<div class='client-detail'>
+						<span class='label' style="width:100px; text-align:left">State</span>
+						<t>
+							<span class='detail client-label'>
+								<t t-esc='invoice.state' />
+							</span>
+						</t>
+					</div>
+				</div>
+				</div>
+			</div>
+		</section>
+	</t> 	
+	
+	<t t-name="RegisterPaymentPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 400px !important;">
+				<div class="title" style='background-color:rgb(110,200,155) !important; color:white'>Register Payment</div>
+				<div class="body" style="color: rgb(110,200,155) !important; height: 30px;">Enter Payment Details Here</div>
+				
+				
+				<div style="text-align: left; margin-left: 37px;">
+				 <label style="text-align:left"> Payment Journal:  </label>
+
+				 <select id="payment_type" class='detail' name='type' style="height: 35px;width: 59%;float: right;   margin-right: 6%;">
+					<t t-foreach='widget.pos.journals' t-as='jrn'>
+						<option t-att-value='jrn.id'> 
+							<t t-esc='jrn.name'/>
+						</option>
+					</t>
+				  </select>
+				</div><br/>
+				<div style="text-align: left; margin-left: 37px;">
+				 <label style="text-align:left"> Amount:  </label><input id ="entered_amount" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+				 </div><br/>
+				 <div style="text-align: left; margin-left: 37px;margin-top: 2%;">
+					<label style="text-align:left"> Payment Note:  </label><input id ="entered_note" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+				 </div>
+				 
+				<div class="footer">
+					<div class="button cancel" id="cancel_coupon_code" style="background-color: rgb(110,200,155) !important; color: #fff;">
+						Cancel 
+					</div>
+					<div class="button confirm" id="create_customer_payment" style="background-color: rgb(110,200,155) !important; color: #fff;">
+						Apply 
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	
+	
+	<t t-name="RegisterInvoicePaymentPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 400px !important;">
+				<div class="title" style='background-color:rgb(110,200,155) !important; color:white'>Register Payment for the Invoice &amp; Validate</div>
+				<div class="body" style="color: rgb(110,200,155) !important; height: 30px;">Enter Payment Details Here</div>
+				
+				
+				<div style="text-align: left; margin-left: 37px;">
+				 <label style="text-align:left"> Payment Journal:  </label>
+				 <select id="payment_type1" class='detail' name='type' style="height: 35px;width: 59%;float: right;   margin-right: 6%;">
+					<t t-foreach='widget.pos.journals' t-as='jrn'>
+						<option t-att-value='jrn.id'> 
+							<t t-esc='jrn.name'/>
+						</option>
+					</t>
+				</select>
+				</div><br/>
+				<div style="text-align: left; margin-left: 37px;">
+				 <label style="text-align:left"> Amount:  </label><input id ="entered_amount1" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+				 </div><br/>
+				 <div style="text-align: left; margin-left: 37px;margin-top: 2%;">
+					<label style="text-align:left"> Payment Note:  </label><input id ="entered_note1" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+				 </div>
+				 
+				<div class="footer">
+					<div class="button cancel" id="cancel_coupon_code" style="background-color: rgb(110,200,155) !important; color: #fff;">
+						Cancel 
+					</div>
+					<div class="button confirm" id="create_customer_payment" style="background-color: rgb(110,200,155) !important; color: #fff;">
+						Apply 
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	
+	</templates>
+	
+	

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<odoo>
+	<template id='assets_pos' name='pos' inherit_id='point_of_sale.assets'>
+		<xpath expr='.' position='inside'>
+			<script type='text/javascript' src='bi_pos_so_extended/static/src/js/pos_so_extended.js'/>
+			<link rel="stylesheet" href="/bi_pos_so_extended/static/src/css/reports.css" />
+			<script type='text/javascript' src='bi_pos_so_extended/static/src/js/bcPaint.js'/>
+		</xpath>
+	</template>
+	<template id="digital_sign_backend" name="digital_sign assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type='text/javascript' src='bi_pos_so_extended/static/src/js/digital_sign.js'/>
+        </xpath>
+    </template>
+
+	<record model="ir.ui.view" id="custom_bi_pos_extended_view">
+		<field name="name">pos.config.form.extended.view</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[3]" position="after">
+				<br/>
+				<h2 name="order">Create Sale Order Configuration</h2>
+				<div class="row mt16 o_settings_container">
+					<div id="create_sale" class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_right_pane">
+							<label for="sale_state" string='Sale State' class="col-lg-3 " widget="selection"/>
+							<field name="sale_state"/>
+						</div>
+					</div>
+					<div  class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_right_pane">
+							<label for="sale_warehouse_id" string="Warehouse" class="col-lg-3"/>
+							<field name="sale_warehouse_id"/>
+						</div>
+					</div>
+				</div>
+				<br/>
+			</xpath>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="custom_bi_pos_payment_view">
+		<field name="name">pos.config.form.payment.view</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="bi_pos_payment.inherit_view_pos_payment_config_form"/>
+		<field name="arch" type="xml">
+			<!-- <xpath expr="//div[@id='payment_pos']" position="attributes">
+				 <attribute name="invisible">1</attribute>
+			</xpath> -->
+			<xpath expr="//div[@id='payment_pos1']" position="attributes">
+				 <attribute name="invisible">1</attribute>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="product_bundle_inherit_sale_order_form" model="ir.ui.view">
+		<field name="name">sale.order</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//group[@name='technical']" position="after">
+				<group name="digital_sign_info" string="Extra Info">
+					<field name="digital_signature" widget="signature"/>
+					<!-- <field name="extra_note"/> -->
+				</group>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="pos_sale_report" model="ir.actions.report">
+		<field name="name">Sale</field>
+		<field name="model">sale.order</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">bi_pos_so_extended.report_saleorder</field>
+		<field name="print_report_name">'Sale - %s' % (object.name)</field>
+	</record>
+	<template id="report_saleorder" inherit_id="sale.report_saleorder" primary="True"/>
+
+</odoo>
