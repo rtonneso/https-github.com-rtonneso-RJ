@@ -1,0 +1,4 @@
+[submodule "theme_georgies"]
+	path = theme_georgies
+	url = git@github.com:michaelgriffindrake/theme_georgies.git
+	branch = main
