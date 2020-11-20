@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <!-- Odoo Sippet Style Overrides -->
+  <!-- Banner -->
+  <template id="s_banner" inherit_id="website.s_banner" name="Odoo - Georgies banner">
+    <!-- Remove non-square button classes -->
+    <xpath expr="//*[hasclass('btn')]" position="attributes">
+      <attribute name="class" remove="btn-epsilon" separator=" "/>
+      <attribute name="class" remove="rounded-circle" separator=" "/>
+      <attribute name="class" add="btn-primary" separator=" "/>
+    </xpath>
+
+    <!-- Remove rounded corners on jumbotron-->
+    <xpath expr="//*[hasclass('jumbotron')]" position="attributes">
+      <attribute name="class" remove="rounded" separator=" "/>
+    </xpath>
+
+    <!-- Replace s_title_thin with display-1 class -->
+    <xpath expr="//*[hasclass('s_title_thin')]" position="attributes">
+      <attribute name="class" remove="s_title_thin" separator=" "/>
+      <attribute name="class" add="display-2" separator=" "/>
+    </xpath>
+
+  </template>
+
+  <!-- Cover -->
+  <template id="s_cover" inherit_id="website.s_cover" name="Odoo - Georgies Cover">
+    <!-- TODO: Figure out if there is a way to select multiple elements with an xpath, seems to only work on the first, can we put inside a loop or something to iterate over the results of the expression... -->
+    <!-- Change button style to rectangular -->
+    <xpath expr="//*[hasclass('btn')][1]" position="attributes">
+      <attribute name="class" remove="rounded-circle" separator=" "/>
+      <attribute name="class" remove="btn-delta" separator=" "/>
+    </xpath>
+    <xpath expr="//*[hasclass('btn')][2]" position="attributes">
+      <attribute name="class" remove="rounded-circle" separator=" "/>
+      <attribute name="class" remove="btn-delta" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Mega Menu -->
+  <template id="s_shop_mega_menu" inherit_id="website.s_mega_menu_multi_menus" name="Georgies Mega Menu">
+    <xpath expr="//*[hasclass('s_mega_menu_multi_menus')]" position="replace">
+      
+      <!-- |||||||||||||||||||||||||||-->
+      <!-- Shop Mega Menu-->
+      <!-- |||||||||||||||||||||||||||-->
+      <section class="container li-shop-mega-menu">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="li-category-browser">
+              <ul class="nav nav-tabs" id="shopTabs" role="tablist">
+                <li class="nav-item li-category-browser-tab"><a class="nav-link active" id="shopGeorgiesBrand-tab" href="#shopGeorgiesBrand" data-toggle="tab" aria-controls="shopGeorgiesBrand" aria-selected="true">Georgies Products</a></li>
+                <li class="nav-item li-category-browser-tab"><a class="nav-link" id="shopByCategory-tab" href="#shopByCategory" data-toggle="tab" aria-controls="shopByCategory" aria-selected="false">Categories</a></li>
+                <li class="nav-item li-category-browser-tab"><a class="nav-link" id="shopByBrand-tab" href="#shopByBrand" data-toggle="tab" aria-controls="shopByBrand" aria-selected="false">Brands</a></li>
+              </ul>
+              <div class="tab-content" id="shopTabsContent">
+                <div class="tab-pane fade show active" id="shopGeorgiesBrand" role="tabpanel" aria-labelledby="shopGeorgiesBrand-tab">
+                  <div class="container li-nav-georgies-categories">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory0" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory0" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory0">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory1" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory1">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory2" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory2">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory3" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory3">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="shopByCategory" role="tabpanel" aria-labelledby="shopByCategory-tab">
+                  <div class="container li-nav-general-categories">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory4" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory4">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory5" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory5" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory5">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory6" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory6" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory6">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3">
+                        <ul class="list-unstyled">
+                          <li class="li-nav-category">
+                            <div class="li-nav-category-main">
+                              <!-- TODO: TOGGLE ICON FOR COLLAPSE--><a class="li-nav-category-main-name" href="#" role="button">Clays</a><a class="li-nav-category-main-collapse" href="#testNavCategory7" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="testNavCategory7" aria-label="Show Sub Categories">+</a>
+                            </div>
+                            <ul class="li-nav-category-sub collapse" id="testNavCategory7">
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category</a></li>
+                              <li><a href="#">Sub Category  </a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="shopByBrand" role="tabpanel" aria-labelledby="shopByBrand-tab">
+                  <div class="container li-nav-brands">
+                    <div class="row">
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                      <div class="col-lg-3"><a href="#"><img class="li-nav-brand" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- TODO: figure out icon placement-->
+            <div class="container li-shop-menu-buttons"><a class="btn btn-outline-primary btn-block btn-sm" href="#">All Products &gt;</a><a class="btn btn-outline-primary btn-block btn-sm" href="catalog.html">Georgies Catalog &gt;</a><a class="btn btn-outline-primary btn-block btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-outline-primary btn-block btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-outline-primary btn-block btn-sm" href="#">Shop Index &gt;</a><a class="btn btn-outline-primary btn-block btn-sm" href="#">Ordering Info &gt;</a></div>
+          </div>
+        </div>
+      </section>
+    </xpath>
+  </template>
+
+  <!-- Georgies Custom Snippets -->
+  <!-- Georgies Announcement Snippet -->
+  <template id="s_announcement_in_page" name="Georgies Announcement Snippet">
+    
+    <section class="li-announcement-in-page pt-3 pb-3">
+      <div class="container">
+        <div class="row no-gutters py-2 px-2 px-sm-3 px-md-4 py-md-3 border border-primary">
+          <div class="col-md d-flex align-items-center pr-0 pr-sm-3">
+            <h4 class="mb-0 text-uppercase font-italic">Hey! Here's a super sweet announcement!</h4>
+          </div>
+          <div class="col-md-auto d-flex align-items-center justify-content-start justify-content-sm-end"><a class="btn btn-outline-primary mt-3 mt-md-0" href="#">And boom, a button here</a></div>
+        </div>
+      </div>
+    </section>
+  </template>
+  
+  <!-- Georgies Announcement Section Item -->
+  <template id="s_announcement_section_item" name="Georgies Announcement Section Item Snippet">
+    
+    <section class="mt-4">
+      <div class="row no-gutters bg-light">
+        <div class="col-sm-auto"><img class="li-announcement-image" src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="Image Alt Here"></img></div>
+        <div class="col-md align-self-center">
+          <div class="py-3 px-3 px-sm-3 px-md-4">
+            <h3>Heading here</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, excepturi quos optio iste repellendus voluptatum facere quam ipsam aliquid voluptatibus suscipit explicabo perspiciatis hic esse quisquam exercitationem rerum autem mollitia.</p>
+            <div class="btn btn-outline-primary mt-2" href="#">Button Text Here</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Call to Action with Image-->
+  <template id="s_call_to_action" name="Georgies Main Call to Action with Image Snippet">
+    
+    <section class="py-3 py-md-5 li-call__dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 align-self-center">
+            <div class="li-call-copy">
+              <h2 class="mb-4">Call to Action Heading here</h2>
+              <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br></br>
+                <p><strong><em>Something engaging about the options below</em></strong></p>
+              </div>
+              <div class="pt-3"><a class="btn btn-outline-primary" href="#">Some action ></a><a class="btn btn-outline-primary" href="#">Some other action >  </a></div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="px-2 px-sm-0">
+              <div class="li-call-image"><img src="/theme_georgies/static/img/gray-cb9ae39ede.png" alt="Image alt here"></img></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Splash Snippet -->
+  <template id="s_splash" name="Georgies Main Splash Snippet">
+    
+    <section class="li-splash li_s_splash li-splash__short">
+      <div class="li-splash-background">
+        <div class="li-splash-background-overlay"></div>
+        <div class="li-splash-background-image" style="background-image: url(/theme_georgies/static/img/georgies/DSC_5329clayboxees-929cd43c80.jpg)"></div>
+      </div>
+      <div class="container li-splash-content">
+        <div class="px-2 px-sm-0 py-5 li-splash-heading">
+          <h1 class="display-3-white">Heading here. It can be decently long and will wrap around</h1>
+          <div class="li-splash-actions"><a class="btn btn-outline-light" href="#">Call to Action Here</a></div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Spacer Snippet -->
+  <!-- <template id="s_spacer" name="Georgies Spacer Snippet">
+  </template> -->
+
+  <!-- Georgies Dual Image / Text Snippet -->
+  <!-- <template id="s_dual_image_text" name="Georgies Dual Image & Text Snippet">
+  </template> -->
+
+  <!-- Georgies Split Background Snippet -->
+  <!-- <template id="s_split_background" name="Georgies Split Background Snippet">
+  </template> -->
+
+  <!-- Georgies Simple Card Snippet -->
+  <!-- <template id="s_simple_card" name="Georgies Simple Card">
+  </template> -->
+
+  <!-- Add all of our custom snippets to the snippet editor panel -->
+  <template id="place_into_bar" inherit_id="website.snippets" name="Place into bar">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]/t[1]" position="before">
+      <t t-snippet="theme_georgies.s_announcement_in_page" t-thumbnail="/theme_georgies/static/img/gray-cb9ae39ede.png"/>
+      <t t-snippet="theme_georgies.s_announcement_section_item" t-thumbnail="/theme_georgies/static/img/gray-cb9ae39ede.png"/>
+      <t t-snippet="theme_georgies.s_call_to_action" t-thumbnail="/theme_georgies/static/img/gray-cb9ae39ede.png"/>
+      <t t-snippet="theme_georgies.s_splash" t-thumbnail="/theme_georgies/static/img/gray-cb9ae39ede.png"/>
+
+    </xpath>
+  </template>
+
+</odoo>

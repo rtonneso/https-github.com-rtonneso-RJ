@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="snippet_options" inherit_id="website.snippet_options">
+  <xpath expr="//div[@data-js='CoverProperties']" position="after">
+
+    <!-- Splash - Size -->
+    <div data-selector=".li_s_splash">
+      <we-collapse-area>
+        <we-toggler>
+        <i class="fa fa-fw fa-arrows-v"/> Size
+        </we-toggler>
+        <we-collapse>
+          <we-button data-select-class="li-splash__short">Short</we-button>
+          <we-button data-select-class="">Tall</we-button>
+        </we-collapse>
+      </we-collapse-area>
+    </div>
+
+  </xpath>
+
+</template>
+
+</odoo>
