@@ -59,47 +59,7 @@
 
     <!-- Replace Odoo's footer with our custom one  -->
     <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
-      
-      <footer class="bg-primary py-4 li-footer text-white">
-        <div class="container">
-          <div class="mt-2 li-footer-newsletter">
-            <div class="row align-items-center border border-light">
-              <div class="col-sm">
-                <div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div>
-              </div>
-              <div class="col-sm-auto d-flex justify-content-sm-end">
-                <div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; <a href="tel:800.999.2529">800.999.CLAY</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
-                <!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; <a href="tel:866.234.2529">866.234.CLAY</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
-            </div>
-          </div>
-          <div class="row mt-4 justify-content-center li-type-attention">
-            <div class="col-auto"> 
-              <div class="pb-2">Follow us!</div>
-            </div>
-            <div class="col-sm-auto">
-              <div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
-            </div>
-            <div class="col-sm-auto">
-              <div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col">
-              <div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer class="bg-primary py-4 li-footer text-white"><div class="container"><div class="mt-2 li-footer-newsletter"><div class="row align-items-center border border-light"><div class="col-sm"><div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div></div><div class="col-sm-auto d-flex justify-content-sm-end"><div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div></div></div></div><div class="row mt-3"><div class="col-md-6"><div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br/><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br/><br/><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; <a href="tel:800.999.2529">800.999.CLAY</a> &#8226; FAX 503.283.1387</strong><br/><br/><!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br/><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br/></div></div><div class="col-md-6"><div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br/><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br/><br/><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; <a href="tel:866.234.2529">866.234.CLAY</a> &#8226; FAX 541.338.7565</strong><br/><br/><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br/></div></div></div><div class="row mt-4 justify-content-center li-type-attention"><div class="col-auto"> <div class="pb-2">Follow us!</div></div><div class="col-sm-auto"><div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"/></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"/></a></div></div><div class="col-sm-auto"><div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"/></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"/></a></div></div></div><div class="row mt-3"><div class="col"><div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div></div></div></div></footer>
     </xpath>
   </template>
     
@@ -109,19 +69,7 @@
   
     <!-- Insert our header section etc. before the products search / pager section -->
     <xpath expr="//div[@id='wrap']//div[hasclass('oe_structure')]" position="inside">
-      
-      <section class="li-splash li_s_splash li-splash__short">
-        <div class="li-splash-background">
-          <div class="li-splash-background-overlay"></div>
-          <div class="li-splash-background-image" style="background-image: url(/theme_georgies/static/img/georgies/DSC_5329clayboxees-929cd43c80.jpg)"></div>
-        </div>
-        <div class="container li-splash-content">
-          <div class="px-2 px-sm-0 py-5 li-splash-heading">
-            <h1 class="display-3-white">Heading here. It can be decently long and will wrap around</h1>
-            <div class="li-splash-actions"><a class="btn btn-outline-light" href="#">Call to Action Here</a></div>
-          </div>
-        </div>
-      </section>
+      <div class="oe_structure"/>
     </xpath>
 
     <!-- Modify Odoo's Search / Pagination section -->
@@ -146,13 +94,13 @@
     </xpath>
     <!-- Hide pricelist button unless the user is logged in and matches a specific group -->
     <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE BY REMOVING IT -->
-    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
-      <!-- <t t-if="not request.website.is_public_user()">
+    <!-- <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
+      <t t-if="not request.website.is_public_user()">
         <t t-call="website_sale.pricelist_list">
           <t t-set="_classes">mr-2</t>
         </t>
-      </t> -->
-    </xpath>
+      </t>
+    </xpath> -->
 
     <!-- Add bottom margins to website products section -->
     <xpath expr="//*[hasclass('oe_website_sale')]" position="attributes">
@@ -701,19 +649,7 @@
   <!-- Add event spash bar -->
   <template id="georgies_events_index" inherit_id="website_event.index" name="Georgies Event Index">
     <xpath expr="//t[@t-call='website_event.index_topbar']" position="before">
-      
-      <section class="li-splash li_s_splash li-splash__short">
-        <div class="li-splash-background">
-          <div class="li-splash-background-overlay"></div>
-          <div class="li-splash-background-image" style="background-image: url(/theme_georgies/static/img/georgies/DSC_5329clayboxees-929cd43c80.jpg)"></div>
-        </div>
-        <div class="container li-splash-content">
-          <div class="px-2 px-sm-0 py-5 li-splash-heading">
-            <h1 class="display-3-white">Heading here. It can be decently long and will wrap around</h1>
-            <div class="li-splash-actions"><a class="btn btn-outline-light" href="#">Call to Action Here</a></div>
-          </div>
-        </div>
-      </section>
+      <div class="oe_structure"/>
     </xpath>
   </template>
 
@@ -802,7 +738,7 @@
   <!-- Events sidebar quote structure change -->
   <template id="georgies_events_sidebar_quote" inherit_id="website_event.index_sidebar_quotes" name="Georgies Events Sidebar - Quote">
     <!-- Put the card element inside the sidebar block element and add a bottom margin to it -->
-    <xpath expr="//div[@class='o_wevent_sidebar_block card']" position="replace">
+    <xpath expr="//div[hasclass('o_wevent_sidebar_block') and hasclass('card')]" position="replace">
       <div class="o_wevent_sidebar_block">
         <div class="card mb-2">
           <div class="card-body">
@@ -1086,7 +1022,5 @@
   <record id="website_blog.opt_blog_post_select_to_comment" model="ir.ui.view">
     <field name="active" eval="True"/>
   </record>
-
-  <!-- Events -->
 
 </odoo>
