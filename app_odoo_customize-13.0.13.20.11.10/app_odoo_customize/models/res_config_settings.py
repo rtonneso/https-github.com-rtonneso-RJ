@@ -116,6 +116,9 @@ class ResConfigSettings(models.TransientModel):
     # 清数据，o=对象, s=序列 
     def remove_app_data(self, o, s=[]):
         for line in o:
+            # 检查是否存在
+            if not self.env['ir.model']._get(line):
+                continue
             obj_name = line
             obj = self.pool.get(obj_name)
             if not obj:
@@ -127,12 +130,12 @@ class ResConfigSettings(models.TransientModel):
             sql = "delete from %s" % t_name
             try:
                 self._cr.execute(sql)
-                self._cr.commit()
+                # self._cr.commit()
             except Exception as e:
-                _logger.error('remove data error: %s,%s', line, e)
+                _logger.warning('remove data error: %s,%s', line, e)
         # 更新序号
         for line in s:
-            domain = [('code', '=ilike', line + '%')]
+            domain = ['|', ('code', '=ilike', line + '%'), ('prefix', '=ilike', line + '%')]
             try:
                 seqs = self.env['ir.sequence'].sudo().search(domain)
                 if seqs.exists():
@@ -140,7 +143,7 @@ class ResConfigSettings(models.TransientModel):
                         'number_next': 1,
                     })
             except Exception as e:
-                _logger.error('reset sequence data error: %s,%s', line, e)
+                _logger.warning('reset sequence data error: %s,%s', line, e)
         return True
     
     def remove_sales(self):
@@ -262,7 +265,7 @@ class ResConfigSettings(models.TransientModel):
             # 清除库存单据
             'stock.quant',
             'stock.move.line',
-            'stock.package.level',
+            'stock.package_level',
             'stock.quantity.history',
             'stock.quant.package',
             'stock.move',
@@ -280,6 +283,7 @@ class ResConfigSettings(models.TransientModel):
         seqs = [
             'stock.',
             'picking.',
+            'procurement.group',
             'WH/',
         ]
         return self.remove_app_data(to_removes, seqs)
@@ -354,14 +358,7 @@ class ResConfigSettings(models.TransientModel):
             self._cr.execute(sql2)
             self._cr.commit()
         except Exception as e:
-            pass
-        try:
-            # 增加对 pos的处理
-            sql = ("update pos_config set journal_id=NULL;")
-            self._cr.execute(sql)
-            self._cr.commit()
-        except Exception as e:
-            pass
+            pass  # raise Warning(e)
         try:
             rec = self.env['res.partner'].search([])
             for r in rec:
@@ -383,7 +380,7 @@ class ResConfigSettings(models.TransientModel):
                     'property_stock_valuation_account_id': None,
                 })
         except Exception as e:
-            pass
+            pass  # raise Warning(e)
         try:
             rec = self.env['stock.location'].search([])
             for r in rec:
@@ -392,7 +389,7 @@ class ResConfigSettings(models.TransientModel):
                     'valuation_out_account_id': None,
                 })
         except Exception as e:
-            pass
+            pass  # raise Warning(e)
 
         seqs = []
         return self.remove_app_data(to_removes, seqs)
@@ -481,14 +478,14 @@ class ResConfigSettings(models.TransientModel):
 
     def remove_all_biz(self):
         self.remove_account()
+        self.remove_quality()
         self.remove_inventory()
-        self.remove_mrp()
         self.remove_purchase()
+        self.remove_mrp()
         self.remove_sales()
         self.remove_project()
         self.remove_pos()
         self.remove_expense()
-        self.remove_quality()
         self.remove_message()
         return True
 
