@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <!-- Remove Odoo bootstrap override from website module -->
+  <template id="theme_georgies_assets_frontend_helpers_website" inherit_id="website._assets_frontend_helpers">
+      <xpath expr="//link[@href='/website/static/src/scss/user_custom_bootstrap_overridden.scss']" position="replace"/>
+
+      <xpath expr="//link[@href='/website/static/src/scss/bootstrap_overridden.scss']" position="replace"/>
+  </template>
+
+  <!-- Remove Odoo bootstrap override from web_editor module -->
+  <template id="theme_georgies_assets_frontend_helpers_web_editor" inherit_id="web_editor._assets_frontend_helpers">
+    <xpath expr="//link[@href='/web_editor/static/src/scss/bootstrap_overridden.scss']" position="replace"/>
+  </template>
+
+  <!-- Insert our modified bootstrap variables -->
+  <template id="theme_georgies_bootstrap" inherit_id="website._assets_frontend_helpers" priority="1">
+    <xpath expr="//link" position="before">
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_variables.scss"/>
+    </xpath>
+  </template>
+
+  <!-- Insert our custom assets -->
+  <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999">
+    <xpath expr="//link[last()]" position="after">
+      <!-- Insert our custom css-->
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_mixins.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_lichen.scss"/>
+      <!-- Insert our custom web fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap"/>
+    </xpath>
+    <!-- Insert our custom JS -->
+    <xpath expr="script[last()]" position="after">
+      <script type="text/javascript" src="/theme_georgies/static/js/li-georgies-2ba3566b81.js" />
+    </xpath>
+  </template>
+
+  <!-- Set our customization options -->
+  <template id="theme_customize" inherit_id="website.theme_customize">
+    <xpath expr="//div" position="replace">
+      <div>No customization options at this time.</div>
+    </xpath>
+  </template>
+
+</odoo>
