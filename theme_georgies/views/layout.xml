@@ -2,7 +2,7 @@
 <odoo>
 
   <!-- Modify Shop Search Bar -->
-  <template id="georgies_shop_search" inherit_id="website_sale.website_sale_products_search_box" name="Georgies Product Search">
+  <template id="website_sale_products_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies Product Search">
   <!-- Change the placeholder for the products search site-wide -->
     <xpath expr="//input[@name='search']" position="attributes">
       <attribute name="placeholder">Search products...</attribute>
@@ -10,7 +10,7 @@
   </template>
 
   <!-- Adjust navbar search -->
-  <template id="georgies_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
+  <template id="georgies_navbar_search" inherit_id="website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
     <!-- Adjust input sizing to sm -->
     <xpath expr="//div[@role='search']" position="attributes">
       <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
@@ -23,21 +23,25 @@
   </template>
 
   <!-- Customize header  -->
-  <template id="georgies_header" inherit_id="website.layout" name="Georgies Header">
-
+  <template id="template_header_default" inherit_id="website.template_header_default">
     <!-- Change navbar classes  -->
-    <xpath expr="//div[@id='wrapwrap']/header/nav" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='wrapwrap']/header/nav" position="attributes">
       <attribute name="class">navbar navbar-expand-md navbar-dark bg-primary px-2 px-md-0</attribute>
-    </xpath>
+    </xpath> -->
     
     <!-- Add flex-column to collapse element to allow for addition of our search element and set alignment to right -->
     <xpath expr="//div[@id='top_menu_collapse']" position="attributes">
-      <attribute name="class" add="flex-column align-items-end" separator=" "/>
+      <attribute name="class" add="flex-column align-items-stretch" separator=" "/>
     </xpath>
+  </template>
 
+    <!-- Add search above header nav -->
+  <template id="navbar_nav" inherit_id="website.navbar_nav">
+    <!-- FIXME: ODOO14 -->
     <!-- Add Search bar above nav -->
     <xpath expr="//ul[@id='top_menu']" position="before">
-      <ul class="navbar-nav mb-2 li-navbar-search">
+      <ul class="navbar-nav mb-2 align-self-end li-navbar-search">
         <li class="nav-item">
           <t t-call="theme_georgies.georgies_navbar_search">
             <t t-set="_classes" t-value="'s_wsale_products_searchbar_input'"/>
@@ -47,19 +51,61 @@
     </xpath>
   </template>
 
+
   <!-- Customize logo Padding -->
-  <template id="georgies_navbar_logo" inherit_id="website.layout_logo_show" name="Georgies Navbar Logo">
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_navbar_logo" inherit_id="website.layout_logo_show" name="Georgies Navbar Logo">
     <xpath expr="//header//a[hasclass('logo')]" position="attributes">
       <attribute name="class" add="pr-2" separator=" "/>
     </xpath>
-  </template>
+  </template> -->
 
   <!-- Customize footer  -->
   <template id="georgies_footer" inherit_id="website.layout" name="Georgies Footer">
 
     <!-- Replace Odoo's footer with our custom one  -->
     <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
-      <footer class="bg-primary py-4 li-footer text-white"><div class="container"><div class="mt-2 li-footer-newsletter"><div class="row align-items-center border border-light"><div class="col-sm"><div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div></div><div class="col-sm-auto d-flex justify-content-sm-end"><div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div></div></div></div><div class="row mt-3"><div class="col-md-6"><div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; <a href="tel:800.999.2529">800.999.CLAY</a> &#8226; FAX 503.283.1387</strong><br></br><br></br><!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br></div></div><div class="col-md-6"><div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; <a href="tel:866.234.2529">866.234.CLAY</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div></div></div><div class="row mt-4 justify-content-center li-type-attention"><div class="col-auto"> <div class="pb-2">Follow us!</div></div><div class="col-sm-auto"><div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div></div><div class="col-sm-auto"><div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div></div></div><div class="row mt-3"><div class="col"><div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div></div></div></div></footer>
+      
+      <footer class="bg-primary py-4 li-footer text-white">
+        <div class="container">
+          <div class="mt-2 li-footer-newsletter">
+            <div class="row align-items-center border border-light">
+              <div class="col-sm">
+                <div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div>
+              </div>
+              <div class="col-sm-auto d-flex justify-content-sm-end">
+                <div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; <a href="tel:800.999.2529">800.999.CLAY</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
+                <!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; <a href="tel:866.234.2529">866.234.CLAY</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
+            </div>
+          </div>
+          <div class="row mt-4 justify-content-center li-type-attention">
+            <div class="col-auto"> 
+              <div class="pb-2">Follow us!</div>
+            </div>
+            <div class="col-sm-auto">
+              <div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
+            </div>
+            <div class="col-sm-auto">
+              <div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </xpath>
   </template>
     
@@ -94,13 +140,13 @@
     </xpath>
     <!-- Hide pricelist button unless the user is logged in and matches a specific group -->
     <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE BY REMOVING IT -->
-    <!-- <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
-      <t t-if="not request.website.is_public_user()">
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
+      <!-- <t t-if="not request.website.is_public_user()">
         <t t-call="website_sale.pricelist_list">
           <t t-set="_classes">mr-2</t>
         </t>
-      </t>
-    </xpath> -->
+      </t> -->
+    </xpath>
 
     <!-- Add bottom margins to website products section -->
     <xpath expr="//*[hasclass('oe_website_sale')]" position="attributes">
@@ -286,18 +332,16 @@
   </template>
 
   <!-- Shop Cart Nav Menu Item -->
-  <template id="georgies_cart_nav_menu" inherit_id="website_sale.header" name="Georgies Cart Nav Menu Item">
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_cart_nav_menu" inherit_id="website_sale.header" name="Georgies Cart Nav Menu Item"> -->
     <!-- Change my cart to cart -->
-    <xpath expr="//a[@href='/shop/cart']" position="replace">
+    <!-- <xpath expr="//a[@href='/shop/cart']" position="replace">
       <a href="/shop/cart" class="nav-link">
           <i class="fa fa-shopping-cart"></i>
           <sup t-attf-class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
       </a>
     </xpath>
-
-    <!-- <xpath expr="//li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="replace">
-    </xpath> -->
-  </template>
+  </template> -->
 
   <!-- Shop Compare Products Page -->
   <template id="georgies_compare_products" inherit_id="website_sale_comparison.product_compare" name="Georgies Product Compare">
@@ -337,7 +381,7 @@
   </template>
 
   <!-- Shop wishlist modifications -->
-  <template id="georgies_product wishlist" inherit_id="website_sale_wishlist.product_wishlist" name="Georgies Product Wishlist">
+  <template id="georgies_product_wishlist" inherit_id="website_sale_wishlist.product_wishlist" name="Georgies Product Wishlist">
     <!-- Increase spacing above the wishlist heading -->
     <xpath expr="//h3" position="attributes">
       <attribute name="class" add="mt-3" separator=" "/>
@@ -352,15 +396,16 @@
     </xpath>
   </template>
 
-  <template id="georgies_wishlist_nav_item" inherit_id="website_sale_wishlist.header" name="Georgies Wishlist Nav Item">
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_wishlist_nav_item" inherit_id="website_sale_wishlist.header" name="Georgies Wishlist Nav Item"> -->
     <!-- Remove word description for the wishlist to create more space -->
-    <xpath expr="//a[@href='/shop/wishlist']" position="replace">
+    <!-- <xpath expr="//a[@href='/shop/wishlist']" position="replace">
       <a href="/shop/wishlist" class="nav-link">
         <i class="fa fa-heart"/>
         <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"><t t-esc='wishcount'/></sup>
       </a>
     </xpath>
-  </template>
+  </template> -->
 
   <!-- Shop recommended products (alternative products) modifications -->
   <template id="georgies_recommended_products" inherit_id="website_sale.recommended_products" name="Georgies Recommended Products (Alternative Products)">
@@ -589,30 +634,34 @@
       <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
     </xpath>
     <!-- Change spacing below the heading -->
-    <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('border-bottom')]/h6[hasclass('pb-2')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('border-bottom')]/h6[hasclass('pb-2')]" position="attributes">
       <attribute name="class" add="mb-0" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Add margins below each tag so they have space between them when they stack -->
     <xpath expr="//a[hasclass('badge')]" position="attributes">
       <attribute name="class" add="mb-2" separator=" "/>
     </xpath>
     <!-- Change padding below that section -->
-    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
       <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Change alternate view space settings too -->
     <!-- Change padding below that section -->
     <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
       <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
     </xpath>
     <!-- Change spacing below the heading -->
-    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
       <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Change margin of Tag's "add some" area -->
-    <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
       <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
-    </xpath>
+    </xpath> -->
   </template>
   <!-- Change the spacing of the our blogs section -->
   <template id="georgies_blog_post_our_blogs" inherit_id="website_blog.opt_blog_post_blogs_display" name="Georgies Blog Post - Our Blogs">
@@ -670,9 +719,9 @@
     </xpath>
 
     <!-- Remove spacing of the search box and add top margin -->
-    <xpath expr="//t[@t-set='_classes']" position="attributes">
+    <!-- <xpath expr="//t[@t-set='_classes']" position="attributes">
       <attribute name="t-value">'mt-2'</attribute>
-    </xpath>
+    </xpath> -->
   </template>
 
   <!-- Events Search Bar -->
@@ -696,11 +745,12 @@
     </xpath>
   </template>
   <!-- Event Category -->
-  <template id="gerogies_events_filter_category" inherit_id="website_event.event_category" name="Georgies Event Filter - Category">
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="gerogies_events_filter_category" inherit_id="website_event.event_category" name="Georgies Event Filter - Category">
     <xpath expr="//li[hasclass('my-1')]" position="attributes">
       <attribute name="class" remove="my-1 my-lg-0" add="mt-2" separator=" "/>
     </xpath>
-  </template>
+  </template> -->
   <!-- Event Location -->
   <template id="gerogies_events_filter_location" inherit_id="website_event.event_location" name="Georgies Event Filter - Location">
     <xpath expr="//li[hasclass('my-1')]" position="attributes">
@@ -784,13 +834,14 @@
     </xpath>
   </template>
 
+  <!-- FIXME: ODOO14 -->
   <!-- Events sidebar categories modification -->
-  <template id="georgies_events_index_sidebar_categories" inherit_id="website_event.index_sidebar_categories" name="Georgies Events Sidebar - Categories">
+  <!-- <template id="georgies_events_index_sidebar_categories" inherit_id="website_event.index_sidebar_categories" name="Georgies Events Sidebar - Categories"> -->
     <!-- Work on styling of categories -->
-    <xpath expr="//div[hasclass('o_wevent_sidebar_block')]//a[hasclass('o_wevent_badge')]" position="attributes">
+    <!-- <xpath expr="//div[hasclass('o_wevent_sidebar_block')]//a[hasclass('o_wevent_badge')]" position="attributes">
       <attribute name="class" add="mw-100" separator=" "/>
     </xpath>
-  </template>
+  </template> -->
 
 
   <!-- Events sidebar upcoming events modification -->
@@ -833,22 +884,25 @@
       <attribute name="class" add="pb-5" separator=" "/>
     </xpath>
     <!-- Change bottom padding of event details -->
-    <xpath expr="//section[hasclass('bg-200')]/div/div[hasclass('pb-5')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//section[hasclass('bg-200')]/div/div[hasclass('pb-5')]" position="attributes">
       <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Change padding, rounded corners and shadow of event description -->
     <xpath expr="//div[@id='o_wevent_event_main_col']" position="attributes">
       <attribute name="class" remove="p-5 rounded-left shadow-sm" add="p-2 p-sm-3" separator=" "/>
     </xpath>
     <!-- Remove rounded corners and shadows of event sidebar -->
-    <xpath expr="//div[hasclass('rounded-right')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[hasclass('rounded-right')]" position="attributes">
       <attribute name="class" remove="rounded-right shadow-sm" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Events comments (messages) modifications -->
     <!-- Remove float on comment details and add bottom margin -->
-    <xpath expr="//div[hasclass('media-body')]/small" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[hasclass('media-body')]/small" position="attributes">
       <attribute name="class" remove="float-right" add="mb-2" separator=" "/>
-    </xpath>
+    </xpath> -->
   </template>
 
   <!-- Event Registration -->
@@ -862,13 +916,15 @@
       <attribute name="class" remove="mb-5" add="mb-3" separator=" "/>
     </xpath>
     <!-- Change bottom margin of registration alert and change the display to flex to accomodate for the "configure event registration" notification, which we'll tweak below -->
-    <xpath expr="//div[@t-if='not buy']" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']" position="attributes">
       <attribute name="class" remove="mb-5" add="mb-3 d-flex flex-wrap justify-content-between" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Remove the float-right class from the configure event registration option, and set the left margin -->
-    <xpath expr="//div[@t-if='not buy']/a[hasclass('float-right')]" position="attributes">
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']/a[hasclass('float-right')]" position="attributes">
       <attribute name="class" remove="float-right" separator=" "/>
-    </xpath>
+    </xpath> -->
   </template>
 
   <!-- Event Registration Sale (Ticket dropdown modifications) -->
@@ -891,13 +947,14 @@
     </xpath>
   </template>
 
+  <!-- FIXME: ODOO14 -->
   <!-- Event Tickets (in registration section) -->
-  <template id="georgies_event_ticket" inherit_id="website_event.ticket" name="Georgies Event Ticket">
+  <!-- <template id="georgies_event_ticket" inherit_id="website_event.ticket" name="Georgies Event Ticket"> -->
     <!-- Remove the quantity selector or sold out indicator from the first column -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[hasclass('ml-auto')]" position="replace">
-    </xpath>
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[hasclass('ml-auto')]" position="replace">
+    </xpath> -->
     <!-- And add it to the second column, change the padding and margins, and take away the sold out notification, since it's implemented within the register button below -->
-    <xpath expr="//div[hasclass('col-lg-4')]/button[@type='submit']" position="before">
+    <!-- <xpath expr="//div[hasclass('col-lg-4')]/button[@type='submit']" position="before">
       <t t-if="tickets_available">
         <div class="li-event-ticket-qty pr-2 pb-2 pb-sm-0">
           <span class="font-weight-bold align-middle pr-2">Qty</span>
@@ -905,54 +962,54 @@
           <t t-raw="quantity"/>
         </div>
       </t>
-    </xpath>
+    </xpath> -->
     <!-- And change the display type of the column to flex to accomodate for the addition of the qty element, and increase its size and change some spacing -->
-    <xpath expr="//div[hasclass('col-lg-4')]" position="attributes">
+    <!-- <xpath expr="//div[hasclass('col-lg-4')]" position="attributes">
       <attribute name="class" remove="col-lg-4 pt-3" add="d-flex flex-column flex-sm-row align-items-sm-center col-lg-5 pt-1" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- And decrease the size of the ticket specifics section -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
       <attribute name="class" remove="col-lg-8" add="col-lg-7" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Conditionally disable the register button if the event is sold out and change the text, and add conditional top margins on xs screens -->
-    <xpath expr="//button[@type='submit']" position="replace">
+    <!-- <xpath expr="//button[@type='submit']" position="replace">
       <t t-if="tickets_available">
         <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit mt-2 mt-sm-0" t-attf-id="#{event.id}">Register</button>
       </t>
       <t t-else="">
         <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit mt-2 mt-sm-0" t-attf-id="#{event.id}" disabled=""><i class="fa fa-ban mr-2"/>Sold Out</button>
       </t>
-    </xpath>
+    </xpath> -->
 
     <!-- Change spacing of the registration row -->
-    <xpath expr="//div[hasclass('row')]" position="attributes">
+    <!-- <xpath expr="//div[hasclass('row')]" position="attributes">
       <attribute name="class" remove="pl-3" add="pl-lg-3" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Set flex wrap on the ticket info section (so that it doesn't overflow on small screens) and remove the flex-columns class which looks like a bug (they were clearly trying to use flex-column but don't want to actually use it. -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
       <attribute name="class" remove="flex-columns align-items-center" add="flex-wrap flex-column flex-sm-row align-content-start align-content-sm-center align-items-start align-items-sm-center" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Add top and bottom margins to each sub element of the ticket info so that on small screens there is space between them -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']/h6[@t-raw='name']" position="attributes">
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/h6[@t-raw='name']" position="attributes">
       <attribute name="class" remove="pr-3" add="my-1 pr-2" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- See above, and add right margins, on the price item -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[1]" position="attributes">
-      <!-- <attribute name="class" remove="px-3" add="my-1 mr-2 px-2" separator=" "/> -->
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[1]" position="attributes"> -->
+      <!-- FIXME: COMMENED OUT ALREADY <attribute name="class" remove="px-3" add="my-1 mr-2 px-2" separator=" "/> -->
       <!-- And conditionally add the border-right class if there is a registration end date-->
-      <attribute name="t-attf-class">li-event-ticket-price border-left #{('/' in registration_end) and 'border-right'} my-1 mr-2 px-sm-2</attribute>
-    </xpath>
+      <!-- <attribute name="t-attf-class">li-event-ticket-price border-left #{('/' in registration_end) and 'border-right'} my-1 mr-2 px-sm-2</attribute>
+    </xpath> -->
     <!-- Also remove the left padding on availability ends element and add it to the right -->
-    <xpath expr="//div[@itemtype='http://schema.org/Offer']/small[@t-raw='registration_end']" position="attributes">
-      <attribute name="class" remove="ml-3" add="my-1 pr-2" separator=" "/>
+    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/small[@t-raw='registration_end']" position="attributes">
+      <attribute name="class" remove="ml-3" add="my-1 pr-2" separator=" "/> -->
       <!-- Check if registration end has a slash character contained in it and hide it if it doesn't (if it doesn't have a / then it doesn't have a date, and should be hidden) -->
-      <attribute name="t-if">'/' in registration_end</attribute>
-    </xpath>
+      <!-- <attribute name="t-if">'/' in registration_end</attribute>
+    </xpath> -->
     <!-- Change spacing of the register button -->
-    <xpath expr="//div/div[2]" position="attributes">
+    <!-- <xpath expr="//div/div[2]" position="attributes">
       <attribute name="class" remove="pl-2" separator=" "/>
     </xpath>
-  </template>
+  </template> -->
 
   <!-- Set various ui components to active by default -->
   <!-- Shop -->

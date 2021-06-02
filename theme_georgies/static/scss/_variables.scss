@@ -1,58 +1,58 @@
 // Colors
-$white:    #fff;
-$gray-100: #f8f8f8;
-$gray-200: #e9e9e9;
-$gray-300: #dedede;
-$gray-400: #cecece;
-$gray-500: #adadad;
-$gray-600: #6c6c6c;
-$gray-700: #494949;
+// $white:    #fff;
+// $gray-100: #f8f8f8;
+// $gray-200: #e9e9e9;
+// $gray-300: #dedede;
+// $gray-400: #cecece;
+// $gray-500: #adadad;
+// $gray-600: #6c6c6c;
+// $gray-700: #494949;
 $gray-800: #343434;
-$gray-900: #212121;
-$black:    #000;
+// $gray-900: #212121;
+// $black:    #000;
 
 $gray: $gray-800;
 
-$primary: #000;
-$secondary: $gray-300;
-$light: $gray-100;
+// $primary: #000;
+// $secondary: $gray-300;
+// $light: $gray-100;
 
 
 // Typography
 $font-size-base: 14rem / 16;
-$font-family-sans-serif: "Open Sans", "Arial", sans-serif;
-$body-color: $primary;
+// $font-family-sans-serif: "Open Sans", "Arial", sans-serif;
+// $body-color: $primary;
 $li-letter-spacing: .1rem;
 $li-font-weight-bold: 700;
-$line-height-base: 1.8;
+// $line-height-base: 1.8;
 $li-type-hover-color: $gray;
 // Headings
-$h2-weight: 600;
-$h3-weight: 600;
-$h4-weight: 300;
-$headings-line-height: 1.6;
-$headings-margin-bottom: 1rem;
+// $h2-weight: 600;
+// $h3-weight: 600;
+// $h4-weight: 300;
+// $headings-line-height: 1.6;
+// $headings-margin-bottom: 1rem;
 
 // Displays
-$display1-weight: 500;
-$display2-weight: 500;
-$display3-weight: 500;
-$display4-weight: 500;
-$display-line-height: $headings-line-height;
+// $display1-weight: 500;
+// $display2-weight: 500;
+// $display3-weight: 500;
+// $display4-weight: 500;
+// $display-line-height: $headings-line-height;
 
-$display1-size:               5.5rem;
-$display2-size:               4rem;
-$display3-size:               3rem;
-$display4-size:               2rem;
+// $display1-size:               5.5rem;
+// $display2-size:               4rem;
+// $display3-size:               3rem;
+// $display4-size:               2rem;
 
 
 // Style
-$enable-gradients: false;
-$enable-rounded: false;
-$border-width: 2px;
+// $enable-gradients: false;
+// $enable-rounded: false;
+// $border-width: 2px;
 
 // Spacing
-$spacer: 2rem;
+// $spacer: 2rem;
 
 // Icons
 $li-icon-base: $font-size-base;
@@ -67,60 +67,60 @@ $li-input-btn-padding-y: 14rem / 16;
 $li-btn-padding-x: 30rem / 16;
 $li-input-padding-x: 15rem / 16;
 // Regular size
-$input-btn-padding-y: $li-input-btn-padding-y;
-$input-btn-padding-x: $li-btn-padding-x;
+// $input-btn-padding-y: $li-input-btn-padding-y;
+// $input-btn-padding-x: $li-btn-padding-x;
 // Large size
 $li-input-btn-lg-padding-factor: 1.2;
-$input-btn-padding-y-lg: $li-input-btn-padding-y * $li-input-btn-lg-padding-factor;
-$input-btn-padding-x-lg: $li-btn-padding-x * $li-input-btn-lg-padding-factor;
+// $input-btn-padding-y-lg: $li-input-btn-padding-y * $li-input-btn-lg-padding-factor;
+// $input-btn-padding-x-lg: $li-btn-padding-x * $li-input-btn-lg-padding-factor;
 // Small size
 $li-input-btn-sm-padding-factor: .75;
-$input-btn-padding-y-sm: $li-input-btn-padding-y * $li-input-btn-sm-padding-factor;
-$input-btn-padding-x-sm: $li-btn-padding-x * $li-input-btn-sm-padding-factor;
+// $input-btn-padding-y-sm: $li-input-btn-padding-y * $li-input-btn-sm-padding-factor;
+// $input-btn-padding-x-sm: $li-btn-padding-x * $li-input-btn-sm-padding-factor;
 // Button typography
-$btn-font-weight: $li-font-weight-bold;
+// $btn-font-weight: $li-font-weight-bold;
 // Input specific styles
 // Padding
-$input-padding-x: $li-input-padding-x;
-$input-padding-x-sm: $li-input-padding-x * $li-input-btn-sm-padding-factor;
-$input-padding-x-lg: $li-input-padding-x * $li-input-btn-lg-padding-factor;
+// $input-padding-x: $li-input-padding-x;
+// $input-padding-x-sm: $li-input-padding-x * $li-input-btn-sm-padding-factor;
+// $input-padding-x-lg: $li-input-padding-x * $li-input-btn-lg-padding-factor;
 
 // Breadcrumbs
-$breadcrumb-padding-y: $li-input-btn-padding-y;
-$breadcrumb-padding-x: $li-input-padding-x;
+// $breadcrumb-padding-y: $li-input-btn-padding-y;
+// $breadcrumb-padding-x: $li-input-padding-x;
 
 // Pagination
-$pagination-padding-y:              $li-input-btn-padding-y;
-$pagination-padding-x:              $li-btn-padding-x;
-$pagination-padding-y-sm:           $li-input-btn-padding-y * .75;
-$pagination-padding-x-sm:           $li-btn-padding-x * .75;
-$pagination-padding-y-lg:           $li-input-btn-padding-y * 1.25;
-$pagination-padding-x-lg:           $li-btn-padding-x * 1.25;
-$pagination-line-height:            $line-height-base;
+// $pagination-padding-y:              $li-input-btn-padding-y;
+// $pagination-padding-x:              $li-btn-padding-x;
+// $pagination-padding-y-sm:           $li-input-btn-padding-y * .75;
+// $pagination-padding-x-sm:           $li-btn-padding-x * .75;
+// $pagination-padding-y-lg:           $li-input-btn-padding-y * 1.25;
+// $pagination-padding-x-lg:           $li-btn-padding-x * 1.25;
+// $pagination-line-height:            $line-height-base;
 
 // Badges
-$badge-padding-y: .8em;
-$badge-padding-x: .6em;
+// $badge-padding-y: .8em;
+// $badge-padding-x: .6em;
 
 // Nav bar
 $li-navbar-collapse-point: sm;
 $li-navbar-font-size: $font-size-base * .75;
-$navbar-padding-y: $spacer;
-$navbar-padding-x: 0;
-$navbar-nav-link-padding-x: 0;
-$navbar-brand-padding-y: 0;
+// $navbar-padding-y: $spacer;
+// $navbar-padding-x: 0;
+// $navbar-nav-link-padding-x: 0;
+// $navbar-brand-padding-y: 0;
 
 // Nav tabs
-$nav-tabs-border-color: transparent;
-$nav-tabs-link-hover-border-color: $primary;
-$nav-tabs-link-active-color: $primary;
-$nav-tabs-link-active-border-color: $primary $primary $primary;
+// $nav-tabs-border-color: transparent;
+// $nav-tabs-link-hover-border-color: $primary;
+// $nav-tabs-link-active-color: $primary;
+// $nav-tabs-link-active-border-color: $primary $primary $primary;
 // FIXME: deal with focus state on toggler button
-$navbar-dark-toggler-border-color: $white;
-$navbar-dark-color:                 $white;
-$navbar-dark-hover-color:           rgba($white, .75);
-$navbar-dark-active-color:          $white;
-$navbar-dark-disabled-color:        rgba($white, .25);
+// $navbar-dark-toggler-border-color: $white;
+// $navbar-dark-color:                 $white;
+// $navbar-dark-hover-color:           rgba($white, .75);
+// $navbar-dark-active-color:          $white;
+// $navbar-dark-disabled-color:        rgba($white, .25);
 
 
 
