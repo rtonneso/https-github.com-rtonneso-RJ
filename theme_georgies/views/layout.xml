@@ -506,11 +506,20 @@
 
   <!-- Modify Blog Cover Post (the latest blog post at the top of the blogs section) -->
   <template id="georgies_blog_cover_post" inherit_id="website_blog.opt_blog_cover_post" name="Georgies Blog Cover Post">
-    <!-- Remove padding on "Latest" title element -->
-    <xpath expr="//div[hasclass('px-2')]" position="attributes">
-      <attribute name="class" remove="px-2" separator=" "/>
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
     </xpath>
   </template>
+
+  <!-- Modify Blog cover post ("full width" design)-->
+  <template id="georgies_blog_cover_post_full_width" inherit_id="website_blog.opt_blog_cover_post_fullwidth_design" name="Georgies Blog Cover Post - Full Width">
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
+    </xpath>
+  </template>
+  
 
   <!-- Modify the read next blog section -->  
   <template id="georgies_blog_read_next" inherit_id="website_blog.opt_blog_post_read_next" name="Georgies Blog Read Next">
@@ -694,6 +703,10 @@
     </xpath>
   </template>
 
+
+
+
+
   <!-- Events Module Customization -->
   <!-- Add event spash bar -->
   <template id="georgies_events_index" inherit_id="website_event.index" name="Georgies Event Index">
@@ -704,59 +717,31 @@
 
   <!-- Events Navbar -->
   <template id="georgies_event_navbar" inherit_id="website_event.index_topbar" name="Georgies Event Navbar">
-    <!-- Remove navigation top border -->
+    <!-- Remove shadow & adjust spacing -->
     <xpath expr="//nav[hasclass('navbar')]" position="attributes">
-      <attribute name="class" remove="border-top shadow-sm" add="pb-0 pt-2" separator=" "/>
+      <attribute name="class" remove="shadow-sm" add="py-2" separator=" "/>
     </xpath>
 
-    <!-- Remove negative margins on filters container -->
-    <xpath expr="//ul[hasclass('o_wevent_index_topbar_filters')]" position="attributes">
-      <attribute name="class" remove="mr-n2" separator=" "/>
-    </xpath>
-
-    <!-- Remove events navbar-brand heading -->
+    <!-- Remove events navbar-brand heading "Events" -->
     <xpath expr="//span[hasclass('navbar-brand')]" position="replace">
     </xpath>
 
-    <!-- Remove spacing of the search box and add top margin -->
-    <!-- <xpath expr="//t[@t-set='_classes']" position="attributes">
-      <attribute name="t-value">'mt-2'</attribute>
-    </xpath> -->
+    <!-- Set the placeholder to be more descriptive -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search for an event...</t>
+    </xpath>
+
   </template>
 
-  <!-- Events Search Bar -->
+
+  <!-- Events Search Bar (On event single page)-->
   <template id="georgies_events_search_box" inherit_id="website_event.events_search_box" name="Georgies Website Event Search Box">
     <!-- Change margins of the search form -->
     <xpath expr="//form[contains(@t-attf-class, 'o_wevent_event_searchbar_form')]" position="attributes">
-      <attribute name="t-attf-class" remove="my-1 my-lg-0 #{_classes}" separator=" "/>
-    </xpath>
-    <!-- Set the placeholder to be more descriptive -->
-    <xpath expr="//input[@name='search']" position="attributes">
-      <attribute name="placeholder">Search events...</attribute>
+      <attribute name="t-attf-class" remove="my-lg-0" separator=" "/>
     </xpath>
   </template>
 
-
-  <!-- Event filters -->
-  <!-- Event date -->
-  <template id="gerogies_events_filter_date" inherit_id="website_event.event_time" name="Georgies Event Filter - Date">
-    <xpath expr="//li[hasclass('my-1')]" position="attributes">
-      <attribute name="class" remove="my-1 my-lg-0" add="mt-2" separator=" "/>
-    </xpath>
-  </template>
-  <!-- Event Category -->
-  <!-- FIXME: ODOO14 -->
-  <!-- <template id="gerogies_events_filter_category" inherit_id="website_event.event_category" name="Georgies Event Filter - Category">
-    <xpath expr="//li[hasclass('my-1')]" position="attributes">
-      <attribute name="class" remove="my-1 my-lg-0" add="mt-2" separator=" "/>
-    </xpath>
-  </template> -->
-  <!-- Event Location -->
-  <template id="gerogies_events_filter_location" inherit_id="website_event.event_location" name="Georgies Event Filter - Location">
-    <xpath expr="//li[hasclass('my-1')]" position="attributes">
-      <attribute name="class" remove="my-1 my-lg-0" add="mt-2" separator=" "/>
-    </xpath>
-  </template>
 
   <!-- Events List -->
   <template id="georgies_events_list" inherit_id="website_event.events_list" name="Georgies Events List">
@@ -852,9 +837,13 @@
     </xpath>
   </template>
 
-  <!-- Event page -->
+  <!-- Event page (single event)-->
   <!-- Event page layout -->
   <template id="georgies_event_page" inherit_id="website_event.layout" name="Georgies Event Page Layout">
+    <!-- Adjust padding on navbar -->
+    <xpath expr="//nav[hasclass('navbar')]" position="attributes">
+      <attribute name="class" add="py-2" separator=" "/>
+    </xpath>
     <!-- Add negative margins on smaller sized devices to compensate for the location and category right margins -->
     <xpath expr="//div[hasclass('o_wevent_event')]//ul[hasclass('navbar-nav')]" position="attributes">
       <attribute name="class" add="mr-n3 mr-lg-0" separator=" "/>
@@ -863,6 +852,10 @@
     <xpath expr="//t[@t-call='website_event.events_search_box']/t[@t-set='_classes']" position="attributes">
       <attribute name="t-value"></attribute>
     </xpath>
+    <!-- Change the placeholder -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search for an event...</t>
+    </xpath> 
     <!-- Add top and bottom margins to back to events nav item -->
     <xpath expr="//div[hasclass('o_wevent_event')]//nav//a[hasclass('navbar-brand')]" position="attributes">
       <attribute name="class" add="my-1" separator=" "/>
@@ -879,30 +872,18 @@
 
   <!-- Events details -->
   <template id="georgies_event_description" inherit_id="website_event.event_description_full" name="Georgies Event Description">
-    <!-- Event main section - add bottom padding to prevent margin collapse on comments (messages) -->
+    <!-- Event main section - add bottom padding to prevent margin collapse on comments (messages) and remove negaitve top margins -->
     <xpath expr="//section[hasclass('bg-200')]" position="attributes">
-      <attribute name="class" add="pb-5" separator=" "/>
+      <attribute name="class" add="pb-5" remove="mt-n5" separator=" "/>
     </xpath>
-    <!-- Change bottom padding of event details -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//section[hasclass('bg-200')]/div/div[hasclass('pb-5')]" position="attributes">
-      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
-    </xpath> -->
-    <!-- Change padding, rounded corners and shadow of event description -->
+    <!-- Remove top negative margins of the details area -->
+    <xpath expr="//div[hasclass('mt-n4')]" position="attributes">
+      <attribute name="class" remove="mt-n4" separator=" "/>
+    </xpath>
+    <!-- Change padding and shadow of event description -->
     <xpath expr="//div[@id='o_wevent_event_main_col']" position="attributes">
-      <attribute name="class" remove="p-5 rounded-left shadow-sm" add="p-2 p-sm-3" separator=" "/>
+      <attribute name="class" remove="shadow-sm" add="p-2 p-sm-3" separator=" "/>
     </xpath>
-    <!-- Remove rounded corners and shadows of event sidebar -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[hasclass('rounded-right')]" position="attributes">
-      <attribute name="class" remove="rounded-right shadow-sm" separator=" "/>
-    </xpath> -->
-    <!-- Events comments (messages) modifications -->
-    <!-- Remove float on comment details and add bottom margin -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[hasclass('media-body')]/small" position="attributes">
-      <attribute name="class" remove="float-right" add="mb-2" separator=" "/>
-    </xpath> -->
   </template>
 
   <!-- Event Registration -->
@@ -913,7 +894,11 @@
     </xpath>
     <!-- Change bottom margin of registration section -->
     <xpath expr="//form[@id='registration_form']" position="attributes">
-      <attribute name="class" remove="mb-5" add="mb-3" separator=" "/>
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of the registrations are closed section -->
+    <xpath expr="//div[@t-if='not event.event_registrations_open']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
     </xpath>
     <!-- Change bottom margin of registration alert and change the display to flex to accomodate for the "configure event registration" notification, which we'll tweak below -->
     <!-- FIXME: ODOO14 -->
@@ -945,71 +930,15 @@
     <xpath expr="//div[@id='o_wevent_tickets_collapse']//button[@type='submit']" position="replace">
       <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit" t-att-disabled="not tickets_available or None" t-attf-id="#{event.id}">Register<t t-if="event.seats_availability != 'unlimited'"> (<t t-esc="event.seats_available"/> Seats Available)</t></button>
     </xpath>
-  </template>
-
-  <!-- FIXME: ODOO14 -->
-  <!-- Event Tickets (in registration section) -->
-  <!-- <template id="georgies_event_ticket" inherit_id="website_event.ticket" name="Georgies Event Ticket"> -->
-    <!-- Remove the quantity selector or sold out indicator from the first column -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[hasclass('ml-auto')]" position="replace">
-    </xpath> -->
-    <!-- And add it to the second column, change the padding and margins, and take away the sold out notification, since it's implemented within the register button below -->
-    <!-- <xpath expr="//div[hasclass('col-lg-4')]/button[@type='submit']" position="before">
-      <t t-if="tickets_available">
-        <div class="li-event-ticket-qty pr-2 pb-2 pb-sm-0">
-          <span class="font-weight-bold align-middle pr-2">Qty</span>
-          <link itemprop="availability" content="http://schema.org/InStock"/>
-          <t t-raw="quantity"/>
-        </div>
-      </t>
-    </xpath> -->
-    <!-- And change the display type of the column to flex to accomodate for the addition of the qty element, and increase its size and change some spacing -->
-    <!-- <xpath expr="//div[hasclass('col-lg-4')]" position="attributes">
-      <attribute name="class" remove="col-lg-4 pt-3" add="d-flex flex-column flex-sm-row align-items-sm-center col-lg-5 pt-1" separator=" "/>
-    </xpath> -->
-    <!-- And decrease the size of the ticket specifics section -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
-      <attribute name="class" remove="col-lg-8" add="col-lg-7" separator=" "/>
-    </xpath> -->
-    <!-- Conditionally disable the register button if the event is sold out and change the text, and add conditional top margins on xs screens -->
-    <!-- <xpath expr="//button[@type='submit']" position="replace">
-      <t t-if="tickets_available">
-        <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit mt-2 mt-sm-0" t-attf-id="#{event.id}">Register</button>
-      </t>
-      <t t-else="">
-        <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit mt-2 mt-sm-0" t-attf-id="#{event.id}" disabled=""><i class="fa fa-ban mr-2"/>Sold Out</button>
-      </t>
-    </xpath> -->
-
-    <!-- Change spacing of the registration row -->
-    <!-- <xpath expr="//div[hasclass('row')]" position="attributes">
-      <attribute name="class" remove="pl-3" add="pl-lg-3" separator=" "/>
-    </xpath> -->
-    <!-- Set flex wrap on the ticket info section (so that it doesn't overflow on small screens) and remove the flex-columns class which looks like a bug (they were clearly trying to use flex-column but don't want to actually use it. -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']" position="attributes">
-      <attribute name="class" remove="flex-columns align-items-center" add="flex-wrap flex-column flex-sm-row align-content-start align-content-sm-center align-items-start align-items-sm-center" separator=" "/>
-    </xpath> -->
-    <!-- Add top and bottom margins to each sub element of the ticket info so that on small screens there is space between them -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/h6[@t-raw='name']" position="attributes">
-      <attribute name="class" remove="pr-3" add="my-1 pr-2" separator=" "/>
-    </xpath> -->
-    <!-- See above, and add right margins, on the price item -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/div[1]" position="attributes"> -->
-      <!-- FIXME: COMMENED OUT ALREADY <attribute name="class" remove="px-3" add="my-1 mr-2 px-2" separator=" "/> -->
-      <!-- And conditionally add the border-right class if there is a registration end date-->
-      <!-- <attribute name="t-attf-class">li-event-ticket-price border-left #{('/' in registration_end) and 'border-right'} my-1 mr-2 px-sm-2</attribute>
-    </xpath> -->
-    <!-- Also remove the left padding on availability ends element and add it to the right -->
-    <!-- <xpath expr="//div[@itemtype='http://schema.org/Offer']/small[@t-raw='registration_end']" position="attributes">
-      <attribute name="class" remove="ml-3" add="my-1 pr-2" separator=" "/> -->
-      <!-- Check if registration end has a slash character contained in it and hide it if it doesn't (if it doesn't have a / then it doesn't have a date, and should be hidden) -->
-      <!-- <attribute name="t-if">'/' in registration_end</attribute>
-    </xpath> -->
-    <!-- Change spacing of the register button -->
-    <!-- <xpath expr="//div/div[2]" position="attributes">
-      <attribute name="class" remove="pl-2" separator=" "/>
+    <!-- Remove left margins which force the button outside of the container -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
     </xpath>
-  </template> -->
+    <!-- Do it again on the second button that has that messed up left margin as well -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
+    </xpath>
+  </template>
 
   <!-- Set various ui components to active by default -->
   <!-- Shop -->
