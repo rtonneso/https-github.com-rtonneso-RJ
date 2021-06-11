@@ -1,3 +1,7 @@
+// COLORS
+// Need to declare bg-light here because Odoo is calculating that color based on the primary color, and we want it way lighter than what it's making.
+.bg-light{ background-color: #dbdbdb !important};
+
 // TYPOGRAPHY
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -44,16 +48,21 @@ label {
 // BUTTONS
 .btn {
     text-transform: uppercase;
-}
-// TODO: Generate link buttons based off the theme sass map and set the hover cover based on the color-yiq function
-a.btn-outline-primary:active,
-a.btn-outline-primary:hover {
-    @include hover-focus() {
-        color: white;
+    &-group {
+        flex: wrap;
     }
-}
-.btn-group {
-    flex-wrap: wrap;
+    &-white {
+        background-color: var(--white);
+        color: var(--primary);
+    }
+    &-outline-white {
+        border-color: var(--white);
+        color: var(--white);
+        &:hover, &:active, &:focus {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+    }
 }
 
 // NAVBAR
@@ -124,7 +133,6 @@ header .navbar {
 
         // Override text color of all results button
         button {
-            color: $white !important;
             letter-spacing: $li-letter-spacing;
         }
 
@@ -153,12 +161,14 @@ header .navbar {
 
 }
 
+nav .dropdown-menu {
+    background-color: $primary;
+}
 // FIXME: ODOO14 color overrides are happening a decent bit and need to look into color handling more...
 // General dropdown-menu
 .dropdown-menu {
     margin-top: 0;
     min-width: 100%;
-    background-color: #000;
 }
 // FIXME: ODOO14 color overrides are happening a decent bit and need to look into color handling more...
 .dropdown-item:hover, .dropdown-item:focus {
@@ -169,8 +179,11 @@ header .navbar {
     background-color:rgba(255, 255, 255, 0.5);
 }
 // FIXME: ODOO14 need to figure out where the odoo color is coming from and override it better. I don't like targeting it like this with !important. It seems that in odoo 14 colors are set dyamically using the color editor in the UI, and the sets that are shown in the theme tutorial aren't used (typical)...
-.o_cc .dropdown-menu .dropdown-item {
+.o_cc .dropdown-menu .dropdown-item{
     color: #fff !important;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+        color: #fff !important;
+    }
 }
 header .navbar .dropdown-menu .dropdown-item:hover, header .navbar .dropdown-menu .dropdown-item:focus {
     color: #ffffffbf !important;

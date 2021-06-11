@@ -207,7 +207,7 @@
       <div class="container li-splash-content">
         <div class="px-2 px-sm-0 py-5">
           <div class="h1 display-3-white">Heading here. It can be decently long and will wrap around</div>
-          <div class="li-actions-section li_s_buttons" data-name="Button"><a class="btn btn-outline-light" href="#">Call to Action Here</a></div>
+          <div class="li-actions-section li_s_buttons" data-name="Button"><a class="btn btn-outline-white" href="#">Call to Action Here</a></div>
         </div>
       </div>
     </section>
@@ -275,6 +275,20 @@
     </section>
   </template>
 
+  <!-- Georgies Top Announcement Bar -->
+  <template id="s_full_width_announcement_bar" name="Full Width Announcement Bar">
+    
+    <section class="li-full-width-announcement-bar bg-danger"> 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="py-1 text-center"><b> <i>Announcement text here. Can be quite long in order to explain things, <br></br> and can be multiple lines.</i></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
   <!-- Georgies Split Background Snippet -->
   <!-- <template id="s_split_background" name="Georgies Split Background Snippet">
   </template> -->
@@ -319,6 +333,7 @@
           <t t-snippet="theme_georgies.s_announcement_section_item" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
           <t t-snippet="theme_georgies.s_call_to_action" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
           <t t-snippet="theme_georgies.s_current_gallery_shows" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
         </div>
       </div>
     </xpath>

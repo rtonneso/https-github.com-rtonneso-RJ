@@ -15,10 +15,9 @@
     <xpath expr="//div[@role='search']" position="attributes">
       <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
     </xpath>
-    <!-- TODO: CHANGE TO WHITE ADD WHITE AS COLOR -->
-    <!-- Change search button style to outline-light -->
+    <!-- Change search button style to outline-white -->
     <xpath expr="//button[@type='submit']" position="attributes">
-      <attribute name="class" remove="btn-primary" add="btn-outline-light" separator=" "/>
+      <attribute name="class" remove="btn-primary" add="btn-outline-white" separator=" "/>
     </xpath>
   </template>
 
@@ -26,19 +25,27 @@
   <template id="template_header_default" inherit_id="website.template_header_default">
     <!-- Change navbar classes  -->
     <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[@id='wrapwrap']/header/nav" position="attributes">
+    <!-- <xpath expr="///header/nav" position="attributes">
       <attribute name="class">navbar navbar-expand-md navbar-dark bg-primary px-2 px-md-0</attribute>
     </xpath> -->
-    
+
     <!-- Add flex-column to collapse element to allow for addition of our search element and set alignment to right -->
     <xpath expr="//div[@id='top_menu_collapse']" position="attributes">
       <attribute name="class" add="flex-column align-items-stretch" separator=" "/>
     </xpath>
   </template>
 
-    <!-- Add search above header nav -->
+  <!-- Add od_structure aread in the header -->
+  <template id="layout" inherit_id="website.layout">
+    <!-- Insert snippet area for announcement bar -->
+    <xpath expr="//header//nav" position="replace">
+      <div class="oe_structure"></div>
+      <t>$0</t>
+    </xpath>
+  </template>
+
+  <!-- Add search above header nav -->
   <template id="navbar_nav" inherit_id="website.navbar_nav">
-    <!-- FIXME: ODOO14 -->
     <!-- Add Search bar above nav -->
     <xpath expr="//ul[@id='top_menu']" position="before">
       <ul class="navbar-nav mb-2 align-self-end li-navbar-search">
@@ -504,6 +511,7 @@
 
   </template>
 
+  <!-- FIXME: ODOO14 ODOO.SH COMPLAINING ABOUT IT -->
   <!-- Modify Blog Cover Post (the latest blog post at the top of the blogs section) -->
   <template id="georgies_blog_cover_post" inherit_id="website_blog.opt_blog_cover_post" name="Georgies Blog Cover Post">
     <!-- Remove rounded corners on "Latest" title badge -->
@@ -699,7 +707,12 @@
   <template id="georgies_blogs_nav" inherit_id="website_blog.blogs_nav" name="Georgies Blogs Nav">
     <!-- Add margin on xs screens to provide spacing for the nav menu -->
     <xpath expr="//nav" position="attributes">
-      <attribute name="t-attf-class" add="ml-2 ml-sm-0" separator=" "/>
+      <attribute name="t-attf-class" add="ml-2 ml-sm-0 py-2" separator=" "/>
+    </xpath>
+
+    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar -->
+    <xpath expr="//form[@id='o_wblog_post_search']" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
     </xpath>
   </template>
 
@@ -912,6 +925,7 @@
     </xpath> -->
   </template>
 
+
   <!-- Event Registration Sale (Ticket dropdown modifications) -->
   <template id="georgies_event_registration_ticket_dropdown" inherit_id="website_event_sale.registration_template" name="Georgies Event Registration Ticket Dropdown">
     <!-- Change the padding of the Ticket title and date column on sm and xs screens -->
@@ -926,10 +940,15 @@
     <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[2]/div[hasclass('offset-md-8')]" position="attributes">
       <attribute name="class" remove="col-md-4 offset-md-8 py-2" add="col-md-6 offset-md-6 col-lg-5 offset-lg-7 py-2 px-2 py-md-2" separator=" "/>
     </xpath>
-    <!-- Add a space inbetween the button register text and the number of seats and change the language -->
-    <xpath expr="//div[@id='o_wevent_tickets_collapse']//button[@type='submit']" position="replace">
-      <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit" t-att-disabled="not tickets_available or None" t-attf-id="#{event.id}">Register<t t-if="event.seats_availability != 'unlimited'"> (<t t-esc="event.seats_available"/> Seats Available)</t></button>
+    <!-- Remove y padding on the ticket row -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']" position="attributes">
+      <attribute name="class" remove="py-3" separator=" "/>
     </xpath>
+    <!-- FIXME: ODOO14 seats available -->
+    <!-- Add a space inbetween the button register text and the number of seats and change the language -->
+    <!-- <xpath expr="//div[@id='o_wevent_tickets_collapse']//button[@type='submit']" position="replace">
+      <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit" t-att-disabled="not tickets_available or None" t-attf-id="#{event.id}">Register<t t-if="event.seats_availability != 'unlimited'"> (<t t-esc="event.seats_available"/> Seats Available)</t></button>
+    </xpath> -->
     <!-- Remove left margins which force the button outside of the container -->
     <xpath expr="//button[hasclass('ml-3')]" position="attributes">
       <attribute name="class" remove="ml-3" separator=" "/>
