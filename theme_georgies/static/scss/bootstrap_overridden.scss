@@ -1,0 +1,203 @@
+// Colors
+// Grays
+$gray: $gray-800;
+$gray-100: #f8f8f8;
+$gray-200: #e9e9e9;
+$gray-300: #dedede;
+$gray-400: #cecece;
+$gray-500: #adadad;
+$gray-600: #6c6c6c;
+$gray-700: #494949;
+$gray-800: #343434;
+$gray-900: #212121;
+// Standard Colors
+$white:    #fff;
+$black:    #000;
+
+// Georgies Color Scheme
+$primary: $black;
+$secondary: #2B2B2B;
+// $tertiary: #F6F6F6;
+$tertiary: var(--o-color-3);
+// $quaternary: #FCF2D3;
+$quaternary: var(--o-color-5);
+
+$light: $gray-100;
+
+// Typography
+$font-size-base: 14rem / 16;
+$font-family-sans-serif: "Open Sans", "Arial", sans-serif;
+$body-color: $primary;
+// $li-letter-spacing: .1rem;
+// $li-font-weight-bold: 700;
+$line-height-base: 1.8;
+// $li-type-hover-color: $gray;
+
+// Headings
+$h2-weight: 600;
+$h3-weight: 600;
+$h4-weight: 300;
+$headings-line-height: 1.6;
+$headings-margin-bottom: 1rem;
+
+// Links
+// $link-color: $secondary;
+
+// Displays
+$display1-weight: 500;
+$display2-weight: 500;
+$display3-weight: 500;
+$display4-weight: 500;
+$display-line-height: $headings-line-height;
+
+$display1-size:               5.5rem;
+$display2-size:               4rem;
+$display3-size:               3rem;
+$display4-size:               2rem;
+
+
+// Style
+$enable-gradients: false;
+$enable-rounded: false;
+$border-width: 2px;
+$border-radius: 0rem;
+
+// Spacing
+$spacer: 2rem;
+
+// Icons
+// $li-icon-base: $font-size-base;
+// $li-icon-button-size: $li-icon-base;
+// $li-icon-input-size: $li-icon-base * .2;
+// $li-icon-social-size: $li-icon-base * 1.4;
+
+// Buttons and Inputs
+// TODO: Disable shadow
+// Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
+$li-btn-padding-y: 14rem / 16;
+$li-btn-padding-x: 30rem / 16;
+$li-input-padding-x: 15rem / 16;
+
+// Buttons and Inputs
+// Regular size
+$input-btn-padding-y: $li-btn-padding-y;
+$input-btn-padding-x: $li-btn-padding-x;
+// Large size
+$input-btn-padding-y-lg: $input-btn-padding-y * 1.2;
+$input-btn-padding-x-lg: $input-btn-padding-x * 1.2;
+// Small size
+$input-btn-padding-y-sm: $input-btn-padding-y * .75;
+$input-btn-padding-x-sm: $input-btn-padding-x * .75;
+
+// Input Specific Padding
+$input-padding-x: $li-input-padding-x;
+$input-padding-x-sm: $li-input-padding-x * .75;
+$input-padding-x-lg: $li-input-padding-x * 1.2;
+
+// Button typography
+$btn-font-weight: $li-font-weight-bold;
+
+// Breadcrumbs
+$breadcrumb-padding-y: $input-btn-padding-y;
+$breadcrumb-padding-x: $li-input-padding-x;
+
+// Pagination
+$pagination-padding-y:              $input-btn-padding-y;
+$pagination-padding-x:              $li-btn-padding-x;
+$pagination-padding-y-sm:           $input-btn-padding-y * .75;
+$pagination-padding-x-sm:           $li-btn-padding-x * .75;
+$pagination-padding-y-lg:           $input-btn-padding-y * 1.25;
+$pagination-padding-x-lg:           $li-btn-padding-x * 1.25;
+$pagination-line-height:            $line-height-base;
+
+// Badges
+$badge-padding-y: .8em;
+$badge-padding-x: .6em;
+
+// Nav bar
+// $li-navbar-collapse-point: sm;
+// $li-navbar-font-size: $font-size-base * .75;
+$navbar-padding-y: $spacer;
+$navbar-nav-link-padding-x: $spacer * 0.4;
+$navbar-brand-padding-y: 0;
+
+$navbar-dark-color:                 $white;
+$navbar-dark-hover-color:           rgba($white, .85);
+$navbar-dark-active-color:          var(--o-color-5);
+$navbar-dark-disabled-color:        rgba($white, .25);
+
+$navbar-light-color: rgba($primary, .80);
+$navbar-light-active-color:  $primary;
+
+// $nav-tabs-link-active-color: red;
+
+// Nav links
+$nav-link-padding-y: $spacer * .5;
+
+// Drop downs
+$dropdown-min-width: 10rem;
+$dropdown-padding-x: 0;
+$dropdown-padding-y: 0;
+$dropdown-spacer: $border-width;
+$dropdown-font-size: $font-size-base;
+$dropdown-color: $primary;
+$dropdown-bg: $white;
+$dropdown-border-color: $primary;
+$dropdown-border-radius: $border-radius;
+$dropdown-border-width: $border-width;
+$dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width);
+$dropdown-divider-bg: $dropdown-border-color;
+$dropdown-divider-margin-y: 0;
+$dropdown-box-shadow: null;
+
+$dropdown-link-color: $primary !important;
+$dropdown-link-hover-color: $primary !important;
+$dropdown-link-hover-bg: $quaternary;
+
+$dropdown-link-active-color: $primary;
+$dropdown-link-active-bg: $tertiary;
+
+$dropdown-link-disabled-color: $gray-500;
+
+$dropdown-item-padding-y: $spacer * .5;
+$dropdown-item-padding-x: $spacer * 1.5;
+
+$dropdown-header-color: $gray-600;
+$dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
+
+// Dropdown Dark Colors
+$dropdown-dark-color: $navbar-dark-color;
+$dropdown-dark-bg: $primary;
+$dropdown-dark-border-color: $white;
+$dropdown-dark-divider-bg: $secondary;
+$dropdown-dark-box-shadow: null;
+$dropdown-dark-link-color: $dropdown-dark-color;
+$dropdown-dark-link-hover-color: $tertiary;
+$dropdown-dark-link-hover-bg: $primary;
+$dropdown-dark-link-active-color: $dropdown-link-active-color;
+$dropdown-dark-link-active-bg: $dropdown-link-active-bg;
+$dropdown-dark-link-disabled-color: $dropdown-link-disabled-color;
+$dropdown-dark-header-color: $dropdown-header-color;
+
+// Nav tabs
+$nav-tabs-border-color: transparent;
+$nav-tabs-link-hover-border-color: $primary;
+$nav-tabs-link-active-color: $primary;
+$nav-tabs-link-active-border-color: $primary $primary $primary;
+// FIXME: deal with focus state on toggler button
+$navbar-dark-toggler-border-color: $white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
