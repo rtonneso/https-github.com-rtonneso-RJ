@@ -1,0 +1,45 @@
+$gray-800: #343434;
+$gray: $gray-800;
+
+
+// Typography
+$font-size-base: 14rem / 16;
+$li-letter-spacing: .1rem;
+$li-font-weight-bold: 700;
+$li-type-hover-color: $gray;
+
+// Icons
+$li-icon-base: $font-size-base;
+$li-icon-button-size: $li-icon-base;
+$li-icon-input-size: $li-icon-base * .2;
+$li-icon-social-size: $li-icon-base * 1.4;
+
+// Buttons and Inputs
+// Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
+$li-input-btn-padding-y: 14rem / 16;
+$li-btn-padding-x: 30rem / 16;
+$li-input-padding-x: 15rem / 16;
+
+// Large size
+$li-input-btn-lg-padding-factor: 1.2;
+// Small size
+$li-input-btn-sm-padding-factor: .75;
+
+// Nav bar
+$li-navbar-collapse-point: sm;
+$li-navbar-font-size: $font-size-base * .75;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
