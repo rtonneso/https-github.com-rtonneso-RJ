@@ -41,6 +41,7 @@
     <xpath expr="//header//nav" position="replace">
       <div class="oe_structure"></div>
       <t>$0</t>
+      <!-- <t t-call="theme_georgies.s_shop_mega_menu"/> -->
     </xpath>
   </template>
 
@@ -457,6 +458,19 @@
     </xpath>
   </template> -->
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO -->
+
   <!-- Blog Styling -->
 
   <!-- Remove rounded corners and shadows from blog post image -->
@@ -511,7 +525,6 @@
 
   </template>
 
-  <!-- FIXME: ODOO14 ODOO.SH COMPLAINING ABOUT IT -->
   <!-- Modify Blog Cover Post (the latest blog post at the top of the blogs section) -->
   <template id="georgies_blog_cover_post" inherit_id="website_blog.opt_blog_cover_post" name="Georgies Blog Cover Post">
     <!-- Remove rounded corners on "Latest" title badge -->
@@ -521,12 +534,12 @@
   </template>
 
   <!-- Modify Blog cover post ("full width" design)-->
-  <template id="georgies_blog_cover_post_full_width" inherit_id="website_blog.opt_blog_cover_post_fullwidth_design" name="Georgies Blog Cover Post - Full Width">
+  <!-- <template id="georgies_blog_cover_post_full_width" inherit_id="website_blog.opt_blog_cover_post_fullwidth_design" name="Georgies Blog Cover Post - Full Width"> -->
     <!-- Remove rounded corners on "Latest" title badge -->
-    <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+    <!-- <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
       <attribute name="class" remove="rounded-sm" separator=" "/>
     </xpath>
-  </template>
+  </template> -->
   
 
   <!-- Modify the read next blog section -->  
@@ -566,10 +579,6 @@
   </template>
   <!-- Modify the side index follow us addition -->
   <template id="georgies_blog_side_index_follow_us" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Georgies Blog Side Index - Follow Us" priority="1">
-    <!-- Adjust bottom spacing for the block -->
-    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
-      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
-    </xpath>
     <!-- Adjust the bottom spacing for the header -->
     <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
       <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
@@ -707,12 +716,13 @@
   <template id="georgies_blogs_nav" inherit_id="website_blog.blogs_nav" name="Georgies Blogs Nav">
     <!-- Add margin on xs screens to provide spacing for the nav menu -->
     <xpath expr="//nav" position="attributes">
-      <attribute name="t-attf-class" add="ml-2 ml-sm-0 py-2" separator=" "/>
+      <attribute name="t-attf-class" add="py-2" separator=" "/>
     </xpath>
 
-    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar -->
+    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar,
+    set a better width -->
     <xpath expr="//form[@id='o_wblog_post_search']" position="attributes">
-      <attribute name="class" add="my-1" separator=" "/>
+      <attribute name="class" remove="w-md-auto" add="my-1 ml-sm-3 w-100 w-lg-50" separator=" "/>
     </xpath>
   </template>
 
@@ -745,6 +755,9 @@
     </xpath>
 
   </template>
+
+
+  <!-- Change upcoming events to upcoming classes -->
 
 
   <!-- Events Search Bar (On event single page)-->
