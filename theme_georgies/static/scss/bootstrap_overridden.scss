@@ -15,12 +15,19 @@ $white:    #fff;
 $black:    #000;
 
 // Georgies Color Scheme
+// Odoo 14 now has five colors to 
+// --o-color-1
 $primary: $black;
+// --o-color-2
 $secondary: #2B2B2B;
+// --o-color-3
 // $tertiary: #F6F6F6;
 $tertiary: var(--o-color-3);
+// --o-color-4
 // $quaternary: #FCF2D3;
-$quaternary: var(--o-color-5);
+// --o-color-5
+// $quinary: #FCF2D3;
+$quinary: var(--o-color-5);
 
 $light: $gray-100;
 
@@ -67,8 +74,6 @@ $spacer: 2rem;
 
 // Icons
 // $li-icon-base: $font-size-base;
-// $li-icon-button-size: $li-icon-base;
-// $li-icon-input-size: $li-icon-base * .2;
 // $li-icon-social-size: $li-icon-base * 1.4;
 
 // Buttons and Inputs
@@ -117,8 +122,9 @@ $badge-padding-x: .6em;
 // Nav bar
 // $li-navbar-collapse-point: sm;
 // $li-navbar-font-size: $font-size-base * .75;
-$navbar-padding-y: $spacer;
-$navbar-nav-link-padding-x: $spacer * 0.4;
+$navbar-padding-y: $spacer * .5;
+$navbar-nav-link-padding-y: $spacer * 0.25;
+$navbar-nav-link-padding-x: $spacer * 0.25;
 $navbar-brand-padding-y: 0;
 
 $navbar-dark-color:                 $white;
@@ -129,10 +135,13 @@ $navbar-dark-disabled-color:        rgba($white, .25);
 $navbar-light-color: rgba($primary, .80);
 $navbar-light-active-color:  $primary;
 
-// $nav-tabs-link-active-color: red;
+$navbar-toggler-padding-y: .5rem;
+$navbar-toggler-padding-x: .6rem;
+// FIXME: deal with focus state on toggler button
+$navbar-dark-toggler-border-color: $white;
 
-// Nav links
-$nav-link-padding-y: $spacer * .5;
+
+// $nav-tabs-link-active-color: red;
 
 // Drop downs
 $dropdown-min-width: 10rem;
@@ -152,7 +161,7 @@ $dropdown-box-shadow: null;
 
 $dropdown-link-color: $primary !important;
 $dropdown-link-hover-color: $primary !important;
-$dropdown-link-hover-bg: $quaternary;
+$dropdown-link-hover-bg: $quinary;
 
 $dropdown-link-active-color: $primary;
 $dropdown-link-active-bg: $tertiary;
@@ -184,20 +193,3 @@ $nav-tabs-border-color: transparent;
 $nav-tabs-link-hover-border-color: $primary;
 $nav-tabs-link-active-color: $primary;
 $nav-tabs-link-active-border-color: $primary $primary $primary;
-// FIXME: deal with focus state on toggler button
-$navbar-dark-toggler-border-color: $white;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

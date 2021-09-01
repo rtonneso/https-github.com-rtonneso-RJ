@@ -1,9 +1,8 @@
 {
   'name':'Georgies.com',
   'description': 'Georgies.com theme styling by Lichen',
-  'version':'0.993',
+  'version':'0.994',
   'author':'Lichen',
-
   'data': [
       'views/layout.xml',
       'views/pages.xml',
@@ -14,7 +13,9 @@
   'images': [
     'static/description/georgies_screenshot.jpg'
   ],
-  'category': 'Theme',
+  'category': 'Theme/website',
+  'installable': True,
+  'auto_install': False,
   'depends': [
     'website',
     'website_sale',

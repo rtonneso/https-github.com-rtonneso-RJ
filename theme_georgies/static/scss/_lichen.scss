@@ -147,6 +147,12 @@ header .navbar {
         }
 
     }
+    // Reset Odoo's override in web/bootstrap_review.scss
+    &-dark .navbar-toggler,
+    &-light .navbar-toggler {
+        padding-left: $navbar-toggler-padding-x;
+        padding-right: $navbar-toggler-padding-x;
+    }
 
 }
 
@@ -548,7 +554,7 @@ $li-spacing-x-md: spacer(3) * 2;
 /* === Odoo Theme Overrides ===*/
 // Navbar nested dropdown background color
 .navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
-    background-color: $quaternary;
+    background-color: $quinary;
 }
 
 // Search results adjustment

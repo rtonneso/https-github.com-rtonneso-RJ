@@ -88,12 +88,12 @@
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; <a href="tel:800.999.2529">800.999.CLAY</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
                 <!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; <a href="tel:866.234.2529">866.234.CLAY</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
             </div>
           </div>
           <div class="row mt-4 justify-content-center li-type-attention">
@@ -310,6 +310,18 @@
       <attribute name="class" add="mt-3" separator=" "/>
     </xpath>
   </template>
+
+  <!-- Add Unit of Measure after product price -->
+  <!-- In order for this to work, the Product Unit of Measure must be accessible to the public.
+  So to set that up, enable developer access in general settings.
+  Navigate to the techincal menu, security, access rights.
+  Create a new record: Name= uom.uom.public | Model=Product Unit of Measure | Group=User types / Public | Read Access=Checked
+  -->
+  <template id="georgies_unit_of_measure" inherit_id="website_sale.product_price" name="Georgies Unit of Measure on product page">
+    <xpath expr="//b[hasclass('oe_price')]" position="after">
+      <span t-field="product.uom_id.name"/>
+    </xpath>
+  </template>
   
   <!-- TODO: Currently just inheriting this template, somehow prevents overrides of the website_sale.products_attributes section from working. So for now we'll leave the table as it. It's quite head scratching as it seems those templates are not related to each other at all...  -->
   <!-- Adjust product specifications section -->
@@ -319,6 +331,10 @@
       <attribute name="class" remove="table-sm" separator=" "/>
     </xpath> -->
   <!-- </template> -->
+
+
+
+
 
   <!-- Cart Popup -->
   <template id="georgies_cart_popover" inherit_id="website_sale.cart_popover" name="Georgies Cart Popover">

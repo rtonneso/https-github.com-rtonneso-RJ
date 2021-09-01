@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-  <!-- Odoo Sippet Style Overrides -->
+  <!-- ||||||||||| Odoo Sippet Style Overrides ||||||||||| -->
   <!-- Banner -->
   <template id="s_banner" inherit_id="website.s_banner" name="Odoo - Georgies banner">
     <!-- Remove rounded corners on jumbotron-->
@@ -51,8 +51,9 @@
     </xpath>
   </template>
 
-  <!-- Georgies Custom Snippets -->
 
+
+  <!-- ||||||||||| Georgies Custom Snippets ||||||||||| -->
   <!-- Georgies Splash Snippet -->
   <template id="s_splash" name="Splash Image">
     
@@ -76,7 +77,7 @@
           <div class="col-md d-flex align-items-center pr-0 pr-sm-3">
             <h4 class="mb-0 text-uppercase font-italic">Hey! Here's a super sweet announcement!</h4>
           </div>
-          <div class="col-md-auto d-flex align-items-center justify-content-start justify-content-sm-end"><a class="btn btn-outline-primary mt-3 mt-md-0" href="#">And boom, a button here</a></div>
+          <div class="col-md-auto d-flex align-items-center justify-content-start justify-content-sm-end"><a class="btn btn-outline-primary mt-3 mt-md-0" href="#">Boom, this is a button!</a></div>
         </div>
       </div>
     </section>
@@ -115,8 +116,8 @@
               <div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br></br>
                 <p><strong><em>Something engaging about the options below</em></strong></p>
+                <div class="pt-3 li-actions-section li_s_buttons" data-name="Buttons"><a class="btn btn-outline-primary" href="#">Some action ></a><a class="btn btn-outline-primary" href="#">Some other action >  </a></div>
               </div>
-              <div class="pt-3 li-actions-section li_s_buttons" data-name="Buttons"><a class="btn btn-outline-primary" href="#">Some action ></a><a class="btn btn-outline-primary" href="#">Some other action >  </a></div>
             </div>
           </div>
           <div class="col-md-5">
@@ -144,8 +145,25 @@
   </template>
 
   <!-- Georgies Split Background Snippet -->
-  <!-- <template id="s_split_background" name="Georgies Split Background Snippet">
-  </template> -->
+  <template id="s_split_background" name="Georgies Split Background Snippet">
+    
+    <section class="li-split-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="px-2 pl-md-0 pr-md-2 pr-lg-3 py-5 li-split-background-item">
+              <div class="oe_structure"></div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="px-2 pr-md-0 pl-md-2 pl-lg-3 py-5 li-split-background-item">
+              <div class="oe_structure"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
 
   <!-- Georgies Simple Card Snippet -->
   <!-- <template id="s_simple_card" name="Georgies Simple Card">
@@ -188,7 +206,7 @@
           <t t-snippet="theme_georgies.s_call_to_action" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
           <t t-snippet="theme_georgies.s_current_gallery_shows" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
           <t t-snippet="theme_georgies.s_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
-          <t t-snippet="theme_georgies.s_shop_mega_menu" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_split_background" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
         </div>
       </div>
     </xpath>
