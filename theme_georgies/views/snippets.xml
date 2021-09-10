@@ -17,31 +17,55 @@
       <!-- |||||||||||||||||||||||||||-->
       <!-- Shop Mega Menu-->
       <!-- |||||||||||||||||||||||||||-->
-      <section class="py-3 bg-primary">
+      <section class="py-1 bg-primary">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-md-4">
               <div class="container li-shop-mega-buttons"><a class="btn btn-outline-secondary btn-sm" href="/shop">Shop Now &gt;</a><a class="btn btn-outline-secondary btn-sm" href="/catalog">Georgies Catalog &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Ordering Info &gt;</a></div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-md-8">
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
-                  <div class="col-lg-3"><a class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></a></div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
                 </div>
               </div>
             </div>

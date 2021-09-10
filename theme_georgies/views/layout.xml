@@ -1,47 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-  <!-- Modify Shop Search Bar -->
-  <template id="website_sale_products_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies Product Search">
-  <!-- Change the placeholder for the products search site-wide -->
-    <xpath expr="//input[@name='search']" position="attributes">
-      <attribute name="placeholder">Search products...</attribute>
+  <!-- WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH -->
+  <!-- Remove button input append group div and keep just the button -->
+  <template id="georgies_website_search_box" inherit_id="website.website_search_box">
+    <xpath expr="//div[hasclass('input-group-append')]" position="replace">
+      <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
     </xpath>
   </template>
 
-  <!-- Adjust navbar search -->
-  <template id="georgies_navbar_search" inherit_id="website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
-    <!-- Adjust input sizing to sm -->
-    <xpath expr="//div[@role='search']" position="attributes">
-      <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
-    </xpath>
-    <!-- Change search button style to outline-white -->
-    <xpath expr="//button[@type='submit']" position="attributes">
-      <attribute name="class" remove="btn-primary" add="btn-outline-white" separator=" "/>
-    </xpath>
-  </template>
-
+  <!-- HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER -->
   <!-- Customize header  -->
   <template id="template_header_default" inherit_id="website.template_header_default">
     <!-- Change navbar classes  -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="///header/nav" position="attributes">
-      <attribute name="class">navbar navbar-expand-md navbar-dark bg-primary px-2 px-md-0</attribute>
-    </xpath> -->
+    <xpath expr="///header/nav" position="attributes">
+      <attribute name="class" add="navbar-expand-md" remove="navbar-expand-lg shadow-sm" separator=" "/>
+    </xpath>
 
     <!-- Add flex-column to collapse element to allow for addition of our search element and set alignment to right -->
     <xpath expr="//div[@id='top_menu_collapse']" position="attributes">
       <attribute name="class" add="flex-column align-items-stretch" separator=" "/>
     </xpath>
   </template>
+  
+  <!-- Adjust navbar search -->
+  <template id="georgies_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
+    
+    <!-- FIXME: FIX PLACEHOLDER -->
+    <!-- Change the placeholder for the products search site-wide -->
+    <xpath expr="//input[@name='search']" position="attributes">
+      <attribute name="placeholder">Search products...</attribute>
+    </xpath>
 
-  <!-- Add od_structure aread in the header -->
-  <template id="layout" inherit_id="website.layout">
-    <!-- Insert snippet area for announcement bar -->
-    <xpath expr="//header//nav" position="replace">
-      <div class="oe_structure"></div>
-      <t>$0</t>
-      <!-- <t t-call="theme_georgies.s_shop_mega_menu"/> -->
+    <!-- Adjust input sizing to sm -->
+    <xpath expr="//div[@role='search']" position="attributes">
+      <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
+    </xpath>
+
+    <!-- Adjust button sizing to sm -->
+    <xpath expr="//button[@type='submit']" position="attributes">
+      <attribute name="class" add="btn-sm" separator=" "/>
     </xpath>
   </template>
 
@@ -49,7 +47,7 @@
   <template id="navbar_nav" inherit_id="website.navbar_nav">
     <!-- Add Search bar above nav -->
     <xpath expr="//ul[@id='top_menu']" position="before">
-      <ul class="navbar-nav mb-2 align-self-end li-navbar-search">
+      <ul class="navbar-nav mb-2 mt-1 align-self-end li-navbar-search">
         <li class="nav-item">
           <t t-call="theme_georgies.georgies_navbar_search">
             <t t-set="_classes" t-value="'s_wsale_products_searchbar_input'"/>
@@ -59,18 +57,23 @@
     </xpath>
   </template>
 
-
-  <!-- Customize logo Padding -->
-  <!-- FIXME: ODOO14 -->
-  <!-- <template id="georgies_navbar_logo" inherit_id="website.layout_logo_show" name="Georgies Navbar Logo">
-    <xpath expr="//header//a[hasclass('logo')]" position="attributes">
-      <attribute name="class" add="pr-2" separator=" "/>
+  <!-- Add oe_structure aread in the header for adding snippets like the announcement bar -->
+  <template id="layout" inherit_id="website.layout">
+    <!-- Insert snippet area for announcement bar -->
+    <xpath expr="//header//nav" position="replace">
+      <div class="oe_structure"></div>
+      <t>$0</t>
+      <!-- <t t-call="theme_georgies.s_shop_mega_menu"/> -->
     </xpath>
-  </template> -->
+  </template>
+
+
+
+
+  <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 
   <!-- Customize footer  -->
   <template id="georgies_footer" inherit_id="website.layout" name="Georgies Footer">
-
     <!-- Replace Odoo's footer with our custom one  -->
     <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
       
@@ -117,11 +120,12 @@
     </xpath>
   </template>
     
+  <!-- SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP -->
   <!-- Customize Odoo Shop-->
   <!-- Shop Page (Products) -->
   <template id="georgies_shop" inherit_id="website_sale.products" name="Georgies Shop Page">
   
-    <!-- Insert our header section etc. before the products search / pager section -->
+    <!-- Insert oe_section before the products search / pager section for header customization-->
     <xpath expr="//div[@id='wrap']//div[hasclass('oe_structure')]" position="inside">
       <div class="oe_structure"/>
     </xpath>
@@ -135,17 +139,21 @@
         </t>
       </div>
     </xpath>
+
     <!-- Remove search element from pager section -->
     <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.search']" position="replace">
     </xpath>
+
     <!-- Change classes of pager section -->
     <xpath expr="//div[hasclass('products_pager')]" position="attributes">
       <attribute name="class" remove="flex-md-nowrap justify-content-between justify-content-md-center" add="mt-2" separator=" "/>
     </xpath>
+
     <!-- Remove left margin on the pager element and set its order -->
     <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website.pager']/t[@t-set='_classes']" position="replace">
       <t t-set="_classes">mt-2 order-3</t>
     </xpath>
+    
     <!-- Hide pricelist button unless the user is logged in and matches a specific group -->
     <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE BY REMOVING IT -->
     <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
@@ -158,7 +166,7 @@
 
     <!-- Add bottom margins to website products section -->
     <xpath expr="//*[hasclass('oe_website_sale')]" position="attributes">
-      <attribute name="class" add="mb-5" separator=" "/>
+      <attribute name="class" add="mb-3" separator=" "/>
     </xpath>
 
   </template>
@@ -222,9 +230,9 @@
       <attribute name="class" remove="mb-2" add="mb-3 " separator=" "/>
     </xpath>
     <!-- Add left margin for collapsable categories to allow space for chevon collapse buttons -->
-    <xpath expr="//ul[@id='o_shop_collapse_category']" position="attributes">
+    <!-- <xpath expr="//ul[@id='o_shop_collapse_category']" position="attributes">
       <attribute name="class" add="ml-2" separator=" "/>
-    </xpath>
+    </xpath> -->
     <!-- Add more space above nav-items for filters -->
     <xpath expr="//div[@id='wsale_products_attributes_collapse']//li[hasclass('nav-item')]" position="attributes">
       <attribute name="class" add="mb-3" separator=" "/>
@@ -288,6 +296,27 @@
     <xpath expr="//*[@id='product_details']" position="attributes">
       <attribute name="class" remove="col-xl-4" separator=" "/>
     </xpath>
+    <!-- Add Product Sales Warning -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="product.sale_line_warn == 'warning'">
+        <t t-if="product.sale_line_warn_msg">
+          <h4>Product Warnings</h4>
+          <p t-field="product.sale_line_warn_msg"/>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add Product Usage Recommendation - is currently tied to a specific field that has been added through the odoo studio in odoo.sh. If this field ID changes and it breaks, change its reference here-->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="'x_studio_many2many_field_uNpZp' in product">
+        <t t-if="product.x_studio_many2many_field_uNpZp">
+            <h4>Product Usage Recommendations</h4>
+            <p t-field="product.x_studio_many2many_field_uNpZp"/>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add new product description field -->
+    <!-- Remove default sales description in non-edit mode -->
+    <!-- Remove default sales description in edit mode -->
   </template>
 
   <!-- Buy now button -->

@@ -79,9 +79,9 @@ $spacer: 2rem;
 // Buttons and Inputs
 // TODO: Disable shadow
 // Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
-$li-btn-padding-y: 14rem / 16;
-$li-btn-padding-x: 30rem / 16;
-$li-input-padding-x: 15rem / 16;
+$li-btn-padding-y: $spacer * .35;
+$li-btn-padding-x: $spacer * .75;
+$li-input-padding-x: $spacer * .25;
 
 // Buttons and Inputs
 // Regular size
@@ -91,7 +91,7 @@ $input-btn-padding-x: $li-btn-padding-x;
 $input-btn-padding-y-lg: $input-btn-padding-y * 1.2;
 $input-btn-padding-x-lg: $input-btn-padding-x * 1.2;
 // Small size
-$input-btn-padding-y-sm: $input-btn-padding-y * .75;
+$input-btn-padding-y-sm: $input-btn-padding-y * .85;
 $input-btn-padding-x-sm: $input-btn-padding-x * .75;
 
 // Input Specific Padding
@@ -124,7 +124,7 @@ $badge-padding-x: .6em;
 // $li-navbar-font-size: $font-size-base * .75;
 $navbar-padding-y: $spacer * .5;
 $navbar-nav-link-padding-y: $spacer * 0.25;
-$navbar-nav-link-padding-x: $spacer * 0.25;
+$navbar-nav-link-padding-x: $spacer * 0.4;
 $navbar-brand-padding-y: 0;
 
 $navbar-dark-color:                 $white;
@@ -148,7 +148,7 @@ $dropdown-min-width: 10rem;
 $dropdown-padding-x: 0;
 $dropdown-padding-y: 0;
 $dropdown-spacer: $border-width;
-$dropdown-font-size: $font-size-base;
+$dropdown-font-size: $font-size-base * .9;
 $dropdown-color: $primary;
 $dropdown-bg: $white;
 $dropdown-border-color: $primary;
@@ -168,8 +168,8 @@ $dropdown-link-active-bg: $tertiary;
 
 $dropdown-link-disabled-color: $gray-500;
 
-$dropdown-item-padding-y: $spacer * .5;
-$dropdown-item-padding-x: $spacer * 1.5;
+$dropdown-item-padding-y: $spacer * .25;
+$dropdown-item-padding-x: $spacer * 1;
 
 $dropdown-header-color: $gray-600;
 $dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
@@ -193,3 +193,10 @@ $nav-tabs-border-color: transparent;
 $nav-tabs-link-hover-border-color: $primary;
 $nav-tabs-link-active-color: $primary;
 $nav-tabs-link-active-border-color: $primary $primary $primary;
+
+// Nav Pills
+$nav-pills-link-active-color: var(--o-color-5);
+$nav-pills-link-active-bg: $primary;
+
+// List
+$list-group-item-padding-y:         $spacer;
