@@ -247,6 +247,11 @@
     </xpath>
   </template>
 
+  <!-- Remove sales description for products in the card tile / list view in the shop aka all products view -->
+  <template id="georgies_product_sales_description" inherit_id="website_sale.products_description" name="Georgies Product Sales Description">
+    <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
   <!-- Customize Product Page -->
   <template id="georgies_product_page" inherit_id="website_sale.product" name="Georgies Product Page">
     <!-- Hide pricelist button unless the user is logged in and matches a specific group and adjust the spacing of the button -->
@@ -257,6 +262,23 @@
           <t t-set="_classes">ml-lg-2 mb-2</t>
         </t>
       </t> -->
+    </xpath>
+    <!-- Disable editability of product page data elements, so as to keep editing only on the backend -->
+    <!-- Disable editability on category name in breadcrumb -->
+    <xpath expr="//a[@t-field='category.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name in breadcrumb -->
+    <xpath expr="//span[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name -->
+    <xpath expr="//h1[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product attributes -->
+    <xpath expr="//span[@t-field='attribute.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
     </xpath>
     <!-- Adjust spacing of search bar and breadcrumbs -->
     <!-- Enlarge breadcrumbs -->
@@ -300,8 +322,9 @@
     <xpath expr="//p[@t-field='product.description_sale']" position="after">
       <t t-if="product.sale_line_warn == 'warning'">
         <t t-if="product.sale_line_warn_msg">
-          <h4>Product Warnings</h4>
-          <p t-field="product.sale_line_warn_msg"/>
+          <hr/>
+          <h4 class="d-inline-block bg-danger px-2">Product Warnings</h4>
+          <p t-field="product.sale_line_warn_msg" contenteditable="false"/>
         </t>
       </t>
     </xpath>
@@ -310,13 +333,52 @@
       <t t-if="'x_studio_many2many_field_uNpZp' in product">
         <t t-if="product.x_studio_many2many_field_uNpZp">
             <h4>Product Usage Recommendations</h4>
-            <p t-field="product.x_studio_many2many_field_uNpZp"/>
+            <div class="mb-3">
+              <t t-foreach="product.x_studio_many2many_field_uNpZp" t-as="recommendation">
+                <span class="badge badge-light" t-field="recommendation.x_name" contenteditable="false"/>
+              </t>
+            </div>
         </t>
       </t>
     </xpath>
     <!-- Add new product description field -->
-    <!-- Remove default sales description in non-edit mode -->
-    <!-- Remove default sales description in edit mode -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="before">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <p t-field="product.x_studio_ecommerce_description" placeholder="Product description that will only be used on the website (not on invoices)." contenteditable="false"/>
+      </t>
+    </xpath>
+    <!-- Change conditional HR element to appear if ecommerce description exists instead of the sales description -->
+    <xpath expr="//hr[@t-if='product.description_sale']" position="replace">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <hr t-if="product.x_studio_ecommerce_description"/>
+      </t>
+    </xpath>
+    <!-- Remove default sales description for the front end editor -->
+    <xpath expr ="//p[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
+  <!-- Customize the product image template to disable front-end editing -->
+  <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies Shop Product Carousel">
+    <!-- Disable editability on product embeded media -->
+    <xpath expr="//t[@t-raw='product_image.embed_code']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product images -->
+    <xpath expr="//div[@t-field='product_image.image_1920']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product thumbnails -->
+    <xpath expr="//div[@t-field='product_image.image_128']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Disable front end editing of the product price -->
+  <template id="georgies_product_price" inherit_id="website_sale.product_price" name="Georgies Product Price">
+    <!-- Diable editing of price -->
+    <xpath expr="//span[@t-field='product.list_price']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
   </template>
 
   <!-- Buy now button -->
@@ -496,12 +558,11 @@
     </xpath>
   </template>
 
-  <!-- Customize Submenus for mega menus -->
-  <!-- <template id="georgies_submenu" inherit_id="website.submenu" name="Georgies Submenu">
-    <xpath expr="//*[@t-attf-class='dropdown-menu o_mega_menu #{submenu.mega_menu_classes}']" position="attributes">
-      <attribute name="t-attf-class" add="li-nav-dropdown-menu-shop" separator=" "/>
-    </xpath>
-  </template> -->
+<!-- Adjust Suggested Products -->
+<template id="georgies_suggested_products_list" inherit_id="website_sale.suggested_products_list" name="Georgies Suggested Products List">
+  <!-- Remove the product sales description -->
+  <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+</template>
 
 
 
