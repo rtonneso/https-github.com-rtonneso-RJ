@@ -858,18 +858,31 @@
 
   <!-- Events Navbar -->
   <template id="georgies_event_navbar" inherit_id="website_event.index_topbar" name="Georgies Event Navbar">
-    <!-- Remove shadow & adjust spacing -->
+    <!-- Remove shadow, adjust spacing, remove border-top -->
     <xpath expr="//nav[hasclass('navbar')]" position="attributes">
-      <attribute name="class" remove="shadow-sm" add="py-2" separator=" "/>
+      <attribute name="class" remove="shadow-sm border-top" add="py-2" separator=" "/>
+    </xpath>
+
+    <!-- Add flex-wrap so that the filters / search wrap arround when narrow -->
+    <xpath expr="//div[hasclass('flex-column')]" position="attributes">
+      <attribute name="class" add="flex-wrap" separator=" "/>
     </xpath>
 
     <!-- Remove events navbar-brand heading "Events" -->
     <xpath expr="//span[hasclass('navbar-brand')]" position="replace">
     </xpath>
 
+    <!-- Remove flex wrapper around search form -->
+    <xpath expr="//div[hasclass('align-items-center')]" position="replace">
+      <t t-call="website_event.events_search_box">
+        <t t-set="_searches" t-value="searches"/>
+        <t t-set="_placeholder">Search an event...</t>
+      </t>
+    </xpath>
+
     <!-- Set the placeholder to be more descriptive -->
     <xpath expr="//t[@t-set='_placeholder']" position="replace">
-      <t t-set="_placeholder">Search for an event...</t>
+      <t t-set="_placeholder">Search classes...</t>
     </xpath>
 
   </template>
@@ -880,9 +893,9 @@
 
   <!-- Events Search Bar (On event single page)-->
   <template id="georgies_events_search_box" inherit_id="website_event.events_search_box" name="Georgies Website Event Search Box">
-    <!-- Change margins of the search form -->
+    <!-- Change margins of the search form and remove width 100-->
     <xpath expr="//form[contains(@t-attf-class, 'o_wevent_event_searchbar_form')]" position="attributes">
-      <attribute name="t-attf-class" remove="my-lg-0" separator=" "/>
+      <attribute name="t-attf-class" remove="my-lg-0 w-100" separator=" "/>
     </xpath>
   </template>
 
@@ -903,14 +916,14 @@
   <!-- Events sidebar spacing modification -->
   <template id="georgies_events_sidebar" inherit_id="website_event.index_sidebar" name="Georgies Events Sidebar">
     <xpath expr="//div[@id='o_wevent_index_sidebar']" position="attributes">
-      <attribute name="class" remove="my-5" add="mb-5 my-lg-5" separator=" "/>
+      <attribute name="class" remove="my-5 ml-xl-5" add="my-2 my-lg-3" separator=" "/>
     </xpath>
   </template>
 
   <!-- Events list spacing modification -->
   <template id="georgies_event_index" inherit_id="website_event.index" name="Georgies Event Index">
     <xpath expr="//div[@id='o_wevent_index_main_col']" position="attributes">
-      <attribute name="t-attf-class">col-md mt-5 my-lg-5 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}</attribute>
+      <attribute name="t-attf-class">col-md mt-2 mt-lg-3 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}</attribute>
     </xpath>
   </template>
 

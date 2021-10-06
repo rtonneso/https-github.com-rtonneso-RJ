@@ -599,6 +599,9 @@ $li-cat-attr-padding-active: 1rem;
 
 .css_attribute_color {
     cursor: pointer; // Add cursor pointer functionality
+    input {
+        cursor: pointer; // Add cursor pointer on the input as well
+    }
     &.active { border: 3px dashed $gray-400; } // Change border style
 }
 
