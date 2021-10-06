@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <!-- Insert our modified bootstrap variables -->
+  <template id="theme_georgies_bootstrap" inherit_id="website._assets_frontend_helpers" priority="1">
+    <xpath expr="//link" position="before">
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_variables.scss"/>
+    </xpath>
+  </template>
+
+  <!-- Add our Odoo variable overrides -->
+  <template id="_assets_primary_variables" inherit_id="website._assets_primary_variables">
+      <xpath expr="link[last()]" position="after">
+          <!-- <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/odoo_primary_variables.scss"/> -->
+      </xpath>
+  </template>
+
+  <!-- Insert our modified bootstrap variables -->
+  <template id="_assets_frontend_helpers" inherit_id="website._assets_frontend_helpers">
+      <xpath expr="//link[last()]" position="after">
+          <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/bootstrap_overridden.scss"/>
+      </xpath>
+  </template>
+
+  <!-- Insert our custom assets -->
+  <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999">
+    <!-- Remove more Odoo bootstrap code -->
+    <!-- <xpath expr="//link[@href='/website/static/src/scss/website.scss']" position="replace"/> -->
+    <!-- <xpath expr="//link[@href='/website/static/src/scss/website.ui.scss']" position="replace"/> -->
+
+    <xpath expr="//link[last()]" position="after">
+      <!-- Insert our custom css-->
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_mixins.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_lichen.scss"/>
+      <!-- Insert our custom web fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap"/>
+    </xpath>
+    <!-- Insert our custom JS -->
+    <xpath expr="script[last()]" position="after">
+      <script type="text/javascript" src="/theme_georgies/static/js/li-georgies-2ba3566b81.js" />
+    </xpath>
+  </template>
+
+</odoo>

@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <!-- WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH -->
+  <!-- Remove button input append group div and keep just the button -->
+  <template id="georgies_website_search_box" inherit_id="website.website_search_box">
+    <xpath expr="//div[hasclass('input-group-append')]" position="replace">
+      <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
+    </xpath>
+  </template>
+
+  <!-- HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER -->
+  <!-- Customize header  -->
+  <template id="template_header_default" inherit_id="website.template_header_default">
+    <!-- Change navbar classes  -->
+    <xpath expr="///header/nav" position="attributes">
+      <attribute name="class" add="navbar-expand-md" remove="navbar-expand-lg shadow-sm" separator=" "/>
+    </xpath>
+
+    <!-- Add flex-column to collapse element to allow for addition of our search element and set alignment to right -->
+    <xpath expr="//div[@id='top_menu_collapse']" position="attributes">
+      <attribute name="class" add="flex-column align-items-stretch" separator=" "/>
+    </xpath>
+  </template>
+  
+  <!-- Adjust navbar search -->
+  <template id="georgies_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
+    
+    <!-- FIXME: FIX PLACEHOLDER -->
+    <!-- Change the placeholder for the products search site-wide -->
+    <xpath expr="//input[@name='search']" position="attributes">
+      <attribute name="placeholder">Search products...</attribute>
+    </xpath>
+
+    <!-- Adjust input sizing to sm -->
+    <xpath expr="//div[@role='search']" position="attributes">
+      <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
+    </xpath>
+
+    <!-- Adjust button sizing to sm -->
+    <xpath expr="//button[@type='submit']" position="attributes">
+      <attribute name="class" add="btn-sm" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Add search above header nav -->
+  <template id="navbar_nav" inherit_id="website.navbar_nav">
+    <!-- Add Search bar above nav -->
+    <xpath expr="//ul[@id='top_menu']" position="before">
+      <ul class="navbar-nav mb-2 mt-1 align-self-end li-navbar-search">
+        <li class="nav-item">
+          <t t-call="theme_georgies.georgies_navbar_search">
+            <t t-set="_classes" t-value="'s_wsale_products_searchbar_input'"/>
+          </t>
+        </li>        
+      </ul>
+    </xpath>
+  </template>
+
+  <!-- Add oe_structure aread in the header for adding snippets like the announcement bar -->
+  <template id="layout" inherit_id="website.layout">
+    <!-- Insert snippet area for announcement bar -->
+    <xpath expr="//header//nav" position="replace">
+      <div class="oe_structure"></div>
+      <t>$0</t>
+      <!-- <t t-call="theme_georgies.s_shop_mega_menu"/> -->
+    </xpath>
+  </template>
+
+
+
+
+  <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
+
+  <!-- Customize footer  -->
+  <template id="georgies_footer" inherit_id="website.layout" name="Georgies Footer">
+    <!-- Replace Odoo's footer with our custom one  -->
+    <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
+      
+      <footer class="bg-primary py-4 li-footer text-white">
+        <div class="container">
+          <div class="mt-2 li-footer-newsletter">
+            <div class="row align-items-center border border-light">
+              <div class="col-sm">
+                <div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div>
+              </div>
+              <div class="col-sm-auto d-flex justify-content-sm-end">
+                <div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
+                <!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
+            </div>
+          </div>
+          <div class="row mt-4 justify-content-center li-type-attention">
+            <div class="col-auto"> 
+              <div class="pb-2">Follow us!</div>
+            </div>
+            <div class="col-sm-auto">
+              <div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
+            </div>
+            <div class="col-sm-auto">
+              <div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </xpath>
+  </template>
+    
+  <!-- SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP -->
+  <!-- Customize Odoo Shop-->
+  <!-- Shop Page (Products) -->
+  <template id="georgies_shop" inherit_id="website_sale.products" name="Georgies Shop Page">
+  
+    <!-- Insert oe_section before the products search / pager section for header customization-->
+    <xpath expr="//div[@id='wrap']//div[hasclass('oe_structure')]" position="inside">
+      <div class="oe_structure"/>
+    </xpath>
+
+    <!-- Modify Odoo's Search / Pagination section -->
+    <!-- Insert search bar -->
+    <xpath expr="//div[hasclass('products_pager')]" position="before">
+      <div class="mt-3">
+        <t t-call="website_sale.search">
+          <t t-set="_classes">w-100 w-md-auto</t>
+        </t>
+      </div>
+    </xpath>
+
+    <!-- Remove search element from pager section -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.search']" position="replace">
+    </xpath>
+
+    <!-- Change classes of pager section -->
+    <xpath expr="//div[hasclass('products_pager')]" position="attributes">
+      <attribute name="class" remove="flex-md-nowrap justify-content-between justify-content-md-center" add="mt-2" separator=" "/>
+    </xpath>
+
+    <!-- Remove left margin on the pager element and set its order -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website.pager']/t[@t-set='_classes']" position="replace">
+      <t t-set="_classes">mt-2 order-3</t>
+    </xpath>
+    
+    <!-- Hide pricelist button unless the user is logged in and matches a specific group -->
+    <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE BY REMOVING IT -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
+      <!-- <t t-if="not request.website.is_public_user()">
+        <t t-call="website_sale.pricelist_list">
+          <t t-set="_classes">mr-2</t>
+        </t>
+      </t> -->
+    </xpath>
+
+    <!-- Add bottom margins to website products section -->
+    <xpath expr="//*[hasclass('oe_website_sale')]" position="attributes">
+      <attribute name="class" add="mb-3" separator=" "/>
+    </xpath>
+
+  </template>
+
+  <!-- Adjust sort button -->
+  <template id="georgies_shop_sort_button" inherit_id="website_sale.sort" name="Georgies Sort Button" active="True">
+    <!-- Change left spacing and order -->
+    <xpath expr="//div[hasclass('dropdown_sorty_by')]" position="attributes">
+      <attribute name="class" remove="ml-md-2" add="mr-sm-2 order-1" separator=" "/>
+    </xpath>
+    <xpath expr="//div[hasclass('dropdown-menu')]" position="attributes">
+      <attribute name="class" remove="dropdown-menu-right" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust results layout button -->
+  <template id="georgies_shop_results_layout_button" inherit_id="website_sale.add_grid_or_list_option" name="Georgies Results Layout Button" active="True">
+    <xpath expr="//div[hasclass('o_wsale_apply_layout')]" position="attributes">
+      <attribute name="class" remove="ml-md-2" add="mr-sm-2 order-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product card title and price section spacing -->
+  <template id="georgies_product_item" inherit_id="website_sale.products_item" name="Georgies Product Card">
+    <!-- Remove bootstrap utility class and style padding in css, so that in list view it can be a different amount -->
+    <xpath expr="//div[hasclass('o_wsale_product_information_text')]" position="attributes">
+      <attribute name="class" remove="p-2" add="p-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product category collapse button style -->
+  <template id="georgies_products_categories" inherit_id="website_sale.products_categories" name="Georgies Product categories">
+    <xpath expr="//div[@id='products_grid_before']/button[1]" position="attributes">
+      <attribute name="class" remove="button-link" add="btn-secondary mb-2 mr-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Recursive category list - Normal -->
+  <template id="georgies_product_categories_recursive" inherit_id="website_sale.categories_recursive" name="Georgies Recursive Categories">
+    <xpath expr="//ul" position="attributes">
+      <attribute name="class" add="pl-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Recursive category list - Collapseable -->
+  <template id="georgies_product_categories_recursive_collapse" inherit_id="website_sale.option_collapse_categories_recursive" name="Georgies Recursive Categories - Collapseable">
+    <!-- Add left spacing to inset the sub categories -->
+    <xpath expr="//ul" position="attributes">
+      <attribute name="class" add="pl-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product attribute filter section -->
+  <template id="georgies_product_attributes" inherit_id="website_sale.products_attributes" name="Georgies Product Attributes Section">
+    <!-- Change button styling of show options button-->
+    <xpath expr="//div[@id='products_grid_before']/button[2]" position="attributes">
+      <attribute name="class" remove="button-link" add="btn-secondary mb-2 mr-2" separator=" "/>
+    </xpath>
+    <!-- Adjust bottom of categories list -->
+    <xpath expr="//div[@id='wsale_products_categories_collapse']/ul" position="attributes">
+      <attribute name="class" remove="mb-2" add="mb-3 " separator=" "/>
+    </xpath>
+    <!-- Add left margin for collapsable categories to allow space for chevon collapse buttons -->
+    <!-- <xpath expr="//ul[@id='o_shop_collapse_category']" position="attributes">
+      <attribute name="class" add="ml-2" separator=" "/>
+    </xpath> -->
+    <!-- Add more space above nav-items for filters -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//li[hasclass('nav-item')]" position="attributes">
+      <attribute name="class" add="mb-3" separator=" "/>
+    </xpath>
+    <!-- Add more space below filter labels -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//li[hasclass('nav-item')]/div" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Remove margins on nav-link in filters area -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//label" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+  </template>
+
+  <!-- Remove sales description for products in the card tile / list view in the shop aka all products view -->
+  <template id="georgies_product_sales_description" inherit_id="website_sale.products_description" name="Georgies Product Sales Description">
+    <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
+  <!-- Customize Product Page -->
+  <template id="georgies_product_page" inherit_id="website_sale.product" name="Georgies Product Page">
+    <!-- Hide pricelist button unless the user is logged in and matches a specific group and adjust the spacing of the button -->
+    <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE -->
+    <xpath expr="//t[@t-call='website_sale.pricelist_list']" position="replace">
+      <!-- <t t-if="not request.website.is_public_user()">
+        <t t-call="website_sale.pricelist_list">
+          <t t-set="_classes">ml-lg-2 mb-2</t>
+        </t>
+      </t> -->
+    </xpath>
+    <!-- Disable editability of product page data elements, so as to keep editing only on the backend -->
+    <!-- Disable editability on category name in breadcrumb -->
+    <xpath expr="//a[@t-field='category.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name in breadcrumb -->
+    <xpath expr="//span[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name -->
+    <xpath expr="//h1[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product attributes -->
+    <xpath expr="//span[@t-field='attribute.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Adjust spacing of search bar and breadcrumbs -->
+    <!-- Enlarge breadcrumbs -->
+    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-4')]" position="attributes">
+      <attribute name="class" remove="col-md-4" add="col-md-5" separator=" "/>
+    </xpath>
+    <!-- Shrink Search bar / pricelist button column slightly -->
+    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-8')]" position="attributes">
+      <attribute name="class" remove="col-md-8" add="col-md-7" separator=" "/>
+    </xpath>
+    <!-- Adjust spacing of product section -->
+    <xpath expr="//section[@id='product_detail']" position="attributes">
+      <attribute name="t-attf-class" remove="py-2" add="pt-4 pb-3" separator=" "/>
+    </xpath>
+    <!-- Add top spacing to the product tile -->
+    <xpath expr="//h1[@t-field='product.name']" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Change add to cart button to regular button -->
+    <xpath expr="//*[hasclass('btn-lg')]" position="attributes">
+      <attribute name="class" remove="btn-lg" separator=" "/>
+    </xpath>
+    <!-- Add spacing between cart icon and add to cart text -->
+    <xpath expr="//a[@id='add_to_cart']/i" position="attributes">
+      <attribute name=
+      "class" add="mr-1" separator=" "/>
+    </xpath>
+    <!-- Add spacing to the right of add to cart button to space the buy now button out-->
+    <xpath expr="//a[@id='add_to_cart']" position="attributes">
+      <attribute name="class" add="mr-1" separator=" "/>
+    </xpath>
+    <!-- Change size of product carousel column to 6 -->
+    <xpath expr="//*[@id='product_detail']//div[hasclass('row')][2]//div[hasclass('col-xl-8')]" position="attributes">
+      <attribute name="class" remove="col-xl-8" separator=" "/>
+    </xpath>
+    <!-- Change size of product details column to 6 -->
+    <xpath expr="//*[@id='product_details']" position="attributes">
+      <attribute name="class" remove="col-xl-4" separator=" "/>
+    </xpath>
+    <!-- Add Product Sales Warning -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="product.sale_line_warn == 'warning'">
+        <t t-if="product.sale_line_warn_msg">
+          <hr/>
+          <h4 class="d-inline-block bg-danger px-2">Product Warnings</h4>
+          <p t-field="product.sale_line_warn_msg" contenteditable="false"/>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add Product Usage Recommendation - is currently tied to a specific field that has been added through the odoo studio in odoo.sh. If this field ID changes and it breaks, change its reference here-->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="'x_studio_many2many_field_uNpZp' in product">
+        <t t-if="product.x_studio_many2many_field_uNpZp">
+            <h4>Product Usage Recommendations</h4>
+            <div class="mb-3">
+              <t t-foreach="product.x_studio_many2many_field_uNpZp" t-as="recommendation">
+                <span class="badge badge-light" t-field="recommendation.x_name" contenteditable="false"/>
+              </t>
+            </div>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add new product description field -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="before">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <p t-field="product.x_studio_ecommerce_description" placeholder="Product description that will only be used on the website (not on invoices)." contenteditable="false"/>
+      </t>
+    </xpath>
+    <!-- Change conditional HR element to appear if ecommerce description exists instead of the sales description -->
+    <xpath expr="//hr[@t-if='product.description_sale']" position="replace">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <hr t-if="product.x_studio_ecommerce_description"/>
+      </t>
+    </xpath>
+    <!-- Remove default sales description for the front end editor -->
+    <xpath expr ="//p[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
+  <!-- FIXME: IMAGE EDITING -->
+  <!-- Customize the product image template to disable front-end editing -->
+  <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies Shop Product Carousel">
+    <!-- Disable editability on product embeded media -->
+    <xpath expr="//t[@t-raw='product_image.embed_code']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product images -->
+    <xpath expr="//div[@t-field='product_image.image_1920']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product thumbnails -->
+    <xpath expr="//div[@t-field='product_image.image_128']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Disable front end editing of the product price -->
+  <template id="georgies_product_price" inherit_id="website_sale.product_price" name="Georgies Product Price">
+    <!-- Diable editing of price -->
+    <xpath expr="//span[@t-field='product.list_price']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Buy now button -->
+  <template id="georgies_product_buy_now" inherit_id="website_sale.product_buy_now" name="Georgies Product Buy Now Button" active="True">
+
+    <!-- Change size of buy now button to regular -->
+    <xpath expr="//a[@id='buy_now']" position="attributes">
+      <attribute name="class" remove="btn-lg" separator=" "/>
+    </xpath>
+
+    <!-- Add space between the icon and the text of the buy now button -->
+    <xpath expr="//a[@id='buy_now']//i" position="attributes">
+      <attribute name="class" add="mr-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Add spacing above product image carousel -->
+  <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies Shop Product Carousel">
+    <xpath expr="//div[@id='o-carousel-product']" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Add Unit of Measure after product price -->
+  <!-- In order for this to work, the Product Unit of Measure must be accessible to the public.
+  So to set that up, enable developer access in general settings.
+  Navigate to the techincal menu, security, access rights.
+  Create a new record: Name= uom.uom.public | Model=Product Unit of Measure | Group=User types / Public | Read Access=Checked
+  -->
+  <template id="georgies_unit_of_measure" inherit_id="website_sale.product_price" name="Georgies Unit of Measure on product page">
+    <xpath expr="//b[hasclass('oe_price')]" position="after">
+      <span t-field="product.uom_id.name"/>
+    </xpath>
+  </template>
+  
+  <!-- TODO: Currently just inheriting this template, somehow prevents overrides of the website_sale.products_attributes section from working. So for now we'll leave the table as it. It's quite head scratching as it seems those templates are not related to each other at all...  -->
+  <!-- Adjust product specifications section -->
+  <!-- <template id="georgies_product_attributes" inherit_id="website_sale_comparison.product_attributes_body" name="Georgies Product Attributes Section"> -->
+    <!-- Change size of specifications table -->
+    <!-- <xpath expr="//table-sm" position="attributes">
+      <attribute name="class" remove="table-sm" separator=" "/>
+    </xpath> -->
+  <!-- </template> -->
+
+  <!-- Adjust the product reviews "comments" section -->
+  <template id="georgies_product_comment" inherit_id="website_sale.product_comment" name="Georgies Product Reviews">
+    <!-- Add heading to the reviews section-->
+    <xpath expr="//t[@t-call='portal.message_thread']" position="before">
+      <h3 class="text-center mb-3">Product Reviews</h3>
+    </xpath>
+    <!-- Adjust size of the whole column so that it has enough space to allow for the remove selection buttons -->
+    <xpath expr="//div[hasclass('col-lg-8')]" position="attributes">
+      <attribute name="class">col-lg-12</attribute>
+    </xpath>
+  </template>
+
+  <!-- Product page Recently Viewed Products -->
+
+
+  <!-- Cart Popup -->
+  <template id="georgies_cart_popover" inherit_id="website_sale.cart_popover" name="Georgies Cart Popover">
+    <!-- Add bottom padding to cart line item, swap default bottom margin for top padding, and center text vertically on cart line item -->
+    <xpath expr="//div[hasclass('cart_line')]" position="attributes">
+      <attribute name="class" remove="mb8" add="pt-1 pb-1 align-items-center" separator=" "/>
+    </xpath>
+
+    <!-- Remove product image bottom padding. Overwrite t-options to remove mb-2 -->
+    <xpath expr="//span[@t-field='line.product_id.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max'}</attribute>
+    </xpath>
+
+    <!-- Add margin below the view cart button -->
+    <xpath expr="//a[@href='/shop/cart']" position="attributes">
+      <attribute name="class" add="mb-1" separator=" "/>
+    </xpath>
+
+  </template>
+
+  <!-- Shop Cart Nav Menu Item -->
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_cart_nav_menu" inherit_id="website_sale.header" name="Georgies Cart Nav Menu Item"> -->
+    <!-- Change my cart to cart -->
+    <!-- <xpath expr="//a[@href='/shop/cart']" position="replace">
+      <a href="/shop/cart" class="nav-link">
+          <i class="fa fa-shopping-cart"></i>
+          <sup t-attf-class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
+      </a>
+    </xpath>
+  </template> -->
+
+  <!-- Shop Compare Products Page -->
+  <template id="georgies_compare_products" inherit_id="website_sale_comparison.product_compare" name="Georgies Product Compare">
+    <!-- Insert  back to shop and searchbar above the compare products section -->
+    <xpath expr="//div[hasclass('container')]" position="before">
+      <div class="bg-secondary">
+        <div class="container">
+          <div class="row py-3 align-items-center">
+            <div class="col-md-4">
+              <a href="/shop" class="navbar-brand h4 my-0 mr-4">
+                <i class="fa fa-long-arrow-left text-primary mr-2"/>Back to Shop
+              </a>
+            </div>
+            <div class="col-md-8">
+              <t t-call="website_sale.website_sale_products_search_box">
+              </t>
+            </div>
+          </div>
+        </div>
+      </div>
+    </xpath>
+    <!-- Add top spacing to the heading element -->
+    <xpath expr="//h3" position="attributes">
+      <attribute name="class" add="pt-3" separator=" "/>
+    </xpath>
+    <!-- Increase bottom spacing of table to footer -->
+    <xpath expr="//table" position="attributes">
+      <attribute name="class" add="mb-5" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Shop compare button on prducts index page -->
+  <template id="georgies_compare_button" inherit_id="website_sale_comparison.add_to_compare" name="Georgies Product Comparison Button">
+    <xpath expr="//div[hasclass('o_wsale_product_btn')]/button[hasclass('o_add_compare')]" position="attributes">
+      <attribute name="class" remove="d-md-inline-block" add="d-md-flex" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Shop wishlist modifications -->
+  <template id="georgies_product_wishlist" inherit_id="website_sale_wishlist.product_wishlist" name="Georgies Product Wishlist">
+    <!-- Increase spacing above the wishlist heading -->
+    <xpath expr="//h3" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Increase space below the table -->
+    <xpath expr="//table" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-2 mb-5" separator=" "/>
+    </xpath>
+    <!-- Increase space above the add to cart option -->
+    <xpath expr="//div[hasclass('checkbox')]" position="attributes">
+      <attribute name="class" add="pt-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_wishlist_nav_item" inherit_id="website_sale_wishlist.header" name="Georgies Wishlist Nav Item"> -->
+    <!-- Remove word description for the wishlist to create more space -->
+    <!-- <xpath expr="//a[@href='/shop/wishlist']" position="replace">
+      <a href="/shop/wishlist" class="nav-link">
+        <i class="fa fa-heart"/>
+        <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"><t t-esc='wishcount'/></sup>
+      </a>
+    </xpath>
+  </template> -->
+
+  <!-- Shop recommended products (alternative products) modifications -->
+  <template id="georgies_recommended_products" inherit_id="website_sale.recommended_products" name="Georgies Recommended Products (Alternative Products)">
+    <!-- Ajust space above the sugested alternatives container and add class to assist in some styling -->
+    <xpath expr="//div[@t-if='product.alternative_product_ids']" position="attributes">
+      <attribute name="class" remove="mt32" add="mt-4 o_alternative_product_item" separator=" "/>
+    </xpath>
+    <!-- Adjust space above alternative products row relative to the heading and below it -->
+    <xpath expr="//div[@t-if='product.alternative_product_ids']//div[hasclass('row')]" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-3 pb-3" separator=" "/>
+    </xpath>
+    <!-- Remove inline styling of product -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+    <!-- Remove rounded and shadow classes from alternative product image (product_variant.image_128)-->
+    <xpath expr="//t[@t-as='alt_product']//div[@t-field='product_variant.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product mb-3' }</attribute>
+    </xpath>
+    <!-- Remove rounded and shadow classes from alternative product image (alt_product.image_128)-->
+    <xpath expr="//t[@t-as='alt_product']//div[@t-field='alt_product.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product mb-3' }</attribute>
+    </xpath>
+    <!-- Adjust the spacing above each recommended product -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]/div" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-2" separator=" "/>
+    </xpath>
+    <!-- Remove the link that's on the product title as it's now redundant -->
+    <xpath expr="//t[@t-as='alt_product']//a[@t-att-href='alt_product.website_url']" position="replace">
+      <span t-att-title="alt_product.name" t-field="alt_product.name" class="o_text_overflow" style="display: block;" />
+    </xpath>
+    <!-- Wrap whole product in a link, instead of having just the link on the product title -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]/div" position="replace">
+      <a t-att-href="alt_product.website_url">$0</a>
+    </xpath>
+  </template>
+
+<!-- Adjust Suggested Products -->
+<template id="georgies_suggested_products_list" inherit_id="website_sale.suggested_products_list" name="Georgies Suggested Products List">
+  <!-- Remove the product sales description -->
+  <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO -->
+
+  <!-- Blog Styling -->
+
+  <!-- Remove rounded corners and shadows from blog post image -->
+  <template id="georgies_blog_post_cover_image" inherit_id="website_blog.post_cover_image" name="Georgies Blog Post Cover Image">
+    <xpath expr="//t[@t-call='website.record_cover']/t[@t-set='additionnal_classes']" position="attributes">
+      <attribute name="t-value" remove="rounded shadow" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Modify post information section -->
+  <template id="georgies_blog_post_teaser" inherit_id="website_blog.post_teaser" name="Georgies Blog Post Teaser">
+    <!-- Add space above teaser -->
+    <xpath expr="//div[@t-field='blog_post.teaser'][1]" position="attributes">
+      <attribute name="class" remove="mt-2" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Add space above teaser again (cause there's two of them in alternate templates) -->
+    <xpath expr="//div[@t-field='blog_post.teaser'][2]" position="attributes">
+      <attribute name="t-attf-class" remove="mt-2" add="mt-3" separator=" "/>
+    </xpath>
+
+    <!-- Add space above tags -->
+    <xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]" position="attributes">
+      <attribute name="class" remove="pt-2" add="pt-3" separator=" "/>
+    </xpath>
+
+    <!-- Add heading tag to tags badges to add letter spacing and border / border primary to the conditional element so that they're equal size to the badges with just a border -->
+    <xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]//a" position="attributes">
+      <attribute name="t-attf-class">badge h6 mb-2 mr-1 text-truncate #{one_tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Modify the post loop -->
+  <template id="georgies_post_loop" inherit_id="website_blog.posts_loop" name="Georgies Post Loop">
+    <!-- Change the spacing of the post info section, change top padding to 3, remove bottom padding -->
+    <xpath expr="//div[contains(@t-attf-class, 'o_wblog_normalize_font')]" position="attributes">
+      <attribute name="t-attf-class">o_wblog_normalize_font #{'card-footer px-2 pt-3' if opt_blog_cards_design else 'pr-2 pt-3'}</attribute>
+    </xpath>
+  </template> 
+
+  <!-- Modify the blog tag list that is shown at the top of the page when a tag or multiple tags have been selected -->
+  <template id="georgies_blog_tags_list" inherit_id="website_blog.tags_list" name="Georgies Blog Tag List">
+
+    <!-- Remove rounded class and add h6 for letter spacing and add font-weight-bold for boldness -->
+    <xpath expr="//span[hasclass('rounded')]" position="attributes">
+      <attribute name="class" remove="rounded" add="h6 font-weight-bold" separator=" "/>
+    </xpath>
+
+    <!-- Modify t-attf-class for borders on selected item -->
+    <xpath expr="//a[@t-elif='showInactive']" position="attributes">
+      <attribute name="t-attf-class">badge mb-2 mw-100 text-truncate #{tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+    </xpath>
+
+  </template>
+
+  <!-- Modify Blog Cover Post (the latest blog post at the top of the blogs section) -->
+  <template id="georgies_blog_cover_post" inherit_id="website_blog.opt_blog_cover_post" name="Georgies Blog Cover Post">
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Modify Blog cover post ("full width" design)-->
+  <!-- <template id="georgies_blog_cover_post_full_width" inherit_id="website_blog.opt_blog_cover_post_fullwidth_design" name="Georgies Blog Cover Post - Full Width"> -->
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <!-- <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
+    </xpath>
+  </template> -->
+  
+
+  <!-- Modify the read next blog section -->  
+  <template id="georgies_blog_read_next" inherit_id="website_blog.opt_blog_post_read_next" name="Georgies Blog Read Next">
+    <!-- Add padding on the top of the next post section -->
+    <xpath expr="//t[@t-call='website.record_cover']//div[@t-attf-class='o_wblog_post_title']" position="attributes">
+      <attribute name="t-attf-class" add="pt-3" separator=" "/>
+    </xpath>
+    <!-- Remove negative padding on next button section -->
+    <xpath expr="//t[@t-call='website.record_cover']/div[hasclass('container')]/div[2]" position="attributes">
+      <attribute name="t-attf-class">o_wblog_toggle</attribute>
+    </xpath>
+    <!-- Remove fake button spacer -->
+    <xpath expr="////t[@t-call='website.record_cover']/div[hasclass('container')]/div[4]" position="replace">
+    </xpath>
+  </template>
+
+  <!-- Modify the blog template -->
+  <template id="georgies_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="Georgies Blog Post Template">
+    <!-- Add padding to the top and bottom of the title area -->
+    <xpath expr="//div[@id='title']/t/div[hasclass('container')]" position="attributes">
+      <attribute name="class" add="py-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Blog Sidebars -->
+  <!-- Modify the blog post side index area -->
+  <template id="georgies_blog_side_index" inherit_id="website_blog.sidebar_blog_index" name="Georgies Blog Side Index" priority="1">
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the side index follow us addition -->
+  <template id="georgies_blog_side_index_follow_us" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Georgies Blog Side Index - Follow Us" priority="1">
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+   </xpath>
+   <!-- Add space below the subscribe button, so that the spacing is consistent with the other sidebar sections, change pt-2 to py-2 -->
+   <xpath expr="//t[@t-set='div_class']" position="attributes">
+    <attribute name="t-value">'py-2'</attribute>
+   </xpath>
+  </template>
+  <!-- Modify the side index (blog index page) tags addition -->
+  <template id="georgies_blog_side_index_tags" inherit_id="website_blog.opt_sidebar_blog_index_tags" name="Georgies Blog Side Index - Tags" priority="1">
+      <!-- Set margin to 0 on tags section (h5) -->
+    <xpath expr="//div[hasclass('h5')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the side index archive addition -->
+  <template id="georgies_blog_side_index_archive" inherit_id="website_blog.opt_sidebar_blog_index_archives" name="Georgies Blog Side Index - Archive" priority="1">
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the blog side index archive date selector -->
+  <template id="georgies_blog_side_index_archive_date_selector" inherit_id="website_blog.date_selector" name="Georgies Blog Archive Date Selector">
+    <xpath expr="//select[hasclass('custom-select')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Blog post sidebar -->
+  <!-- Change spacing below the author info section -->
+  <template id="georgies_blog_post_author_display" inherit_id="website_blog.opt_blog_post_author_avatar_display" name="Georgies Blog Post - Author Info">
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Remove margins below heading, add mb-0 -->
+    <xpath expr="//t[contains(@t-value, 'h5')]" position="attributes">
+      <attribute name="t-value">'h5 mb-0 d-flex align-items-center'</attribute>
+    </xpath>
+  </template>
+  <!-- Remove 0 line height stying -->
+  <template id="georgies_blog_post_author" inherit_id="website_blog.post_author" name="Blog Post Author Section">
+    <xpath expr="//div[@style='line-height:1'][2]" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the share the post section -->
+  <template id="georgies_blog_post_share_links" inherit_id="website_blog.opt_blog_post_share_links_display" name="Georgies Blog Post - Share Links">
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the tags section-->
+  <template id="georgies_blog_post_tags" inherit_id="website_blog.opt_blog_post_tags_display" name="Georgies Blog Post - Tags">
+    <!-- Set margin to 0 on tags section (h5) -->
+    <xpath expr="//div[hasclass('h5')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>   
+    </xpath>
+    <!-- Change padding below the heading separator -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('border-bottom')]/h6[hasclass('pb-2')]" position="attributes">
+      <attribute name="class" add="mb-0" separator=" "/>
+    </xpath> -->
+    <!-- Add margins below each tag so they have space between them when they stack -->
+    <xpath expr="//a[hasclass('badge')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Change padding below that section -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath> -->
+    <!-- Change alternate view space settings too -->
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath> -->
+    <!-- Change margin of Tag's "add some" area -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath> -->
+  </template>
+  <!-- Change the spacing of the our blogs section -->
+  <template id="georgies_blog_post_our_blogs" inherit_id="website_blog.opt_blog_post_blogs_display" name="Georgies Blog Post - Our Blogs">
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the archive section -->
+  <template id="georgies_blog_post_archive" inherit_id="website_blog.opt_blog_post_archive_display" name="Georgies Blog Post - Archive" >
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Style the blog navigation menu -->
+  <template id="georgies_blogs_nav" inherit_id="website_blog.blogs_nav" name="Georgies Blogs Nav">
+    <!-- Add margin on xs screens to provide spacing for the nav menu -->
+    <xpath expr="//nav" position="attributes">
+      <attribute name="t-attf-class" add="py-2" separator=" "/>
+    </xpath>
+
+    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar,
+    set a better width -->
+    <xpath expr="//form[@id='o_wblog_post_search']" position="attributes">
+      <attribute name="class" remove="w-md-auto" add="my-1 ml-sm-3 w-100 w-lg-50" separator=" "/>
+    </xpath>
+  </template>
+
+
+
+
+
+  <!-- Events Module Customization -->
+  <!-- Add event spash bar -->
+  <template id="georgies_events_index" inherit_id="website_event.index" name="Georgies Event Index">
+    <xpath expr="//t[@t-call='website_event.index_topbar']" position="before">
+      <div class="oe_structure"/>
+    </xpath>
+  </template>
+
+  <!-- Events Navbar -->
+  <template id="georgies_event_navbar" inherit_id="website_event.index_topbar" name="Georgies Event Navbar">
+    <!-- Remove shadow & adjust spacing -->
+    <xpath expr="//nav[hasclass('navbar')]" position="attributes">
+      <attribute name="class" remove="shadow-sm" add="py-2" separator=" "/>
+    </xpath>
+
+    <!-- Remove events navbar-brand heading "Events" -->
+    <xpath expr="//span[hasclass('navbar-brand')]" position="replace">
+    </xpath>
+
+    <!-- Set the placeholder to be more descriptive -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search for an event...</t>
+    </xpath>
+
+  </template>
+
+
+  <!-- Change upcoming events to upcoming classes -->
+
+
+  <!-- Events Search Bar (On event single page)-->
+  <template id="georgies_events_search_box" inherit_id="website_event.events_search_box" name="Georgies Website Event Search Box">
+    <!-- Change margins of the search form -->
+    <xpath expr="//form[contains(@t-attf-class, 'o_wevent_event_searchbar_form')]" position="attributes">
+      <attribute name="t-attf-class" remove="my-lg-0" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- Events List -->
+  <template id="georgies_events_list" inherit_id="website_event.events_list" name="Georgies Events List">
+    <!-- Remove shadows -->
+    <xpath expr="//article" position="attributes">
+      <attribute name="t-attf-class">#{opt_events_list_cards and 'card'}</attribute>
+    </xpath>
+    <!-- Remove rounded tops -->
+    <xpath expr="//header" position="attributes">
+      <attribute name="t-attf-class">overflow-hidden bg-secondary #{opt_events_list_columns and 'col-12' or 'col-sm-4 col-lg-3 rounded-left'} #{(not opt_events_list_cards) and 'rounded shadow'} #{(not opt_events_list_cards and not opt_events_list_columns)}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Events Sidebar -->
+  <!-- Events sidebar spacing modification -->
+  <template id="georgies_events_sidebar" inherit_id="website_event.index_sidebar" name="Georgies Events Sidebar">
+    <xpath expr="//div[@id='o_wevent_index_sidebar']" position="attributes">
+      <attribute name="class" remove="my-5" add="mb-5 my-lg-5" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Events list spacing modification -->
+  <template id="georgies_event_index" inherit_id="website_event.index" name="Georgies Event Index">
+    <xpath expr="//div[@id='o_wevent_index_main_col']" position="attributes">
+      <attribute name="t-attf-class">col-md mt-5 my-lg-5 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Events sidebar quote structure change -->
+  <template id="georgies_events_sidebar_quote" inherit_id="website_event.index_sidebar_quotes" name="Georgies Events Sidebar - Quote">
+    <!-- Put the card element inside the sidebar block element and add a bottom margin to it -->
+    <xpath expr="//div[hasclass('o_wevent_sidebar_block') and hasclass('card')]" position="replace">
+      <div class="o_wevent_sidebar_block">
+        <div class="card mb-2">
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><em>Write here a quote from one of your attendees. It gives confidence in your events.</em></p>
+              <footer class="blockquote-footer">Author</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- Events sidebar photo modification -->
+  <template id="georgies_events_sidebar_photos" inherit_id="website_event.index_sidebar_photos" name="Gerogies Events Sidebar - Photos">
+    <!-- Don't know if it was intentional, but the photo side bar block wasn't wrapped in a block element, and the photos have the block class applied to them instead. Which isn't how it should be based on the way that the events module adds the other block elements to the sidebar. So we'll fix that below so it's consistent. -->
+    <!-- Remove the uncontained h6 photo element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']/h6[hasclass('o_wevent_sidebar_title')]" position="replace">
+    </xpath>
+    <!-- Remove the first uncontained photo link element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']/a[@href='/event']" position="replace">
+    </xpath>
+    <!-- Remove the second uncontained photo link element -->
+    <xpath expr="////div[@id='o_wevent_index_sidebar']/a[@href='/event']" position="replace">
+    </xpath>
+    <!-- Add the heading and photos wrapped in a block element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']" position="inside">
+      <div class="o_wevent_sidebar_block">
+        <h6 class="o_wevent_sidebar_title">Photos</h6>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid" src="/website_event/static/src/img/event_past_0.jpg" alt=""/>
+                <figcaption class="figure-caption">A past event</figcaption>
+            </figure>
+        </a>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid" src="/website_event/static/src/img/event_training_0.jpg" alt=""/>
+                <figcaption class="figure-caption">Our Trainings</figcaption>
+            </figure>
+        </a>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- FIXME: ODOO14 -->
+  <!-- Events sidebar categories modification -->
+  <!-- <template id="georgies_events_index_sidebar_categories" inherit_id="website_event.index_sidebar_categories" name="Georgies Events Sidebar - Categories"> -->
+    <!-- Work on styling of categories -->
+    <!-- <xpath expr="//div[hasclass('o_wevent_sidebar_block')]//a[hasclass('o_wevent_badge')]" position="attributes">
+      <attribute name="class" add="mw-100" separator=" "/>
+    </xpath>
+  </template> -->
+
+
+  <!-- Events sidebar upcoming events modification -->
+  <template id="georgies_events_upcoming_events" inherit_id="website_event.country_events_list" name="Georgies Events Sidebar - Upcoming Events">
+    <!-- Change the spacing between the events and the view all link -->
+    <xpath expr="//ul[hasclass('mb-3')]" position="attributes">
+      <attribute name="class" remove="mb-3" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Event page (single event)-->
+  <!-- Event page layout -->
+  <template id="georgies_event_page" inherit_id="website_event.layout" name="Georgies Event Page Layout">
+    <!-- Adjust padding on navbar -->
+    <xpath expr="//nav[hasclass('navbar')]" position="attributes">
+      <attribute name="class" add="py-2" separator=" "/>
+    </xpath>
+    <!-- Add negative margins on smaller sized devices to compensate for the location and category right margins -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//ul[hasclass('navbar-nav')]" position="attributes">
+      <attribute name="class" add="mr-n3 mr-lg-0" separator=" "/>
+    </xpath>
+    <!-- Remove margin left auto from search bar-->
+    <xpath expr="//t[@t-call='website_event.events_search_box']/t[@t-set='_classes']" position="attributes">
+      <attribute name="t-value"></attribute>
+    </xpath>
+    <!-- Change the placeholder -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search for an event...</t>
+    </xpath> 
+    <!-- Add top and bottom margins to back to events nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//a[hasclass('navbar-brand')]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+    <!-- Add top and bottom margins to events category nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//li[hasclass('nav-item')][1]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+    <!-- Add top and bottom margins to events location nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//li[hasclass('nav-item')][2]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Events details -->
+  <template id="georgies_event_description" inherit_id="website_event.event_description_full" name="Georgies Event Description">
+    <!-- Event main section - add bottom padding to prevent margin collapse on comments (messages) and remove negaitve top margins -->
+    <xpath expr="//section[hasclass('bg-200')]" position="attributes">
+      <attribute name="class" add="pb-5" remove="mt-n5" separator=" "/>
+    </xpath>
+    <!-- Remove top negative margins of the details area -->
+    <xpath expr="//div[hasclass('mt-n4')]" position="attributes">
+      <attribute name="class" remove="mt-n4" separator=" "/>
+    </xpath>
+    <!-- Change padding and shadow of event description -->
+    <xpath expr="//div[@id='o_wevent_event_main_col']" position="attributes">
+      <attribute name="class" remove="shadow-sm" add="p-2 p-sm-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Event Registration -->
+  <template id="georgies_event_registration" inherit_id="website_event.registration_template" name="Georgies Event Registration">
+    <!-- Remove rounded corners -->
+    <xpath expr="//div[@id='o_wevent_tickets']" position="attributes">
+      <attribute name="class" remove="rounded" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of registration section -->
+    <xpath expr="//form[@id='registration_form']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of the registrations are closed section -->
+    <xpath expr="//div[@t-if='not event.event_registrations_open']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of registration alert and change the display to flex to accomodate for the "configure event registration" notification, which we'll tweak below -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-3 d-flex flex-wrap justify-content-between" separator=" "/>
+    </xpath> -->
+    <!-- Remove the float-right class from the configure event registration option, and set the left margin -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']/a[hasclass('float-right')]" position="attributes">
+      <attribute name="class" remove="float-right" separator=" "/>
+    </xpath> -->
+  </template>
+
+
+  <!-- Event Registration Sale (Ticket dropdown modifications) -->
+  <template id="georgies_event_registration_ticket_dropdown" inherit_id="website_event_sale.registration_template" name="Georgies Event Registration Ticket Dropdown">
+    <!-- Change the padding of the Ticket title and date column on sm and xs screens -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[1]" position="attributes">
+      <attribute name="class" remove="py-3" add="py-2 py-md-3" separator=" "/>
+    </xpath>
+    <!-- Change the padding of the price and quantity on sm and xs screens -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[2]" position="attributes">
+      <attribute name="class" remove="py-3" add="pb-2 py-md-3" separator=" "/>
+    </xpath>
+    <!-- Change register button column spacing and sizing -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[2]/div[hasclass('offset-md-8')]" position="attributes">
+      <attribute name="class" remove="col-md-4 offset-md-8 py-2" add="col-md-6 offset-md-6 col-lg-5 offset-lg-7 py-2 px-2 py-md-2" separator=" "/>
+    </xpath>
+    <!-- Remove y padding on the ticket row -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']" position="attributes">
+      <attribute name="class" remove="py-3" separator=" "/>
+    </xpath>
+    <!-- FIXME: ODOO14 seats available -->
+    <!-- Add a space inbetween the button register text and the number of seats and change the language -->
+    <!-- <xpath expr="//div[@id='o_wevent_tickets_collapse']//button[@type='submit']" position="replace">
+      <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit" t-att-disabled="not tickets_available or None" t-attf-id="#{event.id}">Register<t t-if="event.seats_availability != 'unlimited'"> (<t t-esc="event.seats_available"/> Seats Available)</t></button>
+    </xpath> -->
+    <!-- Remove left margins which force the button outside of the container -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
+    </xpath>
+    <!-- Do it again on the second button that has that messed up left margin as well -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- RECORDS -->
+  <!-- Set various ui components to active by default -->
+
+  <!-- Footer -->
+  <!-- Footer Language Selector -->
+  <record id="portal.footer_language_selector" model="ir.ui.view">
+    <field name="active" eval="False"/>
+  </record>
+
+  <!-- Shop -->
+  <!-- Shop categories filter -->
+  <record id="website_sale.products_categories" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop collapsable categories -->
+  <record id="website_sale.option_collapse_products_categories" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop attribute filters -->
+  <record id="website_sale.products_attributes" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop sort button -->
+  <record id="website_sale.sort" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop results layout button -->
+  <record id="website_sale.add_grid_or_list_option" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Track visitor -->
+  <!-- Product Description -->
+  <record id="website_sale.products_description" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Add to Cart button -->
+  <record id="website_sale.products_add_to_cart" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+
+  <!-- Product -->
+  <!-- Buy now button -->
+  <record id="website_sale.product_buy_now" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Product image magnification -->
+  <record id="website_sale.product_picture_magnify_auto" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+  <!-- Blog -->
+  <!-- Show sidebar on blog index -->
+  <record id="website_blog.opt_blog_sidebar_show" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Show comment and view stats on blog posts -->
+  <record id="website_blog.opt_posts_loop_show_stats" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Enable blog post comments -->
+  <record id="website_blog.opt_blog_post_comment" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Show blog post sidebar -->
+  <record id="website_blog.opt_blog_post_sidebar" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Enable select to tweet -->
+  <record id="website_blog.opt_blog_post_select_to_tweet" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Enable select to comment -->
+  <record id="website_blog.opt_blog_post_select_to_comment" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+</odoo>

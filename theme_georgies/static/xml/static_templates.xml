@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Product (website) reviews / ratings section -->
+    <t t-extend="portal_rating.rating_card">
+      <!-- Change column sizing to accommodate for the remove from selection buttons on the right of the ratings -->
+      <!-- First column -->
+        <t t-jquery=".o_website_rating_card_container > .col-lg-3" t-operation="attributes">
+          <attribute name="class" value="col-lg-4"/>
+        </t>
+      <!-- Second Column -->
+      <t t-jquery=".o_website_rating_card_container > .col-lg-6" t-operation="attributes">
+        <attribute name="class" value="col-lg-8 pt-3 pt-lg-0"/>
+      </t>
+    </t>
+</templates>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <!-- ||||||||||| Odoo Sippet Style Overrides ||||||||||| -->
+  <!-- Banner -->
+  <template id="s_banner" inherit_id="website.s_banner" name="Odoo - Georgies banner">
+    <!-- Remove rounded corners on jumbotron-->
+    <xpath expr="//*[hasclass('jumbotron')]" position="attributes">
+      <attribute name="class" remove="rounded" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Mega Menu -->
+  <template id="s_shop_mega_menu" inherit_id="website.s_mega_menu_multi_menus" name="Georgies Mega Menu">
+    <xpath expr="//*[hasclass('s_mega_menu_multi_menus')]" position="replace">
+      
+      <!-- |||||||||||||||||||||||||||-->
+      <!-- Shop Mega Menu-->
+      <!-- |||||||||||||||||||||||||||-->
+      <section class="py-1 bg-primary">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="container li-shop-mega-buttons"><a class="btn btn-outline-secondary btn-sm" href="/shop">Shop Now &gt;</a><a class="btn btn-outline-secondary btn-sm" href="/catalog">Georgies Catalog &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-outline-secondary btn-sm" href="#">Ordering Info &gt;</a></div>
+            </div>
+            <div class="col-md-8">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="d-block mb-2" href="#"><img class="w-100 li-shop-mega-brand" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="BRAND NAME"></img></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </xpath>
+  </template>
+
+
+
+  <!-- ||||||||||| Georgies Custom Snippets ||||||||||| -->
+  <!-- Georgies Splash Snippet -->
+  <template id="s_splash" name="Splash Image">
+    
+    <section class="li-splash li_s_splash li-splash__short" style="background-image: url(/theme_georgies/static/img/georgies/DSC_5329clayboxees-929cd43c80.jpg);">
+      <div class="li-splash-background-overlay"></div>
+      <div class="container li-splash-content">
+        <div class="px-2 px-sm-0 py-5">
+          <div class="h1 display-3-white">Heading here. It can be decently long and will wrap around</div>
+          <div class="li-actions-section li_s_buttons" data-name="Button"><a class="btn btn-outline-white" href="#">Call to Action Here</a></div>
+        </div>
+      </div>
+    </section>
+  </template>
+  
+  <!-- Georgies Announcement Snippet -->
+  <template id="s_announcement_in_page" name="Announcement Banner">
+    
+    <section class="li-announcement-in-page pt-3 pb-3">
+      <div class="container">
+        <div class="row no-gutters py-2 px-2 px-sm-3 px-md-4 py-md-3 border border-primary">
+          <div class="col-md d-flex align-items-center pr-0 pr-sm-3">
+            <h4 class="mb-0 text-uppercase font-italic">Hey! Here's a super sweet announcement!</h4>
+          </div>
+          <div class="col-md-auto d-flex align-items-center justify-content-start justify-content-sm-end"><a class="btn btn-outline-primary mt-3 mt-md-0" href="#">Boom, this is a button!</a></div>
+        </div>
+      </div>
+    </section>
+  </template>
+  
+  <!-- Georgies Announcement Section Item -->
+  <template id="s_announcement_section_item" name="Announcement w/ Image">
+    
+    <section class="mt-4 mb-4">
+      <div class="container">
+        <div class="row no-gutters bg-light">
+          <div class="col-sm-auto"><img class="li-announcement-image" src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="Image Alt Here"></img></div>
+          <div class="col-md align-self-center">
+            <div class="py-3 px-3 px-sm-3 px-md-4">
+              <h3>Heading here</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, excepturi quos optio iste repellendus voluptatum facere quam ipsam aliquid voluptatibus suscipit explicabo perspiciatis hic esse quisquam exercitationem rerum autem mollitia.</p>
+              <div class="li-actions-section li_s_buttons" data-name="Button">
+                <div class="btn btn-outline-primary" href="#">Button Text Here</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Call to Action with Image-->
+  <template id="s_call_to_action" name="Call to Action w/ Image">
+    
+    <section class="py-3 py-md-5 li-call li_s_call">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 align-self-center li-call-content">
+            <div class="li-call-copy">
+              <h2 class="mb-4">Call to Action Heading here</h2>
+              <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br></br>
+                <p><strong><em>Something engaging about the options below</em></strong></p>
+                <div class="pt-3 li-actions-section li_s_buttons" data-name="Buttons"><a class="btn btn-outline-primary" href="#">Some action ></a><a class="btn btn-outline-primary" href="#">Some other action >  </a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="px-2 px-sm-0">
+              <div class="li-call-image"><img src="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png" alt="Image alt here"></img></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Top Announcement Bar -->
+  <template id="s_full_width_announcement_bar" name="Full Width Announcement Bar">
+    
+    <section class="li-full-width-announcement-bar bg-danger"> 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="py-1 text-center"><b> <i>Announcement text here. Can be quite long in order to explain things, <br></br> and can be multiple lines.</i></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Split Background Snippet -->
+  <template id="s_split_background" name="Georgies Split Background Snippet">
+    
+    <section class="li-split-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="px-2 pl-md-0 pr-md-2 pr-lg-3 py-5 li-split-background-item">
+              <div class="oe_structure"></div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="px-2 pr-md-0 pl-md-2 pl-lg-3 py-5 li-split-background-item">
+              <div class="oe_structure"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Georgies Simple Card Snippet -->
+  <!-- <template id="s_simple_card" name="Georgies Simple Card">
+  </template> -->
+
+  <!-- Georgies Current Gallery Shows Snippet -->
+  <template id="s_current_gallery_shows" name="Current Gallery Shows">
+    
+    <section class="pb-5 pt-5">
+      <div class="container">
+        <h2>Current Gallery Shows</h2>
+        <div class="row">
+          <div class="col-md">
+            <div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide-79cb215adc.png"></img></a>
+              <p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-outline-primary" href="#">In our Portland Gallery</a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide-79cb215adc.png"></img></a>
+              <p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-outline-primary" href="#">In our Eugene Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Add all of our custom snippets to the snippet editor panel -->
+  <template id="place_into_bar" inherit_id="website.snippets" name="Place Georgies Snippets into editor">
+    <xpath expr="//div[@id='snippet_content']" position="after">
+      <!-- Create our own Section for Georgies Snippets -->
+      <div id="snippet_georgies" class="o_panel">
+        <div class="o_panel_header">
+          <img class="li-snippet-header-icon" src="/theme_georgies/static/img/logos/georgies-logo-g-ac60fb7b40.svg"/> Georgies Pages
+        </div>
+        <div class="o_panel_body">
+          <t t-snippet="theme_georgies.s_splash" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_announcement_in_page" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_announcement_section_item" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_call_to_action" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_current_gallery_shows" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+          <t t-snippet="theme_georgies.s_split_background" t-thumbnail="/theme_georgies/static/img/placeholders/gray-cb9ae39ede.png"/>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
+</odoo>

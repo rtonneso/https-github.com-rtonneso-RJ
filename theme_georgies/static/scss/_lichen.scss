@@ -1,0 +1,901 @@
+// COLORS
+// Need to declare bg-light here because Odoo is calculating that color based on the primary color, and we want it way lighter than what it's making.
+.bg-light{ background-color: #dbdbdb !important};
+
+// TYPOGRAPHY
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    letter-spacing: $li-letter-spacing;
+}
+
+// Display light classes
+.display-1-white { @extend .display-1; }
+.display-2-white { @extend .display-2; }
+.display-3-white { @extend .display-3; }
+.display-4-white { @extend .display-4; }
+.display-1-white,
+.display-2-white,
+.display-3-white,
+.display-4-white {
+    color: $white;
+}
+
+.display-3 {
+    @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+    }
+}
+
+p a,
+h1 a,
+h2 a, 
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    text-decoration: underline;
+}
+
+label {
+    font-weight: $font-weight-bold;
+}
+
+
+// // Show the add to cart buttons -- ODOO 14 CHANGE
+// .card  {
+//     overflow: unset;
+// }
+
+// BUTTONS
+.btn {
+    text-transform: uppercase;
+    &-group {
+        flex: wrap;
+    }
+    &-white {
+        background-color: var(--white);
+        color: var(--primary);
+    }
+    &-outline-white {
+        border-color: var(--white);
+        color: var(--white);
+        &:hover, &:active, &:focus {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+    }
+    //TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY 
+    // FIXME: NEED TO GET TO WORK WITH BS, ODOO IS FUCKING IT UP THE WAY THEY IMPORT AND THEN OVERRIDE BUTTONS
+    &-sm, &-group-sm > & {
+        padding-top: $input-btn-padding-y-sm;
+        padding-bottom: $input-btn-padding-y-sm;
+        padding-right: $input-btn-padding-x-sm;
+        padding-left: $input-btn-padding-x-sm;
+
+}
+}
+
+
+// NAVBAR
+// Main navbar menu
+header .navbar {
+    
+    // Adjusting logo sizing
+    .navbar-brand {
+        img { height: 4rem !important; }
+    }
+    
+    .nav-item {
+        @include media-breakpoint-down($li-navbar-collapse-point) {
+            margin-right: 0;
+            .nav-link.active span { border-bottom: $border-width solid currentColor; }
+            .nav-link.active { border-bottom: none; }
+        }
+    }
+
+    // NAVBAR drop down customization
+    .dropdown-menu:not(.o_mega_menu){
+        right: unset;
+        top: calc( 100% + #{$navbar-padding-y});
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+
+        // Set dropdown positioning to be below the navbar
+        @include media-breakpoint-down($li-navbar-collapse-point) {
+            top: unset;
+            left: unset;
+            transform: unset;
+            text-align: right;
+        }
+
+        // Adjust spacing on items below collapse point
+        .dropdown-item {
+            @include media-breakpoint-down($li-navbar-collapse-point) {
+                padding: spacer(1) spacer(2);
+            }
+        }
+
+    }
+
+    // Unset general nav menu dropdown positioning
+    .dropdown-menu .dropdown-menu {
+        transform: translateX(0);
+        left: unset;
+    }
+
+    // -- Navbar search form --
+    .o_wsale_products_searchbar_form {
+        // Reset top placement for the navbar search form dropdown
+        .dropdown-menu { top: unset; }
+
+        // Override text color of all results button
+        button {
+            letter-spacing: $li-letter-spacing;
+        }
+
+        // Remove shadow on focus
+        .form-control:focus { box-shadow: none; }
+    }
+}
+
+// NAVBAR
+.navbar {
+    .nav-item {
+        font-size: $li-navbar-font-size;
+        &:last-child { margin-right: 0; }
+
+        @include media-breakpoint-down(xs) {
+            margin-right: 0;
+        }
+
+    }
+    // Reset Odoo's override in web/bootstrap_review.scss
+    &-dark .navbar-toggler,
+    &-light .navbar-toggler {
+        padding-left: $navbar-toggler-padding-x;
+        padding-right: $navbar-toggler-padding-x;
+    }
+
+}
+
+// NAV ITEM
+.nav-item {
+    font-weight: $font-weight-bold !important;
+    text-transform: uppercase;
+    letter-spacing: $li-letter-spacing;
+    // .nav-link.active { @include media-breakpoint-up(md) { border-bottom: $border-width solid currentColor; }}
+}
+
+// NAV TABS
+.nav-tabs {
+    .nav-link {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: $nav-link-padding-x;
+        margin-right: $nav-link-padding-x;
+
+        &.active {
+            border-bottom: $border-width solid currentColor;
+            background-color: unset;
+
+            @include hover-focus() { border-bottom: $border-width solid currentColor; }
+        }
+
+        @include hover-focus() {
+            color: $li-type-hover-color;
+            border-bottom: none;
+        }
+    }
+}
+
+
+
+// FIXME: ODOO14 color overrides are happening a decent bit and need to look into color handling more...
+// General dropdown-menu
+// .dropdown-menu {
+//     margin-top: 0;
+//     min-width: 100%;
+// }
+// // Override Odoo's messed up targeting for dropdowns
+// .dropdown-item {
+//     font-weight: $li-font-weight-bold;
+
+//     @include hover-focus() {
+//         color: $dropdown-link-hover-color !important;
+//     }
+// }
+// .o_cc .dropdown-menu .dropdown-item {
+//     &, h6 { 
+//         color: $dropdown-link-color;
+//         &.active {
+//             color: $dropdown-link-active-color;
+//         }
+//     }
+// }
+
+// Remove lines in Odoo extra menu items dropdown
+.o_extra_menu_items li{
+    border-top: unset !important;
+}
+
+
+
+
+
+
+
+
+// LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN
+// Lichen Type Styles
+.li-type-attention{   
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+// NAVBAR SEARCH
+.li-navbar-search {
+
+    @include media-breakpoint-down($li-navbar-collapse-point) { margin-top: spacer(3); }
+    .form-control {
+        // TODO: Revisit border color / z-index
+        // border: none;
+        width: 30rem;
+        max-width: 100%;
+
+        @include media-breakpoint-down(md) { width: 25rem; }
+        @include media-breakpoint-down($li-navbar-collapse-point) { width: 100%; }
+    }
+}
+
+// SHOP MEGA MENU
+.li-shop-mega-brand {
+    background-color: white;
+    padding: $spacer * .125;
+    height: 4rem;
+    object-fit: contain;
+}
+.li-shop-mega-buttons {
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: spacer(1);
+    }
+}
+
+$li-spacing-x-md: spacer(3) * 2;
+
+// FOOTER
+// TODO: Match margins / padding to other elements
+.li-footer {
+
+    &-newsletter {
+        margin-left: $grid-gutter-width / 2;
+        margin-right: $grid-gutter-width / 2;
+    }
+
+    a { color: $white; }
+
+    &-social {
+        margin-left: spacer(2);
+    }
+
+}
+
+// In-page announcement
+@include media-breakpoint-down(sm) {
+    .li-announcement-in-page .btn {
+        display: block;
+        width: 100%;
+    }
+}
+
+// Announcements Main Page Section
+.li-announcement-image {
+    object-fit: cover;
+    height: 100%;
+    max-height: 20rem;
+    max-width: 20rem;
+
+    @include media-breakpoint-down (md) {
+        max-height: 28rem;
+    }
+
+    @include media-breakpoint-down (sm) {
+        max-width: unset;
+        width: 100%;
+    }
+
+}
+
+
+// Main page calls to actions
+
+.li-actions-section {
+    .btn {
+        margin-right: spacer(2);
+        margin-top: spacer(2);
+    }
+    .btn:last-child { margin-right: 0; }
+}
+
+.li-call {
+
+    &__dark {
+        background: $gray-100;
+    }
+    
+    // Regular padding (put some on the right in md and above, zero in sm, and x-2 on xs)
+    &-copy {
+        padding-left: spacer(2);
+        padding-right: spacer(2);
+        @include media-breakpoint-up(sm) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        @include media-breakpoint-up(md) {
+            padding-right: spacer(3);
+        }
+
+        // Add bottom padding for buttons for stacking purposes when they stack on eachother
+        .btn {
+            margin-bottom: spacer(2);
+        }
+    }
+
+    // Swap the padding on right to left display mode
+    &-copy__last {
+        .li-call-content {
+            order: 13;
+        }
+        .li-call-copy {
+            @include media-breakpoint-up(md) {
+                padding-right: 0;
+                padding-left: spacer(3);
+            }
+        }
+    }
+
+    &-image {
+
+        @include media-breakpoint-down (sm) { margin-top: spacer(4); }
+
+        img {
+            object-fit: contain;
+            object-position: left center;
+            height: 100%;
+            width: 100%;
+            max-height: 28rem;
+            max-width: 28rem;
+        }
+    }
+    
+}
+
+// Main page splash
+.li-splash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 40rem;
+    background-size: cover;
+
+    @include media-breakpoint-down(sm) {
+        min-height: 30rem;
+    }
+
+    &__short {
+        min-height: 20rem;
+    }
+    &__full-height {
+        min-height: 100vh;
+    }
+
+    &-background {
+
+        &-overlay{
+            position: absolute;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: .5;
+        }
+
+        &-image__fixed {
+            background-attachment: fixed;
+        }
+    }
+    &-content{
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.li-class:nth-child(2n - 1) {
+        background-color: $light;
+}
+
+.li-attention-symbol {
+    margin-top: spacer(3) * -1.2;
+    font-size: 5rem;
+}
+
+.li-fixed-badge {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top: 50%;
+    transform: translateX(50%) rotate(-90deg) translateY(-50%);
+
+    padding: spacer(2) spacer(3);
+
+    background: $primary;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: $li-letter-spacing;
+    font-size: .8rem;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+        top: unset;
+        bottom: 0;
+        left: 0;
+        transform: unset;
+    }
+}
+
+.li-split-background {
+    background: none;
+    
+    @include media-breakpoint-up(md) {
+        background: linear-gradient(to right, $light, $light 50%, rgba(255,255,255, 0) 50%, rgba(255,255,255, 0));
+    }
+
+    @include media-breakpoint-down(sm) {
+        .row > *:first-child {
+            background: $light;
+        }
+    
+        .li-split-background-item {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: map-get($container-max-widths, 'sm');
+        }
+    
+        .container {
+            width: 100%;
+            max-width: unset;
+        }
+    }
+}
+
+#usa-map {
+    cursor: pointer;
+}
+
+.li-state {
+    path {
+        fill: #FFFFFF;
+        stroke:#231F20;
+        transition: fill .2s, stroke-width .2s;
+    }
+    text {
+        opacity: 1;
+        transition: opacity .2s;
+    }
+}
+.li-state-enabled path {
+    fill: #E0E0E0;
+    stroke: #231F20;
+}
+.li-state-disabled text{
+    opacity: 0;
+}
+.li-state-active {
+    .li-state-name {
+        fill: #ffffff;
+    }
+
+    path {
+        fill: #757575;
+        stroke-width: 3px;
+    }  
+} 
+.li-state-name {
+    font-family:  "Open Sans", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.li-distributor-state {
+    display: block;
+    overflow-wrap: break-word;
+   
+    @include media-breakpoint-up (sm) {
+        display: none;
+    }
+
+    &__active {
+        display: block;
+    }
+
+    &-selected-heading {
+        display: none;
+
+        &__visible {
+            display: block;
+        }
+    }
+}
+
+// 404 Page
+.li-404 {
+    background: $danger;
+}
+
+// Georgies Snippet Panel Header Icon Sizing
+.li-snippet-header-icon {
+    display: inline-block;
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+}
+
+
+
+
+
+
+
+
+
+// ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO 
+/* === Odoo Theme Overrides ===*/
+// Navbar nested dropdown background color
+.navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
+    background-color: $quinary;
+}
+
+// Search results adjustment
+.o_search_product_item {
+    .media-body h6 { margin-bottom: spacer(1); }
+}
+
+// -- SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP --
+// Navbar cart icon spacing
+.o_wsale_my_cart i {
+    margin-right: spacer(1);
+}
+
+$li-cat-attr-padding: .25rem 1rem .25rem 0;
+$li-cat-attr-padding-active: 1rem;
+
+// -- Categories & Product Attributes --
+#o_shop_collapse_category,
+#wsale_products_attributes_collapse {
+    li {
+        position: relative;
+        margin-top: $spacer * .125;
+        .nav-link {
+            display: inline-block;
+            width: unset;
+            margin-bottom: 0;
+            padding: $li-cat-attr-padding;
+            cursor: pointer;
+            &.active { padding-left: $li-cat-attr-padding-active; }
+        }
+    }
+}
+
+
+.css_attribute_color {
+    cursor: pointer; // Add cursor pointer functionality
+    &.active { border: 3px dashed $gray-400; } // Change border style
+}
+
+.o_wsale_products_main_row {
+    margin-top: spacer(3); // Add spacing above the products grid / filters
+    @include media-breakpoint-down(md) { margin-top: spacer(2); }
+}
+
+
+// Change the left hand padding of the buttons in the grid area that show the categories and options on smaller sized screens
+// #products_grid_before {
+//     & > button {
+//         @include media-breakpoint-down(xl) {
+//             padding-left: 0;
+//         }
+//     }
+// }
+
+// Set the flex-wrap propertie and spacing on this to allow for wrap around of pages on smaller screens
+.pagination {
+    flex-wrap: wrap;
+
+    // Change the left margins created to help with border doubling in-between pagination items
+    margin-left: $border-width !important;
+    margin-top: calc(#{$border-width} + #{spacer(2)}) !important;
+
+    .page-item > .page-link { 
+        margin-left: -1 * $border-width;
+        margin-top: -1 * $border-width; 
+    }
+
+}
+
+
+.oe_website_sale  {
+    ul ul { margin-left: unset; } // Remove access margin on left of attribute checkboxes
+
+    // --Shopping Cart--
+    // Adjust shopping cart item list spacing
+    table#cart_products {
+        
+        th {
+            padding-top: spacer(1);
+            padding-bottom: spacer(1);
+            border-bottom: none; // Remove th border so for consistancy with items below
+        }
+
+        td { 
+            padding-top: spacer(2);
+            padding-bottom: spacer(2);
+
+            &:first-child { padding-left: spacer(2); }
+            &:last-child { padding-right: spacer(2); }
+        }
+    }
+
+    // Adjust promo code text style
+    .show_coupon {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    // Breadcrumbs
+    .breadcrumb {
+        border: $border-width solid $gray-200;
+    }
+
+}
+
+// --Product Card --
+.oe_product_cart {
+    // Modify product card, and button group dropdown shadow
+    &:hover { 
+        overflow: visible;
+    }
+    &:hover .o_wsale_product_btn {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+}
+// Set cursor to pointer on product card hover
+.oe_product:hover { cursor:pointer; }
+// Remove shadow on button group in list view
+.o_wsale_layout_list .oe_product_cart {
+    &:hover .o_wsale_product_btn { box-shadow: none; }
+    .o_wsale_product_btn { margin-bottom: 0; }
+}
+// Change the spacing, weight, and text-decoration of the product card title
+.o_wsale_products_item_title {
+    margin-bottom: spacer(1);
+    font-weight: bold;
+
+    a { text-decoration: none; }
+}
+#products_grid.o_wsale_layout_list .oe_product_cart {
+// Center product info vertically
+.o_wsale_product_information_text {
+        align-self: center;
+        // Override left spacing to image on list view
+        padding-left: spacer(2) !important;
+    } 
+} 
+// Change the placement of the add to cart, compare, and wishlist buttons
+.oe_product_cart .o_wsale_product_btn {
+    z-index: 9;
+    display: flex;
+    top: 100%;
+    left: -1 * $border-width;
+    right: -1 * $border-width;
+    bottom: unset;
+    padding-bottom: 0;
+    margin-bottom: -1 * $border-width;
+
+    .btn {
+        padding: spacer(1) spacer(2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+}
+// FIXME: CHANGE IMAGE SIZE OF LIST VIEW / GRID VIEW / REWORK GRID
+
+
+
+// -- Product Page Overrides  --
+// Attributes spacing
+.variant_attribute {
+    .col-form-label {
+        padding-top: unset;
+        padding-bottom: spacer(1);
+    }
+}
+
+#product_detail {
+    // Product search on product page
+    .o_wsale_products_searchbar_form { 
+        // Add spacing below search
+        margin-bottom: spacer(2);
+
+        // Adjust search bar to be larger and fill the width of the column, and go full width on sm and xs screens
+        @include media-breakpoint-down(sm) { width: 100%; }
+        flex-grow: 1;
+    }
+}
+
+// Add spacing around product images in recently viewed cards
+.s_wsale_products_recently_viewed .o_carousel_product_card_img_top {
+    padding: spacer(2);
+}
+// Theme left and right arrows for recently viewed items
+.o_carousel_product_control {
+    border-radius: unset;
+    background-color: $primary;
+}
+// Alternative product item styling
+.o_alternative_product_item { 
+    a { text-decoration: none; }
+}
+
+
+// -- Product comparison overrides --
+// Remove rounded corners on the compare fixed button
+.o_product_feature_panel {
+    border-top-right-radius: unset;
+    border-top-left-radius: unset;
+}
+// remove the underline on the product links in the compare products popup
+.o_comparelist_products {
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+// Adjust padding of comparison popup
+.o_product_feature_panel .popover-body {
+    padding: spacer(2);
+
+    .o_remove {
+        font-size: $font-size-base;
+    }
+}
+
+// Website rating remove selection button modifcations
+.o_website_rating_progress_table .o_website_rating_select_text{
+    // Reduce padding on invisible button
+    padding: 0 spacer(2);
+}
+
+// -- Product Wishlist overrides
+.oe_website_sale .td-wish-btn { 
+    width: auto;
+    white-space: nowrap;
+};
+
+// -- Blog Module --
+// Override line height and font size on blog post teaser
+.website_blog #o_wblog_posts_loop .o_wblog_normalize_font {
+    font-size: $font-size-base;
+    line-height: 1.8;
+}
+
+// Set negative margin on tag section to accomodate the margin below the tags
+.o_wblog_post_short_tag_section {
+    margin-bottom: -1 * spacer(2);
+}
+
+// -- Event Module --
+.o_wevent {
+
+    // Events list
+    &_index &_events_list {
+    
+        // Event type badge
+        .o_wevent_badge_event {
+            border-radius: 0;
+        }
+        // Event date
+        .o_wevent_event_date { border-radius: 0; }
+        // Event footer
+        .card-footer { border-top: unset; }
+    }
+    
+    
+    // Remove filter dropdown menu top margin
+    &_index_topbar_filters .dropdown-menu {
+        margin-top: 0;
+        min-width: 100%;
+    }
+
+    // Event index sidebar elements
+    &_index {
+        // Change spacing below block
+        .o_wevent_sidebar_block { 
+            // FIXME: change to padding, and rework structure of html in the template
+            margin-bottom: 0;
+            padding-bottom: spacer(3);
+        }
+        // Change spacing below headings
+        .o_wevent_sidebar_title { 
+            padding-bottom: spacer(2);
+            margin-bottom: spacer(2);
+        }
+    }
+
+    &_event{
+
+        // General search bar settings
+        &_searchbar_form {
+            flex: unset;
+            flex-grow: 1;
+        }
+
+        // Event page earch bar width
+        & &_searchbar_form {
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        // Event details sidebar elements spacing
+        .o_wevent_sidebar_block {
+            padding: spacer(2);
+            @include media-breakpoint-up(sm) { padding: spacer(3); }
+        }
+        // Event details comments (messages) structure
+        #comment {
+            .media-body {
+                display: flex;
+                flex-wrap: wrap;
+
+                // Set margins and width behavior of comment
+                p {
+                    margin-right: auto;
+                    width: 100%;
+                    @include media-breakpoint-up(sm) {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    &_badge {
+        border-radius: 0;
+        font-weight: 600;
+        letter-spacing: $li-letter-spacing;
+    }
+
+}
+
+// Set flex shrink property of the qty / avilablility element of the event ticket registration bar
+.li-event-ticket-qty { flex-shrink: 0; }
+
+// Remove the borders on the event ticket price on xs screens so that it looks purdy
+.li-event-ticket-price {
+    @include media-breakpoint-down(xs) {
+        border-left: none !important;
+        border-right: none !important;
+    }
+}
