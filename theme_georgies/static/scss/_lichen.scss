@@ -852,13 +852,7 @@ $li-cat-attr-padding-active: 1rem;
         &_searchbar_form {
             flex: unset;
             flex-grow: 1;
-        }
-
-        // Event page earch bar width
-        & &_searchbar_form {
-            @include media-breakpoint-down(md) {
-                width: 100%;
-            }
+            max-width: 25rem;
         }
 
         // Event details sidebar elements spacing
@@ -889,7 +883,11 @@ $li-cat-attr-padding-active: 1rem;
         font-weight: 600;
         letter-spacing: $li-letter-spacing;
     }
+}
 
+// Remove inline-block display from .s_share (it should be flex, and is by default set in .o_wevent_social_link, .s_share is overriding it and breaking it's display)
+.s_share > * {
+    display: inline-flex;
 }
 
 // Set flex shrink property of the qty / avilablility element of the event ticket registration bar

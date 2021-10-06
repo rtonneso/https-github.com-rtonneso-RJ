@@ -888,8 +888,24 @@
   </template>
 
 
-  <!-- Change upcoming events to upcoming classes -->
-
+  <!-- Change upcoming / past events to upcoming classes -->
+  <template id="georgies_event_time" inherit_id="website_event.event_time" name="Georgies Event Time Filter">
+    <!-- Check if Past Events is selected in the dropdown and replace it with Past Classes -->
+    <xpath expr="//t[@t-if='current_date']" position="replace">
+      <t t-if="current_date == 'Past Events'">Past Classes</t>
+      <t t-elif="current_date" t-esc="current_date"/>
+    </xpath>
+    <!-- Change the placeholder in the dropdown for upcoming -->
+    <xpath expr="//t[@t-else='']" position="replace">
+      <t t-else="">Upcoming Classes</t>
+    </xpath>
+    <!-- Replace Upcoming Events and Past Events with Upcoming Classes and Past Classes -->
+    <xpath expr="//t[@t-esc='date[1]']" position="replace">
+      <t t-if="date[1] == 'Upcoming Events'">Upcoming Classes</t>
+      <t t-elif="date[1] == 'Past Events'">Past Classes</t>
+      <t t-else="" t-esc="date[1]"/>
+    </xpath>
+  </template>
 
   <!-- Events Search Bar (On event single page)-->
   <template id="georgies_events_search_box" inherit_id="website_event.events_search_box" name="Georgies Website Event Search Box">
@@ -909,6 +925,14 @@
     <!-- Remove rounded tops -->
     <xpath expr="//header" position="attributes">
       <attribute name="t-attf-class">overflow-hidden bg-secondary #{opt_events_list_columns and 'col-12' or 'col-sm-4 col-lg-3 rounded-left'} #{(not opt_events_list_cards) and 'rounded shadow'} #{(not opt_events_list_cards and not opt_events_list_columns)}</attribute>
+    </xpath>
+    <!-- Set the badges container to flex-wrap to accomodate for more tags than fit horizontally -->
+    <xpath expr="//div[hasclass('mt8')]" position="attributes">
+      <attribute name="class" add="flex-wrap" separator=" "/>
+    </xpath>
+    <!-- Add margin top (mt-1) to badges so that when they wrap they have space between eachother (and replace mr8 with mr-1)-->
+    <xpath expr="//span[@t-if='tag.color']" position="attributes">
+      <attribute name="t-attf-class">badge mr-1 mt-1 #{'badge-primary' if tag in search_tags else 'badge-light'} #{'o_tag_color_%s' % tag.color if tag.color else ''}</attribute>
     </xpath>
   </template>
 
@@ -963,13 +987,13 @@
         <a href="/event">
             <figure class="o_wevent_sidebar_figure figure">
                 <img class="figure-img img-fluid" src="/website_event/static/src/img/event_past_0.jpg" alt=""/>
-                <figcaption class="figure-caption">A past event</figcaption>
+                <figcaption class="figure-caption">A past class</figcaption>
             </figure>
         </a>
         <a href="/event">
             <figure class="o_wevent_sidebar_figure figure">
                 <img class="figure-img img-fluid" src="/website_event/static/src/img/event_training_0.jpg" alt=""/>
-                <figcaption class="figure-caption">Our Trainings</figcaption>
+                <figcaption class="figure-caption">Our trainings</figcaption>
             </figure>
         </a>
       </div>
@@ -992,6 +1016,10 @@
     <xpath expr="//ul[hasclass('mb-3')]" position="attributes">
       <attribute name="class" remove="mb-3" add="mb-2" separator=" "/>
     </xpath>
+    <!-- Replace Upcoming Events with Upcoming Classes -->
+    <xpath expr="//h6[hasclass('o_wevent_sidebar_title')]//i[hasclass('fa-globe')]" position="replace">
+      <i class="fa fa-globe mr-2"/>Upcoming Classes
+    </xpath>
   </template>
 
   <!-- Event page (single event)-->
@@ -1000,6 +1028,18 @@
     <!-- Adjust padding on navbar -->
     <xpath expr="//nav[hasclass('navbar')]" position="attributes">
       <attribute name="class" add="py-2" separator=" "/>
+    </xpath>
+    <!-- Change All Events to All Classes -->
+    <xpath expr="//nav//a[hasclass('navbar-brand')]/span" position="replace">
+      <span>All Classes</span>
+    </xpath>
+    <!-- Change color of arrow icon next to All Classes -->
+    <xpath expr="//nav//i[hasclass('fa-long-arrow-left')]" position="attributes">
+      <attribute name="class" remove="text-primary" separator=" "/>
+    </xpath>
+    <!-- Change color of location icon next to country  in Navbar -->
+    <xpath expr="//nav//i[hasclass('fa-map-marker')]" position="attributes">
+      <attribute name="class" remove="text-primary" separator=" "/>
     </xpath>
     <!-- Add negative margins on smaller sized devices to compensate for the location and category right margins -->
     <xpath expr="//div[hasclass('o_wevent_event')]//ul[hasclass('navbar-nav')]" position="attributes">
@@ -1011,7 +1051,7 @@
     </xpath>
     <!-- Change the placeholder -->
     <xpath expr="//t[@t-set='_placeholder']" position="replace">
-      <t t-set="_placeholder">Search for an event...</t>
+      <t t-set="_placeholder">Search classes...</t>
     </xpath> 
     <!-- Add top and bottom margins to back to events nav item -->
     <xpath expr="//div[hasclass('o_wevent_event')]//nav//a[hasclass('navbar-brand')]" position="attributes">
