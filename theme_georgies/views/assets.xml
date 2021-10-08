@@ -23,10 +23,6 @@
 
   <!-- Insert our custom assets -->
   <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999">
-    <!-- Remove more Odoo bootstrap code -->
-    <!-- <xpath expr="//link[@href='/website/static/src/scss/website.scss']" position="replace"/> -->
-    <!-- <xpath expr="//link[@href='/website/static/src/scss/website.ui.scss']" position="replace"/> -->
-
     <xpath expr="//link[last()]" position="after">
       <!-- Insert our custom css-->
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>

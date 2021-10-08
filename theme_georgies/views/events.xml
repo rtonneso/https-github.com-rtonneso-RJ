@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+ <!-- ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS ODOO EVENTS -->
+
+  <!-- Add event spash bar -->
+  <template id="georgies_events_index" inherit_id="website_event.index" name="Georgies Event Index">
+    <xpath expr="//t[@t-call='website_event.index_topbar']" position="before">
+      <div class="oe_structure"/>
+    </xpath>
+  </template>
+
+  <!-- Events Navbar -->
+  <template id="georgies_event_navbar" inherit_id="website_event.index_topbar" name="Georgies Event Navbar">
+    <!-- Remove shadow, adjust spacing, remove border-top -->
+    <xpath expr="//nav[hasclass('navbar')]" position="attributes">
+      <attribute name="class" remove="shadow-sm border-top" add="py-2" separator=" "/>
+    </xpath>
+
+    <!-- Add flex-wrap so that the filters / search wrap arround when narrow -->
+    <xpath expr="//div[hasclass('flex-column')]" position="attributes">
+      <attribute name="class" add="flex-wrap" separator=" "/>
+    </xpath>
+
+    <!-- Remove events navbar-brand heading "Events" -->
+    <xpath expr="//span[hasclass('navbar-brand')]" position="replace">
+    </xpath>
+
+    <!-- Remove flex wrapper around search form -->
+    <xpath expr="//div[hasclass('align-items-center')]" position="replace">
+      <t t-call="website_event.events_search_box">
+        <t t-set="_searches" t-value="searches"/>
+        <t t-set="_placeholder">Search an event...</t>
+      </t>
+    </xpath>
+
+    <!-- Set the placeholder to be more descriptive -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search classes...</t>
+    </xpath>
+
+  </template>
+
+
+  <!-- Change upcoming / past events to upcoming classes -->
+  <template id="georgies_event_time" inherit_id="website_event.event_time" name="Georgies Event Time Filter">
+    <!-- Check if Past Events is selected in the dropdown and replace it with Past Classes -->
+    <xpath expr="//t[@t-if='current_date']" position="replace">
+      <t t-if="current_date == 'Past Events'">Past Classes</t>
+      <t t-elif="current_date" t-esc="current_date"/>
+    </xpath>
+    <!-- Change the placeholder in the dropdown for upcoming -->
+    <xpath expr="//t[@t-else='']" position="replace">
+      <t t-else="">Upcoming Classes</t>
+    </xpath>
+    <!-- Replace Upcoming Events and Past Events with Upcoming Classes and Past Classes -->
+    <xpath expr="//t[@t-esc='date[1]']" position="replace">
+      <t t-if="date[1] == 'Upcoming Events'">Upcoming Classes</t>
+      <t t-elif="date[1] == 'Past Events'">Past Classes</t>
+      <t t-else="" t-esc="date[1]"/>
+    </xpath>
+  </template>
+
+  <!-- Events Search Bar (On event single page)-->
+  <template id="georgies_events_search_box" inherit_id="website_event.events_search_box" name="Georgies Website Event Search Box">
+    <!-- Change margins of the search form and remove width 100-->
+    <xpath expr="//form[contains(@t-attf-class, 'o_wevent_event_searchbar_form')]" position="attributes">
+      <attribute name="t-attf-class" remove="my-lg-0 w-100" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- Events List -->
+  <template id="georgies_events_list" inherit_id="website_event.events_list" name="Georgies Events List">
+    <!-- Remove shadows -->
+    <xpath expr="//article" position="attributes">
+      <attribute name="t-attf-class">#{opt_events_list_cards and 'card'}</attribute>
+    </xpath>
+    <!-- Remove rounded tops -->
+    <xpath expr="//header" position="attributes">
+      <attribute name="t-attf-class">overflow-hidden bg-secondary #{opt_events_list_columns and 'col-12' or 'col-sm-4 col-lg-3 rounded-left'} #{(not opt_events_list_cards) and 'rounded shadow'} #{(not opt_events_list_cards and not opt_events_list_columns)}</attribute>
+    </xpath>
+    <!-- Set the badges container to flex-wrap to accomodate for more tags than fit horizontally -->
+    <xpath expr="//div[hasclass('mt8')]" position="attributes">
+      <attribute name="class" add="flex-wrap" separator=" "/>
+    </xpath>
+    <!-- Add margin top (mt-1) to badges so that when they wrap they have space between eachother (and replace mr8 with mr-1)-->
+    <xpath expr="//span[@t-if='tag.color']" position="attributes">
+      <attribute name="t-attf-class">badge mr-1 mt-1 #{'badge-primary' if tag in search_tags else 'badge-light'} #{'o_tag_color_%s' % tag.color if tag.color else ''}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Events Sidebar -->
+  <!-- Events sidebar spacing modification -->
+  <template id="georgies_events_sidebar" inherit_id="website_event.index_sidebar" name="Georgies Events Sidebar">
+    <xpath expr="//div[@id='o_wevent_index_sidebar']" position="attributes">
+      <attribute name="class" remove="my-5 ml-xl-5" add="my-2 my-lg-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Events list spacing modification -->
+  <template id="georgies_event_index" inherit_id="website_event.index" name="Georgies Event Index">
+    <xpath expr="//div[@id='o_wevent_index_main_col']" position="attributes">
+      <attribute name="t-attf-class">col-md mt-2 mt-lg-3 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Events sidebar quote structure change -->
+  <template id="georgies_events_sidebar_quote" inherit_id="website_event.index_sidebar_quotes" name="Georgies Events Sidebar - Quote">
+    <!-- Put the card element inside the sidebar block element and add a bottom margin to it -->
+    <xpath expr="//div[hasclass('o_wevent_sidebar_block') and hasclass('card')]" position="replace">
+      <div class="o_wevent_sidebar_block">
+        <div class="card mb-2">
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><em>Write here a quote from one of your attendees. It gives confidence in your events.</em></p>
+              <footer class="blockquote-footer">Author</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- Events sidebar photo modification -->
+  <template id="georgies_events_sidebar_photos" inherit_id="website_event.index_sidebar_photos" name="Gerogies Events Sidebar - Photos">
+    <!-- Don't know if it was intentional, but the photo side bar block wasn't wrapped in a block element, and the photos have the block class applied to them instead. Which isn't how it should be based on the way that the events module adds the other block elements to the sidebar. So we'll fix that below so it's consistent. -->
+    <!-- Remove the uncontained h6 photo element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']/h6[hasclass('o_wevent_sidebar_title')]" position="replace">
+    </xpath>
+    <!-- Remove the first uncontained photo link element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']/a[@href='/event']" position="replace">
+    </xpath>
+    <!-- Remove the second uncontained photo link element -->
+    <xpath expr="////div[@id='o_wevent_index_sidebar']/a[@href='/event']" position="replace">
+    </xpath>
+    <!-- Add the heading and photos wrapped in a block element -->
+    <xpath expr="//div[@id='o_wevent_index_sidebar']" position="inside">
+      <div class="o_wevent_sidebar_block">
+        <h6 class="o_wevent_sidebar_title">Photos</h6>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid" src="/website_event/static/src/img/event_past_0.jpg" alt=""/>
+                <figcaption class="figure-caption">A past class</figcaption>
+            </figure>
+        </a>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid" src="/website_event/static/src/img/event_training_0.jpg" alt=""/>
+                <figcaption class="figure-caption">Our trainings</figcaption>
+            </figure>
+        </a>
+      </div>
+    </xpath>
+  </template>
+
+  <!-- FIXME: ODOO14 -->
+  <!-- Events sidebar categories modification -->
+  <!-- <template id="georgies_events_index_sidebar_categories" inherit_id="website_event.index_sidebar_categories" name="Georgies Events Sidebar - Categories"> -->
+    <!-- Work on styling of categories -->
+    <!-- <xpath expr="//div[hasclass('o_wevent_sidebar_block')]//a[hasclass('o_wevent_badge')]" position="attributes">
+      <attribute name="class" add="mw-100" separator=" "/>
+    </xpath>
+  </template> -->
+
+
+  <!-- Events sidebar upcoming events modification -->
+  <template id="georgies_events_upcoming_events" inherit_id="website_event.country_events_list" name="Georgies Events Sidebar - Upcoming Events">
+    <!-- Change the spacing between the events and the view all link -->
+    <xpath expr="//ul[hasclass('mb-3')]" position="attributes">
+      <attribute name="class" remove="mb-3" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Replace Upcoming Events with Upcoming Classes -->
+    <xpath expr="//h6[hasclass('o_wevent_sidebar_title')]//i[hasclass('fa-globe')]" position="replace">
+      <i class="fa fa-globe mr-2"/>Upcoming Classes
+    </xpath>
+  </template>
+
+  <!-- Event page (single event)-->
+  <!-- Event page layout -->
+  <template id="georgies_event_page" inherit_id="website_event.layout" name="Georgies Event Page Layout">
+    <!-- Adjust padding on navbar -->
+    <xpath expr="//nav[hasclass('navbar')]" position="attributes">
+      <attribute name="class" add="py-2" separator=" "/>
+    </xpath>
+    <!-- Change All Events to All Classes -->
+    <xpath expr="//nav//a[hasclass('navbar-brand')]/span" position="replace">
+      <span>All Classes</span>
+    </xpath>
+    <!-- Change color of arrow icon next to All Classes -->
+    <xpath expr="//nav//i[hasclass('fa-long-arrow-left')]" position="attributes">
+      <attribute name="class" remove="text-primary" separator=" "/>
+    </xpath>
+    <!-- Change color of location icon next to country  in Navbar -->
+    <xpath expr="//nav//i[hasclass('fa-map-marker')]" position="attributes">
+      <attribute name="class" remove="text-primary" separator=" "/>
+    </xpath>
+    <!-- Add negative margins on smaller sized devices to compensate for the location and category right margins -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//ul[hasclass('navbar-nav')]" position="attributes">
+      <attribute name="class" add="mr-n3 mr-lg-0" separator=" "/>
+    </xpath>
+    <!-- Remove margin left auto from search bar-->
+    <xpath expr="//t[@t-call='website_event.events_search_box']/t[@t-set='_classes']" position="attributes">
+      <attribute name="t-value"></attribute>
+    </xpath>
+    <!-- Change the placeholder -->
+    <xpath expr="//t[@t-set='_placeholder']" position="replace">
+      <t t-set="_placeholder">Search classes...</t>
+    </xpath> 
+    <!-- Add top and bottom margins to back to events nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//a[hasclass('navbar-brand')]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+    <!-- Add top and bottom margins to events category nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//li[hasclass('nav-item')][1]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+    <!-- Add top and bottom margins to events location nav item -->
+    <xpath expr="//div[hasclass('o_wevent_event')]//nav//li[hasclass('nav-item')][2]" position="attributes">
+      <attribute name="class" add="my-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Events details -->
+  <template id="georgies_event_description" inherit_id="website_event.event_description_full" name="Georgies Event Description">
+    <!-- Event main section - add bottom padding to prevent margin collapse on comments (messages) and remove negaitve top margins -->
+    <xpath expr="//section[hasclass('bg-200')]" position="attributes">
+      <attribute name="class" add="pb-5" remove="mt-n5" separator=" "/>
+    </xpath>
+    <!-- Remove top negative margins of the details area -->
+    <xpath expr="//div[hasclass('mt-n4')]" position="attributes">
+      <attribute name="class" remove="mt-n4" separator=" "/>
+    </xpath>
+    <!-- Change padding and shadow of event description -->
+    <xpath expr="//div[@id='o_wevent_event_main_col']" position="attributes">
+      <attribute name="class" remove="shadow-sm" add="p-2 p-sm-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Event Registration -->
+  <template id="georgies_event_registration" inherit_id="website_event.registration_template" name="Georgies Event Registration">
+    <!-- Remove rounded corners -->
+    <xpath expr="//div[@id='o_wevent_tickets']" position="attributes">
+      <attribute name="class" remove="rounded" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of registration section -->
+    <xpath expr="//form[@id='registration_form']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of the registrations are closed section -->
+    <xpath expr="//div[@t-if='not event.event_registrations_open']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-4" separator=" "/>
+    </xpath>
+    <!-- Change bottom margin of registration alert and change the display to flex to accomodate for the "configure event registration" notification, which we'll tweak below -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']" position="attributes">
+      <attribute name="class" remove="mb-5" add="mb-3 d-flex flex-wrap justify-content-between" separator=" "/>
+    </xpath> -->
+    <!-- Remove the float-right class from the configure event registration option, and set the left margin -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@t-if='not buy']/a[hasclass('float-right')]" position="attributes">
+      <attribute name="class" remove="float-right" separator=" "/>
+    </xpath> -->
+  </template>
+
+
+  <!-- Event Registration Sale (Ticket dropdown modifications) -->
+  <template id="georgies_event_registration_ticket_dropdown" inherit_id="website_event_sale.registration_template" name="Georgies Event Registration Ticket Dropdown">
+    <!-- Change the padding of the Ticket title and date column on sm and xs screens -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[1]" position="attributes">
+      <attribute name="class" remove="py-3" add="py-2 py-md-3" separator=" "/>
+    </xpath>
+    <!-- Change the padding of the price and quantity on sm and xs screens -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[2]" position="attributes">
+      <attribute name="class" remove="py-3" add="pb-2 py-md-3" separator=" "/>
+    </xpath>
+    <!-- Change register button column spacing and sizing -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[2]/div[hasclass('offset-md-8')]" position="attributes">
+      <attribute name="class" remove="col-md-4 offset-md-8 py-2" add="col-md-6 offset-md-6 col-lg-5 offset-lg-7 py-2 px-2 py-md-2" separator=" "/>
+    </xpath>
+    <!-- Remove y padding on the ticket row -->
+    <xpath expr="//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']" position="attributes">
+      <attribute name="class" remove="py-3" separator=" "/>
+    </xpath>
+    <!-- FIXME: ODOO14 seats available -->
+    <!-- Add a space inbetween the button register text and the number of seats and change the language -->
+    <!-- <xpath expr="//div[@id='o_wevent_tickets_collapse']//button[@type='submit']" position="replace">
+      <button type="submit" class="btn btn-primary o_wait_lazy_js btn-block a-submit" t-att-disabled="not tickets_available or None" t-attf-id="#{event.id}">Register<t t-if="event.seats_availability != 'unlimited'"> (<t t-esc="event.seats_available"/> Seats Available)</t></button>
+    </xpath> -->
+    <!-- Remove left margins which force the button outside of the container -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
+    </xpath>
+    <!-- Do it again on the second button that has that messed up left margin as well -->
+    <xpath expr="//button[hasclass('ml-3')]" position="attributes">
+      <attribute name="class" remove="ml-3" separator=" "/>
+    </xpath>
+  </template>
+</odoo>

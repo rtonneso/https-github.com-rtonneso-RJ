@@ -808,6 +808,12 @@ $li-cat-attr-padding-active: 1rem;
     margin-bottom: -1 * spacer(2);
 }
 
+// Set Width of search bar
+#o_wblog_post_search {
+    flex-grow: 1;
+    max-width: 25rem;
+}
+
 // -- Event Module --
 .o_wevent {
 

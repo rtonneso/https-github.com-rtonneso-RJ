@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!-- ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG ODOO BLOG-->
+
+  <!-- Remove rounded corners and shadows from blog post image -->
+  <template id="georgies_blog_post_cover_image" inherit_id="website_blog.post_cover_image" name="Georgies Blog Post Cover Image">
+    <xpath expr="//t[@t-call='website.record_cover']/t[@t-set='additionnal_classes']" position="attributes">
+      <attribute name="t-value" remove="rounded shadow" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Modify post information section -->
+  <template id="georgies_blog_post_teaser" inherit_id="website_blog.post_teaser" name="Georgies Blog Post Teaser">
+    <!-- Add space above teaser -->
+    <xpath expr="//div[@t-field='blog_post.teaser'][1]" position="attributes">
+      <attribute name="class" remove="mt-2" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Add space above teaser again (cause there's two of them in alternate templates) -->
+    <xpath expr="//div[@t-field='blog_post.teaser'][2]" position="attributes">
+      <attribute name="t-attf-class" remove="mt-2" add="mt-3" separator=" "/>
+    </xpath>
+
+    <!-- Add space above tags -->
+    <xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]" position="attributes">
+      <attribute name="class" remove="pt-2" add="pt-3" separator=" "/>
+    </xpath>
+
+    <!-- Add heading tag to tags badges to add letter spacing and border / border primary to the conditional element so that they're equal size to the badges with just a border -->
+    <xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]//a" position="attributes">
+      <attribute name="t-attf-class">badge h6 mb-2 mr-1 text-truncate #{one_tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+    </xpath>
+  </template>
+
+  <!-- Modify the post loop -->
+  <template id="georgies_post_loop" inherit_id="website_blog.posts_loop" name="Georgies Post Loop">
+    <!-- Change the spacing of the post info section, change top padding to 3, remove bottom padding -->
+    <xpath expr="//div[contains(@t-attf-class, 'o_wblog_normalize_font')]" position="attributes">
+      <attribute name="t-attf-class">o_wblog_normalize_font #{'card-footer px-2 pt-3' if opt_blog_cards_design else 'pr-2 pt-3'}</attribute>
+    </xpath>
+  </template> 
+
+  <!-- Modify the blog tag list that is shown at the top of the page when a tag or multiple tags have been selected -->
+  <template id="georgies_blog_tags_list" inherit_id="website_blog.tags_list" name="Georgies Blog Tag List">
+
+    <!-- Remove rounded class and add h6 for letter spacing and add font-weight-bold for boldness -->
+    <xpath expr="//span[hasclass('rounded')]" position="attributes">
+      <attribute name="class" remove="rounded" add="h6 font-weight-bold" separator=" "/>
+    </xpath>
+
+    <!-- Modify t-attf-class for borders on selected item -->
+    <xpath expr="//a[@t-elif='showInactive']" position="attributes">
+      <attribute name="t-attf-class">badge mb-2 mw-100 text-truncate #{tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+    </xpath>
+
+  </template>
+
+  <!-- Modify Blog Cover Post (the latest blog post at the top of the blogs section) -->
+  <template id="georgies_blog_cover_post" inherit_id="website_blog.opt_blog_cover_post" name="Georgies Blog Cover Post">
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Modify Blog cover post ("full width" design)-->
+  <!-- <template id="georgies_blog_cover_post_full_width" inherit_id="website_blog.opt_blog_cover_post_fullwidth_design" name="Georgies Blog Cover Post - Full Width"> -->
+    <!-- Remove rounded corners on "Latest" title badge -->
+    <!-- <xpath expr="//div[hasclass('rounded-sm')]" position="attributes">
+      <attribute name="class" remove="rounded-sm" separator=" "/>
+    </xpath>
+  </template> -->
+  
+
+  <!-- Modify the read next blog section -->  
+  <template id="georgies_blog_read_next" inherit_id="website_blog.opt_blog_post_read_next" name="Georgies Blog Read Next">
+    <!-- Add padding on the top of the next post section -->
+    <xpath expr="//t[@t-call='website.record_cover']//div[@t-attf-class='o_wblog_post_title']" position="attributes">
+      <attribute name="t-attf-class" add="pt-3" separator=" "/>
+    </xpath>
+    <!-- Remove negative padding on next button section -->
+    <xpath expr="//t[@t-call='website.record_cover']/div[hasclass('container')]/div[2]" position="attributes">
+      <attribute name="t-attf-class">o_wblog_toggle</attribute>
+    </xpath>
+    <!-- Remove fake button spacer -->
+    <xpath expr="////t[@t-call='website.record_cover']/div[hasclass('container')]/div[4]" position="replace">
+    </xpath>
+  </template>
+
+  <!-- Modify the blog template -->
+  <template id="georgies_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="Georgies Blog Post Template">
+    <!-- Add padding to the top and bottom of the title area -->
+    <xpath expr="//div[@id='title']/t/div[hasclass('container')]" position="attributes">
+      <attribute name="class" add="py-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Blog Sidebars -->
+  <!-- Modify the blog post side index area -->
+  <template id="georgies_blog_side_index" inherit_id="website_blog.sidebar_blog_index" name="Georgies Blog Side Index" priority="1">
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the side index follow us addition -->
+  <template id="georgies_blog_side_index_follow_us" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Georgies Blog Side Index - Follow Us" priority="1">
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+   </xpath>
+   <!-- Add space below the subscribe button, so that the spacing is consistent with the other sidebar sections, change pt-2 to py-2 -->
+   <xpath expr="//t[@t-set='div_class']" position="attributes">
+    <attribute name="t-value">'py-2'</attribute>
+   </xpath>
+  </template>
+  <!-- Modify the side index (blog index page) tags addition -->
+  <template id="georgies_blog_side_index_tags" inherit_id="website_blog.opt_sidebar_blog_index_tags" name="Georgies Blog Side Index - Tags" priority="1">
+      <!-- Set margin to 0 on tags section (h5) -->
+    <xpath expr="//div[hasclass('h5')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the side index archive addition -->
+  <template id="georgies_blog_side_index_archive" inherit_id="website_blog.opt_sidebar_blog_index_archives" name="Georgies Blog Side Index - Archive" priority="1">
+    <!-- Adjust bottom spacing for the block -->
+    <xpath expr="//div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Adjust the bottom spacing for the header -->
+    <xpath expr="//div[hasclass('o_wblog_sidebar_block')]/h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Modify the blog side index archive date selector -->
+  <template id="georgies_blog_side_index_archive_date_selector" inherit_id="website_blog.date_selector" name="Georgies Blog Archive Date Selector">
+    <xpath expr="//select[hasclass('custom-select')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Blog post sidebar -->
+  <!-- Change spacing below the author info section -->
+  <template id="georgies_blog_post_author_display" inherit_id="website_blog.opt_blog_post_author_avatar_display" name="Georgies Blog Post - Author Info">
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Remove margins below heading, add mb-0 -->
+    <xpath expr="//t[contains(@t-value, 'h5')]" position="attributes">
+      <attribute name="t-value">'h5 mb-0 d-flex align-items-center'</attribute>
+    </xpath>
+  </template>
+  <!-- Remove 0 line height stying -->
+  <template id="georgies_blog_post_author" inherit_id="website_blog.post_author" name="Blog Post Author Section">
+    <xpath expr="//div[@style='line-height:1'][2]" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the share the post section -->
+  <template id="georgies_blog_post_share_links" inherit_id="website_blog.opt_blog_post_share_links_display" name="Georgies Blog Post - Share Links">
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the tags section-->
+  <template id="georgies_blog_post_tags" inherit_id="website_blog.opt_blog_post_tags_display" name="Georgies Blog Post - Tags">
+    <!-- Set margin to 0 on tags section (h5) -->
+    <xpath expr="//div[hasclass('h5')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>   
+    </xpath>
+    <!-- Change padding below the heading separator -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('border-bottom')]/h6[hasclass('pb-2')]" position="attributes">
+      <attribute name="class" add="mb-0" separator=" "/>
+    </xpath> -->
+    <!-- Add margins below each tag so they have space between them when they stack -->
+    <xpath expr="//a[hasclass('badge')]" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Change padding below that section -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath> -->
+    <!-- Change alternate view space settings too -->
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath> -->
+    <!-- Change margin of Tag's "add some" area -->
+    <!-- FIXME: ODOO14 -->
+    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
+    </xpath> -->
+  </template>
+  <!-- Change the spacing of the our blogs section -->
+  <template id="georgies_blog_post_our_blogs" inherit_id="website_blog.opt_blog_post_blogs_display" name="Georgies Blog Post - Our Blogs">
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+  <!-- Change the spacing of the archive section -->
+  <template id="georgies_blog_post_archive" inherit_id="website_blog.opt_blog_post_archive_display" name="Georgies Blog Post - Archive" >
+    <!-- Change padding below that section -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
+      <attribute name="class" remove="pb-5" add="pb-4" separator=" "/>
+    </xpath>
+    <!-- Change spacing below the heading -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+      <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Style the blog navigation menu -->
+  <template id="georgies_blogs_nav" inherit_id="website_blog.blogs_nav" name="Georgies Blogs Nav">
+    <!-- Add margin on xs screens to provide spacing for the nav menu -->
+    <xpath expr="//nav" position="attributes">
+      <attribute name="t-attf-class" add="py-2" separator=" "/>
+    </xpath>
+
+    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar-->
+    <xpath expr="//form[@id='o_wblog_post_search']" position="attributes">
+      <attribute name="class" remove="w-md-auto" add="my-1 ml-sm-3" separator=" "/>
+    </xpath>
+
+    <!-- Set placeholder of blog search bar to something more appropriate -->
+    <xpath expr="//t[@t-set='_classes']" position="after">
+      <t t-set="placeholder">Search posts...</t>
+    </xpath>
+
+    <!-- Add auto margins to the right of the nav bar to force the search bar to the right and the nav to the left -->
+    <xpath expr="//ul[hasclass('navbar-nav')]" position="attributes">
+      <attribute name="class" add="mr-auto" separator=" "/>
+    </xpath>
+  </template>
+</odoo>

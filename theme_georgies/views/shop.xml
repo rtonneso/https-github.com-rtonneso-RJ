@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <!-- ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP ODOO SHOP -->
+  
+  <!-- Customize Odoo Shop-->
+  <!-- Shop Page (Products) -->
+  <template id="georgies_shop" inherit_id="website_sale.products" name="Georgies Shop Page">
+  
+    <!-- Insert oe_section before the products search / pager section for header customization-->
+    <xpath expr="//div[@id='wrap']//div[hasclass('oe_structure')]" position="inside">
+      <div class="oe_structure"/>
+    </xpath>
+
+    <!-- Modify Odoo's Search / Pagination section -->
+    <!-- Insert search bar -->
+    <xpath expr="//div[hasclass('products_pager')]" position="before">
+      <div class="mt-3">
+        <t t-call="website_sale.search">
+          <t t-set="_classes">w-100 w-md-auto</t>
+        </t>
+      </div>
+    </xpath>
+
+    <!-- Remove search element from pager section -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.search']" position="replace">
+    </xpath>
+
+    <!-- Change classes of pager section -->
+    <xpath expr="//div[hasclass('products_pager')]" position="attributes">
+      <attribute name="class" remove="flex-md-nowrap justify-content-between justify-content-md-center" add="mt-2" separator=" "/>
+    </xpath>
+
+    <!-- Remove left margin on the pager element and set its order -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website.pager']/t[@t-set='_classes']" position="replace">
+      <t t-set="_classes">mt-2 order-3</t>
+    </xpath>
+    
+    <!-- Hide pricelist button unless the user is logged in and matches a specific group -->
+    <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE BY REMOVING IT -->
+    <xpath expr="//div[hasclass('products_pager')]/t[@t-call='website_sale.pricelist_list']" position="replace">
+      <!-- <t t-if="not request.website.is_public_user()">
+        <t t-call="website_sale.pricelist_list">
+          <t t-set="_classes">mr-2</t>
+        </t>
+      </t> -->
+    </xpath>
+
+    <!-- Add bottom margins to website products section -->
+    <xpath expr="//*[hasclass('oe_website_sale')]" position="attributes">
+      <attribute name="class" add="mb-3" separator=" "/>
+    </xpath>
+
+  </template>
+
+  <!-- Adjust sort button -->
+  <template id="georgies_shop_sort_button" inherit_id="website_sale.sort" name="Georgies Sort Button" active="True">
+    <!-- Change left spacing and order -->
+    <xpath expr="//div[hasclass('dropdown_sorty_by')]" position="attributes">
+      <attribute name="class" remove="ml-md-2" add="mr-sm-2 order-1" separator=" "/>
+    </xpath>
+    <xpath expr="//div[hasclass('dropdown-menu')]" position="attributes">
+      <attribute name="class" remove="dropdown-menu-right" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust results layout button -->
+  <template id="georgies_shop_results_layout_button" inherit_id="website_sale.add_grid_or_list_option" name="Georgies Results Layout Button" active="True">
+    <xpath expr="//div[hasclass('o_wsale_apply_layout')]" position="attributes">
+      <attribute name="class" remove="ml-md-2" add="mr-sm-2 order-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product card title and price section spacing -->
+  <template id="georgies_product_item" inherit_id="website_sale.products_item" name="Georgies Product Card">
+    <!-- Remove bootstrap utility class and style padding in css, so that in list view it can be a different amount -->
+    <xpath expr="//div[hasclass('o_wsale_product_information_text')]" position="attributes">
+      <attribute name="class" remove="p-2" add="p-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product category collapse button style -->
+  <template id="georgies_products_categories" inherit_id="website_sale.products_categories" name="Georgies Product categories">
+    <xpath expr="//div[@id='products_grid_before']/button[1]" position="attributes">
+      <attribute name="class" remove="button-link" add="btn-secondary mb-2 mr-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Recursive category list - Normal -->
+  <template id="georgies_product_categories_recursive" inherit_id="website_sale.categories_recursive" name="Georgies Recursive Categories">
+    <xpath expr="//ul" position="attributes">
+      <attribute name="class" add="pl-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Recursive category list - Collapseable -->
+  <template id="georgies_product_categories_recursive_collapse" inherit_id="website_sale.option_collapse_categories_recursive" name="Georgies Recursive Categories - Collapseable">
+    <!-- Add left spacing to inset the sub categories -->
+    <xpath expr="//ul" position="attributes">
+      <attribute name="class" add="pl-2" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust product attribute filter section -->
+  <template id="georgies_product_attributes" inherit_id="website_sale.products_attributes" name="Georgies Product Attributes Section">
+    <!-- Change button styling of show options button-->
+    <xpath expr="//div[@id='products_grid_before']/button[2]" position="attributes">
+      <attribute name="class" remove="button-link" add="btn-secondary mb-2 mr-2" separator=" "/>
+    </xpath>
+    <!-- Adjust bottom of categories list -->
+    <xpath expr="//div[@id='wsale_products_categories_collapse']/ul" position="attributes">
+      <attribute name="class" remove="mb-2" add="mb-3 " separator=" "/>
+    </xpath>
+    <!-- Add left margin for collapsable categories to allow space for chevon collapse buttons -->
+    <!-- <xpath expr="//ul[@id='o_shop_collapse_category']" position="attributes">
+      <attribute name="class" add="ml-2" separator=" "/>
+    </xpath> -->
+    <!-- Add more space above nav-items for filters -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//li[hasclass('nav-item')]" position="attributes">
+      <attribute name="class" add="mb-3" separator=" "/>
+    </xpath>
+    <!-- Add more space below filter labels -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//li[hasclass('nav-item')]/div" position="attributes">
+      <attribute name="class" add="mb-2" separator=" "/>
+    </xpath>
+    <!-- Remove margins on nav-link in filters area -->
+    <xpath expr="//div[@id='wsale_products_attributes_collapse']//label" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+  </template>
+
+  <!-- Remove sales description for products in the card tile / list view in the shop aka all products view -->
+  <template id="georgies_product_sales_description" inherit_id="website_sale.products_description" name="Georgies Product Sales Description">
+    <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
+  <!-- Customize Product Page -->
+  <template id="georgies_product_page" inherit_id="website_sale.product" name="Georgies Product Page">
+    <!-- Hide pricelist button unless the user is logged in and matches a specific group and adjust the spacing of the button -->
+    <!-- TODO: FOR NOW HIDING BUTTON FOR EVERYONE -->
+    <xpath expr="//t[@t-call='website_sale.pricelist_list']" position="replace">
+      <!-- <t t-if="not request.website.is_public_user()">
+        <t t-call="website_sale.pricelist_list">
+          <t t-set="_classes">ml-lg-2 mb-2</t>
+        </t>
+      </t> -->
+    </xpath>
+    <!-- Disable editability of product page data elements, so as to keep editing only on the backend -->
+    <!-- Disable editability on category name in breadcrumb -->
+    <xpath expr="//a[@t-field='category.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name in breadcrumb -->
+    <xpath expr="//span[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product name -->
+    <xpath expr="//h1[@t-field='product.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product attributes -->
+    <xpath expr="//span[@t-field='attribute.name']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Adjust spacing of search bar and breadcrumbs -->
+    <!-- Enlarge breadcrumbs -->
+    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-4')]" position="attributes">
+      <attribute name="class" remove="col-md-4" add="col-md-5" separator=" "/>
+    </xpath>
+    <!-- Shrink Search bar / pricelist button column slightly -->
+    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-8')]" position="attributes">
+      <attribute name="class" remove="col-md-8" add="col-md-7" separator=" "/>
+    </xpath>
+    <!-- Adjust spacing of product section -->
+    <xpath expr="//section[@id='product_detail']" position="attributes">
+      <attribute name="t-attf-class" remove="py-2" add="pt-4 pb-3" separator=" "/>
+    </xpath>
+    <!-- Add top spacing to the product tile -->
+    <xpath expr="//h1[@t-field='product.name']" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Change add to cart button to regular button -->
+    <xpath expr="//*[hasclass('btn-lg')]" position="attributes">
+      <attribute name="class" remove="btn-lg" separator=" "/>
+    </xpath>
+    <!-- Add spacing between cart icon and add to cart text -->
+    <xpath expr="//a[@id='add_to_cart']/i" position="attributes">
+      <attribute name=
+      "class" add="mr-1" separator=" "/>
+    </xpath>
+    <!-- Add spacing to the right of add to cart button to space the buy now button out-->
+    <xpath expr="//a[@id='add_to_cart']" position="attributes">
+      <attribute name="class" add="mr-1" separator=" "/>
+    </xpath>
+    <!-- Change size of product carousel column to 6 -->
+    <xpath expr="//*[@id='product_detail']//div[hasclass('row')][2]//div[hasclass('col-xl-8')]" position="attributes">
+      <attribute name="class" remove="col-xl-8" separator=" "/>
+    </xpath>
+    <!-- Change size of product details column to 6 -->
+    <xpath expr="//*[@id='product_details']" position="attributes">
+      <attribute name="class" remove="col-xl-4" separator=" "/>
+    </xpath>
+    <!-- Add Product Sales Warning -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="product.sale_line_warn == 'warning'">
+        <t t-if="product.sale_line_warn_msg">
+          <hr/>
+          <h4 class="d-inline-block bg-danger px-2">Product Warnings</h4>
+          <p t-field="product.sale_line_warn_msg" contenteditable="false"/>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add Product Usage Recommendation - is currently tied to a specific field that has been added through the odoo studio in odoo.sh. If this field ID changes and it breaks, change its reference here-->
+    <xpath expr="//p[@t-field='product.description_sale']" position="after">
+      <t t-if="'x_studio_many2many_field_uNpZp' in product">
+        <t t-if="product.x_studio_many2many_field_uNpZp">
+            <h4>Product Usage Recommendations</h4>
+            <div class="mb-3">
+              <t t-foreach="product.x_studio_many2many_field_uNpZp" t-as="recommendation">
+                <span class="badge badge-light" t-field="recommendation.x_name" contenteditable="false"/>
+              </t>
+            </div>
+        </t>
+      </t>
+    </xpath>
+    <!-- Add new product description field -->
+    <xpath expr="//p[@t-field='product.description_sale']" position="before">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <p t-field="product.x_studio_ecommerce_description" placeholder="Product description that will only be used on the website (not on invoices)." contenteditable="false"/>
+      </t>
+    </xpath>
+    <!-- Change conditional HR element to appear if ecommerce description exists instead of the sales description -->
+    <xpath expr="//hr[@t-if='product.description_sale']" position="replace">
+      <t t-if="'x_studio_ecommerce_description' in product">
+        <hr t-if="product.x_studio_ecommerce_description"/>
+      </t>
+    </xpath>
+    <!-- Remove default sales description for the front end editor -->
+    <xpath expr ="//p[@t-field='product.description_sale']" position="replace"/>
+  </template>
+
+  <!-- FIXME: IMAGE EDITING -->
+  <!-- Customize the product image template to disable front-end editing -->
+  <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies Shop Product Carousel">
+    <!-- Disable editability on product embeded media -->
+    <xpath expr="//t[@t-raw='product_image.embed_code']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product images -->
+    <xpath expr="//div[@t-field='product_image.image_1920']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+    <!-- Disable editability on product thumbnails -->
+    <xpath expr="//div[@t-field='product_image.image_128']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Disable front end editing of the product price -->
+  <template id="georgies_product_price" inherit_id="website_sale.product_price" name="Georgies Product Price">
+    <!-- Diable editing of price -->
+    <xpath expr="//span[@t-field='product.list_price']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Buy now button -->
+  <template id="georgies_product_buy_now" inherit_id="website_sale.product_buy_now" name="Georgies Product Buy Now Button" active="True">
+
+    <!-- Change size of buy now button to regular -->
+    <xpath expr="//a[@id='buy_now']" position="attributes">
+      <attribute name="class" remove="btn-lg" separator=" "/>
+    </xpath>
+
+    <!-- Add space between the icon and the text of the buy now button -->
+    <xpath expr="//a[@id='buy_now']//i" position="attributes">
+      <attribute name="class" add="mr-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Add spacing above product image carousel -->
+  <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies Shop Product Carousel">
+    <xpath expr="//div[@id='o-carousel-product']" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Add Unit of Measure after product price -->
+  <!-- In order for this to work, the Product Unit of Measure must be accessible to the public.
+  So to set that up, enable developer access in general settings.
+  Navigate to the techincal menu, security, access rights.
+  Create a new record: Name= uom.uom.public | Model=Product Unit of Measure | Group=User types / Public | Read Access=Checked
+  -->
+  <template id="georgies_unit_of_measure" inherit_id="website_sale.product_price" name="Georgies Unit of Measure on product page">
+    <xpath expr="//b[hasclass('oe_price')]" position="after">
+      <span t-field="product.uom_id.name"/>
+    </xpath>
+  </template>
+  
+  <!-- TODO: Currently just inheriting this template, somehow prevents overrides of the website_sale.products_attributes section from working. So for now we'll leave the table as it. It's quite head scratching as it seems those templates are not related to each other at all...  -->
+  <!-- Adjust product specifications section -->
+  <!-- <template id="georgies_product_attributes" inherit_id="website_sale_comparison.product_attributes_body" name="Georgies Product Attributes Section"> -->
+    <!-- Change size of specifications table -->
+    <!-- <xpath expr="//table-sm" position="attributes">
+      <attribute name="class" remove="table-sm" separator=" "/>
+    </xpath> -->
+  <!-- </template> -->
+
+  <!-- Adjust the product reviews "comments" section -->
+  <template id="georgies_product_comment" inherit_id="website_sale.product_comment" name="Georgies Product Reviews">
+    <!-- Add heading to the reviews section-->
+    <xpath expr="//t[@t-call='portal.message_thread']" position="before">
+      <h3 class="text-center mb-3">Product Reviews</h3>
+    </xpath>
+    <!-- Adjust size of the whole column so that it has enough space to allow for the remove selection buttons -->
+    <xpath expr="//div[hasclass('col-lg-8')]" position="attributes">
+      <attribute name="class">col-lg-12</attribute>
+    </xpath>
+  </template>
+
+  <!-- Product page Recently Viewed Products -->
+
+
+  <!-- Cart Popup -->
+  <template id="georgies_cart_popover" inherit_id="website_sale.cart_popover" name="Georgies Cart Popover">
+    <!-- Add bottom padding to cart line item, swap default bottom margin for top padding, and center text vertically on cart line item -->
+    <xpath expr="//div[hasclass('cart_line')]" position="attributes">
+      <attribute name="class" remove="mb8" add="pt-1 pb-1 align-items-center" separator=" "/>
+    </xpath>
+
+    <!-- Remove product image bottom padding. Overwrite t-options to remove mb-2 -->
+    <xpath expr="//span[@t-field='line.product_id.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max'}</attribute>
+    </xpath>
+
+    <!-- Add margin below the view cart button -->
+    <xpath expr="//a[@href='/shop/cart']" position="attributes">
+      <attribute name="class" add="mb-1" separator=" "/>
+    </xpath>
+
+  </template>
+
+  <!-- Shop Cart Nav Menu Item -->
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_cart_nav_menu" inherit_id="website_sale.header" name="Georgies Cart Nav Menu Item"> -->
+    <!-- Change my cart to cart -->
+    <!-- <xpath expr="//a[@href='/shop/cart']" position="replace">
+      <a href="/shop/cart" class="nav-link">
+          <i class="fa fa-shopping-cart"></i>
+          <sup t-attf-class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
+      </a>
+    </xpath>
+  </template> -->
+
+  <!-- Shop Compare Products Page -->
+  <template id="georgies_compare_products" inherit_id="website_sale_comparison.product_compare" name="Georgies Product Compare">
+    <!-- Insert  back to shop and searchbar above the compare products section -->
+    <xpath expr="//div[hasclass('container')]" position="before">
+      <div class="bg-secondary">
+        <div class="container">
+          <div class="row py-3 align-items-center">
+            <div class="col-md-4">
+              <a href="/shop" class="navbar-brand h4 my-0 mr-4">
+                <i class="fa fa-long-arrow-left text-primary mr-2"/>Back to Shop
+              </a>
+            </div>
+            <div class="col-md-8">
+              <t t-call="website_sale.website_sale_products_search_box">
+              </t>
+            </div>
+          </div>
+        </div>
+      </div>
+    </xpath>
+    <!-- Add top spacing to the heading element -->
+    <xpath expr="//h3" position="attributes">
+      <attribute name="class" add="pt-3" separator=" "/>
+    </xpath>
+    <!-- Increase bottom spacing of table to footer -->
+    <xpath expr="//table" position="attributes">
+      <attribute name="class" add="mb-5" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Shop compare button on prducts index page -->
+  <template id="georgies_compare_button" inherit_id="website_sale_comparison.add_to_compare" name="Georgies Product Comparison Button">
+    <xpath expr="//div[hasclass('o_wsale_product_btn')]/button[hasclass('o_add_compare')]" position="attributes">
+      <attribute name="class" remove="d-md-inline-block" add="d-md-flex" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Shop wishlist modifications -->
+  <template id="georgies_product_wishlist" inherit_id="website_sale_wishlist.product_wishlist" name="Georgies Product Wishlist">
+    <!-- Increase spacing above the wishlist heading -->
+    <xpath expr="//h3" position="attributes">
+      <attribute name="class" add="mt-3" separator=" "/>
+    </xpath>
+    <!-- Increase space below the table -->
+    <xpath expr="//table" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-2 mb-5" separator=" "/>
+    </xpath>
+    <!-- Increase space above the add to cart option -->
+    <xpath expr="//div[hasclass('checkbox')]" position="attributes">
+      <attribute name="class" add="pt-1" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- FIXME: ODOO14 -->
+  <!-- <template id="georgies_wishlist_nav_item" inherit_id="website_sale_wishlist.header" name="Georgies Wishlist Nav Item"> -->
+    <!-- Remove word description for the wishlist to create more space -->
+    <!-- <xpath expr="//a[@href='/shop/wishlist']" position="replace">
+      <a href="/shop/wishlist" class="nav-link">
+        <i class="fa fa-heart"/>
+        <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"><t t-esc='wishcount'/></sup>
+      </a>
+    </xpath>
+  </template> -->
+
+  <!-- Shop recommended products (alternative products) modifications -->
+  <template id="georgies_recommended_products" inherit_id="website_sale.recommended_products" name="Georgies Recommended Products (Alternative Products)">
+    <!-- Ajust space above the sugested alternatives container and add class to assist in some styling -->
+    <xpath expr="//div[@t-if='product.alternative_product_ids']" position="attributes">
+      <attribute name="class" remove="mt32" add="mt-4 o_alternative_product_item" separator=" "/>
+    </xpath>
+    <!-- Adjust space above alternative products row relative to the heading and below it -->
+    <xpath expr="//div[@t-if='product.alternative_product_ids']//div[hasclass('row')]" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-3 pb-3" separator=" "/>
+    </xpath>
+    <!-- Remove inline styling of product -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]" position="attributes">
+      <attribute name="style"></attribute>
+    </xpath>
+    <!-- Remove rounded and shadow classes from alternative product image (product_variant.image_128)-->
+    <xpath expr="//t[@t-as='alt_product']//div[@t-field='product_variant.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product mb-3' }</attribute>
+    </xpath>
+    <!-- Remove rounded and shadow classes from alternative product image (alt_product.image_128)-->
+    <xpath expr="//t[@t-as='alt_product']//div[@t-field='alt_product.image_128']" position="attributes">
+      <attribute name="t-options">{'widget': 'image', 'qweb_img_responsive': False, 'class': 'o_alternative_product mb-3' }</attribute>
+    </xpath>
+    <!-- Adjust the spacing above each recommended product -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]/div" position="attributes">
+      <attribute name="class" remove="mt16" add="mt-2" separator=" "/>
+    </xpath>
+    <!-- Remove the link that's on the product title as it's now redundant -->
+    <xpath expr="//t[@t-as='alt_product']//a[@t-att-href='alt_product.website_url']" position="replace">
+      <span t-att-title="alt_product.name" t-field="alt_product.name" class="o_text_overflow" style="display: block;" />
+    </xpath>
+    <!-- Wrap whole product in a link, instead of having just the link on the product title -->
+    <xpath expr="//t[@t-as='alt_product']/div[hasclass('col-lg-2')]/div" position="replace">
+      <a t-att-href="alt_product.website_url">$0</a>
+    </xpath>
+  </template>
+
+  <!-- Adjust Suggested Products -->
+  <template id="georgies_suggested_products_list" inherit_id="website_sale.suggested_products_list" name="Georgies Suggested Products List">
+    <!-- Remove the product sales description -->
+    <xpath expr="//div[@t-field='product.description_sale']" position="replace"/>
+  </template>
+</odoo>
