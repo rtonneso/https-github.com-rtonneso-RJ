@@ -1,0 +1,202 @@
+// -- SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP --
+// Navbar cart icon spacing
+.o_wsale_my_cart i {
+  margin-right: spacer(1);
+}
+
+$li-cat-attr-padding: .25rem 1rem .25rem 0;
+$li-cat-attr-padding-active: 1rem;
+
+// -- Categories & Product Attributes --
+#o_shop_collapse_category,
+#wsale_products_attributes_collapse {
+  li {
+      position: relative;
+      margin-top: $spacer * .125;
+      .nav-link {
+          display: inline-block;
+          width: unset;
+          margin-bottom: 0;
+          padding: $li-cat-attr-padding;
+          cursor: pointer;
+          &.active { padding-left: $li-cat-attr-padding-active; }
+      }
+  }
+}
+
+
+.css_attribute_color {
+  cursor: pointer; // Add cursor pointer functionality
+  input {
+      cursor: pointer; // Add cursor pointer on the input as well
+  }
+  &.active { border: 3px dashed $gray-400; } // Change border style
+}
+
+.o_wsale_products_main_row {
+  margin-top: spacer(3); // Add spacing above the products grid / filters
+  @include media-breakpoint-down(md) { margin-top: spacer(2); }
+}
+
+.oe_website_sale  {
+  ul ul { margin-left: unset; } // Remove access margin on left of attribute checkboxes
+
+  // --Shopping Cart--
+  // Adjust shopping cart item list spacing
+  table#cart_products {
+      
+      th {
+          padding-top: spacer(1);
+          padding-bottom: spacer(1);
+          border-bottom: none; // Remove th border so for consistancy with items below
+      }
+
+      td { 
+          padding-top: spacer(2);
+          padding-bottom: spacer(2);
+
+          &:first-child { padding-left: spacer(2); }
+          &:last-child { padding-right: spacer(2); }
+      }
+  }
+
+  // Adjust promo code text style
+  .show_coupon {
+      font-weight: bold;
+      font-style: italic;
+  }
+
+  // Breadcrumbs
+  .breadcrumb {
+      border: $border-width solid $gray-200;
+  }
+
+}
+
+// --Product Card --
+.oe_product_cart {
+  // Modify product card, and button group dropdown shadow
+  &:hover { 
+      overflow: visible;
+  }
+  &:hover .o_wsale_product_btn {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+// Set cursor to pointer on product card hover
+.oe_product:hover { cursor:pointer; }
+// Remove shadow on button group in list view
+.o_wsale_layout_list .oe_product_cart {
+  &:hover .o_wsale_product_btn { box-shadow: none; }
+  .o_wsale_product_btn { margin-bottom: 0; }
+}
+// Change the spacing, weight, and text-decoration of the product card title
+.o_wsale_products_item_title {
+  margin-bottom: spacer(1);
+  font-weight: bold;
+
+  a { text-decoration: none; }
+}
+#products_grid.o_wsale_layout_list .oe_product_cart {
+// Center product info vertically
+.o_wsale_product_information_text {
+      align-self: center;
+      // Override left spacing to image on list view
+      padding-left: spacer(2) !important;
+  } 
+} 
+// Change the placement of the add to cart, compare, and wishlist buttons
+.oe_product_cart .o_wsale_product_btn {
+  z-index: 9;
+  display: flex;
+  top: 100%;
+  left: -1 * $border-width;
+  right: -1 * $border-width;
+  bottom: unset;
+  padding-bottom: 0;
+  margin-bottom: -1 * $border-width;
+
+  .btn {
+      padding: spacer(1) spacer(2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+  }
+}
+// FIXME: CHANGE IMAGE SIZE OF LIST VIEW / GRID VIEW / REWORK GRID
+
+
+
+// -- Product Page Overrides  --
+// Attributes spacing
+.variant_attribute {
+  .col-form-label {
+      padding-top: unset;
+      padding-bottom: spacer(1);
+  }
+}
+
+#product_detail {
+  // Product search on product page
+  .o_wsale_products_searchbar_form { 
+      // Add spacing below search
+      margin-bottom: spacer(2);
+
+      // Adjust search bar to be larger and fill the width of the column, and go full width on sm and xs screens
+      @include media-breakpoint-down(sm) { width: 100%; }
+      flex-grow: 1;
+  }
+}
+
+// Add spacing around product images in recently viewed cards
+.s_wsale_products_recently_viewed .o_carousel_product_card_img_top {
+  padding: spacer(2);
+}
+// Theme left and right arrows for recently viewed items
+.o_carousel_product_control {
+  border-radius: unset;
+  background-color: $primary;
+}
+// Alternative product item styling
+.o_alternative_product_item { 
+  a { text-decoration: none; }
+}
+
+// Website rating remove selection button modifcations
+.o_website_rating_progress_table .o_website_rating_select_text{
+  // Reduce padding on invisible button
+  padding: 0 spacer(2);
+}
+
+
+
+// -- Product comparison overrides --
+// Remove rounded corners on the compare fixed button
+.o_product_feature_panel {
+  border-top-right-radius: unset;
+  border-top-left-radius: unset;
+}
+// remove the underline on the product links in the compare products popup
+.o_comparelist_products {
+  a {
+      text-decoration: none;
+      font-weight: bold;
+  }
+}
+// Adjust padding of comparison popup
+.o_product_feature_panel .popover-body {
+  padding: spacer(2);
+
+  .o_remove {
+      font-size: $font-size-base;
+  }
+}
+
+
+
+// -- Product Wishlist overrides
+.oe_website_sale .td-wish-btn { 
+  width: auto;
+  white-space: nowrap;
+};

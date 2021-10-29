@@ -1,0 +1,35 @@
+// ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO 
+/* === Odoo Theme Overrides ===*/
+// Navbar nested dropdown background color
+.navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
+  background-color: $color-1;
+}
+
+// Search results adjustment
+.o_search_product_item {
+  .media-body h6 { margin-bottom: spacer(1); }
+}
+
+// Change the left hand padding of the buttons in the grid area that show the categories and options on smaller sized screens
+// #products_grid_before {
+//     & > button {
+//         @include media-breakpoint-down(xl) {
+//             padding-left: 0;
+//         }
+//     }
+// }
+
+// Set the flex-wrap propertie and spacing on this to allow for wrap around of pages on smaller screens
+.pagination {
+  flex-wrap: wrap;
+
+  // Change the left margins created to help with border doubling in-between pagination items
+  margin-left: $border-width !important;
+  margin-top: calc(#{$border-width} + #{spacer(2)}) !important;
+
+  .page-item > .page-link { 
+      margin-left: -1 * $border-width;
+      margin-top: -1 * $border-width; 
+  }
+
+}

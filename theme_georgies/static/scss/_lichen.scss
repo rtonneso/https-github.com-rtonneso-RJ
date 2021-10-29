@@ -1,6 +1,8 @@
-// COLORS
-// Need to declare bg-light here because Odoo is calculating that color based on the primary color, and we want it way lighter than what it's making.
-.bg-light{ background-color: #dbdbdb !important};
+// Georgies Color Pallet
+// #E4C26B
+
+// BORDER COLORS
+.border-current { border-color: currentColor; }
 
 // TYPOGRAPHY
 h1, h2, h3, h4, h5, h6,
@@ -167,31 +169,6 @@ header .navbar {
     // .nav-link.active { @include media-breakpoint-up(md) { border-bottom: $border-width solid currentColor; }}
 }
 
-// NAV TABS
-.nav-tabs {
-    .nav-link {
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: $nav-link-padding-x;
-        margin-right: $nav-link-padding-x;
-
-        &.active {
-            border-bottom: $border-width solid currentColor;
-            background-color: unset;
-
-            @include hover-focus() { border-bottom: $border-width solid currentColor; }
-        }
-
-        @include hover-focus() {
-            color: $li-type-hover-color;
-            border-bottom: none;
-        }
-    }
-}
-
 
 
 // FIXME: ODOO14 color overrides are happening a decent bit and need to look into color handling more...
@@ -268,21 +245,11 @@ header .navbar {
 
 $li-spacing-x-md: spacer(3) * 2;
 
-// FOOTER
-// TODO: Match margins / padding to other elements
-.li-footer {
-
-    &-newsletter {
-        margin-left: $grid-gutter-width / 2;
-        margin-right: $grid-gutter-width / 2;
-    }
-
-    a { color: $white; }
-
-    &-social {
-        margin-left: spacer(2);
-    }
-
+// FOOTER SOCIAL ICOS
+.li-icon-social {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
 }
 
 // In-page announcement
@@ -325,7 +292,7 @@ $li-spacing-x-md: spacer(3) * 2;
 .li-call {
 
     &__dark {
-        background: $gray-100;
+        background: $color-3;
     }
     
     // Regular padding (put some on the right in md and above, zero in sm, and x-2 on xs)
@@ -426,30 +393,6 @@ $li-spacing-x-md: spacer(3) * 2;
     font-size: 5rem;
 }
 
-.li-fixed-badge {
-    position: fixed;
-    z-index: 1000;
-    right: 0;
-    top: 50%;
-    transform: translateX(50%) rotate(-90deg) translateY(-50%);
-
-    padding: spacer(2) spacer(3);
-
-    background: $primary;
-    color: $white;
-    text-transform: uppercase;
-    letter-spacing: $li-letter-spacing;
-    font-size: .8rem;
-    text-align: center;
-
-    @include media-breakpoint-down(sm) {
-        top: unset;
-        bottom: 0;
-        left: 0;
-        transform: unset;
-    }
-}
-
 .li-split-background {
     background: none;
     
@@ -548,361 +491,4 @@ $li-spacing-x-md: spacer(3) * 2;
     margin-right: 5px;
     width: 1rem;
     height: 1rem;
-}
-
-
-
-
-
-
-
-
-
-// ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO 
-/* === Odoo Theme Overrides ===*/
-// Navbar nested dropdown background color
-.navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
-    background-color: $quinary;
-}
-
-// Search results adjustment
-.o_search_product_item {
-    .media-body h6 { margin-bottom: spacer(1); }
-}
-
-// -- SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP --
-// Navbar cart icon spacing
-.o_wsale_my_cart i {
-    margin-right: spacer(1);
-}
-
-$li-cat-attr-padding: .25rem 1rem .25rem 0;
-$li-cat-attr-padding-active: 1rem;
-
-// -- Categories & Product Attributes --
-#o_shop_collapse_category,
-#wsale_products_attributes_collapse {
-    li {
-        position: relative;
-        margin-top: $spacer * .125;
-        .nav-link {
-            display: inline-block;
-            width: unset;
-            margin-bottom: 0;
-            padding: $li-cat-attr-padding;
-            cursor: pointer;
-            &.active { padding-left: $li-cat-attr-padding-active; }
-        }
-    }
-}
-
-
-.css_attribute_color {
-    cursor: pointer; // Add cursor pointer functionality
-    input {
-        cursor: pointer; // Add cursor pointer on the input as well
-    }
-    &.active { border: 3px dashed $gray-400; } // Change border style
-}
-
-.o_wsale_products_main_row {
-    margin-top: spacer(3); // Add spacing above the products grid / filters
-    @include media-breakpoint-down(md) { margin-top: spacer(2); }
-}
-
-
-// Change the left hand padding of the buttons in the grid area that show the categories and options on smaller sized screens
-// #products_grid_before {
-//     & > button {
-//         @include media-breakpoint-down(xl) {
-//             padding-left: 0;
-//         }
-//     }
-// }
-
-// Set the flex-wrap propertie and spacing on this to allow for wrap around of pages on smaller screens
-.pagination {
-    flex-wrap: wrap;
-
-    // Change the left margins created to help with border doubling in-between pagination items
-    margin-left: $border-width !important;
-    margin-top: calc(#{$border-width} + #{spacer(2)}) !important;
-
-    .page-item > .page-link { 
-        margin-left: -1 * $border-width;
-        margin-top: -1 * $border-width; 
-    }
-
-}
-
-
-.oe_website_sale  {
-    ul ul { margin-left: unset; } // Remove access margin on left of attribute checkboxes
-
-    // --Shopping Cart--
-    // Adjust shopping cart item list spacing
-    table#cart_products {
-        
-        th {
-            padding-top: spacer(1);
-            padding-bottom: spacer(1);
-            border-bottom: none; // Remove th border so for consistancy with items below
-        }
-
-        td { 
-            padding-top: spacer(2);
-            padding-bottom: spacer(2);
-
-            &:first-child { padding-left: spacer(2); }
-            &:last-child { padding-right: spacer(2); }
-        }
-    }
-
-    // Adjust promo code text style
-    .show_coupon {
-        font-weight: bold;
-        font-style: italic;
-    }
-
-    // Breadcrumbs
-    .breadcrumb {
-        border: $border-width solid $gray-200;
-    }
-
-}
-
-// --Product Card --
-.oe_product_cart {
-    // Modify product card, and button group dropdown shadow
-    &:hover { 
-        overflow: visible;
-    }
-    &:hover .o_wsale_product_btn {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-}
-// Set cursor to pointer on product card hover
-.oe_product:hover { cursor:pointer; }
-// Remove shadow on button group in list view
-.o_wsale_layout_list .oe_product_cart {
-    &:hover .o_wsale_product_btn { box-shadow: none; }
-    .o_wsale_product_btn { margin-bottom: 0; }
-}
-// Change the spacing, weight, and text-decoration of the product card title
-.o_wsale_products_item_title {
-    margin-bottom: spacer(1);
-    font-weight: bold;
-
-    a { text-decoration: none; }
-}
-#products_grid.o_wsale_layout_list .oe_product_cart {
-// Center product info vertically
-.o_wsale_product_information_text {
-        align-self: center;
-        // Override left spacing to image on list view
-        padding-left: spacer(2) !important;
-    } 
-} 
-// Change the placement of the add to cart, compare, and wishlist buttons
-.oe_product_cart .o_wsale_product_btn {
-    z-index: 9;
-    display: flex;
-    top: 100%;
-    left: -1 * $border-width;
-    right: -1 * $border-width;
-    bottom: unset;
-    padding-bottom: 0;
-    margin-bottom: -1 * $border-width;
-
-    .btn {
-        padding: spacer(1) spacer(2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 1;
-    }
-}
-// FIXME: CHANGE IMAGE SIZE OF LIST VIEW / GRID VIEW / REWORK GRID
-
-
-
-// -- Product Page Overrides  --
-// Attributes spacing
-.variant_attribute {
-    .col-form-label {
-        padding-top: unset;
-        padding-bottom: spacer(1);
-    }
-}
-
-#product_detail {
-    // Product search on product page
-    .o_wsale_products_searchbar_form { 
-        // Add spacing below search
-        margin-bottom: spacer(2);
-
-        // Adjust search bar to be larger and fill the width of the column, and go full width on sm and xs screens
-        @include media-breakpoint-down(sm) { width: 100%; }
-        flex-grow: 1;
-    }
-}
-
-// Add spacing around product images in recently viewed cards
-.s_wsale_products_recently_viewed .o_carousel_product_card_img_top {
-    padding: spacer(2);
-}
-// Theme left and right arrows for recently viewed items
-.o_carousel_product_control {
-    border-radius: unset;
-    background-color: $primary;
-}
-// Alternative product item styling
-.o_alternative_product_item { 
-    a { text-decoration: none; }
-}
-
-
-// -- Product comparison overrides --
-// Remove rounded corners on the compare fixed button
-.o_product_feature_panel {
-    border-top-right-radius: unset;
-    border-top-left-radius: unset;
-}
-// remove the underline on the product links in the compare products popup
-.o_comparelist_products {
-    a {
-        text-decoration: none;
-        font-weight: bold;
-    }
-}
-// Adjust padding of comparison popup
-.o_product_feature_panel .popover-body {
-    padding: spacer(2);
-
-    .o_remove {
-        font-size: $font-size-base;
-    }
-}
-
-// Website rating remove selection button modifcations
-.o_website_rating_progress_table .o_website_rating_select_text{
-    // Reduce padding on invisible button
-    padding: 0 spacer(2);
-}
-
-// -- Product Wishlist overrides
-.oe_website_sale .td-wish-btn { 
-    width: auto;
-    white-space: nowrap;
-};
-
-// -- Blog Module --
-// Override line height and font size on blog post teaser
-.website_blog #o_wblog_posts_loop .o_wblog_normalize_font {
-    font-size: $font-size-base;
-    line-height: 1.8;
-}
-
-// Set negative margin on tag section to accomodate the margin below the tags
-.o_wblog_post_short_tag_section {
-    margin-bottom: -1 * spacer(2);
-}
-
-// Set Width of search bar
-#o_wblog_post_search {
-    flex-grow: 1;
-    max-width: 25rem;
-}
-
-// -- Event Module --
-.o_wevent {
-
-    // Events list
-    &_index &_events_list {
-    
-        // Event type badge
-        .o_wevent_badge_event {
-            border-radius: 0;
-        }
-        // Event date
-        .o_wevent_event_date { border-radius: 0; }
-        // Event footer
-        .card-footer { border-top: unset; }
-    }
-    
-    
-    // Remove filter dropdown menu top margin
-    &_index_topbar_filters .dropdown-menu {
-        margin-top: 0;
-        min-width: 100%;
-    }
-
-    // Event index sidebar elements
-    &_index {
-        // Change spacing below block
-        .o_wevent_sidebar_block { 
-            // FIXME: change to padding, and rework structure of html in the template
-            margin-bottom: 0;
-            padding-bottom: spacer(3);
-        }
-        // Change spacing below headings
-        .o_wevent_sidebar_title { 
-            padding-bottom: spacer(2);
-            margin-bottom: spacer(2);
-        }
-    }
-
-    &_event{
-
-        // General search bar settings
-        &_searchbar_form {
-            flex: unset;
-            flex-grow: 1;
-            max-width: 25rem;
-        }
-
-        // Event details sidebar elements spacing
-        .o_wevent_sidebar_block {
-            padding: spacer(2);
-            @include media-breakpoint-up(sm) { padding: spacer(3); }
-        }
-        // Event details comments (messages) structure
-        #comment {
-            .media-body {
-                display: flex;
-                flex-wrap: wrap;
-
-                // Set margins and width behavior of comment
-                p {
-                    margin-right: auto;
-                    width: 100%;
-                    @include media-breakpoint-up(sm) {
-                        width: auto;
-                    }
-                }
-            }
-        }
-    }
-
-    &_badge {
-        border-radius: 0;
-        font-weight: 600;
-        letter-spacing: $li-letter-spacing;
-    }
-}
-
-// Remove inline-block display from .s_share (it should be flex, and is by default set in .o_wevent_social_link, .s_share is overriding it and breaking it's display)
-.s_share > * {
-    display: inline-flex;
-}
-
-// Set flex shrink property of the qty / avilablility element of the event ticket registration bar
-.li-event-ticket-qty { flex-shrink: 0; }
-
-// Remove the borders on the event ticket price on xs screens so that it looks purdy
-.li-event-ticket-price {
-    @include media-breakpoint-down(xs) {
-        border-left: none !important;
-        border-right: none !important;
-    }
 }

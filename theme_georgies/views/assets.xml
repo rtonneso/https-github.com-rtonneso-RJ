@@ -26,8 +26,11 @@
     <xpath expr="//link[last()]" position="after">
       <!-- Insert our custom css-->
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
-      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_mixins.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_lichen.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-blog.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-events.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-general.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-shop.scss"/>
       <!-- Insert our custom web fonts -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap"/>
     </xpath>

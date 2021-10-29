@@ -1,0 +1,21 @@
+// -- Product comparison overrides --
+// Remove rounded corners on the compare fixed button
+.o_product_feature_panel {
+  border-top-right-radius: unset;
+  border-top-left-radius: unset;
+}
+// remove the underline on the product links in the compare products popup
+.o_comparelist_products {
+  a {
+      text-decoration: none;
+      font-weight: bold;
+  }
+}
+// Adjust padding of comparison popup
+.o_product_feature_panel .popover-body {
+  padding: spacer(2);
+
+  .o_remove {
+      font-size: $font-size-base;
+  }
+}

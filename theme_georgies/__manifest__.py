@@ -1,7 +1,7 @@
 {
   'name':'Georgies.com',
   'description': 'Georgies.com theme styling by Lichen',
-  'version':'0.9975',
+  'version':'0.9976',
   'author':'Lichen',
   'data': [
       'views/layout.xml',
@@ -23,11 +23,8 @@
   'depends': [
     'website',
     'website_sale',
-    'website_sale_comparison',
-    'website_sale_wishlist',
     'website_blog',
     'website_event',
     'website_event_sale',
-    'mass_mailing'
   ],
 }

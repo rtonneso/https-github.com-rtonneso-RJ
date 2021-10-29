@@ -3,12 +3,6 @@
 <!-- ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS -->
 
   <!-- Set various ui components to active by default -->
-  <!-- Footer -->
-  <!-- Footer Language Selector -->
-  <record id="portal.footer_language_selector" model="ir.ui.view">
-    <field name="active" eval="False"/>
-  </record>
-
   <!-- Shop -->
   <!-- Shop categories filter -->
   <record id="website_sale.products_categories" model="ir.ui.view">
@@ -30,10 +24,10 @@
   <record id="website_sale.add_grid_or_list_option" model="ir.ui.view">
     <field name="active" eval="True"/>
   </record>
-  <!-- Track visitor -->
+
   <!-- Product Description -->
   <record id="website_sale.products_description" model="ir.ui.view">
-    <field name="active" eval="True"/>
+    <field name="active" eval="False"/>
   </record>
   <!-- Add to Cart button -->
   <record id="website_sale.products_add_to_cart" model="ir.ui.view">
@@ -66,14 +60,6 @@
   </record>
   <!-- Show blog post sidebar -->
   <record id="website_blog.opt_blog_post_sidebar" model="ir.ui.view">
-    <field name="active" eval="True"/>
-  </record>
-  <!-- Enable select to tweet -->
-  <record id="website_blog.opt_blog_post_select_to_tweet" model="ir.ui.view">
-    <field name="active" eval="True"/>
-  </record>
-  <!-- Enable select to comment -->
-  <record id="website_blog.opt_blog_post_select_to_comment" model="ir.ui.view">
     <field name="active" eval="True"/>
   </record>
 

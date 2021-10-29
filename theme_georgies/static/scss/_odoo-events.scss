@@ -1,0 +1,92 @@
+// -- Event Module --
+.o_wevent {
+
+  // Events list
+  &_index &_events_list {
+  
+      // Event type badge
+      .o_wevent_badge_event {
+          border-radius: 0;
+      }
+      // Event date
+      .o_wevent_event_date { border-radius: 0; }
+      // Event footer
+      .card-footer { border-top: unset; }
+  }
+  
+  
+  // Remove filter dropdown menu top margin
+  &_index_topbar_filters .dropdown-menu {
+      margin-top: 0;
+      min-width: 100%;
+  }
+
+  // Event index sidebar elements
+  &_index {
+      // Change spacing below block
+      .o_wevent_sidebar_block { 
+          // FIXME: change to padding, and rework structure of html in the template
+          margin-bottom: 0;
+          padding-bottom: spacer(3);
+      }
+      // Change spacing below headings
+      .o_wevent_sidebar_title { 
+          padding-bottom: spacer(2);
+          margin-bottom: spacer(2);
+      }
+  }
+
+  &_event{
+
+      // General search bar settings
+      &_searchbar_form {
+          flex: unset;
+          flex-grow: 1;
+          max-width: 25rem;
+      }
+
+      // Event details sidebar elements spacing
+      .o_wevent_sidebar_block {
+          padding: spacer(2);
+          @include media-breakpoint-up(sm) { padding: spacer(3); }
+      }
+      // Event details comments (messages) structure
+      #comment {
+          .media-body {
+              display: flex;
+              flex-wrap: wrap;
+
+              // Set margins and width behavior of comment
+              p {
+                  margin-right: auto;
+                  width: 100%;
+                  @include media-breakpoint-up(sm) {
+                      width: auto;
+                  }
+              }
+          }
+      }
+  }
+
+  &_badge {
+      border-radius: 0;
+      font-weight: 600;
+      letter-spacing: $li-letter-spacing;
+  }
+}
+
+// Remove inline-block display from .s_share (it should be flex, and is by default set in .o_wevent_social_link, .s_share is overriding it and breaking it's display)
+.s_share > * {
+  display: inline-flex;
+}
+
+// Set flex shrink property of the qty / avilablility element of the event ticket registration bar
+.li-event-ticket-qty { flex-shrink: 0; }
+
+// Remove the borders on the event ticket price on xs screens so that it looks purdy
+.li-event-ticket-price {
+  @include media-breakpoint-down(xs) {
+      border-left: none !important;
+      border-right: none !important;
+  }
+}

@@ -4,6 +4,10 @@
   <!-- WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH -->
   <!-- Remove button input append group div and keep just the button -->
   <template id="georgies_website_search_box" inherit_id="website.website_search_box">
+    <!-- Change the placeholder for the products search site-wide -->
+    <xpath expr="//t[@t-set='search_placeholder']" position="replace">
+        <t t-set="search_placeholder">Search products...</t>
+    </xpath>
     <xpath expr="//div[hasclass('input-group-append')]" position="replace">
       <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
     </xpath>
@@ -23,13 +27,8 @@
     </xpath>
   </template>
   
-  <!-- Adjust navbar search -->
-  <template id="georgies_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies Navbar Search">
-    
-    <!-- Change the placeholder for the products search site-wide -->
-    <xpath expr="//t[@t-set='search_placeholder']" position="replace">
-        <t t-set="search_placeholder">Search products...</t>
-    </xpath>
+  <!-- Adjust product search used below in the navbar search -->
+  <template id="georgies_product_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies Product Navbar Search">
 
     <!-- Adjust input sizing to sm -->
     <xpath expr="//div[@role='search']" position="attributes">
@@ -48,11 +47,22 @@
     <xpath expr="//ul[@id='top_menu']" position="before">
       <ul class="navbar-nav mb-2 mt-1 align-self-end li-navbar-search">
         <li class="nav-item">
-          <t t-call="theme_georgies.georgies_navbar_search">
+          <t t-call="theme_georgies.georgies_product_navbar_search">
             <t t-set="_classes" t-value="'s_wsale_products_searchbar_input'"/>
           </t>
         </li>        
       </ul>
+    </xpath>
+    <!-- Center nav items vertically -->
+    <xpath expr="//ul[@id='top_menu']" position="attributes">
+      <attribute name="class" add="align-items-center" separator=" "/>
+    </xpath>
+  </template>
+
+  <!-- Adjust padding on header card button -->
+  <template id="georgies_header_cart" inherit_id="template_header_default" name="Georgies Cart Nav Link">
+    <xpath expr="//t[@t-set='_item_class']" position="attributes">
+      <attribute name="t-value">'nav-item'</attribute>
     </xpath>
   </template>
 
@@ -65,58 +75,4 @@
       <!-- <t t-call="theme_georgies.s_shop_mega_menu"/> -->
     </xpath>
   </template>
-
-
-
-
-  <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
-
-  <!-- Customize footer  -->
-  <template id="georgies_footer" inherit_id="website.layout" name="Georgies Footer">
-    <!-- Replace Odoo's footer with our custom one  -->
-    <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
-      
-      <footer class="bg-primary py-4 li-footer text-white">
-        <div class="container">
-          <div class="mt-2 li-footer-newsletter">
-            <div class="row align-items-center border border-light">
-              <div class="col-sm">
-                <div class="px-lg-2 py-2 h5 mb-0 li-type-attention"><a href="/newsletter">Stay in the know! Sign up for Georgies email newsletter!</a></div>
-              </div>
-              <div class="col-sm-auto d-flex justify-content-sm-end">
-                <div class="py-2"><a class="btn btn-outline-light" href="newsletter" role="button">Sign up ></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; FAX 503.283.1387</strong><br></br><br></br>
-                <!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="border border-light py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div>
-            </div>
-          </div>
-          <div class="row mt-4 justify-content-center li-type-attention">
-            <div class="col-auto"> 
-              <div class="pb-2">Follow us!</div>
-            </div>
-            <div class="col-sm-auto">
-              <div class="pb-2 text-center">Portland<a class="li-footer-social" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesceramic/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
-            </div>
-            <div class="col-sm-auto">
-              <div class="pb-2 text-center">Eugene<a class="li-footer-social" href="https://www.facebook.com/georgies.eugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/facebook-8e0b498d9f.svg"></img></a><a class="li-footer-social" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><img class="li-icon-social" src="/theme_georgies/static/img/icons/instagram-acfb765a8e.svg"></img></a></div>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col">
-              <div class="text-center"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </xpath>
-  </template>
-
 </odoo>

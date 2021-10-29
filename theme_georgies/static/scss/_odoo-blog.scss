@@ -1,0 +1,19 @@
+// -- Blog Module --
+// Override line height and font size on blog post teaser
+.website_blog #o_wblog_posts_loop {
+  .o_wblog_normalize_font {
+    font-size: $font-size-base;
+    line-height: 1.8;
+  }
+}
+
+// Set negative margin on tag section to accomodate the margin below the tags
+.o_wblog_post_short_tag_section {
+  margin-bottom: -1 * spacer(2);
+}
+
+// Set Width of search bar
+#o_wblog_post_search {
+  flex-grow: 1;
+  max-width: 25rem;
+}
