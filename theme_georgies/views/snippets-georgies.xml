@@ -162,6 +162,8 @@
     </section>
   </template>
 
+
+
   <!-- Georgies Distributor Locations -->
   <template id="s_georgies_distributor_locations" name="Georgies Distributor Locations">
     
@@ -1622,6 +1624,8 @@
     </section>
   </template>
 
+
+
   <!-- Georgies Button Card -->
   <template id="s_georgies_button_card" name="Georgies Button Card">
     
@@ -1638,6 +1642,9 @@
       <div data-selector=".s_button_card" data-drop-in=".container, div[class*=' col']"/>
     </xpath>
   </template>
+
+
+
 
   <!-- Image -->
   <template id="s_georgies_image" name="Georgies Image">
@@ -1659,6 +1666,7 @@
         </div>
       </xpath>
   </template>
+
 
 
   <!-- TODO: ADD EXTRA SMALL, AND DO THE SAME FOR MARGINS, TOP, BOTTOM, LEFT, RIGHT FOR IMAGES AND OTHER INNER ITEMS

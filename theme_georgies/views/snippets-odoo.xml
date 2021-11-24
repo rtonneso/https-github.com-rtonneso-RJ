@@ -115,18 +115,7 @@
   <!-- Tweak Cover Snippet -->
   <template id="s_georgies_overrides_cover" inherit_id="website.s_cover" name="Odoo Cover - Georgies Overrides">
     <xpath expr="//section" position="replace">
-      <!-- <section class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96" data-scroll-background-ratio="1">
-        <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"/>
-        <div class="o_we_bg_filter bg-black-50"/>
-        <div class="container s_allow_columns">
-            <h1 style="text-align: center;"><font style="font-size: 62px; font-weight: bold;">Catchy Headline</font></h1>
-            <p class="lead" style="text-align: center;">Write one or two paragraphs describing your product, services or a specific feature.<br/> To be successful your content needs to be useful to your readers.</p>
-            <p style="text-align: center;">
-                <a href="/contactus" class="btn btn-primary mb-2">Contact us</a>
-            </p>
-        </div>
-    </section> -->
-      <section class="s_gc_splash pt80 pb80 o_cc o_cc3" style="background-image: url('/web/image/theme_georgies.placeholder_wide-backwall');">
+      <section class="s_gc_splash pt80 pb80 o_cc o_cc3" style="background-image: url('/web/image/theme_georgies.placeholder_fourthirds-clayboxes');">
         <div class="o_we_bg_filter bg-black-50"></div>
         <div class="container s_allow_columns">
           <div class="px-2 px-sm-0">
@@ -169,7 +158,7 @@
               <p><a href="#" class="btn btn-primary">Button here Bud</a></p>
             </div>
             <div class="col-lg-5 pt16 pb16">
-              <img src="/web/image/theme_georgies.placeholder_square-clayboxes" class="w-100 mx-auto" alt=""/>
+              <img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/>
             </div>
           </div>
         </div>

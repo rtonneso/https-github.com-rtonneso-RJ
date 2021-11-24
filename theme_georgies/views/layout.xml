@@ -4,10 +4,11 @@
   <!-- WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH -->
   <!-- Remove button input append group div and keep just the button -->
   <template id="georgies_website_search_box" inherit_id="website.website_search_box" name="Georgies - Website Search Box">
+    <!-- FIXME: ODOO.SH -->
     <!-- Change the placeholder for the products search site-wide -->
-    <xpath expr="//t[@t-set='search_placeholder']" position="replace">
+    <!-- <xpath expr="//t[@t-set='search_placeholder']" position="replace">
         <t t-set="search_placeholder">Search products...</t>
-    </xpath>
+    </xpath> -->
     <!-- Change the button type to primary -->
     <xpath expr="//div[hasclass('input-group-append')]" position="replace">
       <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
