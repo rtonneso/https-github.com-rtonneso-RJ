@@ -1,39 +1,35 @@
 // Colors
-$color-1: var(--o-color-1);
 // Background .o_cc1
-$color-2: var(--o-color-2);
 // Background .o_cc2
-$color-3: var(--o-color-3);
 // Background .o_cc3
-$color-4: var(--o-color-4);
 // Background .o_cc4
-$color-5: var(--o-color-5);
 // Background .o_cc5
+$color-1: var(--o-color-1);
+$color-2: var(--o-color-2);
+$color-3: var(--o-color-3);
+$color-4: var(--o-color-4);
+$color-5: var(--o-color-5);
 
 // Typography
 $font-size-base: 14rem / 16;
-$font-family-sans-serif: "Open Sans", "Arial", sans-serif;
 $body-color: $color-5;
 $line-height-base: 1.8;
 
 // Headings
-$h2-weight: 600;
-$h3-weight: 600;
-$h4-weight: 300;
-$headings-line-height: 1.6;
-$headings-margin-bottom: 1rem;
+$h1-font-size:                $font-size-base * 3.5;
+$h2-font-size:                $font-size-base * 2.5;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
+$headings-font-weight: 700;
+$headings-line-height: 1.4;
+$headings-margin-bottom: 1.5rem;
+$paragraph-margin-bottom: 1.5rem;
 
 // Displays
-$display1-weight: 500;
-$display2-weight: 500;
-$display3-weight: 500;
-$display4-weight: 500;
+$display-font-weight: $headings-font-weight;
 $display-line-height: $headings-line-height;
-
-$display1-size: 5.5rem;
-$display2-size: 4rem;
-$display3-size: 3rem;
-$display4-size: 2rem;
 
 // Style
 $enable-gradients: false;
@@ -88,25 +84,14 @@ $badge-padding-y: .8em;
 $badge-padding-x: .6em;
 
 // Nav bar
-// $li-navbar-collapse-point: sm;
-// $li-navbar-font-size: $font-size-base * .75;
 $navbar-padding-y: $spacer * .5;
+$navbar-padding-x: 0;
 $navbar-nav-link-padding-y: $spacer * 0.25;
 $navbar-nav-link-padding-x: $spacer * 0.4;
 $navbar-brand-padding-y: 0;
 
-// $navbar-dark-color:                 $white;
-// $navbar-dark-hover-color:           rgba($white, .85);
-// $navbar-dark-active-color:          $color-1;
-// $navbar-dark-disabled-color:        rgba($white, .25);
-
-// $navbar-light-color: rgba($primary, .80);
-// $navbar-light-active-color:  $primary;
-
 $navbar-toggler-padding-y: .5rem;
 $navbar-toggler-padding-x: .6rem;
-// FIXME: deal with focus state on toggler button
-// $navbar-dark-toggler-border-color: $white;
 
 // Drop downs
 $dropdown-min-width: 10rem;
@@ -114,51 +99,15 @@ $dropdown-padding-x: 0;
 $dropdown-padding-y: 0;
 $dropdown-spacer: $border-width;
 $dropdown-font-size: $font-size-base * .9;
-// $dropdown-color: $primary;
-// $dropdown-bg: $white;
 $dropdown-border-color: $color-5;
 $dropdown-border-radius: $border-radius;
 $dropdown-border-width: $border-width;
 $dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width);
-// $dropdown-divider-bg: $dropdown-border-color;
 $dropdown-divider-margin-y: 0;
 $dropdown-box-shadow: null;
-
-// $dropdown-link-color: $primary !important;
-// $dropdown-link-hover-color: $primary !important;
-// $dropdown-link-hover-bg: $color-5;
-
-// $dropdown-link-active-color: $primary;
-// $dropdown-link-active-bg: $color-3;
-
-// $dropdown-link-disabled-color: $gray-500;
 
 $dropdown-item-padding-y: $spacer * .25;
 $dropdown-item-padding-x: $spacer * 1;
 
-// $dropdown-header-color: $gray-600;
+
 $dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
-
-// Dropdown Dark Colors
-// $dropdown-dark-color: $navbar-dark-color;
-// $dropdown-dark-bg: $primary;
-// $dropdown-dark-border-color: $white;
-// $dropdown-dark-divider-bg: $secondary;
-// $dropdown-dark-box-shadow: null;
-// $dropdown-dark-link-color: $dropdown-dark-color;
-// $dropdown-dark-link-hover-color: $color-3;
-// $dropdown-dark-link-hover-bg: $primary;
-// $dropdown-dark-link-active-color: $dropdown-link-active-color;
-// $dropdown-dark-link-active-bg: $dropdown-link-active-bg;
-// $dropdown-dark-link-disabled-color: $dropdown-link-disabled-color;
-// $dropdown-dark-header-color: $dropdown-header-color;
-
-// Nav tabs
-// $nav-tabs-border-color: transparent;
-// $nav-tabs-link-hover-border-color: $primary;
-// $nav-tabs-link-active-color: $primary;
-// $nav-tabs-link-active-border-color: $primary $primary $primary;
-
-// Nav Pills
-// $nav-pills-link-active-color: var(--o-color-5);
-// $nav-pills-link-active-bg: $primary;

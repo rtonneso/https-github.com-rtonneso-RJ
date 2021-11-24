@@ -63,4 +63,98 @@
     <field name="active" eval="True"/>
   </record>
 
+  <!-- Add Default Images that are used throughout the theme -->
+  <!-- Georgies Placeholder Images -->
+  <record id="theme_georgies.placeholder_fourthirds-backwall" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-backwall.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-backwall.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-clayboxes" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-clayboxes.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-clayboxes.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-product" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-product.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-product.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-tools" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-tools.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-tools.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_portrait-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">portrait-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/portrait-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_portrait-parking-sign" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">portrait-parking-sign.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/portrait-parking-sign.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-clayboxes" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-clayboxes.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-clayboxes.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-george" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-george.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-george.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-product" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-product.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-product.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-backwall" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-backwall.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-backwall.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-bowls" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-bowls.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-bowls.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-storefront" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-storefront.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-storefront.jpg</field>
+  </record>
+  <!-- Georgies Brand Placeholder Images -->
+
 </odoo>

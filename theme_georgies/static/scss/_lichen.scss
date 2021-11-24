@@ -1,6 +1,74 @@
 // Georgies Color Pallet
 // #E4C26B
 
+// SNIPPETS
+// If the web editor is enabled, this class is added to the body, so any conditional appearance can be placed here for snippets that want to look differently while editing is taking place
+@mixin empty-view($empty-text) {
+    &:empty {
+        height: 30px; // Matching the height of the oe_drop_zone so that there is no height jitter when moving snippets around
+        position: relative;
+        border: 2px dashed black;
+        &::before {
+            content: $empty-text !important;
+            color: black;
+            font-size: 1rem;
+            font-weight: bold;
+            font-style: italic;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.editor_enable {
+    &[style='cursor: move;'] {
+        .s_gc_section,
+        .s_gc_two_column_row .col-12,
+        .s_gc_three_column_row .col-12,
+        .s_gc_four_column_row .col-12  {
+            border: 2px dashed solid;
+            .oe_drop_zone.oe_insert {
+                margin: 0;
+                &.invisible {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // Empty item styling (makes these structural items visible for dropping into things)
+    .s_gc_section .container,
+    .s_gc_section .container-fluid,
+    .s_gc_section .o_container_small
+        { @include empty-view('Empty section'); }
+    .s_gc_two_column_row .col-12,
+    .s_gc_three_column_row .col-12,
+    .s_gc_four_column_row .col-12 {
+        @include empty-view('Empty column');
+    }
+}
+
+// Hide image shape / shadow / and thumbnail buttons (they look like trash, and aren't consistant with the rest of the theme. Also hide the resizing buttons, as we've added that functionality in the snippet options for images, and it's a better location since that's where the resolution option, and quality is.
+#oe_snippets#oe_snippets .o_we_snippet_text_tools {
+    .btn[data-event='imageShape'][data-value='rounded'],
+    .btn[data-event='imageShape'][data-value='rounded-circle'],
+    .btn[data-event='imageShape'][data-value='shadow'],
+    .btn[data-event='imageShape'][data-value='img-thumbnail'],
+    .btn[data-event='resize'][data-value='auto'],
+    .btn[data-event='resize'][data-value='1'],
+    .btn[data-event='resize'][data-value='0.5'],
+    .btn[data-event='resize'][data-value='0.25'] {
+        display: none;
+    }
+}
+
+
+
+
+
+
 // BORDER COLORS
 .border-current { border-color: currentColor; }
 
@@ -28,13 +96,13 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-p a,
-h1 a,
-h2 a, 
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+p a:not(.btn),
+h1 a:not(.btn),
+h2 a:not(.btn), 
+h3 a:not(.btn),
+h4 a:not(.btn),
+h5 a:not(.btn),
+h6 a:not(.btn) {
     text-decoration: underline;
 }
 
@@ -54,18 +122,6 @@ label {
     &-group {
         flex: wrap;
     }
-    &-white {
-        background-color: var(--white);
-        color: var(--primary);
-    }
-    &-outline-white {
-        border-color: var(--white);
-        color: var(--white);
-        &:hover, &:active, &:focus {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-    }
     //TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY 
     // FIXME: NEED TO GET TO WORK WITH BS, ODOO IS FUCKING IT UP THE WAY THEY IMPORT AND THEN OVERRIDE BUTTONS
     &-sm, &-group-sm > & {
@@ -74,24 +130,30 @@ label {
         padding-right: $input-btn-padding-x-sm;
         padding-left: $input-btn-padding-x-sm;
 
-}
+    }
 }
 
 
 // NAVBAR
 // Main navbar menu
+// Margins for mobile navbar items
+$li-navbar-item-mobile-margins: $spacer * .5;
 header .navbar {
-    
+
+
     // Adjusting logo sizing
     .navbar-brand {
         img { height: 4rem !important; }
+        @include media-breakpoint-down($li-navbar-collapse-point) {
+            margin-left: $li-navbar-item-mobile-margins;
+        }
     }
     
     .nav-item {
         @include media-breakpoint-down($li-navbar-collapse-point) {
-            margin-right: 0;
-            .nav-link.active span { border-bottom: $border-width solid currentColor; }
-            .nav-link.active { border-bottom: none; }
+            margin-left: $li-navbar-item-mobile-margins;
+            margin-right: $li-navbar-item-mobile-margins;
+            &:last-child { margin-right: $li-navbar-item-mobile-margins; } // TODO: See if this is neccesary
         }
     }
 
@@ -145,10 +207,10 @@ header .navbar {
 .navbar {
     .nav-item {
         font-size: $li-navbar-font-size;
-        &:last-child { margin-right: 0; }
+        &:last-child { margin-right: 0; } // TODO: See if this is neccesary
 
         @include media-breakpoint-down(xs) {
-            margin-right: 0;
+            margin-right: 0; // TODO: See if this is neccesary
         }
 
     }
@@ -157,6 +219,9 @@ header .navbar {
     &-light .navbar-toggler {
         padding-left: $navbar-toggler-padding-x;
         padding-right: $navbar-toggler-padding-x;
+        @include media-breakpoint-down($li-navbar-collapse-point) {
+            margin-right: $li-navbar-item-mobile-margins;
+        }
     }
 
 }
@@ -214,17 +279,14 @@ header .navbar {
 }
 
 // NAVBAR SEARCH
-.li-navbar-search {
+.georgies-navbar-search {
 
-    @include media-breakpoint-down($li-navbar-collapse-point) { margin-top: spacer(3); }
     .form-control {
         // TODO: Revisit border color / z-index
         // border: none;
         width: 30rem;
         max-width: 100%;
-
         @include media-breakpoint-down(md) { width: 25rem; }
-        @include media-breakpoint-down($li-navbar-collapse-point) { width: 100%; }
     }
 }
 
@@ -280,66 +342,32 @@ $li-spacing-x-md: spacer(3) * 2;
 
 
 // Main page calls to actions
-
-.li-actions-section {
-    .btn {
-        margin-right: spacer(2);
-        margin-top: spacer(2);
-    }
-    .btn:last-child { margin-right: 0; }
-}
-
-.li-call {
-
-    &__dark {
-        background: $color-3;
-    }
-    
+.s_gc_call {
     // Regular padding (put some on the right in md and above, zero in sm, and x-2 on xs)
     &-copy {
-        padding-left: spacer(2);
-        padding-right: spacer(2);
-        @include media-breakpoint-up(sm) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-        @include media-breakpoint-up(md) {
-            padding-right: spacer(3);
-        }
-
-        // Add bottom padding for buttons for stacking purposes when they stack on eachother
-        .btn {
-            margin-bottom: spacer(2);
-        }
+        // padding-left: spacer(2);
+        // padding-right: spacer(2);
+        // @include media-breakpoint-up(sm) {
+        //     padding-left: 0;
+        //     padding-right: 0;
+        // }
+        // @include media-breakpoint-up(md) {
+        //     padding-right: spacer(3);
+        // }
     }
 
     // Swap the padding on right to left display mode
     &-copy__last {
-        .li-call-content {
+        .s-gc-call-text {
             order: 13;
         }
-        .li-call-copy {
+        .s-gc-call-copy {
             @include media-breakpoint-up(md) {
                 padding-right: 0;
                 padding-left: spacer(3);
             }
         }
     }
-
-    &-image {
-
-        @include media-breakpoint-down (sm) { margin-top: spacer(4); }
-
-        img {
-            object-fit: contain;
-            object-position: left center;
-            height: 100%;
-            width: 100%;
-            max-height: 28rem;
-            max-width: 28rem;
-        }
-    }
-    
 }
 
 // Main page splash
@@ -349,19 +377,8 @@ $li-spacing-x-md: spacer(3) * 2;
     justify-content: center;
     position: relative;
     width: 100%;
-    min-height: 40rem;
+    min-height: 20rem;
     background-size: cover;
-
-    @include media-breakpoint-down(sm) {
-        min-height: 30rem;
-    }
-
-    &__short {
-        min-height: 20rem;
-    }
-    &__full-height {
-        min-height: 100vh;
-    }
 
     &-background {
 

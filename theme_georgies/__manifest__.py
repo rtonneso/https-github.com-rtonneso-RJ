@@ -1,7 +1,7 @@
 {
   'name':'Georgies.com',
   'description': 'Georgies.com theme styling by Lichen',
-  'version':'0.9976',
+  'version':'1.0',
   'author':'Lichen',
   'data': [
       'views/layout.xml',
@@ -10,8 +10,8 @@
       'views/blog.xml',
       'views/pages.xml',
       'views/assets.xml',
-      'views/snippets.xml',
-      'views/snippet-options.xml',
+      'views/snippets-georgies.xml',
+      'views/snippets-odoo.xml',
       'views/records.xml'
   ],
   'images': [

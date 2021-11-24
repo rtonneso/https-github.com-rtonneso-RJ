@@ -12,4 +12,11 @@
         <attribute name="class" value="col-lg-8 pt-3 pt-lg-0"/>
       </t>
     </t>
+
+    <!-- Recently Viewed Products -->
+    <t t-extend="website_sale.productsRecentlyViewed">
+      <t t-jquery="div[t-attf-class='o_carousel_product_card_wrap col-md-#{12 / productFrame}']" t-operation="attributes">
+        <attribute name="t-attf-class" value="o_carousel_product_card_wrap col-md-4 col-lg-3"/>
+      </t>
+    </t>
 </templates>
