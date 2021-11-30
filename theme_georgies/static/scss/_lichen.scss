@@ -106,7 +106,13 @@ h6 a:not(.btn) {
     text-decoration: underline;
 }
 
-p:last-child {
+p:last-child,
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child {
     margin-bottom: 0;
 }
 
@@ -282,6 +288,13 @@ header .navbar {
     text-transform: uppercase;
 }
 
+// Make button go full width below large
+.georgies-call-to-action {
+    .btn {
+        @include media-breakpoint-down(lg) { width: 100%; }
+    }
+}
+
 // NAVBAR SEARCH
 .georgies-navbar-search {
 
@@ -316,97 +329,6 @@ $li-spacing-x-md: spacer(3) * 2;
     width: 1.5rem;
     height: 1.5rem;
     fill: currentColor;
-}
-
-// In-page announcement
-@include media-breakpoint-down(sm) {
-    .li-announcement-in-page .btn {
-        display: block;
-        width: 100%;
-    }
-}
-
-// Announcements Main Page Section
-.li-announcement-image {
-    object-fit: cover;
-    height: 100%;
-    max-height: 20rem;
-    max-width: 20rem;
-
-    @include media-breakpoint-down (md) {
-        max-height: 28rem;
-    }
-
-    @include media-breakpoint-down (sm) {
-        max-width: unset;
-        width: 100%;
-    }
-
-}
-
-
-// Main page calls to actions
-.s_gc_call {
-    // Regular padding (put some on the right in md and above, zero in sm, and x-2 on xs)
-    &-copy {
-        // padding-left: spacer(2);
-        // padding-right: spacer(2);
-        // @include media-breakpoint-up(sm) {
-        //     padding-left: 0;
-        //     padding-right: 0;
-        // }
-        // @include media-breakpoint-up(md) {
-        //     padding-right: spacer(3);
-        // }
-    }
-
-    // Swap the padding on right to left display mode
-    &-copy__last {
-        .s-gc-call-text {
-            order: 13;
-        }
-        .s-gc-call-copy {
-            @include media-breakpoint-up(md) {
-                padding-right: 0;
-                padding-left: spacer(3);
-            }
-        }
-    }
-}
-
-// Main page splash
-.li-splash {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    min-height: 20rem;
-    background-size: cover;
-
-    &-background {
-
-        &-overlay{
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-            background: black;
-            opacity: .5;
-        }
-
-        &-image__fixed {
-            background-attachment: fixed;
-        }
-    }
-    &-content{
-        position: relative;
-        z-index: 1;
-    }
-}
-
-.li-class:nth-child(2n - 1) {
-        background-color: $light;
 }
 
 .li-attention-symbol {

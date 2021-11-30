@@ -11,65 +11,7 @@
   <!-- Mega Menu -->
   <template id="s_georgies_overrides_shop_mega_menu" inherit_id="website.s_mega_menu_multi_menus" name="Georgies - Mega Menu">
     <xpath expr="//*[hasclass('s_mega_menu_multi_menus')]" position="replace">
-      
-      <!-- |||||||||||||||||||||||||||-->
-      <!-- Shop Mega Menu-->
-      <!-- |||||||||||||||||||||||||||-->
-      <section class="py-1 o_cc5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="container mb-2 mb-md-0 li-shop-mega-buttons"><a class="btn btn-outline-primary btn-sm" href="/shop">Shop Now &gt;</a><a class="btn btn-outline-primary btn-sm" href="/catalog">Georgies Catalog &gt;</a><a class="btn btn-outline-primary btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-outline-primary btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-outline-primary btn-sm" href="#">Ordering Info &gt;</a></div>
-            </div>
-            <div class="col-md-8">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                  <div class="col-sm-6 col-md-3">
-                    <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- |||||||||||||||||||||||||||--><!-- Shop Mega Menu--><!-- |||||||||||||||||||||||||||--><section class="py-1 o_cc5"><div class="container"><div class="row"><div class="col-md-4"><div class="container mb-2 mb-md-0 li-shop-mega-buttons"><a class="btn btn-primary btn-sm" href="/shop">Shop Now &gt;</a><a class="btn btn-primary btn-sm" href="/catalog">Georgies Catalog &gt;</a><a class="btn btn-primary btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-primary btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-primary btn-sm" href="#">Ordering Info &gt;</a></div></div><div class="col-md-8"><div class="container"><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div></div></div></div></div></section>
     </xpath>
   </template>
 
@@ -78,14 +20,33 @@
   <!-- Card -->
   <template id="s_georgies_overrides_card" inherit_id="website.s_card" name="Odoo Card - Georgies Overrides">
     <xpath expr="//div[hasclass('s_card')]" position="replace">
-      
-      <div class="s_button_card pb-3">
-        <div class="o_cc o_cc2 px-3 pt-3 pb-3 d-flex flex-column">
-          <h2>Heading here</h2>
-          <h6><em><strong>THIS IS A SUB HEADING</strong></em></h6>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary btn-block" href="#">Button Text Here</a>
+      <div class="s_button_card pb-3"><div class="o_cc o_cc2 px-3 pt-3 pb-3 d-flex flex-column"><h2>Heading here</h2><h6><em><strong>THIS IS A SUB HEADING</strong></em></h6><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary btn-block" href="#">Button Text Here</a></div></div>
+    </xpath>
+  </template>
+
+
+
+  <!-- Call to Action -->
+  <template id="s_georgies_overrides_call_to_action" inherit_id="website.s_call_to_action" name="Odoo Call to Action - Georgies Overrides">
+    <xpath expr="//section" position="replace">
+      <section class="pt48 pb48 o_cc o_cc3">
+        <div class="container">
+          <div class="georgies-call-to-action border border-current pb16">
+            <div class="row align-items-center">
+              <div class="col-lg-8 pt16">
+                <div class="px-2 px-lg-3">
+                  <h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5>
+                </div>
+              </div>
+              <div class="col-lg-4 pt16">
+                <div class="px-2 px-lg-3 text-lg-right">
+                  <p><a class="btn btn-primary" href="#">SIGN UP FOR IT HERE &gt;</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </xpath>
   </template>
 
@@ -230,8 +191,15 @@
 
   <!-- Alert -->
   <template id="s_georgies_overrides_alert" inherit_id="website.s_alert" name="Odoo Inner Alert - Georgies Overrides">
+    <!-- Align items vertically -->
     <xpath expr="//div[hasclass('s_alert')]" position="attributes">
       <attribute name="class" add="d-flex align-items-center" separator=" "/>
+    </xpath>
+    <!-- Create bold text for the default -->
+    <xpath expr="//p" position="replace">
+      <p>
+        <b>This is an alert here bud. You can use it to get the attention of visitors, and style it based on the primary, secondary, info, warning, success, or danger colors and double click on the icon to change it.</b>
+      </p>
     </xpath>
   </template>
 

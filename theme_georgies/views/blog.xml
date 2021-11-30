@@ -86,15 +86,35 @@
     </xpath>
   </template>
 
+
+
   <!-- Modify the blog template -->
-  <template id="georgies_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="Georgies Blog Post Template">
+  <template id="georgies_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="Georgies - Blog Post Template">
     <!-- Add padding to the top and bottom of the title area -->
     <xpath expr="//div[@id='title']/t/div[hasclass('container')]" position="attributes">
       <attribute name="class" add="py-3" separator=" "/>
     </xpath>
+    <!-- Add padding to the top of the sidebar when it goes below the main post on smaller than lg screens -->
+    <xpath expr="//div[@id='o_wblog_post_sidebar_col']" position="attributes">
+      <attribute name="t-attf-class">pl-lg-5 mt-2 mt-lg-0 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}</attribute>
+    </xpath>
+    <!-- Remove the scroll down button in the cover -->
+    <xpath expr="//a[@id='o_wblog_post_content_jump']" position="replace"/>
   </template>
 
-  <!-- Blog Sidebars -->
+
+
+  <!-- Adjust the padding below the blog name at the bottom, above the tags -->
+  <template id="georgies_blog_post_content" inherit_id="website_blog.blog_post_content" name="Georgies - Blog Post Content">
+    <!-- Add padding below blog title -->
+    <xpath expr="//div[@t-if='len(blogs) > 1']" position="attributes">
+      <attribute name="class" add="pb-2" separator=" "/>
+    </xpath>
+  </template>
+
+
+
+  <!-- Blog Sidebars for the index page -->
   <!-- Modify the blog post side index area -->
   <template id="georgies_blog_side_index" inherit_id="website_blog.sidebar_blog_index" name="Georgies Blog Side Index" priority="1">
     <!-- Adjust bottom spacing for the block -->
@@ -106,6 +126,9 @@
       <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
     </xpath>
   </template>
+
+
+
   <!-- Modify the side index follow us addition -->
   <template id="georgies_blog_side_index_follow_us" inherit_id="website_blog.opt_sidebar_blog_index_follow_us" name="Georgies Blog Side Index - Follow Us" priority="1">
     <!-- Adjust the bottom spacing for the header -->
@@ -117,6 +140,9 @@
     <attribute name="t-value">'py-2'</attribute>
    </xpath>
   </template>
+
+
+
   <!-- Modify the side index (blog index page) tags addition -->
   <template id="georgies_blog_side_index_tags" inherit_id="website_blog.opt_sidebar_blog_index_tags" name="Georgies Blog Side Index - Tags" priority="1">
       <!-- Set margin to 0 on tags section (h5) -->
@@ -243,14 +269,14 @@
 
   <!-- Style the blog navigation menu -->
   <template id="georgies_blogs_nav" inherit_id="website_blog.blogs_nav" name="Georgies Blogs Nav">
-    <!-- Add margin on xs screens to provide spacing for the nav menu -->
+    <!-- Add margin on xs screens to provide spacing for the nav menu, and set the expand point to medium -->
     <xpath expr="//nav" position="attributes">
-      <attribute name="t-attf-class" add="py-2" separator=" "/>
+      <attribute name="t-attf-class" add="py-2 navbar-expand-md" remove="navbar-expand-sm" separator=" "/>
     </xpath>
 
-    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar-->
+    <!-- Add a bit of margins to the search bar to match the spacing on the events page nav bar -->
     <xpath expr="//form[@id='o_wblog_post_search']" position="attributes">
-      <attribute name="class" remove="w-md-auto" add="my-1 ml-sm-3" separator=" "/>
+      <attribute name="class" remove="w-md-auto" add="w-md-75 my-1 mx-2 mr-md-0" separator=" "/>
     </xpath>
 
     <!-- Set placeholder of blog search bar to something more appropriate -->
@@ -258,9 +284,10 @@
       <t t-set="placeholder">Search posts...</t>
     </xpath>
 
-    <!-- Add auto margins to the right of the nav bar to force the search bar to the right and the nav to the left -->
+    <!-- Add auto margins to the right of the nav bar to force the search bar to the right and the nav to the left, also add some margins, and force it 100% wide when stacked so that the search bar moves below -->
     <xpath expr="//ul[hasclass('navbar-nav')]" position="attributes">
-      <attribute name="class" add="mr-auto" separator=" "/>
+      <attribute name="class" add="mr-auto w-100 mx-2 mx-md-0" separator=" "/>
     </xpath>
+    <!-- A-->
   </template>
 </odoo>

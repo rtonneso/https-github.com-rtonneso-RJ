@@ -11,7 +11,7 @@ $color-4: var(--o-color-4);
 $color-5: var(--o-color-5);
 
 // Typography
-$font-size-base: 14rem / 16;
+$font-size-base: 15rem / 16;
 $body-color: $color-5;
 $line-height-base: 1.8;
 
@@ -46,6 +46,12 @@ $spacer: 2rem;
 $li-btn-padding-y: $spacer * .35;
 $li-btn-padding-x: $spacer * .75;
 $li-input-padding-x: $spacer * .25;
+
+// Alerts
+$alert-bg-level: 0;
+$alert-border-level: -10;
+$alert-color-level: -10;
+$alert-link-font-weight: 700;
 
 // Buttons and Inputs
 // Regular size

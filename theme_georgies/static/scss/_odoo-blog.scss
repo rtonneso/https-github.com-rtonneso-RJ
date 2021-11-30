@@ -17,3 +17,24 @@
   flex-grow: 1;
   max-width: 25rem;
 }
+
+// Set these items to be the same as the rest of the site (aka unset them)
+.website_blog .o_wblog_read_text {
+  font-size: unset;
+  line-height: unset;
+  font-weight: unset;
+}
+
+// Make blog name match h1
+.website_blog .o_wblog_post_title #o_wblog_post_name {
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  font-size: $h1-font-size;
+  letter-spacing: $li-letter-spacing;
+}
+
+// Make blog subtitle match regular font style
+.website_blog .o_wblog_post_title #o_wblog_post_subtitle {
+  font-weight: unset;
+  font-size: unset;
+}

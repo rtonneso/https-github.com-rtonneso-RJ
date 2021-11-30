@@ -5,175 +5,30 @@
 
 
 
-  <!-- Georgies Announcement Snippet -->
-  <template id="s_georgies_announcement_in_page" name="Georgies Announcement Banner">
-    
-    <section class="li-announcement-in-page pt-3 pb-3">
-      <div class="container">
-        <div class="row no-gutters py-2 px-2 px-sm-3 px-md-4 py-md-3 border border-primary">
-          <div class="col-md d-flex align-items-center pr-0 pr-sm-3">
-            <h4 class="mb-0 text-uppercase font-italic">Hey! Here's a super sweet announcement!</h4>
-          </div>
-          <div class="col-md-auto d-flex align-items-center justify-content-start justify-content-sm-end"><a class="btn btn-outline-primary mt-3 mt-md-0" href="#">Boom, this is a button!</a></div>
-        </div>
-      </div>
-    </section>
-  </template>
-
-
-
-  <!-- Georgies Full Width Announcement Bar -->
+  <!-- Georgies Announcement Bar -->
   <template id="s_georgies_full_width_announcement_bar" name="Georgies Announcement Bar">
-    
-    <section class="bg-danger"> 
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="py-1" style="text-align: center;"><b> <i>Announcement text here. Can be quite long in order to explain things, and can be multiple lines.</i></b></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="bg-danger"> <div class="container"><div class="row"><div class="col"><div class="py-1" style="text-align: center;"><b> <i>Announcement text here. Can be quite long in order to explain things, and can be multiple lines.</i></b></div></div></div></div></section>
   </template>
 
 
 
   <!-- Georgies Current Gallery Shows Snippet -->
   <template id="s_georgies_call_to_actions" name="Georgies Call to Actions">
-    
-    <section class="pb-5 pt-5">
-      <div class="container">
-        <h2>Current Gallery Shows</h2>
-        <div class="row">
-          <div class="col-md">
-            <div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide.png"></img></a>
-              <p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-outline-primary" href="#">In our Portland Gallery</a>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide.png"></img></a>
-              <p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-outline-primary" href="#">In our Eugene Gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="pb-5 pt-5"><div class="container"><h2>Current Gallery Shows</h2><div class="row"><div class="col-md"><div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide.png"></img></a><p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-primary" href="#">In our Portland Gallery</a></div></div><div class="col-md"><div class="mt-3"><a href="#"><img class="w-100" src="/theme_georgies/static/img/placeholders/gray-wide.png"></img></a><p class="mt-3 mb-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis rerum autem aut neque, repellendus voluptatem numquam corporis quisquam.</p><a class="btn btn-primary" href="#">In our Eugene Gallery</a></div></div></div></div></section>
   </template>
 
 
   <!-- Georgies Store Locations -->
   <template id="s_georgies_store_locations" name="Georgies Store Locations">
-    
-    <section>
-      <div class="container">
-        <h1 class="px-2 px-sm-0 mt-4">Serving the Pacific Northwest</h1>
-        <div class="li-locations">
-          <div class="mt-4 mb-5">
-            <div class="px-2 px-sm-0">
-              <h2>Portland Store</h2>
-              <div class="row mt-4">
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Monday - Saturday  9am - 5pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0"></div>
-              </div>
-              <div class="mt-1"><a href="https://www.google.com/maps/place/756+NE+Lombard,+Portland,+OR+97211" target="_blank">756 NE Lombard, Portland, OR 97211</a></div>
-              <div class="row mt-1">
-                <div class="col-sm-auto"><a href="tel:503.283.1353">503.283.1353</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><a href="tel:800.999.CLAY">800.999.CLAY</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><span>FAX 503.283.1387</span>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0"></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=756 NE Lombard, Portland, OR 97211"></iframe>
-            </div>
-          </div>
-          <div class="mt-4 mb-5">
-            <div class="px-2 px-sm-0">
-              <h2>Eugene Store</h2>
-              <div class="row mt-4">
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Tuesday - Friday  9am-5pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div>
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Saturday  10am-4pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div>
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Sunday &amp;amp; Monday  CLOSED</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0"></div>
-              </div>
-              <div class="mt-1"><a href="https://www.google.com/maps/place/1471+Railroad+Blvd+%239,+Eugene,+OR+97402" target="_blank">1471 Railroad Blvd #9, Eugene, OR 97402</a></div>
-              <div class="row mt-1">
-                <div class="col-sm-auto"><a href="tel:541.338.7654">541.338.7654</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><a href="tel:866.234.CLAY">866.234.CLAY</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><span>FAX 541.338.7565</span>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0"></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1471 Railroad Blvd #9, Eugene, OR 97402"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-light py-5 px-2 px-sm-0">
-        <div class="container">
-          <h2>Deliveries from Portland?</h2>
-          <h6 class="text-uppercase"><em>All Georgies' deliveries are subject to change based on weather conditions. Salem and Seattle delivery routes may be rescheduled based on low demand or high demand for deliveries in other areas.</em></h6>
-          <div class="row pt-3">
-            <div class="col-md">
-              <div class="pr-md-3">
-                <p><strong>Portland metro area:</strong> Monday, Tuesday &amp; Friday of each week <br></br><strong>Salem area:</strong> every Wednesday <br></br>
-                  <strong>Seattle area:</strong> every other Thursday
-                </p>
-                <p><strong>Delivery charges to Portland and Salem areas:</strong><br></br>$40.00 up to 2,000 pounds. $60 for deliveries over 2,000 pounds.</p>
-                <p><strong>Delivery charge to the Eugene area (from Portland):</strong><br></br>$60. Fuel surcharges may apply on deliveries from Portland, depending on market factors.</p>
-              </div>
-            </div>
-            <div class="col-md">
-              <p><strong>Bend area:</strong> We make deliveries from Portland to Bend on the last Friday of each month, weather permitting. For best results, please place your orders on or before the last Monday of each month. We can accept add-on and last-minute orders through the last Wednesday (2 days before the delivery date). Order weight or space allocations may be limited by the capacity of our delivery vehicle. Ross delivers to a central location in Bend, and will be happy to help unload and move your order into your vehicle(s).</p>
-              <p><strong>Orders up to 500 pounds =</strong> $45.00 delivery charge. <br></br><strong>Orders 501 to 2000 pounds =</strong> $75.00 delivery charge.</p>
-            </div>
-          </div>
-          <div class="mt-3">
-            <div class="row pt-3">
-              <div class="col-sm-1">
-                <div class="li-attention-symbol">!</div>
-              </div>
-              <div class="col-sm-11">
-                <div class="pl-md-3 pl-lg-0">
-                  <h6 class="text-uppercase"><em>We know that many people can't receive deliveries during the week because of your own work schedules. Deliveries from Portland on Saturday or Sunday are possible with arrangements made in advance. We need at least 10 to 14 days lead time for weekend deliveries, please.</em></h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section><div class="container"><h1 class="px-2 px-sm-0 mt-4">Serving the Pacific Northwest</h1><div class="li-locations"><div class="mt-4 mb-5"><div class="px-2 px-sm-0"><h2>Portland Store</h2><div class="row mt-4"><div class="col-lg-auto"><em><div class="h6"><strong>Monday - Saturday  9am - 5pm</strong></div></em></div><div class="col-lg-auto d-none d-lg-block px-0"></div></div><div class="mt-1"><a href="https://www.google.com/maps/place/756+NE+Lombard,+Portland,+OR+97211" target="_blank">756 NE Lombard, Portland, OR 97211</a></div><div class="row mt-1"><div class="col-sm-auto"><a href="tel:503.283.1353">503.283.1353</a></div><div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div><div class="col-sm-auto"><a href="tel:800.999.CLAY">800.999.CLAY</a></div><div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div><div class="col-sm-auto"><span>FAX 503.283.1387</span></div><div class="col-sm-auto d-none d-sm-block px-0"></div></div></div><div class="mt-4"><iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=756 NE Lombard, Portland, OR 97211"></iframe></div></div><div class="mt-4 mb-5"><div class="px-2 px-sm-0"><h2>Eugene Store</h2><div class="row mt-4"><div class="col-lg-auto"><em><div class="h6"><strong>Tuesday - Friday  9am-5pm</strong></div></em></div><div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div><div class="col-lg-auto"><em><div class="h6"><strong>Saturday  10am-4pm</strong></div></em></div><div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div><div class="col-lg-auto"><em><div class="h6"><strong>Sunday &amp;amp; Monday  CLOSED</strong></div></em></div><div class="col-lg-auto d-none d-lg-block px-0"></div></div><div class="mt-1"><a href="https://www.google.com/maps/place/1471+Railroad+Blvd+%239,+Eugene,+OR+97402" target="_blank">1471 Railroad Blvd #9, Eugene, OR 97402</a></div><div class="row mt-1"><div class="col-sm-auto"><a href="tel:541.338.7654">541.338.7654</a></div><div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div><div class="col-sm-auto"><a href="tel:866.234.CLAY">866.234.CLAY</a></div><div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div><div class="col-sm-auto"><span>FAX 541.338.7565</span></div><div class="col-sm-auto d-none d-sm-block px-0"></div></div></div><div class="mt-4"><iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1471 Railroad Blvd #9, Eugene, OR 97402"></iframe></div></div></div></div><div class="bg-light py-5 px-2 px-sm-0"><div class="container"><h2>Deliveries from Portland?</h2><h6 class="text-uppercase"><em>All Georgies' deliveries are subject to change based on weather conditions. Salem and Seattle delivery routes may be rescheduled based on low demand or high demand for deliveries in other areas.</em></h6><div class="row pt-3"><div class="col-md"><div class="pr-md-3"><p><strong>Portland metro area:</strong> Monday, Tuesday &amp; Friday of each week <br></br><strong>Salem area:</strong> every Wednesday <br></br>
+    <strong>Seattle area:</strong> every other Thursday</p><p><strong>Delivery charges to Portland and Salem areas:</strong><br></br>$40.00 up to 2,000 pounds. $60 for deliveries over 2,000 pounds.</p><p><strong>Delivery charge to the Eugene area (from Portland):</strong><br></br>$60. Fuel surcharges may apply on deliveries from Portland, depending on market factors.</p></div></div><div class="col-md"><p><strong>Bend area:</strong> We make deliveries from Portland to Bend on the last Friday of each month, weather permitting. For best results, please place your orders on or before the last Monday of each month. We can accept add-on and last-minute orders through the last Wednesday (2 days before the delivery date). Order weight or space allocations may be limited by the capacity of our delivery vehicle. Ross delivers to a central location in Bend, and will be happy to help unload and move your order into your vehicle(s).</p><p><strong>Orders up to 500 pounds =</strong> $45.00 delivery charge. <br></br><strong>Orders 501 to 2000 pounds =</strong> $75.00 delivery charge.</p></div></div><div class="mt-3"><div class="row pt-3"><div class="col-sm-1"><div class="li-attention-symbol">!</div></div><div class="col-sm-11"><div class="pl-md-3 pl-lg-0"><h6 class="text-uppercase"><em>We know that many people can't receive deliveries during the week because of your own work schedules. Deliveries from Portland on Saturday or Sunday are possible with arrangements made in advance. We need at least 10 to 14 days lead time for weekend deliveries, please.</em></h6></div></div></div></div></div></div></section>
   </template>
 
 
 
   <!-- Georgies Distributor Locations -->
   <template id="s_georgies_distributor_locations" name="Georgies Distributor Locations">
-    
-    <section>
-      <div class="container pb-4">
-        <h1 class="mt-4">Georgies Glaze Distributors</h1>
-        <div class="h6 li-type-attention"><span class="d-none d-sm-inline"><strong>Click on a state</strong> to find your closest Georgies distributor.</span><span class="d-sm-none">Listed below are Georgies distributors by state.</span><br></br> Canadian Distributors are listed at the bottom of the page. </div>
-        <div class="row pt-3">
-          <div class="d-none d-sm-block col-lg-9">
-            <div class="pr-2 li-distributor-map">
+    <section><div class="container pb-4"><h1 class="mt-4">Georgies Glaze Distributors</h1><div class="h6 li-type-attention"><span class="d-none d-sm-inline"><strong>Click on a state</strong> to find your closest Georgies distributor.</span><span class="d-sm-none">Listed below are Georgies distributors by state.</span><br></br> Canadian Distributors are listed at the bottom of the page. </div><div class="row pt-3"><div class="d-none d-sm-block col-lg-9"><div class="pr-2 li-distributor-map">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440.993 889.196">
     <g id="usa-map">
     	<g class="li-state" id="NY">
@@ -1348,294 +1203,14 @@
     	</g>
     </g>
     </svg>
-    
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="pt-3 pt-lg-0">
-              <div class="li-type-attention">
-                <div class="li-distributor-state-selected-heading">Selected State:      </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-NY">
-                <div class="h2 pt-3 li-distributor-map-selected">New York</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Bailey Ceramic Supply</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/62+Tenbroeck+Ave+Kingston,+NY+12402" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>62 Tenbroeck Ave</li>
-                              <li>Kingston, NY 12402</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:845.339.3721">845.339.3721</a></li>
-                        <li><a href="tel:800.431.6067">800.431.6067</a></li>
-                        <li><strong><a href="https://www.baileypottery.com" target="_blank">www.baileypottery.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>The Potter's Wheel</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/12033+83rd+Ave+Kew+Gardens,+NY+11415" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>12033 83rd Ave</li>
-                              <li>Kew Gardens, NY 11415</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:718.441.6614">718.441.6614</a></li>
-                        <li><strong><a href="https://www.potterswheelny.com" target="_blank">www.potterswheelny.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-WA">
-                <div class="h2 pt-3 li-distributor-map-selected">Washington</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>The Clay Connection</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/714+East+Sprague+Spokane,+WA+99202" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>714 East Sprague</li>
-                              <li>Spokane, WA 99202</li>
-                            </ul></a></li>
-                        <li><em>(Carries Georgies clays and glazes)</em></li>
-                        <li><a href="tel:509.747.6171">509.747.6171</a></li>
-                        <li><strong><a href="https://www.theclayconnection.org" target="_blank">www.theclayconnection.org</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-OR">
-                <div class="h2 pt-3 li-distributor-map-selected">Oregon</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Georgies - Portland (Hey that's us!)</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/756+NE+Lombard+Portland+OR+97211" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>756 NE Lombard</li>
-                              <li>Portland OR 97211</li>
-                            </ul></a></li>
-                        <li><em>(We carry all our products!)</em></li>
-                        <li><a href="tel:503.283.1253">503.283.1253</a></li>
-                        <li><a href="tel:800.999.CLAY">800.999.CLAY</a></li>
-                        <li>FAX 503.283.1387</li>
-                        <li><strong><a href="https://www.georgies.com" target="_blank">www.georgies.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Georgies - Eugene (Hey that's us too!)</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/1471+Railroad+Blvd+%239+Eugene+OR+97402" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>1471 Railroad Blvd #9</li>
-                              <li>Eugene OR 97402</li>
-                            </ul></a></li>
-                        <li><em>(We carry all our products too!)</em></li>
-                        <li><a href="tel:541.338.7654">541.338.7654</a></li>
-                        <li><a href="tel:866.234.CLAY">866.234.CLAY</a></li>
-                        <li>FAX 541.338.7565</li>
-                        <li><strong><a href="https://www.georgies.com" target="_blank">www.georgies.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Southern Oregon Pottery Distributors</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/1134+Suncrest+Rd+Talent,+OR+97540" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>1134 Suncrest Rd</li>
-                              <li>Talent, OR 97540</li>
-                            </ul></a></li>
-                        <li><em>(Carries Georgies clays and glazes)</em></li>
-                        <li><a href="tel:541.535.1311">541.535.1311</a></li>
-                        <li><strong><a href="http://www.southernoregonclaydistributors.com" target="_blank">www.southernoregonclaydistributors.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-PA">
-                <div class="h2 pt-3 li-distributor-map-selected">Pennsylvania</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>The Ceramic Shop</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/3245+Amber+St+Philadelphia,+PA+19134" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>3245 Amber St</li>
-                              <li>Philadelphia, PA 19134</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:215.427.9665">215.427.9665</a></li>
-                        <li><strong><a href="https://www.theceramicshop.com" target="_blank">www.theceramicshop.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-NC">
-                <div class="h2 pt-3 li-distributor-map-selected">North Carolina</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Fat Cat Pottery Inc</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/419-C+Raleigh+St+Wilmington,+NC+28412" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>419-C Raleigh St</li>
-                              <li>Wilmington, NC 28412</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:910.395.2529">910.395.2529</a></li>
-                        <li>FAX 910.395.4684</li>
-                        <li><strong><a href="https://www.fatcatpottery.com" target="_blank">www.fatcatpottery.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-MS">
-                <div class="h2 pt-3 li-distributor-map-selected">Mississippi</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Coastal Ceramic Supply &amp; Studio</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/3418+Bienville+Blvd+Ocean+Springs,+MS+39564" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>3418 Bienville Blvd</li>
-                              <li>Ocean Springs, MS 39564</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:228-327-4920">228-327-4920</a></li>
-                        <li><strong><a href="mailto:coastalceramicsupply@gmail.com">coastalceramicsupply@gmail.com</a></strong></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-ID">
-                <div class="h2 pt-3 li-distributor-map-selected">Idaho</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Mondaes Makerspace and Supply</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/200+12th+Ave+South+Nampa,+ID+83651" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>200 12th Ave South</li>
-                              <li>Nampa, ID 83651</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:208.407.3359">208.407.3359</a></li>
-                        <li><strong><a href="https://www.mondaes.com" target="_blank">www.mondaes.com</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="li-distributor-state li-distributor-state-CA">
-                <div class="h2 pt-3 li-distributor-map-selected">California</div>
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="pb-2 pt-sm-0">
-                      <ul class="list-unstyled">
-                        <li><em><strong>Clay People</strong></em></li>
-                        <li> <a href="https://www.google.com/maps/place/1430+Potrero+Ave+Richmond,+CA+94804" target="_blank">
-                            <ul class="list-unstyled">
-                              <li>1430 Potrero Ave</li>
-                              <li>Richmond, CA 94804</li>
-                            </ul></a></li>
-                        <li><em></em></li>
-                        <li><a href="tel:510.236.1492">510.236.1492</a></li>
-                        <li><a href="tel:888.236.1492">888.236.1492</a></li>
-                        <li><strong><a href="http://www.claypeople.net" target="_blank">www.claypeople.net</a></strong>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="o_cc3 py-5">
-        <div class="container">
-          <h2>Canadian distributors are available too!</h2>
-          <div class="row mt-4">
-            <div class="col-auto">
-              <div class="pb-2 pt-sm-0">
-                <ul class="list-unstyled">
-                  <li><em><strong>Amaranth Stoneware</strong></em></li>
-                  <li> <a href="https://www.google.com/maps/place/745+Development+Dr,+%237+Kingston,+ON+K7M+4W6" target="_blank">
-                      <ul class="list-unstyled">
-                        <li>745 Development Dr, #7</li>
-                        <li>Kingston, ON K7M 4W6</li>
-                      </ul></a></li>
-                  <li><em></em></li>
-                  <li><a href="tel:800.465.5444">800.465.5444</a></li>
-                  <li><strong><a href="https://www.amaranthstoneware.ca" target="_blank">www.amaranthstoneware.ca</a></strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="pb-2 pt-sm-0">
-                <ul class="list-unstyled">
-                  <li><em><strong>Totally Ceramic</strong></em></li>
-                  <li> <a href="https://www.google.com/maps/place/18525+53RD+Ave+%23119+Surrey,+BC+V3S+7A5" target="_blank">
-                      <ul class="list-unstyled">
-                        <li>18525 53RD Ave #119</li>
-                        <li>Surrey, BC V3S 7A5</li>
-                      </ul></a></li>
-                  <li><em></em></li>
-                  <li><a href="tel:604.574.0454">604.574.0454</a></li>
-                  <li><strong><a href="https://www.totallyceramics.com" target="_blank">www.totallyceramics.com</a></strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div></div><div class="col-lg-3"><div class="pt-3 pt-lg-0"><div class="li-type-attention"><div class="li-distributor-state-selected-heading">Selected State:      </div></div><div class="li-distributor-state li-distributor-state-NY"><div class="h2 pt-3 li-distributor-map-selected">New York</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Bailey Ceramic Supply</strong></em></li><li> <a href="https://www.google.com/maps/place/62+Tenbroeck+Ave+Kingston,+NY+12402" target="_blank"><ul class="list-unstyled"><li>62 Tenbroeck Ave</li><li>Kingston, NY 12402</li></ul></a></li><li><em></em></li><li><a href="tel:845.339.3721">845.339.3721</a></li><li><a href="tel:800.431.6067">800.431.6067</a></li><li><strong><a href="https://www.baileypottery.com" target="_blank">www.baileypottery.com</a></strong></li></ul></div></div><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>The Potter's Wheel</strong></em></li><li> <a href="https://www.google.com/maps/place/12033+83rd+Ave+Kew+Gardens,+NY+11415" target="_blank"><ul class="list-unstyled"><li>12033 83rd Ave</li><li>Kew Gardens, NY 11415</li></ul></a></li><li><em></em></li><li><a href="tel:718.441.6614">718.441.6614</a></li><li><strong><a href="https://www.potterswheelny.com" target="_blank">www.potterswheelny.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-WA"><div class="h2 pt-3 li-distributor-map-selected">Washington</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>The Clay Connection</strong></em></li><li> <a href="https://www.google.com/maps/place/714+East+Sprague+Spokane,+WA+99202" target="_blank"><ul class="list-unstyled"><li>714 East Sprague</li><li>Spokane, WA 99202</li></ul></a></li><li><em>(Carries Georgies clays and glazes)</em></li><li><a href="tel:509.747.6171">509.747.6171</a></li><li><strong><a href="https://www.theclayconnection.org" target="_blank">www.theclayconnection.org</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-OR"><div class="h2 pt-3 li-distributor-map-selected">Oregon</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Georgies - Portland (Hey that's us!)</strong></em></li><li> <a href="https://www.google.com/maps/place/756+NE+Lombard+Portland+OR+97211" target="_blank"><ul class="list-unstyled"><li>756 NE Lombard</li><li>Portland OR 97211</li></ul></a></li><li><em>(We carry all our products!)</em></li><li><a href="tel:503.283.1253">503.283.1253</a></li><li><a href="tel:800.999.CLAY">800.999.CLAY</a></li><li>FAX 503.283.1387</li><li><strong><a href="https://www.georgies.com" target="_blank">www.georgies.com</a></strong></li></ul></div></div><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Georgies - Eugene (Hey that's us too!)</strong></em></li><li> <a href="https://www.google.com/maps/place/1471+Railroad+Blvd+%239+Eugene+OR+97402" target="_blank"><ul class="list-unstyled"><li>1471 Railroad Blvd #9</li><li>Eugene OR 97402</li></ul></a></li><li><em>(We carry all our products too!)</em></li><li><a href="tel:541.338.7654">541.338.7654</a></li><li><a href="tel:866.234.CLAY">866.234.CLAY</a></li><li>FAX 541.338.7565</li><li><strong><a href="https://www.georgies.com" target="_blank">www.georgies.com</a></strong></li></ul></div></div><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Southern Oregon Pottery Distributors</strong></em></li><li> <a href="https://www.google.com/maps/place/1134+Suncrest+Rd+Talent,+OR+97540" target="_blank"><ul class="list-unstyled"><li>1134 Suncrest Rd</li><li>Talent, OR 97540</li></ul></a></li><li><em>(Carries Georgies clays and glazes)</em></li><li><a href="tel:541.535.1311">541.535.1311</a></li><li><strong><a href="http://www.southernoregonclaydistributors.com" target="_blank">www.southernoregonclaydistributors.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-PA"><div class="h2 pt-3 li-distributor-map-selected">Pennsylvania</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>The Ceramic Shop</strong></em></li><li> <a href="https://www.google.com/maps/place/3245+Amber+St+Philadelphia,+PA+19134" target="_blank"><ul class="list-unstyled"><li>3245 Amber St</li><li>Philadelphia, PA 19134</li></ul></a></li><li><em></em></li><li><a href="tel:215.427.9665">215.427.9665</a></li><li><strong><a href="https://www.theceramicshop.com" target="_blank">www.theceramicshop.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-NC"><div class="h2 pt-3 li-distributor-map-selected">North Carolina</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Fat Cat Pottery Inc</strong></em></li><li> <a href="https://www.google.com/maps/place/419-C+Raleigh+St+Wilmington,+NC+28412" target="_blank"><ul class="list-unstyled"><li>419-C Raleigh St</li><li>Wilmington, NC 28412</li></ul></a></li><li><em></em></li><li><a href="tel:910.395.2529">910.395.2529</a></li><li>FAX 910.395.4684</li><li><strong><a href="https://www.fatcatpottery.com" target="_blank">www.fatcatpottery.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-MS"><div class="h2 pt-3 li-distributor-map-selected">Mississippi</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Coastal Ceramic Supply &amp; Studio</strong></em></li><li> <a href="https://www.google.com/maps/place/3418+Bienville+Blvd+Ocean+Springs,+MS+39564" target="_blank"><ul class="list-unstyled"><li>3418 Bienville Blvd</li><li>Ocean Springs, MS 39564</li></ul></a></li><li><em></em></li><li><a href="tel:228-327-4920">228-327-4920</a></li><li><strong><a href="mailto:coastalceramicsupply@gmail.com">coastalceramicsupply@gmail.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-ID"><div class="h2 pt-3 li-distributor-map-selected">Idaho</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Mondaes Makerspace and Supply</strong></em></li><li> <a href="https://www.google.com/maps/place/200+12th+Ave+South+Nampa,+ID+83651" target="_blank"><ul class="list-unstyled"><li>200 12th Ave South</li><li>Nampa, ID 83651</li></ul></a></li><li><em></em></li><li><a href="tel:208.407.3359">208.407.3359</a></li><li><strong><a href="https://www.mondaes.com" target="_blank">www.mondaes.com</a></strong></li></ul></div></div></div></div><div class="li-distributor-state li-distributor-state-CA"><div class="h2 pt-3 li-distributor-map-selected">California</div><div class="row"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Clay People</strong></em></li><li> <a href="https://www.google.com/maps/place/1430+Potrero+Ave+Richmond,+CA+94804" target="_blank"><ul class="list-unstyled"><li>1430 Potrero Ave</li><li>Richmond, CA 94804</li></ul></a></li><li><em></em></li><li><a href="tel:510.236.1492">510.236.1492</a></li><li><a href="tel:888.236.1492">888.236.1492</a></li><li><strong><a href="http://www.claypeople.net" target="_blank">www.claypeople.net</a></strong></li></ul></div></div></div></div></div></div></div></div><div class="o_cc3 py-5"><div class="container"><h2>Canadian distributors are available too!</h2><div class="row mt-4"><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Amaranth Stoneware</strong></em></li><li> <a href="https://www.google.com/maps/place/745+Development+Dr,+%237+Kingston,+ON+K7M+4W6" target="_blank"><ul class="list-unstyled"><li>745 Development Dr, #7</li><li>Kingston, ON K7M 4W6</li></ul></a></li><li><em></em></li><li><a href="tel:800.465.5444">800.465.5444</a></li><li><strong><a href="https://www.amaranthstoneware.ca" target="_blank">www.amaranthstoneware.ca</a></strong></li></ul></div></div><div class="col-auto"><div class="pb-2 pt-sm-0"><ul class="list-unstyled"><li><em><strong>Totally Ceramic</strong></em></li><li> <a href="https://www.google.com/maps/place/18525+53RD+Ave+%23119+Surrey,+BC+V3S+7A5" target="_blank"><ul class="list-unstyled"><li>18525 53RD Ave #119</li><li>Surrey, BC V3S 7A5</li></ul></a></li><li><em></em></li><li><a href="tel:604.574.0454">604.574.0454</a></li><li><strong><a href="https://www.totallyceramics.com" target="_blank">www.totallyceramics.com</a></strong></li></ul></div></div></div></div></div></section>
   </template>
 
 
 
   <!-- Georgies Button Card -->
   <template id="s_georgies_button_card" name="Georgies Button Card">
-    
-    <div class="s_button_card pb-3">
-      <div class="o_cc o_cc2 px-3 pt-3 pb-3 d-flex flex-column">
-        <h2>Heading here</h2>
-        <h6><em><strong>THIS IS A SUB HEADING</strong></em></h6>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary btn-block" href="#">Button Text Here</a>
-      </div>
-    </div>
+    <div class="s_button_card pb-3"><div class="o_cc o_cc2 px-3 pt-3 pb-3 d-flex flex-column"><h2>Heading here</h2><h6><em><strong>THIS IS A SUB HEADING</strong></em></h6><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary btn-block" href="#">Button Text Here</a></div></div>
   </template>
   <template id="s_georgies_button_card_options" inherit_id="website.snippet_options" name="Georgies Button Card Options">
     <xpath expr="//div[@data-js='OptionsTab']" position="after">
@@ -1676,10 +1251,7 @@
 
   <!-- Georgies Section -->
   <template id="s_georgies_section" name="Georgies Section">
-    
-    <section class="s_gc_section pt-3 pb-3">
-      <div class="container"></div>
-    </section>
+    <section class="s_gc_section pt-3 pb-3"><div class="container"></div></section>
   </template>
   <!-- Awesome responsive padding that we can't use at the momement because Odoo's padding interactive classes override it. -->
   <!-- <template id="s_gc_section_options" inherit_id="website.snippet_options" name="Georgies Section - Options">
@@ -1757,13 +1329,7 @@
 
   <!-- Georgies Two Column Row -->
   <template id="s_georgies_two_column_row" name="Georgies Two Column Row">
-    
-    <div class="s_gc_two_column_row">
-      <div class="row">
-        <div class="col-12 col-md-6"></div>
-        <div class="col-12 col-md-6"></div>
-      </div>
-    </div>
+    <div class="s_gc_two_column_row"><div class="row"><div class="col-12 col-md-6"></div><div class="col-12 col-md-6"></div></div></div>
   </template>
   <!-- Add options for Two Column Row (where it can be inserted aka dropped into) -->
   <template id="s_georgies_two_column_row_options" inherit_id="website.snippet_options" name="Georgies Two Column Row - Options">
@@ -1774,14 +1340,7 @@
 
   <!-- Georgies Four Column Row -->
   <template id="s_georgies_three_column_row" name="Georgies Three Column Row">
-    
-    <div class="s_gc_three_column_row">
-      <div class="row">
-        <div class="col-12 col-md-6 col-xl-4"></div>
-        <div class="col-12 col-md-6 col-xl-4"></div>
-        <div class="col-12 col-md-6 col-xl-4"></div>
-      </div>
-    </div>
+    <div class="s_gc_three_column_row"><div class="row"><div class="col-12 col-md-6 col-xl-4"></div><div class="col-12 col-md-6 col-xl-4"></div><div class="col-12 col-md-6 col-xl-4"></div></div></div>
   </template>
   <!-- Add options for Three Column Row (where it can be inserted aka dropped into) -->
   <template id="s_georgies_three_column_row_options" inherit_id="website.snippet_options" name="Georgies Three Column Row Options">
@@ -1792,15 +1351,7 @@
 
   <!-- Georgies Three Column Row -->
   <template id="s_georgies_four_column_row" name="Georgies Four Column Row">
-    
-    <div class="s_gc_four_column_row">
-      <div class="row">
-        <div class="col-12 col-md-6 col-xl-3"></div>
-        <div class="col-12 col-md-6 col-xl-3"></div>
-        <div class="col-12 col-md-6 col-xl-3"></div>
-        <div class="col-12 col-md-6 col-xl-3"></div>
-      </div>
-    </div>
+    <div class="s_gc_four_column_row"><div class="row"><div class="col-12 col-md-6 col-xl-3"></div><div class="col-12 col-md-6 col-xl-3"></div><div class="col-12 col-md-6 col-xl-3"></div><div class="col-12 col-md-6 col-xl-3"></div></div></div>
   </template>
   <!-- Add options for Four Column Row (where it can be inserted aka dropped into) -->
   <template id="s_georgies_four_column_row_options" inherit_id="website.snippet_options" name="Georgies Four Column Row Options">
@@ -1825,23 +1376,7 @@
 
   <!-- Georgies Split Background Snippet -->
   <template id="s_georgies_split_background" name="Georgies Split Background">
-    
-    <section class="li-split-background">
-      <div class="container">
-        <div class="row">
-          <div class="col-md">
-            <div class="px-2 pl-md-0 pr-md-2 pr-lg-3 py-5 li-split-background-item">
-              <div class="oe_structure"></div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="px-2 pr-md-0 pl-md-2 pl-lg-3 py-5 li-split-background-item">
-              <div class="oe_structure"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="li-split-background"><div class="container"><div class="row"><div class="col-md"><div class="px-2 pl-md-0 pr-md-2 pr-lg-3 py-5 li-split-background-item"><div class="oe_structure"></div></div></div><div class="col-md"><div class="px-2 pr-md-0 pl-md-2 pl-lg-3 py-5 li-split-background-item"><div class="oe_structure"></div></div></div></div></div></section>
   </template>
 
 
