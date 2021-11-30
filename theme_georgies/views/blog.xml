@@ -73,6 +73,10 @@
 
   <!-- Modify the read next blog section -->  
   <template id="georgies_blog_read_next" inherit_id="website_blog.opt_blog_post_read_next" name="Georgies Blog Read Next">
+    <!-- Remove massive top margins of the next blog post section -->
+    <xpath expr="//div[@t-if='next_post']" position="attributes">
+      <attribute name="class" remove="mt-5" separator=" "/>
+    </xpath>
     <!-- Add padding on the top of the next post section -->
     <xpath expr="//t[@t-call='website.record_cover']//div[@t-attf-class='o_wblog_post_title']" position="attributes">
       <attribute name="t-attf-class" add="pt-3" separator=" "/>
@@ -96,10 +100,14 @@
     </xpath>
     <!-- Add padding to the top of the sidebar when it goes below the main post on smaller than lg screens -->
     <xpath expr="//div[@id='o_wblog_post_sidebar_col']" position="attributes">
-      <attribute name="t-attf-class">pl-lg-5 mt-2 mt-lg-0 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}</attribute>
+      <attribute name="t-attf-class">pl-lg-3 mt-2 mt-lg-0 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}</attribute>
     </xpath>
     <!-- Remove the scroll down button in the cover -->
     <xpath expr="//a[@id='o_wblog_post_content_jump']" position="replace"/>
+    <!-- Adjust bottom padding of post -->
+    <xpath expr="//section[@id='o_wblog_post_main']" position="attributes">
+      <attribute name="t-attf-class">container pt-4 pb-3 #{'anim' in request.params and 'o_wblog_post_main_transition'}</attribute>
+    </xpath>
   </template>
 
 
@@ -109,6 +117,16 @@
     <!-- Add padding below blog title -->
     <xpath expr="//div[@t-if='len(blogs) > 1']" position="attributes">
       <attribute name="class" add="pb-2" separator=" "/>
+    </xpath>
+  </template>
+
+
+
+
+  <!-- Modify the blog post comments -->
+  <template id="georgies_opt_blog_post_comment" inherit_id="website_blog.opt_blog_post_comment" name="Georgies - Blog Post Comments">
+    <xpath expr="//div[@id='o_wblog_post_comments']" position="attributes">
+      <attribute name="t-attf-class">pt-4 w-100 w-md-75</attribute>
     </xpath>
   </template>
 
@@ -214,35 +232,20 @@
     <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
       <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
     </xpath>
-    <!-- Change spacing below the heading -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('border-bottom')]/h6[hasclass('pb-2')]" position="attributes">
-      <attribute name="class" add="mb-0" separator=" "/>
-    </xpath> -->
     <!-- Add margins below each tag so they have space between them when they stack -->
     <xpath expr="//a[hasclass('badge')]" position="attributes">
       <attribute name="class" add="mb-2" separator=" "/>
     </xpath>
-    <!-- Change padding below that section -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
-      <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
-    </xpath> -->
+
     <!-- Change alternate view space settings too -->
     <!-- Change padding below that section -->
     <xpath expr="//div[@id='o_wblog_post_sidebar']/div[hasclass('pb-5')]" position="attributes">
       <attribute name="class" remove="pb-5" add="pb-3" separator=" "/>
     </xpath>
     <!-- Change spacing below the heading -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
+    <xpath expr="//div[@id='o_wblog_post_sidebar']//h6[hasclass('mb-4')]" position="attributes">
       <attribute name="class" remove="mb-4 pb-3" add="mb-2 pb-2" separator=" "/>
-    </xpath> -->
-    <!-- Change margin of Tag's "add some" area -->
-    <!-- FIXME: ODOO14 -->
-    <!-- <xpath expr="//div[@id='o_wblog_post_sidebar']//div[hasclass('mb-4')]" position="attributes">
-      <attribute name="class" remove="mb-4" add="mb-2" separator=" "/>
-    </xpath> -->
+    </xpath>
   </template>
   <!-- Change the spacing of the our blogs section -->
   <template id="georgies_blog_post_our_blogs" inherit_id="website_blog.opt_blog_post_blogs_display" name="Georgies Blog Post - Our Blogs">
