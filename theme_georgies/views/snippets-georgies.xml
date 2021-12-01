@@ -1249,6 +1249,74 @@
 
   <!-- ||||| Georgies Structural Snippets ||||| -->
 
+  <!-- Options for column sizing, provide this to any element that has a class that either has the col class or col-* -->
+  <template id="s_georgies_column_sizing" inherit_id="website.snippet_options" name="Georgies Column - Sizing">
+    <xpath expr="//div[@id='so_width']" position="after">
+      <div id="s_georgies_column_sizing" data-selector=".col, *[class^='col-'], *[class*=' col-']">
+        <we-button data-toggle="collapse" data-target="#colxsScreen">Column Size - Extra Small Screens</we-button>
+        <div class="collapse" id="colxsScreen">
+          <we-button-group>
+            <!-- Create our 12 buttons for our column sizing -->
+            <t t-foreach="[1,2,3,4,5,6,7,8,9,10,11,12]" t-as="i">
+              <we-button t-attf-data-select-class="col-xs-{{i}}"><t t-esc="i"/></we-button>              
+            </t>
+            <!-- Provide a button for auto sizing at that -->
+            <we-button data-select-class="col" class="georgies-wrapped-button">Auto</we-button>
+            <we-button data-select-class="" class="georgies-wrapped-button">None</we-button>
+          </we-button-group>
+        </div>
+        <we-button data-toggle="collapse" data-target="#colsmScreen">Column Size - Small Screens</we-button>
+        <div class="collapse" id="colsmScreen">
+          <we-button-group>
+            <!-- Create our 12 buttons for our column sizing -->
+            <t t-foreach="[1,2,3,4,5,6,7,8,9,10,11,12]" t-as="i">
+              <we-button t-attf-data-select-class="col-sm-{{i}}"><t t-esc="i"/></we-button>              
+            </t>
+            <!-- Provide a button for auto sizing at that -->
+            <we-button data-select-class="col" class="georgies-wrapped-button">Auto</we-button>
+            <we-button data-select-class="" class="georgies-wrapped-button">None</we-button>
+          </we-button-group>
+        </div>
+        <we-button data-toggle="collapse" data-target="#colmdScreen">Column Size - Medium Screens</we-button>
+        <div class="collapse" id="colmdScreen">
+          <we-button-group>
+            <!-- Create our 12 buttons for our column sizing -->
+            <t t-foreach="[1,2,3,4,5,6,7,8,9,10,11,12]" t-as="i">
+              <we-button t-attf-data-select-class="col-md-{{i}}"><t t-esc="i"/></we-button>              
+            </t>
+            <!-- Provide a button for auto sizing at that -->
+            <we-button data-select-class="col" class="georgies-wrapped-button">Auto</we-button>
+            <we-button data-select-class="" class="georgies-wrapped-button">None</we-button>
+          </we-button-group>
+        </div>
+        <we-button data-toggle="collapse" data-target="#collgScreen">Column Size - Large Screens</we-button>
+        <div class="collapse" id="collgScreen">
+          <we-button-group>
+            <!-- Create our 12 buttons for our column sizing -->
+            <t t-foreach="[1,2,3,4,5,6,7,8,9,10,11,12]" t-as="i">
+              <we-button t-attf-data-select-class="col-lg-{{i}}"><t t-esc="i"/></we-button>              
+            </t>
+            <!-- Provide a button for auto sizing at that -->
+            <we-button data-select-class="col" class="georgies-wrapped-button">Auto</we-button>
+            <we-button data-select-class="" class="georgies-wrapped-button">None</we-button>
+          </we-button-group>
+        </div>
+        <we-button data-toggle="collapse" data-target="#colxlScreen">Column Size - Extra Large Screens</we-button>
+        <div class="collapse" id="colxlScreen">
+          <we-button-group>
+            <!-- Create our 12 buttons for our column sizing -->
+            <t t-foreach="[1,2,3,4,5,6,7,8,9,10,11,12]" t-as="i">
+              <we-button t-attf-data-select-class="col-xl-{{i}}"><t t-esc="i"/></we-button>              
+            </t>
+            <!-- Provide a button for auto sizing at that -->
+            <we-button data-select-class="col" class="georgies-wrapped-button">Auto</we-button>
+            <we-button data-select-class="" class="georgies-wrapped-button">None</we-button>
+          </we-button-group>
+        </div>
+      </div>
+    </xpath>
+  </template>
+
   <!-- Georgies Section -->
   <template id="s_georgies_section" name="Georgies Section">
     <section class="s_gc_section pt-3 pb-3"><div class="container"></div></section>

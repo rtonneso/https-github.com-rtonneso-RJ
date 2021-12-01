@@ -143,6 +143,19 @@ label {
     }
 }
 
+// Add left border for wrapped button (button that is wrapped around in a snippet button group (in the snippet options))
+.georgies-wrapped-button {
+    border-left: 1px solid #000000 !important;
+}
+#oe_snippets > .o_we_customize_panel we-button-group.o_we_user_value_widget we-selection-items {
+    flex-wrap: wrap;
+}
+// Adjust left and right padding of the selection buttons in a group, so that we can fit all twelve of our buttons on one line for column selection purposes
+#oe_snippets > .o_we_customize_panel we-button-group.o_we_user_value_widget we-selection-items we-button {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
 
 // NAVBAR
 // Main navbar menu
