@@ -27,7 +27,7 @@
 
     <!-- Add heading tag to tags badges to add letter spacing and border / border primary to the conditional element so that they're equal size to the badges with just a border -->
     <xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]//a" position="attributes">
-      <attribute name="t-attf-class">badge h6 mb-2 mr-1 text-truncate #{one_tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+      <attribute name="t-attf-class">badge h6 mb-2 mr-1 text-truncate #{one_tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'} post_link</attribute>
     </xpath>
   </template>
 
@@ -49,7 +49,7 @@
 
     <!-- Modify t-attf-class for borders on selected item -->
     <xpath expr="//a[@t-elif='showInactive']" position="attributes">
-      <attribute name="t-attf-class">badge mb-2 mw-100 text-truncate #{tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}</attribute>
+      <attribute name="t-attf-class">badge mb-2 mw-100 text-truncate #{tag.id in active_tag_ids and 'badge-primary border border-primary' or 'border'}  post_link</attribute>
     </xpath>
 
   </template>
@@ -291,6 +291,6 @@
     <xpath expr="//ul[hasclass('navbar-nav')]" position="attributes">
       <attribute name="class" add="mr-auto w-100 mx-2 mx-md-0" separator=" "/>
     </xpath>
-    <!-- A-->
+
   </template>
 </odoo>
