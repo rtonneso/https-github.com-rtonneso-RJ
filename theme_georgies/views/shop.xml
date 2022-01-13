@@ -340,51 +340,34 @@
   <template id="georgies_recommended_products" inherit_id="website_sale.recommended_products" name="Georgies - Recommended Products (Alternative Products)">
   <!-- Replace whole alternative products with the recently viewed template and modify that since it's designed for static templates, using the alternative products as the products, since the default template for alternative products is complete trash -->
     <xpath expr="//div[@t-if='product.alternative_product_ids']" position="replace">
+
       <div class="container mt48 o_not_editable georgies_alternative_products" t-if="product.alternative_product_ids">
         <h3 class="text-center mb-3">Alternative Products</h3>
-        <div class="carousel slide">
-          <div class="carousel-inner">
-            <!-- <t t-foreach="product.alternative_product_ids" t-as="products"> -->
-              <div class="carousel-item active">
-                <div class="row">
-                  <t t-foreach="product.alternative_product_ids" t-as="product">
-                    <div class="o_carousel_product_card_wrap col-12 col-sm-6 col-md-4 col-lg-3 pb-3 pb-sm-0">
-                      <div class="o_carousel_product_card card">
-                        <input type="hidden" name="product-id" t-att-data-product-id="product.id"/>
-                        <a class="o_carousel_product_img_link p-1" t-att-href="product.website_url">
-                          <t t-set="image_holder" t-value="product._get_image_holder()"/>
-                          <span t-field="image_holder.image_1920"
-                              t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256'}"
-                              class="d-flex h-100 justify-content-center align-items-center"/>
-                        </a>
-                        <div class="o_carousel_product_card_body card-body border-top">
-                          <a t-att-href="product.website_url" class="text-decoration-none">
-                            <h6 class="card-title mb-0 text-truncate" t-raw="product.display_name"/>
-                          </a>
-                        </div>
-                        <div class="o_carousel_product_card_footer card-footer d-flex align-items-center">
-                          <div class="d-block font-weight-bold" t-field="product.list_price"
-                            t-options='{
-                              "widget": "monetary",
-                              "display_currency": product.currency_id,
-                            }'/>
-                        </div>
-                      </div>
-                    </div>
-                  </t>
+        <div class="row mb-n3">
+          <t t-foreach="product.alternative_product_ids" t-as="product">
+            <div class="o_carousel_product_card_wrap col-12 col-sm-6 col-md-4 col-lg-3 pb-3">
+              <div class="o_carousel_product_card card">
+                <input type="hidden" name="product-id" t-att-data-product-id="product.id"/>
+                <a class="o_carousel_product_img_link p-1" t-att-href="product.website_url">
+                  <t t-set="image_holder" t-value="product._get_image_holder()"/>
+                  <span t-field="image_holder.image_1920"
+                      t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256'}"
+                      class="d-flex h-100 justify-content-center align-items-center"/>
+                </a>
+                <div class="o_carousel_product_card_body card-body border-top">
+                  <a t-att-href="product.website_url" class="text-decoration-none">
+                    <h6 class="card-title mb-0 text-truncate" t-esc="product.display_name"/>
+                  </a>
+                </div>
+                <div class="o_carousel_product_card_footer card-footer d-flex align-items-center">
+                  <div class="d-block font-weight-bold" t-field="product.list_price"
+                    t-options='{
+                      "widget": "monetary",
+                      "display_currency": product.currency_id,
+                    }'/>
                 </div>
               </div>
-            <!-- </t> -->
-          </div>
-          <t t-if='product.alternative_product_ids'>
-            <a class="o_carousel_product_control carousel-control-prev" t-att-href="'#' + uniqueId" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="o_carousel_product_control carousel-control-next" t-att-href="'#' + uniqueId" role="button" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            </div>
           </t>
         </div>
       </div>
