@@ -159,7 +159,7 @@
     </xpath>
     <!-- Adjust spacing of product section -->
     <xpath expr="//section[@id='product_detail']" position="attributes">
-      <attribute name="t-attf-class" remove="py-2" add="pt-3 pb-2" separator=" "/>
+      <attribute name="t-attf-class" remove="py-2" add="pt-3" separator=" "/>
     </xpath>
     <!-- Add top spacing to the product tile -->
     <xpath expr="//h1[@t-field='product.name']" position="attributes">
@@ -308,6 +308,10 @@
 
   <!-- Adjust the product reviews "comments" section -->
   <template id="georgies_product_comment" inherit_id="website_sale.product_comment" name="Georgies - Product Reviews">
+    <!-- Remove top and bottom margins-->
+    <xpath expr="//section[hasclass('mt16')]" position="attributes">
+      <attribute name="class" remove="mt16 mb16" separator=" "/>
+    </xpath>
     <!-- Add heading to the reviews section-->
     <xpath expr="//t[@t-call='portal.message_thread']" position="before">
       <h3 class="text-center mb-3">Product Reviews</h3>
@@ -340,8 +344,7 @@
   <template id="georgies_recommended_products" inherit_id="website_sale.recommended_products" name="Georgies - Recommended Products (Alternative Products)">
   <!-- Replace whole alternative products with the recently viewed template and modify that since it's designed for static templates, using the alternative products as the products, since the default template for alternative products is complete trash -->
     <xpath expr="//div[@t-if='product.alternative_product_ids']" position="replace">
-
-      <div class="container mt48 o_not_editable georgies_alternative_products" t-if="product.alternative_product_ids">
+      <div class="container pt48 pb48 o_not_editable georgies_alternative_products" t-if="product.alternative_product_ids">
         <h3 class="text-center mb-3">Alternative Products</h3>
         <div class="row mb-n3">
           <t t-foreach="product.alternative_product_ids" t-as="product">

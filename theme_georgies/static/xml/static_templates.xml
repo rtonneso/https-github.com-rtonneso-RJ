@@ -19,4 +19,10 @@
         <attribute name="t-attf-class" value="o_carousel_product_card_wrap col-md-4 col-lg-3"/>
       </t>
     </t>
+
+    <!-- Product Reviews -->
+    <t t-extend="portal.Chatter">
+      <!-- Remove the hr element inbetween the review composer and the reviews -->
+      <t t-jquery="div.o_portal_chatter_composer + hr" t-operation="replace"/> 
+    </t>
 </templates>
