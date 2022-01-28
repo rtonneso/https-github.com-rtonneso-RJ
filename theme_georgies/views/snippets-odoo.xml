@@ -400,9 +400,16 @@
 
   <!-- ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS -->
   <template id="georgies_overrides_snippet_options" inherit_id="website.snippet_options" name="Odoo Snippet Options - Georgies Override">
+    <!-- Remove the body color and image background options -->
+    <xpath expr="//we-select[@data-variable='layout']/following-sibling::we-row[1]" position="replace"/> 
     <!-- Remove Page Layout Option -->
-    <xpath expr="//we-select[@data-variable='layout']" position="replace"/>   
-    <!-- Shadows -->
+    <xpath expr="//we-select[@data-variable='layout']" position="replace"/>
+    <!-- Remove button border radius option -->
+    <xpath expr="//we-input[@data-variable='btn-border-width']/following-sibling::we-collapse[1]" position="replace"/>
+    <!-- Remove button ripple effect option-->
+    <xpath expr="//we-checkbox[@data-customize-website-views='website.option_ripple_effect']" position="replace"/>
+    <!-- Remove input border radius option -->
+    <xpath expr="//we-input[@data-variable='input-border-width']/following-sibling::we-collapse[1]" position="replace"/>
     <!-- Remove shadow on Columns and Comparisons-->
     <xpath expr="//div[@data-selector='.s_three_columns .row > div, .s_comparisons .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
     <!-- Remove shadow on Divs -->
@@ -475,6 +482,11 @@
     <xpath expr="t[@t-set='width_label']" position="replace">
       <t t-set="width_label">Resolution</t>
     </xpath>
+  </template>
+
+  <!-- Odoo Google Maps - Hide show description option (description is poorly implimented and padding makes it diffcult to select it)-->
+  <template id="georgies_overrides_google_map_options" inherit_id="website.s_google_map_options" name="Odoo Google Map Options - Georgies Override">
+    <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
   </template>
 
 

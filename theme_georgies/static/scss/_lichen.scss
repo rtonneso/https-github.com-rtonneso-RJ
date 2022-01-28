@@ -96,16 +96,6 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-p a:not(.btn),
-h1 a:not(.btn),
-h2 a:not(.btn), 
-h3 a:not(.btn),
-h4 a:not(.btn),
-h5 a:not(.btn),
-h6 a:not(.btn) {
-    text-decoration: underline;
-}
-
 p:last-child,
 h1:last-child,
 h2:last-child,
@@ -120,11 +110,6 @@ label {
     font-weight: $font-weight-bold;
 }
 
-
-// // Show the add to cart buttons -- ODOO 14 CHANGE
-// .card  {
-//     overflow: unset;
-// }
 
 // BUTTONS
 .btn {
@@ -229,7 +214,7 @@ header .navbar {
 // NAVBAR
 .navbar {
     .nav-item {
-        font-size: $li-navbar-font-size;
+        font-size: .7rem;
         &:last-child { margin-right: 0; } // TODO: See if this is neccesary
 
         @include media-breakpoint-down(xs) {
@@ -256,31 +241,6 @@ header .navbar {
     letter-spacing: $li-letter-spacing;
     // .nav-link.active { @include media-breakpoint-up(md) { border-bottom: $border-width solid currentColor; }}
 }
-
-
-
-// FIXME: ODOO14 color overrides are happening a decent bit and need to look into color handling more...
-// General dropdown-menu
-// .dropdown-menu {
-//     margin-top: 0;
-//     min-width: 100%;
-// }
-// // Override Odoo's messed up targeting for dropdowns
-// .dropdown-item {
-//     font-weight: $li-font-weight-bold;
-
-//     @include hover-focus() {
-//         color: $dropdown-link-hover-color !important;
-//     }
-// }
-// .o_cc .dropdown-menu .dropdown-item {
-//     &, h6 { 
-//         color: $dropdown-link-color;
-//         &.active {
-//             color: $dropdown-link-active-color;
-//         }
-//     }
-// }
 
 // Remove lines in Odoo extra menu items dropdown
 .o_extra_menu_items li{

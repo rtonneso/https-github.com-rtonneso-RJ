@@ -7,13 +7,6 @@
     </xpath>
   </template>
 
-  <!-- Add our Odoo variable overrides -->
-  <template id="_assets_primary_variables" inherit_id="website._assets_primary_variables">
-      <xpath expr="link[last()]" position="after">
-          <!-- <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/odoo_primary_variables.scss"/> -->
-      </xpath>
-  </template>
-
   <!-- Insert our modified bootstrap variables -->
   <template id="_assets_frontend_helpers" inherit_id="website._assets_frontend_helpers">
       <xpath expr="//link[last()]" position="after">

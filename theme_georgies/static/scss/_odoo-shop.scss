@@ -97,13 +97,15 @@
       bottom: unset;
       padding-bottom: 0;
       margin-bottom: -1 * $border-width;
-      
+            
       .btn {
         padding: spacer(1) spacer(2);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-grow: 1;
+        background: $secondary !important;
+        color: $white !important;
       }
     }
 

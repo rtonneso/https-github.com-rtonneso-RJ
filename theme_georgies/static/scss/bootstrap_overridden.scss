@@ -11,10 +11,7 @@ $color-4: var(--o-color-4);
 $color-5: var(--o-color-5);
 
 // Typography
-$font-size-base: 15rem / 16;
-$body-color: $color-5;
 $line-height-base: 1.8;
-
 // Headings
 $h1-font-size:                $font-size-base * 3.5;
 $h2-font-size:                $font-size-base * 2.5;
@@ -26,7 +23,6 @@ $headings-font-weight: 700;
 $headings-line-height: 1.4;
 $headings-margin-bottom: 1.5rem;
 $paragraph-margin-bottom: 1.5rem;
-
 // Displays
 $display-font-weight: $headings-font-weight;
 $display-line-height: $headings-line-height;
@@ -70,7 +66,7 @@ $input-padding-x-sm: $li-input-padding-x * .75;
 $input-padding-x-lg: $li-input-padding-x * 1.2;
 
 // Button typography
-$btn-font-weight: $li-font-weight-bold;
+$btn-font-weight: 700;
 
 // Breadcrumbs
 $breadcrumb-padding-y: $input-btn-padding-y;
