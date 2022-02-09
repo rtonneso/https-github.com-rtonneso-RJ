@@ -1,74 +1,12 @@
 // Georgies Color Pallet
 // #E4C26B
-
-// SNIPPETS
-// If the web editor is enabled, this class is added to the body, so any conditional appearance can be placed here for snippets that want to look differently while editing is taking place
-@mixin empty-view($empty-text) {
-    &:empty {
-        height: 30px; // Matching the height of the oe_drop_zone so that there is no height jitter when moving snippets around
-        position: relative;
-        border: 2px dashed black;
-        &::before {
-            content: $empty-text !important;
-            color: black;
-            font-size: 1rem;
-            font-weight: bold;
-            font-style: italic;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
-}
-
-.editor_enable {
-    &[style='cursor: move;'] {
-        .s_gc_section,
-        .s_gc_two_column_row .col-12,
-        .s_gc_three_column_row .col-12,
-        .s_gc_four_column_row .col-12  {
-            border: 2px dashed solid;
-            .oe_drop_zone.oe_insert {
-                margin: 0;
-                &.invisible {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    // Empty item styling (makes these structural items visible for dropping into things)
-    .s_gc_section .container,
-    .s_gc_section .container-fluid,
-    .s_gc_section .o_container_small
-        { @include empty-view('Empty section'); }
-    .s_gc_two_column_row .col-12,
-    .s_gc_three_column_row .col-12,
-    .s_gc_four_column_row .col-12 {
-        @include empty-view('Empty column');
-    }
-}
-
-// Hide image shape / shadow / and thumbnail buttons (they look like trash, and aren't consistant with the rest of the theme. Also hide the resizing buttons, as we've added that functionality in the snippet options for images, and it's a better location since that's where the resolution option, and quality is.
-#oe_snippets#oe_snippets .o_we_snippet_text_tools {
-    .btn[data-event='imageShape'][data-value='rounded'],
-    .btn[data-event='imageShape'][data-value='rounded-circle'],
-    .btn[data-event='imageShape'][data-value='shadow'],
-    .btn[data-event='imageShape'][data-value='img-thumbnail'],
-    .btn[data-event='resize'][data-value='auto'],
-    .btn[data-event='resize'][data-value='1'],
-    .btn[data-event='resize'][data-value='0.5'],
-    .btn[data-event='resize'][data-value='0.25'] {
-        display: none;
-    }
-}
+// #000000
+// #F6F6F6
+// #FFFFFF
+// #333333
 
 
-
-
-
-
+// GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS 
 // BORDER COLORS
 .border-current { border-color: currentColor !important; }
 
@@ -111,6 +49,12 @@ label {
 }
 
 
+
+
+
+
+
+// BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS
 // BUTTONS
 .btn {
     text-transform: uppercase;
@@ -255,13 +199,8 @@ header .navbar {
 
 
 // LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN LICHEN
-// Lichen Type Styles
-.li-type-attention{   
-    font-style: italic;
-    text-transform: uppercase;
-}
 
-// Make button go full width below large
+// Georgies Call to Action
 .georgies-call-to-action {
     .btn {
         @include media-breakpoint-down(lg) { width: 100%; }
@@ -270,10 +209,7 @@ header .navbar {
 
 // NAVBAR SEARCH
 .georgies-navbar-search {
-
     .form-control {
-        // TODO: Revisit border color / z-index
-        // border: none;
         width: 30rem;
         max-width: 100%;
         @include media-breakpoint-down(md) { width: 25rem; }
@@ -298,46 +234,30 @@ header .navbar {
 $li-spacing-x-md: spacer(3) * 2;
 
 // FOOTER SOCIAL ICOS
-.li-icon-social {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: currentColor;
+.li-social {
+    h6 { margin-bottom: 0; }
 }
 
-.li-attention-symbol {
-    margin-top: spacer(3) * -1.2;
-    font-size: 5rem;
+
+// Georgies Snippet Panel Header Icon Sizing -  Used in the snippet panel
+.li-snippet-header-icon {
+    display: inline-block;
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
 }
 
-.li-split-background {
-    background: none;
-    
-    @include media-breakpoint-up(md) {
-        background: linear-gradient(to right, $light, $light 50%, rgba(255,255,255, 0) 50%, rgba(255,255,255, 0));
-    }
 
-    @include media-breakpoint-down(sm) {
-        .row > *:first-child {
-            background: $light;
-        }
-    
-        .li-split-background-item {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: map-get($container-max-widths, 'sm');
-        }
-    
-        .container {
-            width: 100%;
-            max-width: unset;
-        }
-    }
+// DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET
+
+
+
+// Disable pointer events on the map to prevent odoo from trying to edit it
+.li-distributor-map {
+    pointer-events: none;
 }
 
-#usa-map {
-    cursor: pointer;
-}
-
+// Map Styling
 .li-state {
     path {
         fill: #FFFFFF;
@@ -349,10 +269,15 @@ $li-spacing-x-md: spacer(3) * 2;
         transition: opacity .2s;
     }
 }
-.li-state-enabled path {
-    fill: #E0E0E0;
-    stroke: #231F20;
-}
+.li-state-enabled {
+    pointer-events: auto;
+    cursor: pointer;
+    path {
+        fill: #E0E0E0;
+        stroke: #231F20;
+    }
+}    
+
 .li-state-disabled text{
     opacity: 0;
 }
@@ -375,8 +300,8 @@ $li-spacing-x-md: spacer(3) * 2;
     user-select: none;
 }
 
+
 .li-distributor-state {
-    display: block;
     overflow-wrap: break-word;
    
     @include media-breakpoint-up (sm) {
@@ -386,25 +311,4 @@ $li-spacing-x-md: spacer(3) * 2;
     &__active {
         display: block;
     }
-
-    &-selected-heading {
-        display: none;
-
-        &__visible {
-            display: block;
-        }
-    }
-}
-
-// 404 Page
-.li-404 {
-    background: $danger;
-}
-
-// Georgies Snippet Panel Header Icon Sizing
-.li-snippet-header-icon {
-    display: inline-block;
-    margin-right: 5px;
-    width: 1rem;
-    height: 1rem;
 }

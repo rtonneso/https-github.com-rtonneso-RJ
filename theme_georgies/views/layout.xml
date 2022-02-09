@@ -86,7 +86,40 @@
   <template id="georgies_footer" inherit_id="website.footer_custom" name="Georgies - Footer">
     <xpath expr="//div[@id='footer']" position="replace">
         <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
-          <section class="pt32 pb24 li-footer"><div class="container"><div class="georgies-call-to-action border border-current pb16"><div class="row align-items-center"><div class="col-lg-8 pt16"><div class="px-2 px-lg-3"><h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5></div></div><div class="col-lg-4 pt16"><div class="px-2 px-lg-3 text-lg-right"><p><a class="btn btn-primary" href="#">SIGN UP FOR IT HERE &gt;</a></p></div></div></div></div><div class="row mt-3"><div class="col-md-6"><div class="border border-current py-2 py-lg-3 px-2 px-lg-3"><strong>Georgies of Portland</strong><br></br><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><br></br><strong> <a href="tel:503.283.1253">503.283.1253</a> &#8226; FAX 503.283.1387</strong><br></br><br></br><!-- TODO: Create and apply style class--><strong>Portland Store Hours: </strong><em>Monday - Saturday </em>9am to 5pm PST<br></br><strong>Business Office Hours: </strong><em>Monday - Friday </em>9am to 5pm PST<br></br></div></div><div class="col-md-6"><div class="border border-current py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0"><strong>Georgies of Eugene</strong><br></br><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><br></br><strong> <a href="tel:541.338.7654">541.338.7654</a> &#8226; FAX 541.338.7565</strong><br></br><br></br><strong>Eugene Store Hours: </strong><em>Tuesday - Friday </em>9am to 5pm PST &#8226; <em>Saturday </em>10am to 4pm PST &#8226; <em>Sunday &amp; Monday </em>CLOSED<br></br></div></div></div><div class="row mt-4 justify-content-center li-type-attention"><div class="col-auto"> <div class="pb-2">Follow us!</div></div><div class="col-sm-auto"><div class="pb-2 text-center">Portland<a class="ml-1 text-decoration-none" href="https://www.facebook.com/georgies.ceramic/" target="_blank"><svg class="li-icon-social"><use href="/theme_georgies/static/img/icons/icons.svg#facebook"></use></svg></a><a class="ml-1 text-decoration-none" href="https://www.instagram.com/georgiesceramic/" target="_blank"><svg class="li-icon-social"><use href="/theme_georgies/static/img/icons/icons.svg#instagram"></use></svg></a></div></div><div class="col-sm-auto"><div class="pb-2 text-center">Eugene<a class="ml-1 text-decoration-none" href="https://www.facebook.com/georgies.eugene/" target="_blank"><svg class="li-icon-social"><use href="/theme_georgies/static/img/icons/icons.svg#facebook"></use></svg></a><a class="ml-1 text-decoration-none" href="https://www.instagram.com/georgiesofeugene/" target="_blank"><svg class="li-icon-social"><use href="/theme_georgies/static/img/icons/icons.svg#instagram"></use></svg></a></div></div></div></div></section>
+          
+          <section class="pt32 pb8" data-name="Call to Action">
+            <div class="container">
+              <div class="georgies-call-to-action border border-current pb16" data-name="Call to Action">
+                <div class="row align-items-center">
+                  <div class="col-lg-8 pt16">
+                    <div class="px-2 px-lg-3">
+                      <h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 pt16">
+                    <div class="px-2 px-lg-3 text-lg-right"><a class="btn btn-primary" href="#">SIGN UP FOR IT HERE &gt;</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="pt16 pb32" data-name="Locations">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="border border-current py-2 py-lg-3 px-2 px-lg-3">
+                    <h6><em>GEORGIES OF PORTLAND</em></h6><a href="https://www.google.com/maps/place/Georgie's+Ceramic+%26+Clay+Co/@45.5769829,-122.6593594,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a6560965f631:0xe8c3d7caa703521!8m2!3d45.5769829!4d-122.6571707" target="_blank">756 NE Lombard, Portland OR 97211</a><br></br><strong> <a href="tel:503.283.1253">503.283.1253 &#8226; FAX 503.283.1387</a></strong><br></br><br></br>
+                    <!-- TODO: Create and apply style class--><strong>Portland Store Hours:</strong><br></br><em>Monday - Saturday 9am to 5pm PST</em><br></br><strong>Business Office Hours:</strong><br></br><em>Monday - Friday 9am to 5pm PST</em><br></br><a href="https://www.facebook.com/georgies.ceramic/" target="_blank"><span class="fa fa-facebook-square fa-2x"></span></a><a href="https://www.instagram.com/georgiesceramic/" target="_blank"><span class="fa fa-instagram fa-2x padding-medium"></span></a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="border border-current py-2 py-lg-3 px-2 px-lg-3 mt-3 mt-md-0">
+                    <h6> <em>GEORGIES OF EUGENE</em></h6><a href="https://www.google.com/maps/place/Georgies+Ceramic+%26+Clay+Co/@44.0626762,-123.1183299,17z/data=!3m1!4b1!4m5!3m4!1s0x54c11dde91ea6111:0x35b776690b94aba2!8m2!3d44.0626762!4d-123.1161412" target="_blank">1471 Railroad Blvd #9, Eugene OR 97402</a><br></br><strong> <a href="tel:541.338.7654">541.338.7654 &#8226; FAX 541.338.7565</a></strong><br></br><br></br><strong>Eugene Store Hours:</strong><br></br><em>Tuesday - Friday 9am to 5pm PST &#8226;</em><br></br><em>Saturday 10am to 4pm PST &#8226;</em><br></br><em>Sunday &amp; Monday CLOSED</em><br></br><a href="https://www.facebook.com/georgies.eugene/" target="_blank"><span class="fa fa-facebook-square fa-2x"></span></a><a href="https://www.instagram.com/georgiesofeugene/" target="_blank"><span class="fa fa-instagram fa-2x padding-medium"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
     </xpath>
   </template>
@@ -105,7 +138,25 @@
   <!-- Georgies Footer Copyright -->
   <template id="georgies_footer_copyright" inherit_id="web.frontend_layout" name="Georgies - Footer Copyright">
     <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
-      <div class="o_footer_copyright py-2" t-if="not no_copyright and not scroll_top_button_enabled"><div class="container"><div class="row"><div class="col"><div class="text-center"><span class="o_footer_copyright_name"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></span></div></div></div></div></div><div class="o_footer_copyright pb-2 pt-3" t-if="not no_copyright and scroll_top_button_enabled"><div class="container"><div class="row"><div class="col"><div class="text-center"><span class="o_footer_copyright_name"><strong>&#169; 2019 Georgies &#8226; All Rights Reserved</strong></span></div></div></div></div></div>
+      
+      <div class="o_footer_copyright py-2" data-name="Copyright" t-if="not no_copyright and not scroll_top_button_enabled">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="text-center"><span class="o_footer_copyright_name"><strong>&#169; 2022 Georgies &#8226; All Rights Reserved</strong></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="o_footer_copyright pb-2 pt-3" data-name="Copyright" t-if="not no_copyright and scroll_top_button_enabled">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="text-center"><span class="o_footer_copyright_name"><strong>&#169; 2022 Georgies &#8226; All Rights Reserved</strong></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </xpath>
   </template>
 
@@ -117,17 +168,17 @@
     <!-- Replace the alert with our nicer one -->
     <xpath expr="//div[hasclass('container')]" position="replace">
       <div class="container o_not_editable">
-        <div class="alert alert-warning mt32 d-flex align-items-center font-weight-bold">
+        <div class="alert alert-warning my-3 d-flex align-items-center font-weight-bold">
           <i class="fa fa-2x s_alert_icon fa-exclamation-circle"></i>
           <p>This page does not exist, but you can <a class="js_disable_on_click post_link" t-attf-href="/website/add/#{ path }#{ from_template and '?template=%s' % from_template }">create it</a> if you'd like a page to be here. You can also edit the content below to adjust the default 404 (page not found) page.</p>
         </div>
         <div class="text-center text-muted"></div>
       </div>
     </xpath>
-    <!-- Set the bottom margin of the dividing HR element to 0 so that it gives a clean border to the 404 page that's editable below -->
+    <!-- Set the margins to zero on this hr so that the page blow and the alert above look proper -->
     <xpath expr="//hr" position="replace">
-      <hr class="mb-0"/>
+      <hr class="my-0"/>
     </xpath>
   </template>
-
+  
 </odoo>

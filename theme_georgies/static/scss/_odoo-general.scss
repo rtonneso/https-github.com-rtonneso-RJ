@@ -1,5 +1,16 @@
 // ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO 
-/* === Odoo Theme Overrides ===*/
+
+
+// ODOO SPECIFIC SNIPPET OPTIONS
+.media-fit {
+  &-cover { object-fit: cover; }
+  &-contain { object-fit: contain; }
+  &-full { object-fit: none; }
+
+}
+
+
+// === Odoo Theme Overrides ===
 // Navbar nested dropdown background color
 .navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
   background-color: $color-1;
@@ -56,6 +67,9 @@
 
 }
 
+
+// ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS 
+
 // Alert snippet, adjust padding between alert and text
 .s_alert_icon {
   margin-right: spacer(2);
@@ -64,4 +78,51 @@
 // Media Item Snippet
 .s_media_list[data-vcss="001"] .s_media_list_body {
   padding: spacer(3);
+}
+
+// Hide image shape / shadow / and thumbnail buttons (they look like trash, and aren't consistant with the rest of the theme. Also hide the resizing buttons, as we've added that functionality in the snippet options for images, and it's a better location since that's where the resolution option, and quality is.
+#oe_snippets#oe_snippets .o_we_snippet_text_tools {
+  .btn[data-event='imageShape'][data-value='rounded'],
+  .btn[data-event='imageShape'][data-value='rounded-circle'],
+  .btn[data-event='imageShape'][data-value='shadow'],
+  .btn[data-event='imageShape'][data-value='img-thumbnail'],
+  .btn[data-event='resize'][data-value='auto'],
+  .btn[data-event='resize'][data-value='1'],
+  .btn[data-event='resize'][data-value='0.5'],
+  .btn[data-event='resize'][data-value='0.25'] {
+      display: none;
+  }
+}
+
+// Image Crop Editor
+// Set Primary Button to regular (not outline) for readability purposes
+.o_we_crop_buttons .btn.btn-primary{
+  @include button-variant($primary, $primary);
+}
+
+// Card Inner Snippet
+.s_card {
+  margin-top: 0;
+  margin-bottom: $spacer * .5;
+}
+
+.s_share {
+  margin-bottom: $spacer * .5;
+}
+
+.s_wsale_products_searchbar_input {
+  margin-bottom: $spacer * .5;
+}
+
+// Undo Odoo's custom padding here
+.s_color_blocks_2 [class*="col-lg-"] {
+  padding-top: unset;
+  padding-bottom: unset;
+  padding-left: $grid-gutter-width * .5;
+  padding-right: $grid-gutter-width * .5;
+}
+
+// Remove border from mega menu dropdown
+.o_mega_menu {
+  border: none;
 }

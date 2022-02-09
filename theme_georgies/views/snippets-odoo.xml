@@ -9,276 +9,451 @@
 
 
   <!-- Mega Menu -->
-  <template id="s_georgies_overrides_shop_mega_menu" inherit_id="website.s_mega_menu_multi_menus" name="Georgies - Mega Menu">
-    <xpath expr="//*[hasclass('s_mega_menu_multi_menus')]" position="replace">
-      <!-- |||||||||||||||||||||||||||--><!-- Shop Mega Menu--><!-- |||||||||||||||||||||||||||--><section class="py-1 o_cc5"><div class="container"><div class="row"><div class="col-md-4"><div class="container mb-2 mb-md-0 li-shop-mega-buttons"><a class="btn btn-primary btn-sm" href="/shop">Shop Now &gt;</a><a class="btn btn-primary btn-sm" href="/catalog">Georgies Catalog &gt;</a><a class="btn btn-primary btn-sm" href="#">Gift Certificates &gt;</a><a class="btn btn-primary btn-sm" href="#">Used Equipment &gt;</a><a class="btn btn-primary btn-sm" href="#">Ordering Info &gt;</a></div></div><div class="col-md-8"><div class="container"><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div><div class="row"><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div><div class="col-sm-6 col-md-3"><div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div></div></div></div></div></div></div></section>
-    </xpath>
+  <template id="s_georgies_overrides_shop_mega_menu" inherit_id="website.s_mega_menu_multi_menus" name="Georgies - Shop Mega Menu">
+  <xpath expr="//*[hasclass('s_mega_menu_multi_menus')]" position="replace">
+    
+    <section class="pt16 pb16 o_cc o_cc3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="container mb-2 mb-md-0 li-shop-mega-buttons">
+              <a class="btn btn-primary btn-sm" href="/shop">Shop Now &gt;</a>
+              <a class="btn btn-primary btn-sm" href="/catalog">Georgies Catalog &gt;</a>
+              <a class="btn btn-primary btn-sm" href="#">Gift Certificates &gt;</a>
+              <a class="btn btn-primary btn-sm" href="#">Used Equipment &gt;</a>
+              <a class="btn btn-primary btn-sm" href="#">Ordering Info &gt;</a>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="container">
+              <t t-foreach="[1,2,3]" t-as="l">
+                <div class="row">
+                  <t t-foreach="[1,2,3,4]" t-as="i">
+                    <div class="col-sm-6 col-md-3">
+                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
+                    </div>
+                  </t>
+                </div>       
+              </t>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </xpath>
   </template>
 
 
 
   <!-- Card -->
   <template id="s_georgies_overrides_card" inherit_id="website.s_card" name="Odoo Card - Georgies Overrides">
-    <xpath expr="//div[hasclass('s_card')]" position="replace">
-      <div class="s_button_card pb-3"><div class="o_cc o_cc2 px-3 pt-3 pb-3 d-flex flex-column"><h2>Heading here</h2><h6><em><strong>THIS IS A SUB HEADING</strong></em></h6><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary btn-block" href="#">Button Text Here</a></div></div>
-    </xpath>
+  <xpath expr="//div[hasclass('s_card')]" position="replace">
+    <div class="s_card o_cc o_cc2">
+      <div class="px-3 pt-3 pb-3">
+        <h2>Heading here</h2>
+        <h6><em><strong>THIS IS A SUB HEADING</strong></em></h6>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary" href="#">Button Text Here</a>
+      </div>
+    </div>
+  </xpath>
+  </template>
+
+
+
+  <!-- Columns -->
+  <template id="s_georgies_overrides_columns" inherit_id="website.s_three_columns" name="Odoo Columns - Georgies Overrides">
+  <xpath expr="//section[hasclass('s_three_columns')]" position="replace">
+    <section class="s_three_columns pt48 pb32">
+      <div class="container">
+        <div class="row d-flex align-items-stretch">
+          <div class="col-md-6 col-lg-4 pb16">
+            <p><img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/></p>
+            <h3>Column 1</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beataerendis aspernatur.</p>
+          </div>
+          <div class="col-md-6 col-lg-4 pb16">
+            <p><img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/></p>
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beataerendis aspernatur.</p>
+          </div>
+          <div class="col-md-6 col-lg-4 pb16">
+            <p><img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/></p>
+            <h3>Column 3</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beataerendis aspernatur.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </xpath>
   </template>
 
 
 
   <!-- Call to Action -->
   <template id="s_georgies_overrides_call_to_action" inherit_id="website.s_call_to_action" name="Odoo Call to Action - Georgies Overrides">
-    <xpath expr="//section" position="replace">
-      <section class="pt48 pb48 o_cc o_cc3">
-        <div class="container">
-          <div class="georgies-call-to-action border border-current pb16">
-            <div class="row align-items-center">
-              <div class="col-lg-8 pt16">
-                <div class="px-2 px-lg-3">
-                  <h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5>
-                </div>
-              </div>
-              <div class="col-lg-4 pt16">
-                <div class="px-2 px-lg-3 text-lg-right">
-                  <p><a class="btn btn-primary" href="#">SIGN UP FOR IT HERE &gt;</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <xpath expr="//section" position="replace">
+    <section class="pt48 pb48 o_cc o_cc3">
+    <div class="container">
+      <div class="georgies-call-to-action border border-current pb16">
+      <div class="row align-items-center">
+        <div class="col-lg-8 pt16">
+        <div class="px-2 px-lg-3">
+          <h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5>
         </div>
-      </section>
-    </xpath>
+        </div>
+        <div class="col-lg-4 pt16">
+        <div class="px-2 px-lg-3 text-lg-right">
+          <a class="btn btn-primary" href="#">SIGN UP FOR IT HERE &gt;</a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </section>
+  </xpath>
   </template>
 
 
 
   <!-- Tweak Banner snippet -->
   <template id="s_georgies_overrides_banner" inherit_id="website.s_banner" name="Odoo Banner - Georgies Overrides">
-    <!-- Tweak this business -->
-    <xpath expr="//section" position="replace">
-      <section class="s_banner parallax s_parallax_is_fixed pt80 pb80" data-scroll-background-ratio="1">
-        <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/theme_georgies.placeholder_wide-glaze');"/>
-        <div class="container">
-          <div class="row s_nb_column_fixed">
-            <div class="col-lg-7 jumbotron o_cc o_cc1 pt24 pb24" data-name="Box">
-              <h1>Here's a Heading Here Bud</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a href="#" class="btn btn-primary">Contact Us</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </xpath>
+  <!-- Tweak this business -->
+  <xpath expr="//section" position="replace">
+    <section class="s_banner parallax s_parallax_is_fixed pt80 pb80" data-scroll-background-ratio="1">
+    <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/theme_georgies.placeholder_wide-glaze');"/>
+    <div class="container">
+      <div class="row s_nb_column_fixed">
+      <div class="col-lg-7 jumbotron o_cc o_cc1 pt24 pb24" data-name="Box">
+        <h1>Here's a Heading Here Bud</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <a href="#" class="btn btn-primary">Contact Us</a>
+      </div>
+      </div>
+    </div>
+    </section>
+  </xpath>
   </template>
 
 
 
   <!-- Tweak Cover Snippet -->
   <template id="s_georgies_overrides_cover" inherit_id="website.s_cover" name="Odoo Cover - Georgies Overrides">
-    <xpath expr="//section" position="replace">
-      <section class="s_gc_splash pt80 pb80 o_cc o_cc3" style="background-image: url('/web/image/theme_georgies.placeholder_fourthirds-clayboxes');">
-        <div class="o_we_bg_filter bg-black-50"></div>
-        <div class="container s_allow_columns">
-          <div class="px-2 px-sm-0">
-            <h1>Heading here. It can be decently long and will wrap around</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde eos deserunt nulla quaerat nobis fugiat dolore atque iusto nesciunt a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi consequatur doloribus quam libero debitis architecto aperiam porro ut, distinctio quibusdam quas, sequi hic fuga placeat dignissimos magni facere perspiciatis.</p>
-            <p>
-              <a class="btn btn-primary" href="#">Button here bud</a>
-            </p>
-          </div>
-        </div>
-      </section>
-    </xpath>
+  <xpath expr="//section" position="replace">
+    <section class="s_gc_splash pt80 pb80 o_cc o_cc3" style="background-image: url('/web/image/theme_georgies.placeholder_fourthirds-clayboxes');">
+    <div class="o_we_bg_filter bg-black-50"></div>
+    <div class="container s_allow_columns">
+      <div class="px-2 px-sm-0">
+      <h1>Heading here. It can be decently long and will wrap around</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde eos deserunt nulla quaerat nobis fugiat dolore atque iusto nesciunt a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi consequatur doloribus quam libero debitis architecto aperiam porro ut, distinctio quibusdam quas, sequi hic fuga placeat dignissimos magni facere perspiciatis.</p>
+      <p>
+        <a class="btn btn-primary" href="#">Button here bud</a>
+      </p>
+      </div>
+    </div>
+    </section>
+  </xpath>
   </template>
 
   
+
   <!-- Tweak Odoo Text Snippet -->
   <template id="s_georgies_overrides_text" inherit_id="website.s_text_block" name="Odoo Text - Georgies Overrides">
-    <xpath expr="//section" position="replace">
-      <section class="s_text_block pt48 pb48">
-        <div class="container s_allow_columns">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
-        </div>
-      </section>
-    </xpath>
+  <xpath expr="//section" position="replace">
+    <section class="s_text_block pt48 pb48">
+    <div class="container s_allow_columns">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
+    </div>
+    </section>
+  </xpath>
   </template>
 
 
 
   <!-- Tweak Odoo Text Image Snippet -->
   <template id="s_georgies_overrides_text_image" inherit_id="website.s_text_image" name="Odoo Text Image - Georgies Overrides">
-    <xpath expr="//section" position="replace">
-      <section class="s_text_image pt48 pb48">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-7 pt16 pb16">
-              <h2>Heading Here, Nice</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              <p><a href="#" class="btn btn-primary">Button here Bud</a></p>
-            </div>
-            <div class="col-lg-5 pt16 pb16">
-              <img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/>
-            </div>
-          </div>
-        </div>
-      </section>
-    </xpath>
+  <xpath expr="//section" position="replace">
+    <section class="s_text_image pt48 pb48">
+    <div class="container">
+      <div class="row align-items-center">
+      <div class="col-md-6 col-lg-7 pt16 pb16">
+        <h2>Heading Here, Nice</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p><a href="#" class="btn btn-primary">Button here Bud</a></p>
+      </div>
+      <div class="col-md-6 col-lg-5 pt16 pb16">
+        <img src="/web/image/theme_georgies.placeholder_fourthirds-clayboxes" class="w-100 mx-auto" alt=""/>
+      </div>
+      </div>
+    </div>
+    </section>
+  </xpath>
+  </template>
+
+
+
+  <!-- Odoo Numbers Snippet -->
+  <template id="s_georgies_overrides_numbers" inherit_id="website.s_numbers" name="Odoo Numbers - Georgies Overrides">
+  <!-- Change default color of section -->
+  <xpath expr="//section[hasclass('o_cc2')]" position="attributes">
+    <attribute name="class" remove="o_cc2" add="o_cc4" separator=" "/>
+  </xpath>
+  <!-- Adding column breaks on medium -->
+  <xpath expr="//div[hasclass('col-lg-3')][1]" position="attributes">
+    <attribute name="class" add="col-sm-6" separator=" "/>
+  </xpath>
+  <!-- Adding column breaks on medium -->
+  <xpath expr="//div[hasclass('col-lg-3')][2]" position="attributes">
+    <attribute name="class" add="col-sm-6" separator=" "/>
+  </xpath>
+  <!-- Adding column breaks on medium -->
+  <xpath expr="//div[hasclass('col-lg-3')][3]" position="attributes">
+    <attribute name="class" add="col-sm-6" separator=" "/>
+  </xpath>
+  <!-- Adding column breaks on medium -->
+  <xpath expr="//div[hasclass('col-lg-3')][4]" position="attributes">
+    <attribute name="class" add="col-sm-6" separator=" "/>
+  </xpath>
   </template>
   
 
 
+  <!-- Big Boxes -->
+  <template id="s_georgies_overrides_big_boxes" inherit_id="website.s_color_blocks_2" name="Odoo Big Boxes - Georgies Overrides">
+  <!-- Nest first link button inside a paragraph -->
+  <xpath expr="(//a)[1]" position="replace">
+    <p>
+    <a href="#" class="btn btn-primary">More Details</a>
+    </p>
+  </xpath>
+  <!-- Nest second link button inside a paragraph -->
+  <xpath expr="(//a)[1]" position="replace">
+    <p>
+    <a href="#" class="btn btn-primary">More Details</a>
+    </p>
+  </xpath>
+  <!-- Add smaller device column classes -->
+  <xpath expr="//div[hasclass('col-lg-6')][1]" position="attributes">
+    <attribute name="class" add="col-md-6 pt24 pb32 px-md-3" separator=" "/>
+  </xpath>
+  <!-- Add smaller device column classes -->
+  <xpath expr="//div[hasclass('col-lg-6')][2]" position="attributes">
+    <attribute name="class" add="col-md-6 pt24 pb32 px-md-3" separator=" "/>
+  </xpath>
+  </template>
+
+
+
+  <!-- Features -->
+  <template id="s_georgies_overrides_features" inherit_id="website.s_features" name="Odoo Features - Georgies Overrides">
+  <!-- Add smaller device column classes -->
+  <xpath expr="//div[hasclass('col-lg-4')][1]" position="attributes">
+    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+  </xpath>
+  <!-- Add smaller device column classes -->
+  <xpath expr="//div[hasclass('col-lg-4')][2]" position="attributes">
+    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+  </xpath>
+  <!-- Add smaller device column classes -->
+  <xpath expr="//div[hasclass('col-lg-4')][3]" position="attributes">
+    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+  </xpath>
+  </template>
+
+
+
+  <!-- Masonry -->
+  <template id="s_georgies_overrides_masonry" inherit_id="website.s_masonry_block" name="Odoo Masonry Block - Georgies Overrides">
+  <!-- Replace background image and change the column sizing on smaller devices -->
+  <xpath expr="//section" position="replace">
+      <section class="s_masonry_block" data-vcss="001">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 col-lg-6 oe_img_bg text-center pb224 pt224" data-name="Block"
+                     style="background-image: url('/web/image/theme_georgies.placeholder_fourthirds-glaze');">
+                    <p><br/></p>
+                </div>
+                <div class="col-md-7 col-lg-6">
+                    <div class="row h-100">
+                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc3" data-name="Block">
+                            <h3>A great title</h3>
+                            <p>And a great subtitle</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc5" data-name="Block">
+                            <h3>A great title</h3>
+                            <p>And a great subtitle</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc4" data-name="Block">
+                            <h3>A great title</h3>
+                            <p>And a great subtitle</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc2" data-name="Block">
+                            <h3>A great title</h3>
+                            <p>And a great subtitle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </xpath>
+  </template>
+
+
+
   <!-- Replacement for Odoo Carousel Inner Items, used below-->
   <template id="s_georgies_overrides_carousel_inner" name="Odoo Carousel Item - Georgies Overrides">
-    <div class="carousel-inner">
-      <!-- First Slide -->
-      <div class="carousel-item active oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-backwall');" data-name="Slide">
-        <div class="container">
-          <div class="row content">
-            <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
-              <h1>Slide Title Here</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\</p>
-              <p>
-                <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="carousel-inner">
+    <!-- First Slide -->
+    <div class="carousel-item active oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-backwall');" data-name="Slide">
+    <div class="container">
+      <div class="row content">
+      <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
+        <h1>Slide Title Here</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\</p>
+        <p>
+        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
+        </p>
       </div>
-      <!-- Second Slide -->
-      <div class="carousel-item oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-bowls');" data-name="Slide">
-        <div class="container">
-          <div class="row content">
-            <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
-              <h1>Slide Title Here</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>
-                <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Third Slide -->
-      <div class="carousel-item oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-glaze');" data-name="Slide">
-        <div class="container">
-          <div class="row content">
-            <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
-              <h1>Slide Title Here</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>
-                <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+    </div>
+    <!-- Second Slide -->
+    <div class="carousel-item oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-bowls');" data-name="Slide">
+    <div class="container">
+      <div class="row content">
+      <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
+        <h1>Slide Title Here</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>
+        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
+        </p>
+      </div>
+      </div>
+    </div>
+    </div>
+    <!-- Third Slide -->
+    <div class="carousel-item oe_img_bg pt80 pb80" style="background-image: url('/web/image/theme_georgies.placeholder_wide-glaze');" data-name="Slide">
+    <div class="container">
+      <div class="row content">
+      <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
+        <h1>Slide Title Here</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>
+        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
+        </p>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
   </template>
 
 
 
   <!-- Carousel - remove the second and third slides and tweak the first -->
   <template id="s_georgies_overrides_carousel" inherit_id="website.s_carousel" name="Odoo Carousel - Georgies Overrides">
-    <!-- Replace the carousel inner element with our own -->
-    <xpath expr="//div[hasclass('carousel-inner')]" position="replace">
-      <t t-call="theme_georgies.s_georgies_overrides_carousel_inner"/>
-    </xpath>
+  <!-- Replace the carousel inner element with our own -->
+  <xpath expr="//div[hasclass('carousel-inner')]" position="replace">
+    <t t-call="theme_georgies.s_georgies_overrides_carousel_inner"/>
+  </xpath>
   </template>
 
 
 
   <!-- Alert -->
   <template id="s_georgies_overrides_alert" inherit_id="website.s_alert" name="Odoo Inner Alert - Georgies Overrides">
-    <!-- Align items vertically -->
-    <xpath expr="//div[hasclass('s_alert')]" position="attributes">
-      <attribute name="class" add="d-flex align-items-center" separator=" "/>
-    </xpath>
-    <!-- Create bold text for the default -->
-    <xpath expr="//p" position="replace">
-      <p>
-        <b>This is an alert here bud. You can use it to get the attention of visitors, and style it based on the primary, secondary, info, warning, success, or danger colors and double click on the icon to change it.</b>
-      </p>
-    </xpath>
+  <!-- Align items vertically -->
+  <xpath expr="//div[hasclass('s_alert')]" position="attributes">
+    <attribute name="class" add="d-flex align-items-center" separator=" "/>
+  </xpath>
+  <!-- Create bold text for the default -->
+  <xpath expr="//p" position="replace">
+    <p>
+    <b>This is an alert here bud. You can use it to get the attention of visitors, and style it based on the primary, secondary, info, warning, success, or danger colors and double click on the icon to change it.</b>
+    </p>
+  </xpath>
   </template>
 
 
 
   <!-- Quotes Carousel - change default background color -->
   <template id="s_georgies_overrides_quotes_carousel" inherit_id="website.s_quotes_carousel" name="Odoo Quotes Carousel - Georgies Overrides">
-    <!-- Remove it from the div below the section -->
-    <xpath expr="//div[hasclass('bg-200')]" position="attributes">
-      <attribute name="class" remove="bg-200" separator=" "/>
-    </xpath>
-    <!-- Add a background to the section itself -->
-    <xpath expr="//section" position="attributes">
-      <attribute name="class" add="o_cc2" separator=" "/>
-    </xpath>
-    <!-- Remove second slide background -->
-    <xpath expr="//div[hasclass('oe_img_bg')]" position="attributes">
-      <attribute name="class" remove="oe_img_bg" add="o_cc3" separator=" "/>
-      <attribute name="style"></attribute>
-    </xpath>
-    <!-- Remove third slide background-->
-    <xpath expr="//div[hasclass('oe_img_bg')]" position="attributes">
-      <attribute name="class" remove="oe_img_bg" add="o_cc4" separator=" "/>
-      <attribute name="style"></attribute>
-    </xpath>
-    <!-- Center second block quote -->
-    <xpath expr="//blockquote[hasclass('mr-auto')]" position="attributes">
-      <attribute name="class" remove="mr-auto" add="mx-auto" separator=" "/>
-    </xpath>
-    <!-- Center third block quote -->
-    <xpath expr="//blockquote[hasclass('ml-auto')]" position="attributes">
-      <attribute name="class" remove="ml-auto" add="mx-auto" separator=" "/>
-    </xpath>
+  <!-- Remove it from the div below the section -->
+  <xpath expr="//div[hasclass('bg-200')]" position="attributes">
+    <attribute name="class" remove="bg-200" separator=" "/>
+  </xpath>
+  <!-- Add a background to the section itself -->
+  <xpath expr="//section" position="attributes">
+    <attribute name="class" add="o_cc2" separator=" "/>
+  </xpath>
+  <!-- Remove second slide background -->
+  <xpath expr="//div[hasclass('oe_img_bg')]" position="attributes">
+    <attribute name="class" remove="oe_img_bg" add="o_cc3" separator=" "/>
+    <attribute name="style"></attribute>
+  </xpath>
+  <!-- Remove third slide background-->
+  <xpath expr="//div[hasclass('oe_img_bg')]" position="attributes">
+    <attribute name="class" remove="oe_img_bg" add="o_cc4" separator=" "/>
+    <attribute name="style"></attribute>
+  </xpath>
+  <!-- Center second block quote -->
+  <xpath expr="//blockquote[hasclass('mr-auto')]" position="attributes">
+    <attribute name="class" remove="mr-auto" add="mx-auto" separator=" "/>
+  </xpath>
+  <!-- Center third block quote -->
+  <xpath expr="//blockquote[hasclass('ml-auto')]" position="attributes">
+    <attribute name="class" remove="ml-auto" add="mx-auto" separator=" "/>
+  </xpath>
   </template>
+
+
 
   <!-- Media Item - Change background -->
   <template id="s_georgies_overrides_media_item" inherit_id="website.s_media_list" name="Odoo Media Item - Georgies Override">
-    <!-- Remove background -->
-    <xpath expr="//section[hasclass('bg-200')]" position="attributes">
-      <attribute name="class" remove="bg-200" add="o_cc o_cc2" separator=" "/>
-    </xpath>
-    <!-- Remove bottom margin on button -->
-    <xpath expr="//a[hasclass('btn')]" position="attributes">
-      <attribute name="class" remove="mb-2" separator=" "/>
-    </xpath>
-    <!-- Replace first image -->
-    <xpath expr="(//img)[1]" position="attributes">
-      <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-clayboxes</attribute>
-    </xpath>
-    <!-- Replace second image -->
-    <xpath expr="(//img)[2]" position="attributes">
-      <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-product</attribute>
-    </xpath>
-    <!-- Replace third image -->
-    <xpath expr="(//img)[3]" position="attributes">
-      <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-tools</attribute>
-    </xpath>
-    <!-- Remove link on third item -->
-    <xpath expr="//div[hasclass('s_media_list_item')][3]//a" position="replace"/>
+  <!-- Remove background -->
+  <xpath expr="//section[hasclass('bg-200')]" position="attributes">
+    <attribute name="class" remove="bg-200" add="o_cc o_cc2" separator=" "/>
+  </xpath>
+  <!-- Remove bottom margin on button -->
+  <xpath expr="//a[hasclass('btn')]" position="attributes">
+    <attribute name="class" remove="mb-2" separator=" "/>
+  </xpath>
+  <!-- Replace first image -->
+  <xpath expr="(//img)[1]" position="attributes">
+    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-clayboxes</attribute>
+  </xpath>
+  <!-- Replace second image -->
+  <xpath expr="(//img)[2]" position="attributes">
+    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-product</attribute>
+  </xpath>
+  <!-- Replace third image -->
+  <xpath expr="(//img)[3]" position="attributes">
+    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-tools</attribute>
+  </xpath>
+  <!-- Remove link on third item -->
+  <xpath expr="//div[hasclass('s_media_list_item')][3]//a" position="replace"/>
   </template>
 
 
 
   <!-- Image Gallery -->
   <template id="s_georgies_overrides_image_gallery" inherit_id="website.s_image_gallery" name="Odoo Image Gallery - Georgies Override">
-    <!-- Adjust padding -->
-    <xpath expr="//section[hasclass('s_image_gallery')]" position="attributes">
-      <attribute name="class" remove="pt24" add="pt48 pb48" separator=" "/>
-    </xpath>
+  <!-- Adjust padding -->
+  <xpath expr="//section[hasclass('s_image_gallery')]" position="attributes">
+    <attribute name="class" remove="pt24" add="pt48 pb48" separator=" "/>
+  </xpath>
   </template>
 
 
 
   <!-- Image Wall -->
   <template id="s_georgies_overrides_images_wall" inherit_id="website.s_images_wall" name="Odoo Image Wall - Georgies Override">
-    <!-- Adjust padding -->
-    <xpath expr="//section[hasclass('s_image_gallery')]" position="attributes">
-      <attribute name="class" remove="pt24 pb24" add="pt48 pb48" separator=" "/>
-    </xpath>
+  <!-- Adjust padding -->
+  <xpath expr="//section[hasclass('s_image_gallery')]" position="attributes">
+    <attribute name="class" remove="pt24 pb24" add="pt48 pb48" separator=" "/>
+  </xpath>
   </template>
 
 
@@ -286,243 +461,268 @@
   <!-- Showcase -->
   <!-- Adjust text justification to centered on mobile displays -->
   <template id="s_georgies_overrides_showcase" inherit_id="website.s_showcase" name="Odoo Showcase - Georgies Override">
-    <!-- Adjust text to centered, goes to right justified on lg -->
-    <xpath expr="//div[hasclass('col-lg')][1]" position="attributes">
-      <attribute name="class" add="text-center" separator=" "/>
-    </xpath>
-    <!-- Adjust text to centered, goes to left justified on lg -->
-    <xpath expr="//div[hasclass('col-lg')][2]" position="attributes">
-      <attribute name="class" add="text-center text-lg-left" separator=" "/>
-    </xpath>
-    <!-- Set centered content, and right justified on lg -->
-    <xpath expr="(//div[hasclass('s_showcase_title')])[1]" position="attributes">
-      <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
-    </xpath>
-    <!-- Set centered content, and right justified on lg -->
-    <xpath expr="(//div[hasclass('s_showcase_title')])[2]" position="attributes">
-      <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
-    </xpath>
-    <!-- Set centered content, and left justified on lg -->
-    <xpath expr="(//div[hasclass('s_showcase_title')])[3]" position="attributes">
-      <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
-    </xpath>    
-    <!-- Set centered content, and left justified on lg -->
-    <xpath expr="(//div[hasclass('s_showcase_title')])[4]" position="attributes">
-      <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
-    </xpath>
-    <!-- Set text in bottom container to be centered all the time -->
-    <xpath expr="//div[hasclass('text-lg-center')]" position="attributes">
-      <attribute name="class" remove="text-lg-center" add="text-center" separator=" "/>
-    </xpath>
+  <!-- Adjust text to centered, goes to right justified on lg -->
+  <xpath expr="//div[hasclass('col-lg')][1]" position="attributes">
+    <attribute name="class" add="text-center" separator=" "/>
+  </xpath>
+  <!-- Adjust text to centered, goes to left justified on lg -->
+  <xpath expr="//div[hasclass('col-lg')][2]" position="attributes">
+    <attribute name="class" add="text-center text-lg-left" separator=" "/>
+  </xpath>
+  <!-- Set centered content, and right justified on lg -->
+  <xpath expr="(//div[hasclass('s_showcase_title')])[1]" position="attributes">
+    <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
+  </xpath>
+  <!-- Set centered content, and right justified on lg -->
+  <xpath expr="(//div[hasclass('s_showcase_title')])[2]" position="attributes">
+    <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
+  </xpath>
+  <!-- Set centered content, and left justified on lg -->
+  <xpath expr="(//div[hasclass('s_showcase_title')])[3]" position="attributes">
+    <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
+  </xpath>    
+  <!-- Set centered content, and left justified on lg -->
+  <xpath expr="(//div[hasclass('s_showcase_title')])[4]" position="attributes">
+    <attribute name="class" add="justify-content-center justify-content-lg-start" separator=" "/>
+  </xpath>
+  <!-- Set text in bottom container to be centered all the time -->
+  <xpath expr="//div[hasclass('text-lg-center')]" position="attributes">
+    <attribute name="class" remove="text-lg-center" add="text-center" separator=" "/>
+  </xpath>
   </template>
 
 
 
   <!-- Menu Item - Remove background image -->
   <template id="s_georgies_overrides_menu" inherit_id="website.s_product_catalog" name="Menu and Pricing - Georgies Override">
-    <xpath expr="//section[hasclass('s_product_catalog')]" position="attributes">
-      <!-- Remove ugly food background image -->
-      <attribute name="style"></attribute>
-    </xpath>
+  <xpath expr="//section[hasclass('s_product_catalog')]" position="attributes">
+    <!-- Remove ugly food background image -->
+    <attribute name="style"></attribute>
+  </xpath>
   </template>
 
 
 
   <!-- Recently Viewed Products -->
   <template id="s_georgies_overrides_recently_viewed_products" inherit_id="website_sale.s_products_recently_viewed" name="Recently Viewed Products - Georgies Override">
-    <xpath expr="//section[hasclass('s_wsale_products_recently_viewed')]" position="attributes">
-      <attribute name="class" remove="pt24 pb24" add="pt48 pb48" separator=" "/>
-    </xpath>
-    <!-- Capitalize the word viewed and replace the bottom padding with bootstrap class -->
-    <xpath expr="//h3" position="replace">
-      <h3 class="text-center mb-3">Recently Viewed Products</h3>
-    </xpath>
+  <xpath expr="//section[hasclass('s_wsale_products_recently_viewed')]" position="attributes">
+    <attribute name="class" remove="pt24 pb24" add="pt48 pb48" separator=" "/>
+  </xpath>
+  <!-- Capitalize the word viewed and replace the bottom padding with bootstrap class -->
+  <xpath expr="//h3" position="replace">
+    <h3 class="text-center mb-3">Recently Viewed Products</h3>
+  </xpath>
   </template>
 
 
 
   <!-- Product Search -->
   <template id="s_georgies_overrides_product_searchbar" inherit_id="website_sale.s_products_searchbar" name="Odoo Product Search Bar - Georgies Overrides">
-    <!-- Change background color -->
-    <xpath expr="//section" position="attributes">
-      <attribute name="class" remove="bg-200" add="o_cc o_cc2" separator=" "/>
-    </xpath>
+  <!-- Change background color -->
+  <xpath expr="//section" position="attributes">
+    <attribute name="class" remove="bg-200" add="o_cc o_cc2" separator=" "/>
+  </xpath>
   </template>
 
 
   
   <!-- Popup -->
   <template id="s_georgies_overrides_popup" inherit_id="website.s_popup" name="Odoo Popup - Georgies Overrides">
-    <xpath expr="//section" position="attributes">
-      <!-- Change top and bottom padding -->
-      <attribute name="class" remove="pt96 pb96" add="pt56 pb56" separator=" "/>
-      <!-- Change background image -->
-      <attribute name="style">background-image: url('/web/image/theme_georgies.placeholder_wide-backwall')</attribute>
-    </xpath>
-    <!-- Change heading to default h2 -->
-    <xpath expr="//h2" position="replace">
-      <h2>Sign up for Our Newsletter!</h2>
-    </xpath>
-    <!-- Remove bottom margins for button -->
-    <xpath expr="//a[hasclass('btn')]" position="attributes">
-      <attribute name="class" remove="mb-2" separator=" "/>
-    </xpath>
-    <!-- Remove paragraph lead class -->
-    <xpath expr="//p[hasclass('lead')]" position="attributes">
-      <attribute name="class" remove="lead" separator=" "/>
-    </xpath>
+  <xpath expr="//section" position="attributes">
+    <!-- Change top and bottom padding -->
+    <attribute name="class" remove="pt96 pb96" add="pt56 pb56" separator=" "/>
+    <!-- Change background image -->
+    <attribute name="style">background-image: url('/web/image/theme_georgies.placeholder_wide-backwall')</attribute>
+  </xpath>
+  <!-- Change heading to default h2 -->
+  <xpath expr="//h2" position="replace">
+    <h2>Sign up for Our Newsletter!</h2>
+  </xpath>
+  <!-- Remove bottom margins for button -->
+  <xpath expr="//a[hasclass('btn')]" position="attributes">
+    <attribute name="class" remove="mb-2" separator=" "/>
+  </xpath>
+  <!-- Remove paragraph lead class -->
+  <xpath expr="//p[hasclass('lead')]" position="attributes">
+    <attribute name="class" remove="lead" separator=" "/>
+  </xpath>
   </template>
 
-  <!-- Masonry -->
-  <template id="s_georgies_overrides_masonry" inherit_id="website.s_masonry_block" name="Odoo Masonry Block - Georgies Overrides">
-    <!-- Replace background image -->
-    <xpath expr="//div[hasclass('oe_img_bg')]" position="attributes">
-      <attribute name="style">background-image: url('/web/image/theme_georgies.placeholder_fourthirds-glaze')</attribute>
-    </xpath>
-  </template>
 
-  <!-- Big Boxes -->
-  <template id="s_georgies_overrides_big_boxes" inherit_id="website.s_color_blocks_2" name="Odoo Big Boxes - Georgies Overrides">
-    <!-- Nest first link button inside a paragraph -->
-    <xpath expr="(//a)[1]" position="replace">
-      <p>
-        <a href="#" class="btn btn-primary">More Details</a>
-      </p>
-    </xpath>
-    <!-- Nest second link button inside a paragraph -->
-    <xpath expr="(//a)[1]" position="replace">
-      <p>
-        <a href="#" class="btn btn-primary">More Details</a>
-      </p>
-    </xpath>
-  </template>
+  
+
+
+
 
 
   <!-- ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS -->
   <template id="georgies_overrides_snippet_options" inherit_id="website.snippet_options" name="Odoo Snippet Options - Georgies Override">
-    <!-- Remove the body color and image background options -->
-    <xpath expr="//we-select[@data-variable='layout']/following-sibling::we-row[1]" position="replace"/> 
-    <!-- Remove Page Layout Option -->
-    <xpath expr="//we-select[@data-variable='layout']" position="replace"/>
-    <!-- Remove button border radius option -->
-    <xpath expr="//we-input[@data-variable='btn-border-width']/following-sibling::we-collapse[1]" position="replace"/>
-    <!-- Remove button ripple effect option-->
-    <xpath expr="//we-checkbox[@data-customize-website-views='website.option_ripple_effect']" position="replace"/>
-    <!-- Remove input border radius option -->
-    <xpath expr="//we-input[@data-variable='input-border-width']/following-sibling::we-collapse[1]" position="replace"/>
-    <!-- Remove shadow on Columns and Comparisons-->
-    <xpath expr="//div[@data-selector='.s_three_columns .row > div, .s_comparisons .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-    <!-- Remove shadow on Divs -->
-    <xpath expr="//div[@data-exclude='.s_col_no_bgcolor, .s_col_no_bgcolor.row > div, .s_image_gallery .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-    <!-- Remove shadow on Header -->
-    <xpath expr="//div[@data-js='HeaderBox']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-    <!-- Remove shadow on Footer -->
-    <xpath expr="//div[@data-selector='#wrapwrap > footer']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-    <!-- Carosel - Remove rounded and bordered styles -->
-    <xpath expr="//we-button[@data-select-class='s_carousel_rounded']" position="replace"/>
-    <xpath expr="//we-button[@data-select-class='s_carousel_bordered']" position="replace"/>
-    <!-- Remove Container Small Option -->
-    <xpath expr="//we-button[@data-select-class='o_container_small']" position="replace"/>
-    <!-- Remove additional background selector on carousel -->
-    <xpath expr="//t[@t-call='web_editor.snippet_options_background_options']" position="replace"/>
-    <!-- Remove style optin for quotes carousel -->
-    <xpath expr="//div[@data-target='> .carousel']/we-select[1]" position="replace"/>
-    <!-- Text Image Options -->
-    <xpath expr="//div[@id='so_width']" position="after">
-      <!-- Text Image - Direction-->
-      <div id="s_georgies_overrides_image_text_options" data-selector=".s_text_image" data-target=".row">
-        <we-select string="Text Image Order">
-          <we-button data-select-class="">Text First</we-button>
-          <we-button data-select-class="flex-row-reverse">Text Last</we-button>
-        </we-select>
-      </div>
-    </xpath>
+  <!-- Change color picker for cards so that you can select from the theme options and get button styling as well with the selection -->
+  <xpath expr="//div[@data-selector='.s_card, .accordion .card']/we-colorpicker" position="replace">
+    <we-row string="Colors">
+      <t t-call="web_editor.snippet_options_background_color_widget">
+        <t t-set="with_color_combinations" t-value="True"/>
+      </t>
+    </we-row>
+  </xpath>
+  <!-- Add Auto option for width on cards, quotes, and alerts, so that you're not stuck on an option if you've selected one -->
+  <xpath expr="//div[@id='so_width']//we-button[@data-select-class='w-100']" position="after">
+    <we-button data-select-class="">Auto</we-button>
+  </xpath>
+  <!-- Remove the body color and image background options -->
+  <xpath expr="//we-select[@data-variable='layout']/following-sibling::we-row[1]" position="replace"/> 
+  <!-- Remove Page Layout Option -->
+  <xpath expr="//we-select[@data-variable='layout']" position="replace"/>
+  <!-- Remove button border radius option -->
+  <xpath expr="//we-input[@data-variable='btn-border-width']/following-sibling::we-collapse[1]" position="replace"/>
+  <!-- Remove button ripple effect option-->
+  <xpath expr="//we-checkbox[@data-customize-website-views='website.option_ripple_effect']" position="replace"/>
+  <!-- Remove input border radius option -->
+  <xpath expr="//we-input[@data-variable='input-border-width']/following-sibling::we-collapse[1]" position="replace"/>
+  <!-- Remove shadow on Columns and Comparisons-->
+  <xpath expr="//div[@data-selector='.s_three_columns .row > div, .s_comparisons .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+  <!-- Remove shadow on Divs -->
+  <xpath expr="//div[@data-exclude='.s_col_no_bgcolor, .s_col_no_bgcolor.row > div, .s_image_gallery .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+  <!-- Remove shadow on Header -->
+  <xpath expr="//div[@data-js='HeaderBox']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+  <!-- Remove shadow on Footer -->
+  <xpath expr="//div[@data-selector='#wrapwrap > footer']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+  <!-- Carosel - Remove rounded and bordered styles -->
+  <xpath expr="//we-button[@data-select-class='s_carousel_rounded']" position="replace"/>
+  <xpath expr="//we-button[@data-select-class='s_carousel_bordered']" position="replace"/>
+  <!-- Remove Container Small Option -->
+  <xpath expr="//we-button[@data-select-class='o_container_small']" position="replace"/>
+  <!-- Remove additional background selector on carousel -->
+  <xpath expr="//t[@t-call='web_editor.snippet_options_background_options']" position="replace"/>
+  <!-- Remove style optin for quotes carousel -->
+  <xpath expr="//div[@data-target='> .carousel']/we-select[1]" position="replace"/>
+  <!-- Text Image Options -->
+  <xpath expr="//div[@id='so_width']" position="after">
+    <!-- Text Image - Direction-->
+    <div id="s_georgies_overrides_image_text_options" data-selector=".s_text_image" data-target=".row">
+    <we-select string="Text Image Order">
+      <we-button data-select-class="">Text First</we-button>
+      <we-button data-select-class="flex-row-reverse">Text Last</we-button>
+    </we-select>
+    </div>
+  </xpath>
+  <!-- Add More Advanced Image Options to Images -->
+  <xpath expr="//div[@id='so_width']" position="after">
+    <!-- Provide width options for images -->
+    <div id="s_georgies_image_options_width" data-selector="img">
+    <we-select string="Image Width">
+      <we-button data-select-class="w-100">100%</we-button>
+      <we-button data-select-class="w-75">75%</we-button>
+      <we-button data-select-class="w-50">50%</we-button>
+      <we-button data-select-class="w-25">25%</we-button>
+      <we-button data-select-class="">Auto</we-button>
+    </we-select>
+    </div>
+    <div id="s_georgies_image_options_Height" data-selector="img">
+    <we-select string="Image Height">
+      <we-button data-select-class="">Auto</we-button>
+      <we-button data-select-class="h-100">100%</we-button>
+      <we-button data-select-class="h-75">75%</we-button>
+      <we-button data-select-class="h-50">50%</we-button>
+      <we-button data-select-class="h-25">25%</we-button>
+    </we-select>
+    </div>
+    <div id="s_georgies_image_options_fit" data-selector="img">
+    <we-select string="Image Fit">
+      <we-button data-select-class="">Auto / Stretch</we-button>
+      <we-button data-select-class="media-fit-cover">Cover</we-button>
+      <we-button data-select-class="media-fit-contain">Contain</we-button>
+      <we-button data-select-class="media-fit-full">Full</we-button>
+    </we-select>
+    </div>
+  </xpath>
   </template>
 
 
 
   <!-- Block quote options - Remove shadow -->
   <template id="s_georgies_overrides_blockquote_options" inherit_id="website.s_blockquote_options" name="Odoo Blockquote Options - Georgies Overrides">
-    <!-- Remove shadow option -->
-    <xpath expr="//div[@data-target='.s_blockquote_content']" position="replace"/>
+  <!-- Remove shadow option -->
+  <xpath expr="//div[@data-target='.s_blockquote_content']" position="replace"/>
   </template>
 
 
 
   <!-- Remove Shadow option from media items -->
   <template id="georgies_overrides_media_item_options" inherit_id="website.s_media_list_options" name="Odoo Media Item - Georgies Override - Options">
-    <!-- Remove shadow option -->
-    <xpath expr="//div[@data-selector='.s_media_list_item']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+  <!-- Remove shadow option -->
+  <xpath expr="//div[@data-selector='.s_media_list_item']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
   </template> 
 
 
 
   <!-- Odoo Border Radius -->
   <template id="georgies_overrides_border_radius" inherit_id="website.snippet_options_border_widgets" name="Border Radius - Georgies Override">
-    <!-- Remove border radius on Columns, Comparisons, and Header -->
-    <xpath expr="//we-input[@t-att-data-variable='radius_variable']" position="replace"/>
+  <!-- Remove border radius on Columns, Comparisons, and Header -->
+  <xpath expr="//we-input[@t-att-data-variable='radius_variable']" position="replace"/>
   </template>
 
 
 
   <!-- Image Gallery / Wall -->
   <template id="georgies_overrides_image_gallery_options" inherit_id="website.s_image_gallery_options" name="Odoo Image Gallery Options - Georgies Override">
-    <!-- Remove styling option -->
-    <xpath expr="//we-select[@data-apply-to='img']" position="replace"/>
-    <!-- Remove arrow styling option -->
-    <xpath expr="//we-select[@data-dependencies='slideshow_mode_opt']" position="replace"/>
+  <!-- Remove styling option -->
+  <xpath expr="//we-select[@data-apply-to='img']" position="replace"/>
+  <!-- Remove arrow styling option -->
+  <xpath expr="//we-select[@data-dependencies='slideshow_mode_opt']" position="replace"/>
   </template>
 
 
 
   <!-- Odoo Images Resolution Options -->
   <template id="georgies_overrides_images" inherit_id="web_editor.snippet_options_image_optimization_widgets" name="Odoo Images - Resolution Naming Georgies Override">
-    <!-- Rename Width to Resolution for image sizing.
-    Makes more sense, since we have added a width attribute that allows for control of the actual display width of the image in percentages using the bootstrap width classes w-100 etc. And this setting is controlling the resolution, not neccecarily the width -->
-    <xpath expr="t[@t-set='width_label']" position="replace">
-      <t t-set="width_label">Resolution</t>
-    </xpath>
+  <!-- Rename Width to Resolution for image sizing.
+  Makes more sense, since we have added a width attribute that allows for control of the actual display width of the image in percentages using the bootstrap width classes w-100 etc. And this setting is controlling the resolution, not neccecarily the width -->
+  <xpath expr="t[@t-set='width_label']" position="replace">
+    <t t-set="width_label">Resolution</t>
+  </xpath>
   </template>
 
   <!-- Odoo Google Maps - Hide show description option (description is poorly implimented and padding makes it diffcult to select it)-->
   <template id="georgies_overrides_google_map_options" inherit_id="website.s_google_map_options" name="Odoo Google Map Options - Georgies Override">
-    <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
+  <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
   </template>
+
+
+
 
 
 
   <!-- Remove some ugly default Odoo snippets from the menu -->
   <template id="georgies_overrides_snippet_removal" inherit_id="website.snippets" name="Odoo Snippet Removal - Georgies Override">
-    <!-- Image Text (we have an option that switches the text image and makes this redundant)-->
-    <xpath expr="//t[@t-snippet='website.s_image_text']" position="replace"/>
-    <!-- Heading (Confusing to have this in addition to the text snippet. Also can lead to inconsistent styling)-->
-    <xpath expr="//t[@t-snippet='website.s_title']" position="replace"/>
-    <!-- Picture -->
-    <xpath expr="//t[@t-snippet='website.s_picture']" position="replace"/>
-    <!-- Columns -->
-    <xpath expr="//t[@t-snippet='website.s_three_columns']" position="replace"/>
-    <!-- Parallax - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_parallax']" position="replace"/>
-    <!-- Rating - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_rating']" position="replace"/>
-    <!-- Progress bar - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_progress_bar']" position="replace"/>
-    <!-- Speaker Bio - Remove -->
-    <xpath expr="//t[@t-snippet='website_event.s_speaker_bio']" position="replace"/>
-    <!-- Items - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_product_list']" position="replace"/>
-    <!-- Badge - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_badge']" position="replace"/>
-    <!-- Dynamic snippet - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_dynamic_snippet']" position="replace"/>
-    <!-- Dynamic carousel - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_dynamic_snippet_carousel']" position="replace"/>
-    <!-- Facebook - Remove -->
-    <xpath expr="//t[@t-snippet='website.s_facebook_page']" position="replace"/>
+  <!-- Image Text (we have an option that switches the text image and makes this redundant)-->
+  <xpath expr="//t[@t-snippet='website.s_image_text']" position="replace"/>
+  <!-- Heading (Confusing to have this in addition to the text snippet. Also can lead to inconsistent styling)-->
+  <xpath expr="//t[@t-snippet='website.s_title']" position="replace"/>
+  <!-- Picture -->
+  <xpath expr="//t[@t-snippet='website.s_picture']" position="replace"/>
+  <!-- Parallax - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_parallax']" position="replace"/>
+  <!-- Rating - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_rating']" position="replace"/>
+  <!-- Progress bar - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_progress_bar']" position="replace"/>
+  <!-- Speaker Bio - Remove -->
+  <xpath expr="//t[@t-snippet='website_event.s_speaker_bio']" position="replace"/>
+  <!-- Items - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_product_list']" position="replace"/>
+  <!-- Badge - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_badge']" position="replace"/>
+  <!-- Dynamic snippet - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_dynamic_snippet']" position="replace"/>
+  <!-- Dynamic carousel - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_dynamic_snippet_carousel']" position="replace"/>
+  <!-- Facebook - Remove -->
+  <xpath expr="//t[@t-snippet='website.s_facebook_page']" position="replace"/>
 
-    <!-- Temportarily remove Until they can be styled properly -->
-    <!-- Dynamic Products-->
-    <xpath expr="//t[@t-snippet='website_sale.s_dynamic_snippet_products']" position="replace"/>
+  <!-- Temportarily remove Until they can be styled properly -->
+  <!-- Dynamic Products-->
+  <xpath expr="//t[@t-snippet='website_sale.s_dynamic_snippet_products']" position="replace"/>
   </template>
 
 </odoo>
