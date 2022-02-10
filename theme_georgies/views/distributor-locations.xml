@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>  
   <!-- Georgies Distributor Locations -->
-  <template id="s_georgies_distributor_locations" name="Georgies Distributor Locations">
-    <section class="pt32 s_georgies_distributor_locations">
+  <template id="georgies_distributor_locations" name="Georgies Distributor Locations">
+
+    <section class="pt32 georgies_distributor_locations">
       <div class="container pb48">
         <h1>Georgies Glaze Distributors</h1>
-        <h6 class="d-none d-sm-inline"><em>Click on a state to find your closest Georgies distributor:</em></h6>
+        <h6 class="d-none d-sm-inline"><em>Click on a state to find your closest Georgies distributor. Or click here to see them all.</em></h6>
         <h6 class="d-sm-none"><em>Listed below are Georgies distributors by state.<br/>Canadian Distributors are listed at the bottom of the page.</em></h6>
-
-        <t t-if="x_distributors">
-          <t t-foreach="x_distributors" t-as="distributor">
-            <t t-if="'x_studio_telephone_1_1' in distributor">
-              <h1><t t-esc="x_studio_telephone_1_1"/></h1>
-            </t>
-          </t>
-        </t>
         <div class="row o_not_editable">
           <div class="col-xl-9 d-none d-sm-block">
             <div class="pt-2 pr-2 li-distributor-map">
@@ -1197,42 +1190,57 @@
           </div>
           <div class="col-xl-3">
             <div class="pt-3 pt-lg-0">
-              <div class="li-distributor-state li-distributor-state-NY" data-state="NY">
-                <div class="h2">New York</div>
-                <div class="row">
-                  <div class="col-auto">
-                      <address class="pb-2 pt-sm-0">
-                        <strong><em>Bailey Ceramic Supply</em></strong><br/>
-                        62 Tenbroeck Ave.<br/>
-                        Kingston, NY 12402<br/>
-                        <a href="tel:845-339-3721">845-339-3721</a><br/>
-                        <a href="tel:800-431-6067">800-431-6067</a><br/>
-                        <a href="mailto:test@test.com">test@test.com</a><br/>
-                        <a href="https://www.baileypottery.com" target="_blank"><strong>www.baileypottery.com</strong></a><br/>
-                        <em>Note here about this distributor</em><br/>
-                      </address>
+
+              <!-- Odoo.sh specific code -->
+              <!-- For each state in the US -->
+              <t t-foreach="request.env['res.country.state'].search([['country_id.code','=','US']])" t-as="state">
+                <!-- Check if there are distributors that have this state's id -->
+                <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state_id','=', state.code]])"/>
+                <t t-if="distributors">
+                  <!-- Create our container for this state -->
+                  <div t-attf-class="li-distributor-state" t-att-data-state="state.code">
+                    <div class="h2"><t t-esc="state.name"/></div>
+                    <div class="row flex-wrap">
+                      <!-- Loop through the distributors and output the matching ones -->
+                      <t t-foreach="distributors" t-as="distributor">
+                        <div class="col-auto">
+                            <address class="pb-2 pt-sm-0">
+                              <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
+                              <!-- If distributor has a line 1 address -->
+                              <t t-if="'x_studio_address_line_1' in distributor">
+                                <t t-esc="distributor.x_studio_address_line_1"/><br/>
+                              </t>
+                              <!-- If distributor has a line 2 address -->
+                              <t t-if="'x_studio_address_line_2' in distributor">
+                                <t t-esc="distributor.x_studio_address_line_2"/><br/>
+                              </t>
+                              <!-- If distributor has a telephone -->
+                              <t t-if="'x_studio_telephone' in distributor">
+                                <a t-attf-href="tel:{{distributor.x_studio_telephone}}"><t t-esc="distributor.x_studio_telephone"/></a><br/>
+                              </t>
+                              <!-- If distributor has a secondary telephone -->
+                              <t t-if="'x_studio_secondary_telephone' in distributor">
+                                <a t-attf-href="tel:{{distributor.x_studio_secondary_telephone}}"><t t-esc="distributor.x_studio_secondary_telephone"/></a><br/>
+                              </t>
+                              <!-- If distributor has an email address -->
+                              <t t-if="'x_studio_contact_email' in distributor">
+                                <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
+                              </t>
+                              <!-- If distributor has an email address -->
+                              <t t-if="'x_studio_website' in distributor">
+                                <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
+                              </t>
+                              <!-- If distributor has notes -->
+                              <t t-if="'x_studio_notes' in distributor">
+                                <p><em><t t-esc="distributor.x_studio_notes"/></em></p>
+                              </t>
+                            </address>
+                        </div>
+                      </t>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              <div class="li-distributor-state li-distributor-state-WA" data-state="WA">
-                <div class="h2">Washington</div>
-                <div class="row">
-                
-                  <div class="col-auto">
-                    <address class="pb-2 pt-sm-0">
-                        <strong><em>The Clay Connection</em></strong><br/>
-                        714 East Sprague<br/>
-                        Spokane, WA 99202<br/>
-                        <a href="tel:509-747-6171">509-747-6171</a><br/>
-                        <a href="https://www.theclayconnection.org" target="_blank"><strong>www.theclayconnection.org</strong></a><br/>
-                        <em>(Carries Georgies clays and glazes)</em><br/>
-                    </address>
-                  </div>
-                </div>
-              </div>
-
-
+                </t>
+              </t>
 
             </div>
           </div>
@@ -1241,22 +1249,51 @@
       <div class="o_cc o_cc5 pt48 pb48">
         <div class="container">
           <h2>Canadian distributors are available too!</h2>
-          <div class="row mt-2" contenteditable="false">
-            <div class="col-auto">
-              <address class="pb-2 pt-sm-0">
-                <strong><em>Bailey Ceramic Supply</em></strong><br/>
-                62 Tenbroeck Ave.<br/>
-                Kingston, NY 12402<br/>
-                <a href="tel:845.339.3721">845.339.3721</a><br/>
-                <a href="tel:800.431.6067">800.431.6067</a><br/>
-                <a href="mailto:test@test.com">test@test.com</a><br/>
-                <a href="https://www.baileypottery.com" target="_blank"><strong>www.baileypottery.com</strong></a><br/>
-                <em>Note here about this distributor</em><br/>
-              </address>
-            </div>
+          <div class="row mt-2 o_not_editable">
+            <!-- Odoo.sh specific code -->
+              <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_country_code','=', 'CA']])"/>
+              <t t-if="distributors">
+                  <!-- Loop through the distributors and output the matching ones -->
+                  <t t-foreach="distributors" t-as="distributor">
+                    <div class="col-auto">
+                        <address class="pb-2 pt-sm-0">
+                          <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
+                          <!-- If distributor has a line 1 address -->
+                          <t t-if="'x_studio_address_line_1' in distributor">
+                            <t t-esc="distributor.x_studio_address_line_1"/><br/>
+                          </t>
+                          <!-- If distributor has a line 2 address -->
+                          <t t-if="'x_studio_address_line_2' in distributor">
+                            <t t-esc="distributor.x_studio_address_line_2"/><br/>
+                          </t>
+                          <!-- If distributor has a telephone -->
+                          <t t-if="'x_studio_telephone' in distributor">
+                            <a t-attf-href="tel:{{distributor.x_studio_telephone}}"><t t-esc="distributor.x_studio_telephone"/></a><br/>
+                          </t>
+                          <!-- If distributor has a secondary telephone -->
+                          <t t-if="'x_studio_secondary_telephone' in distributor">
+                            <a t-attf-href="tel:{{distributor.x_studio_secondary_telephone}}"><t t-esc="distributor.x_studio_secondary_telephone"/></a><br/>
+                          </t>
+                          <!-- If distributor has an email address -->
+                          <t t-if="'x_studio_contact_email' in distributor">
+                            <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
+                          </t>
+                          <!-- If distributor has an email address -->
+                          <t t-if="'x_studio_website' in distributor">
+                            <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
+                          </t>
+                          <!-- If distributor has notes -->
+                          <t t-if="'x_studio_notes' in distributor">
+                            <p><em><t t-esc="distributor.x_studio_notes"/></em></p>
+                          </t>
+                        </address>
+                    </div>
+                  </t>
+              </t>
           </div>
         </div>
       </div>
     </section>
+
   </template>
 </odoo>

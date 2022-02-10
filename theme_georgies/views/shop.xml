@@ -212,7 +212,7 @@
     <!-- Add new product description field -->
     <xpath expr="//p[@t-field='product.description_sale']" position="before">
       <t t-if="'x_studio_ecommerce_description' in product">
-      <p t-field="product.x_studio_ecommerce_description" placeholder="Product description that will only be used on the website (not on invoices)." contenteditable="false"/>
+      <p placeholder="Product description that will only be used on the website (not on invoices)." contenteditable="false"><t t-esc="product.x_studio_ecommerce_description"/></p>
       </t>
     </xpath>
     <!-- Change conditional HR element to appear if ecommerce description exists instead of the sales description -->

@@ -214,8 +214,7 @@
         </div>
         <div class="o_panel_body">
           <t t-snippet="theme_georgies.s_georgies_full_width_announcement_bar"/>
-          <t t-snippet="theme_georgies.s_georgies_store_locations"/>
-          <t t-snippet="theme_georgies.s_georgies_distributor_locations"/>
+          <!-- <t t-snippet="theme_georgies.s_georgies_store_locations"/> -->
         </div>
       </div>
     </xpath>

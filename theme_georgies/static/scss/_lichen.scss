@@ -283,7 +283,7 @@ $li-spacing-x-md: spacer(3) * 2;
 }
 .li-state-active {
     .li-state-name {
-        fill: #ffffff;
+        fill: $primary;
     }
 
     path {
@@ -294,7 +294,7 @@ $li-spacing-x-md: spacer(3) * 2;
 .li-state-name {
     font-family:  "Open Sans", "Arial", sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 1px;
     cursor: pointer;
     user-select: none;
