@@ -261,7 +261,7 @@ $li-spacing-x-md: spacer(3) * 2;
 .li-state {
     path {
         fill: #FFFFFF;
-        stroke:#231F20;
+        stroke: $black;
         transition: fill .2s, stroke-width .2s;
     }
     text {
@@ -273,8 +273,8 @@ $li-spacing-x-md: spacer(3) * 2;
     pointer-events: auto;
     cursor: pointer;
     path {
-        fill: #E0E0E0;
-        stroke: #231F20;
+        fill: $primary;
+        stroke: $black;
     }
 }    
 
@@ -287,7 +287,7 @@ $li-spacing-x-md: spacer(3) * 2;
     }
 
     path {
-        fill: #757575;
+        fill: var(--o-color-5);
         stroke-width: 3px;
     }  
 } 
@@ -304,11 +304,45 @@ $li-spacing-x-md: spacer(3) * 2;
 .li-distributor-state {
     overflow-wrap: break-word;
    
-    @include media-breakpoint-up (sm) {
+    @include media-breakpoint-up(sm) {
         display: none;
     }
 
     &__active {
         display: block;
     }
+}
+
+
+// Distributor map column settings
+.distributorMapColumn {
+    // Hide on xs devices
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+}
+// Hide this text by default
+.distributorListText {
+    display: none;
+}
+// This class is toggled on if the user wants to hide the map and show all of the distributors
+.distributorHideMap {
+    .distributorMapText {
+        display: none;
+    }
+    .distributorListText {
+        display: inline;
+    }
+
+    .li-distributor-state {
+        @include media-breakpoint-up(sm) {
+            display: block;
+        }
+    }
+
+    // Hide the map if the user has chosen to hide it
+    .distributorMapColumn {
+        display: none;
+    }
+
 }

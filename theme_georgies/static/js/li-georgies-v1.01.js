@@ -88,6 +88,19 @@ function imageGalleryColumns(image_galleries) {
 
 
 // DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY DISTRIBUTOR MAP FUNCTIONALITY 
+
+function distributorsToggleMap() {
+  // Get the whole distributor map / list section
+  let distributorsSection = document.querySelector('.georgies_distributor_locations');
+  distributorsSection.classList.toggle('distributorHideMap');
+
+  // Get the column that holds our distributor list
+  let distributorListColumn = document.querySelector('.distributorListColumn');
+  // Toggle the removal of the col-xl-3 class and add the col-12 class (so that the column fills the whole width of the page)
+  distributorListColumn.classList.toggle('col-xl-3');
+  distributorListColumn.classList.toggle('col-12');
+}
+
 let mapSelector = '#usa-map';
 // Check if distibutor map is on the page
 function checkDistributorMap() {
@@ -103,6 +116,10 @@ function checkDistributorMap() {
 
 
 function distMapInit(map) {
+  // Add listener for the hide map show list button to toggle the map and show the whole list
+  let hideShowButton = document.querySelector('.distributorToggleMapButton');
+  hideShowButton.addEventListener('click', distributorsToggleMap);
+
   debug('normal', 'Distributer map detected on current page.');
   // Distibutor Map Functionality
   let stateSelector = 'li-state';

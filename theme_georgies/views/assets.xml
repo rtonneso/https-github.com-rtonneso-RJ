@@ -27,7 +27,7 @@
     </xpath>
     <!-- Insert our custom JS -->
     <xpath expr="script[last()]" position="after">
-      <script type="text/javascript" src="/theme_georgies/static/js/li-georgies-v1.0.js" />
+      <script type="text/javascript" src="/theme_georgies/static/js/li-georgies-v1.01.js" />
     </xpath>
   </template>
 
