@@ -5,17 +5,21 @@
 
     <section class="pt32 georgies_distributor_locations">
       <div class="container pb48">
-        <h1>Georgies Glaze Distributors</h1>
-        <h6 class="d-none d-sm-inline"><em>
-        <span class="distributorMapText">Click on a state to find your closest Georgies distributor.<br/></span>
-        <a class="distributorToggleMapButton" href="#">Click here</a> 
-        <span class="distributorMapText">to hide the map and see them all.</span>
-        <span class="distributorListText">show the map</span>
-        </em></h6>
+        <h1>Georgies Product Distributors</h1>
+        <!-- Place for optional blocks -->
+        <div class="oe_structure"/>
+        <div class="h6 d-none d-sm-block"><em>
+          <span class="distributorMapText">Click on a state to find your closest Georgies distributor.<br/>
+          Scroll down to see Canadian distributors.</span>
+          <a class="distributorToggleMapButton o_not_editable" href="#">Click here</a> 
+          <span class="distributorMapText">to hide the map and see them all.</span>
+          <span class="distributorListText">show the map</span>
+          </em>
+        </div>
         <h6 class="d-sm-none"><em>Listed below are Georgies distributors by state.<br/>Canadian Distributors are listed at the bottom of the page.</em></h6>
         <div class="row o_not_editable">
           <div class="col-xl-9 distributorMapColumn">
-            <div class="pt-2 pr-2 li-distributor-map">
+            <div class="pr-xl-2 li-distributor-map">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440.993 889.196">
                 <g id="usa-map">
                   <g class="li-state" id="NY">
@@ -1200,32 +1204,32 @@
               <!-- For each state in the US -->
               <t t-foreach="request.env['res.country.state'].search([['country_id.code','=','US']])" t-as="state">
                 <!-- Check if there are distributors that have this state's id -->
-                <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state_id','=', state.code]])"/>
+                <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state.code','=', state.code]])"/>
                 <t t-if="distributors">
                   <!-- Create our container for this state -->
                   <div t-attf-class="li-distributor-state" t-att-data-state="state.code">
                     <div class="h2"><t t-esc="state.name"/></div>
-                    <div class="row flex-wrap">
+                    <div class="row">
                       <!-- Loop through the distributors and output the matching ones -->
                       <t t-foreach="distributors" t-as="distributor">
                         <div class="col-auto">
                           <address class="pb-2 pt-sm-0">
                             <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
                             <!-- If distributor has a line 1 address -->
-                            <t t-if="'x_studio_address_line_1' in distributor"><t t-if="distributor.x_studio_address_line_1">
-                              <t t-esc="distributor.x_studio_address_line_1"/><br/>
+                            <t t-if="'x_studio_street_address' in distributor"><t t-if="distributor.x_studio_street_address">
+                              <t t-esc="distributor.x_studio_street_address"/><br/>
                             </t></t>
                             <!-- If distributor has a line 2 address -->
-                            <t t-if="'x_studio_city' in distributor and 'x_studio_state_name' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state_name and distributor.x_studio_zip_code">
-                              <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state_name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
+                            <t t-if="'x_studio_city' in distributor and 'x_studio_state' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state and distributor.x_studio_zip_code">
+                              <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state.name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
                             </t></t>
                             <!-- If distributor has a telephone -->
-                            <t t-if="'x_studio_telephone' in distributor"><t t-if="distributor.x_studio_telephone">
-                              <a t-attf-href="tel:{{distributor.x_studio_telephone}}"><t t-esc="distributor.x_studio_telephone"/></a><br/>
+                            <t t-if="'x_studio_phone' in distributor"><t t-if="distributor.x_studio_phone">
+                              <a t-attf-href="tel:{{distributor.x_studio_phone}}"><t t-esc="distributor.x_studio_phone"/></a><br/>
                             </t></t>
                             <!-- If distributor has a secondary telephone -->
-                            <t t-if="'x_studio_secondary_telephone' in distributor"><t t-if="distributor.x_studio_secondary_telephone">
-                              <a t-attf-href="tel:{{distributor.x_studio_secondary_telephone}}"><t t-esc="distributor.x_studio_secondary_telephone"/></a><br/>
+                            <t t-if="'x_studio_secondary_phone' in distributor"><t t-if="distributor.x_studio_secondary_phone">
+                              <a t-attf-href="tel:{{distributor.x_studio_secondary_phone}}"><t t-esc="distributor.x_studio_secondary_phone"/></a><br/>
                             </t></t>
                             <!-- If distributor has an email address -->
                             <t t-if="'x_studio_contact_email' in distributor"><t t-if="distributor.x_studio_contact_email">
@@ -1254,44 +1258,46 @@
       <div class="o_cc o_cc5 pt48 pb48">
         <div class="container">
           <h2>Canadian distributors are available too!</h2>
+          <!-- Place for optional blocks -->
+          <div class="oe_structure"/>
           <div class="row mt-2 o_not_editable">
             <!-- Odoo.sh specific code -->
-              <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_country_code','=', 'CA']])"/>
+              <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state.country_id.code','=', 'CA']])"/>
               <t t-if="distributors">
                   <!-- Loop through the distributors and output the matching ones -->
                   <t t-foreach="distributors" t-as="distributor">
                     <div class="col-auto">
-                      <address class="pb-2 pt-sm-0">
-                        <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
-                        <!-- If distributor has a line 1 address -->
-                        <t t-if="'x_studio_address_line_1' in distributor"><t t-if="distributor.x_studio_address_line_1">
-                          <t t-esc="distributor.x_studio_address_line_1"/><br/>
-                        </t></t>
-                        <!-- If distributor has a line 2 address -->
-                        <t t-if="'x_studio_city' in distributor and 'x_studio_state_name' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state_name and distributor.x_studio_zip_code">
-                          <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state_name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
-                        </t></t>
-                        <!-- If distributor has a telephone -->
-                        <t t-if="'x_studio_telephone' in distributor"><t t-if="distributor.x_studio_telephone">
-                          <a t-attf-href="tel:{{distributor.x_studio_telephone}}"><t t-esc="distributor.x_studio_telephone"/></a><br/>
-                        </t></t>
-                        <!-- If distributor has a secondary telephone -->
-                        <t t-if="'x_studio_secondary_telephone' in distributor"><t t-if="distributor.x_studio_secondary_telephone">
-                          <a t-attf-href="tel:{{distributor.x_studio_secondary_telephone}}"><t t-esc="distributor.x_studio_secondary_telephone"/></a><br/>
-                        </t></t>
-                        <!-- If distributor has an email address -->
-                        <t t-if="'x_studio_contact_email' in distributor"><t t-if="distributor.x_studio_contact_email">
-                          <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
-                        </t></t>
-                        <!-- If distributor has an email address -->
-                        <t t-if="'x_studio_website' in distributor"><t t-if="distributor.x_studio_website">
-                          <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
-                        </t></t>
-                        <!-- If distributor has notes -->
-                        <t t-if="'x_studio_notes' in distributor"><t t-if="distributor.x_studio_notes">
-                          <p><em t-field="distributor.x_studio_notes"></em></p>
-                        </t></t>
-                      </address>
+                          <address class="pb-2 pt-sm-0">
+                            <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
+                            <!-- If distributor has a line 1 address -->
+                            <t t-if="'x_studio_street_address' in distributor"><t t-if="distributor.x_studio_street_address">
+                              <t t-esc="distributor.x_studio_street_address"/><br/>
+                            </t></t>
+                            <!-- If distributor has a line 2 address -->
+                            <t t-if="'x_studio_city' in distributor and 'x_studio_state' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state and distributor.x_studio_zip_code">
+                              <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state.name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
+                            </t></t>
+                            <!-- If distributor has a telephone -->
+                            <t t-if="'x_studio_phone' in distributor"><t t-if="distributor.x_studio_phone">
+                              <a t-attf-href="tel:{{distributor.x_studio_phone}}"><t t-esc="distributor.x_studio_phone"/></a><br/>
+                            </t></t>
+                            <!-- If distributor has a secondary telephone -->
+                            <t t-if="'x_studio_secondary_phone' in distributor"><t t-if="distributor.x_studio_secondary_phone">
+                              <a t-attf-href="tel:{{distributor.x_studio_secondary_phone}}"><t t-esc="distributor.x_studio_secondary_phone"/></a><br/>
+                            </t></t>
+                            <!-- If distributor has an email address -->
+                            <t t-if="'x_studio_contact_email' in distributor"><t t-if="distributor.x_studio_contact_email">
+                              <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
+                            </t></t>
+                            <!-- If distributor has an email address -->
+                            <t t-if="'x_studio_website' in distributor"><t t-if="distributor.x_studio_website">
+                              <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
+                            </t></t>
+                            <!-- If distributor has notes -->
+                            <t t-if="'x_studio_notes' in distributor"><t t-if="distributor.x_studio_notes">
+                              <p><em t-field="distributor.x_studio_notes"></em></p>
+                            </t></t>
+                          </address>
                     </div>
                   </t>
               </t>
