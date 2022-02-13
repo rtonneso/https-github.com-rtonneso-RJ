@@ -130,11 +130,11 @@
                       <br/>
                       <t t-if="'x_studio_store_hours' in company"><t t-if="company.x_studio_store_hours">
                         <strong>Store Hours:</strong><br/>
-                        <em t-field="company.x_studio_store_hours"/><br/>
+                        <em class="text-space-pre"><t t-esc="company.x_studio_store_hours"/></em><br/>
                       </t></t>
                       <t t-if="'x_studio_office_hours' in company"><t t-if="company.x_studio_office_hours">
                         <strong>Office Hours:</strong><br/>
-                        <em t-field="company.x_studio_office_hours"/><br/>
+                        <em class="text-space-pre"><t t-esc="company.x_studio_office_hours"/></em><br/>
                       </t></t>
                       <div class="mt-2">
                         <t t-if="company.social_facebook">

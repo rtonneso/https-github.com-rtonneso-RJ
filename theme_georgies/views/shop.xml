@@ -223,51 +223,25 @@
     </xpath>
     <!-- Remove default sales description for the front end editor -->
     <xpath expr ="//p[@t-field='product.description_sale']" position="replace"/>
+
+    <!-- Disable editability on the product details section-->
+    <xpath expr="//section[@id='product_detail']" position="attributes">
+      <attribute name="contenteditable" add="false" separator=" "/>      
+    </xpath>
     <!-- Disable editability on category name in breadcrumb -->
-    <xpath expr="//a[@t-field='category.name']" position="attributes">
+    <!-- <xpath expr="//a[@t-field='category.name']" position="attributes">
       <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
-    <!-- Disable editability on product name in breadcrumb -->
-    <xpath expr="//span[@t-field='product.name']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
-    <!-- Disable editability on product name -->
-    <xpath expr="//h1[@t-field='product.name']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
-    <!-- Disable editability on product attributes -->
-    <xpath expr="//span[@t-field='attribute.name']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
+    </xpath> -->
+    <!-- TODO: DISABLE EDITABILITY OF ADD TO CART AND BUY NOW BUTTONS -->
+
   </template>
 
 
   <!-- Customize the product image template and disable front-end editing -->
   <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies - Shop Product Carousel">
-    <!-- Disable editability on product embeded media -->
-    <xpath expr="//t[@t-raw='product_image.embed_code']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
-    <!-- Disable editability on product images -->
-    <xpath expr="//div[@t-field='product_image.image_1920']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
-    <!-- Disable editability on product thumbnails -->
-    <xpath expr="//div[@t-field='product_image.image_128']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath>
     <!-- Add spacing above product image carousel -->
     <xpath expr="//div[@id='o-carousel-product']" position="attributes">
       <attribute name="class" add="mt-1" separator=" "/>
-    </xpath>
-  </template>
-
-
-  <!-- Disable front end editing of the product price -->
-  <template id="georgies_product_price" inherit_id="website_sale.product_price" name="Georgies - Product Price">
-    <!-- Diable editing of price -->
-    <xpath expr="//span[@t-field='product.list_price']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
     </xpath>
   </template>
 

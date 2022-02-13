@@ -1241,7 +1241,7 @@
                             </t></t>
                             <!-- If distributor has notes -->
                             <t t-if="'x_studio_notes' in distributor"><t t-if="distributor.x_studio_notes">
-                              <p><em t-field="distributor.x_studio_notes"></em></p>
+                              <p><em class="text-space-pre"><t t-esc="distributor.x_studio_notes"/></em></p>
                             </t></t>
                           </address>
                         </div>
@@ -1262,45 +1262,45 @@
           <div class="oe_structure"/>
           <div class="row mt-2 o_not_editable">
             <!-- Odoo.sh specific code -->
-              <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state.country_id.code','=', 'CA']])"/>
-              <t t-if="distributors">
-                  <!-- Loop through the distributors and output the matching ones -->
-                  <t t-foreach="distributors" t-as="distributor">
-                    <div class="col-auto">
-                          <address class="pb-2 pt-sm-0">
-                            <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
-                            <!-- If distributor has a line 1 address -->
-                            <t t-if="'x_studio_street_address' in distributor"><t t-if="distributor.x_studio_street_address">
-                              <t t-esc="distributor.x_studio_street_address"/><br/>
-                            </t></t>
-                            <!-- If distributor has a line 2 address -->
-                            <t t-if="'x_studio_city' in distributor and 'x_studio_state' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state and distributor.x_studio_zip_code">
-                              <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state.name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
-                            </t></t>
-                            <!-- If distributor has a telephone -->
-                            <t t-if="'x_studio_phone' in distributor"><t t-if="distributor.x_studio_phone">
-                              <a t-attf-href="tel:{{distributor.x_studio_phone}}"><t t-esc="distributor.x_studio_phone"/></a><br/>
-                            </t></t>
-                            <!-- If distributor has a secondary telephone -->
-                            <t t-if="'x_studio_secondary_phone' in distributor"><t t-if="distributor.x_studio_secondary_phone">
-                              <a t-attf-href="tel:{{distributor.x_studio_secondary_phone}}"><t t-esc="distributor.x_studio_secondary_phone"/></a><br/>
-                            </t></t>
-                            <!-- If distributor has an email address -->
-                            <t t-if="'x_studio_contact_email' in distributor"><t t-if="distributor.x_studio_contact_email">
-                              <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
-                            </t></t>
-                            <!-- If distributor has an email address -->
-                            <t t-if="'x_studio_website' in distributor"><t t-if="distributor.x_studio_website">
-                              <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
-                            </t></t>
-                            <!-- If distributor has notes -->
-                            <t t-if="'x_studio_notes' in distributor"><t t-if="distributor.x_studio_notes">
-                              <p><em t-field="distributor.x_studio_notes"></em></p>
-                            </t></t>
-                          </address>
-                    </div>
-                  </t>
+            <t t-set="distributors" t-value="request.env['x_distributors'].search([['x_studio_state.country_id.code','=', 'CA']])"/>
+            <t t-if="distributors">
+              <!-- Loop through the distributors and output the matching ones -->
+              <t t-foreach="distributors" t-as="distributor">
+                <div class="col-auto">
+                  <address class="pb-2 pt-sm-0">
+                    <strong><em><t t-esc="distributor.x_name"/></em></strong><br/>
+                    <!-- If distributor has a line 1 address -->
+                    <t t-if="'x_studio_street_address' in distributor"><t t-if="distributor.x_studio_street_address">
+                      <t t-esc="distributor.x_studio_street_address"/><br/>
+                    </t></t>
+                    <!-- If distributor has a line 2 address -->
+                    <t t-if="'x_studio_city' in distributor and 'x_studio_state' in distributor and 'x_studio_zip_code' in distributor"><t t-if="distributor.x_studio_city and distributor.x_studio_state and distributor.x_studio_zip_code">
+                      <t t-esc="distributor.x_studio_city"/> <t t-esc="distributor.x_studio_state.name"/>, <t t-esc="distributor.x_studio_zip_code"/><br/>
+                    </t></t>
+                    <!-- If distributor has a telephone -->
+                    <t t-if="'x_studio_phone' in distributor"><t t-if="distributor.x_studio_phone">
+                      <a t-attf-href="tel:{{distributor.x_studio_phone}}"><t t-esc="distributor.x_studio_phone"/></a><br/>
+                    </t></t>
+                    <!-- If distributor has a secondary telephone -->
+                    <t t-if="'x_studio_secondary_phone' in distributor"><t t-if="distributor.x_studio_secondary_phone">
+                      <a t-attf-href="tel:{{distributor.x_studio_secondary_phone}}"><t t-esc="distributor.x_studio_secondary_phone"/></a><br/>
+                    </t></t>
+                    <!-- If distributor has an email address -->
+                    <t t-if="'x_studio_contact_email' in distributor"><t t-if="distributor.x_studio_contact_email">
+                      <a t-attf-href="mailto:{{distributor.x_studio_contact_email}}"><t t-esc="distributor.x_studio_contact_email"/></a><br/>
+                    </t></t>
+                    <!-- If distributor has an email address -->
+                    <t t-if="'x_studio_website' in distributor"><t t-if="distributor.x_studio_website">
+                      <a t-att-href="distributor.x_studio_website"><t t-esc="distributor.x_studio_website"/></a><br/>
+                    </t></t>
+                    <!-- If distributor has notes -->
+                    <t t-if="'x_studio_notes' in distributor"><t t-if="distributor.x_studio_notes">
+                      <p><em class="text-space-pre"><t t-esc="distributor.x_studio_notes"/></em></p>
+                    </t></t>
+                  </address>
+                </div>
               </t>
+            </t>
           </div>
         </div>
       </div>
