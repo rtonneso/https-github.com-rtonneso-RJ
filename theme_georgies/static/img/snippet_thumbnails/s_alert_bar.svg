@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 82 60" style="enable-background:new 0 0 82 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);fill-opacity:0.4;}
+	.st2{filter:url(#filter-3);}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;fill-opacity:0.95;}
+</style>
+<filter  filterUnits="objectBoundingBox" height="200%" id="filter-3" width="104.5%" x="-2.3%" y="-25%">
+	<feOffset  dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+	<feComposite  in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+	<feColorMatrix  in="shadowOffsetOuter1" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.4 0"></feColorMatrix>
+</filter>
+<rect class="st0" width="82" height="60"/>
+<g>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-896.6364" y1="540.7166" x2="-896.6364" y2="540.4598" gradientTransform="matrix(44 0 0 -17 39493 9220)">
+		<stop  offset="0" style="stop-color:#00A09D"/>
+		<stop  offset="1" style="stop-color:#00E2FF"/>
+	</linearGradient>
+	<rect x="4.8" y="27.8" class="st1" width="72.4" height="4.4"/>
+	<g>
+		<g class="st2">
+			<rect id="path-2_00000163052121717263120980000010458359242332389008_" x="24.1" y="28.8" class="st3" width="33.9" height="2"/>
+		</g>
+		<g>
+			<rect id="path-2_00000125599300044295639560000014271136195986599552_" x="24.1" y="28.8" class="st4" width="33.9" height="2"/>
+		</g>
+	</g>
+</g>
+</svg>

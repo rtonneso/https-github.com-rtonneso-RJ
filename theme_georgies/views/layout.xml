@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-  <!-- WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH WEBSITE SEARCH -->
+  <!-- WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH WEBSITE SALE SEARCH -->
   <!-- Remove button input append group div and keep just the button -->
   <template id="georgies_website_search_box" inherit_id="website.website_search_box" name="Georgies - Website Search Box">
-    <!-- FIXME: ODOO.SH -->
-    <!-- Change the placeholder for the products search site-wide -->
-    <!-- <xpath expr="//t[@t-set='search_placeholder']" position="replace">
-        <t t-set="search_placeholder">Search products...</t>
-    </xpath> -->
     <!-- Change the button type to primary -->
     <xpath expr="//div[hasclass('input-group-append')]" position="replace">
       <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
     </xpath>
   </template>
+
+  <!-- <template id="georgies_website_sale_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies - Website Sale Search Box"> -->
+      <!-- FIXME: ODOO.SH -->
+    <!-- Change the placeholder for the products search site-wide -->
+    <!-- <xpath expr="//t" position="before">
+      <t t-set="placeholder">Search products...</t>
+    </xpath>
+  </template> -->
+
 
   <!-- HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER -->
   <!-- Customize header  -->
@@ -80,14 +84,12 @@
 
   <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 
-
-
-  <!-- Georgies Footer -->
-  <template id="georgies_footer" inherit_id="website.footer_custom" name="Georgies - Footer">
+  <!-- Georgies Default Footer -->
+  <template id="georgies_footer" inherit_id="website.footer_custom" name="Georgies - Default Footer">
     <xpath expr="//div[@id='footer']" position="replace">
         <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
           
-          <section class="pt32 pb8" data-name="Call to Action">
+          <section class="pt32 pb32" data-name="Call to Action">
             <div class="container">
               <div class="georgies-call-to-action border border-current pb16" data-name="Call to Action">
                 <div class="row align-items-center">
@@ -104,54 +106,72 @@
             </div>
           </section>
 
-          <section class="pt16 pb32" data-name="Locations">
-            <div class="container">
-              <div class="row">
-                <!-- For each company in companies, lets create a listing -->
-                <t t-foreach="request.env['res.company'].search([])" t-as="company">
-                  <div class="col-md-6">
-                    <div class="border border-current py-2 py-lg-3 px-2 px-lg-3 o_not_editable">
-                      <h6 class="text-uppercase"><em><t t-esc="company.name"/></em></h6>
-                      <t t-if="'x_studio_google_map_link' in company"><t t-if="company.x_studio_google_map_link">
-                        <a t-att-href="company.x_studio_google_map_link" target="_blank"><t t-esc="company.street"/>, <t t-esc="company.city"/> <t t-esc="company.state_id.code"/> <t t-esc="company.zip"/></a><br/>
-                      </t></t>
-                      <span><t t-esc="company.street"/>, <t t-esc="company.city"/> <t t-esc="company.state_id.code"/>  <t t-esc="company.zip"/></span><br/>
-                      <strong>
-                        <a t-attf-href="tel:{{company.phone}}"><t t-esc="company.phone"/></a><br/>
-                        <!-- Check if custom odoo.sh secondary phone is in model and has something in it -->
-                        <t t-if="'x_studio_secondary_phone' in company"><t t-if="company.x_studio_secondary_phone">
-                          <span><a t-attf-href="tel:{{company.x_studio_secondary_phone}}"><t t-esc="company.x_studio_secondary_phone"/></a></span><br/>
-                        </t></t>
-                        <!-- Check if custom odoo.sh fax field is in model and has something in it -->
-                        <t t-if="'x_studio_fax' in company"><t t-if="company.x_studio_fax">
-                          <span>FAX <t t-esc="company.x_studio_fax"/></span><br/>
-                        </t></t>
-                      </strong>
-                      <br/>
-                      <t t-if="'x_studio_store_hours' in company"><t t-if="company.x_studio_store_hours">
-                        <strong>Store Hours:</strong><br/>
-                        <em class="text-space-pre"><t t-esc="company.x_studio_store_hours"/></em><br/>
-                      </t></t>
-                      <t t-if="'x_studio_office_hours' in company"><t t-if="company.x_studio_office_hours">
-                        <strong>Office Hours:</strong><br/>
-                        <em class="text-space-pre"><t t-esc="company.x_studio_office_hours"/></em><br/>
-                      </t></t>
-                      <div class="mt-2">
-                        <t t-if="company.social_facebook">
-                          <a t-att-href="company.social_facebook" target="_blank"><span class="fa fa-facebook-square fa-2x pr-1"></span></a>
-                        </t>
-                        <t t-if="company.social_instagram">
-                          <a t-att-href="company.social_instagram" target="_blank"><span class="fa fa-instagram fa-2x pr-1"></span></a>
-                        </t>
-                      </div>
-                    </div>
-                  </div>
-                </t>
-              </div>
-            </div>
-          </section>
+          <section class="pb32" data-name="Locations" contenteditable="false"/>
 
         </div>
+    </xpath>
+  </template>
+
+  <!-- Georgies Footer Locations -->
+  <template id="georgies_footer_locations" inherit_id="theme_georgies.georgies_footer" name="Georgies - Footer Locations">
+    <xpath expr="//section[@data-name='Locations']" position="replace">
+      <section class="pb32" data-name="Locations" contenteditable="false">
+        <div class="container">
+          <div class="row mb-n2">
+            <!-- For each company in companies, lets create a listing -->
+            <t t-foreach="request.env['res.company'].search([])" t-as="company">
+              <div class="col-md-6">
+                <div class="mb-2">
+                  <div class="border border-current py-2 py-lg-3 px-2 px-lg-3">
+                  
+                    <div class="text-uppercase h6"><em><t t-esc="company.name"/></em></div>
+
+                    <t t-if="company.street and company.city and company.state_id.code and company.zip">
+                      <span><t t-esc="company.street"/>, <t t-esc="company.city"/> <t t-esc="company.state_id.code"/>  <t t-esc="company.zip"/></span><br/>
+                    </t>
+
+                    <t t-if="company.phone">
+                      <a t-attf-href="tel:{{company.phone}}"><strong><t t-esc="company.phone"/></strong></a><br/>
+                    </t>
+
+                    <!-- Check if custom odoo.sh secondary phone is in model and has something in it -->
+                    <t t-if="'x_studio_secondary_phone' in company"><t t-if="company.x_studio_secondary_phone">
+                      <a t-attf-href="tel:{{company.x_studio_secondary_phone}}"><strong><t t-esc="company.x_studio_secondary_phone"/></strong></a><br/>
+                    </t></t>
+
+                    <!-- Check if custom odoo.sh fax field is in model and has something in it -->
+                    <t t-if="'x_studio_fax' in company"><t t-if="company.x_studio_fax">
+                      <span><strong>FAX <t t-esc="company.x_studio_fax"/></strong></span><br/>
+                    </t></t>
+
+                    <br/>
+
+                    <t t-if="'x_studio_store_hours' in company"><t t-if="company.x_studio_store_hours">
+                      <strong>Store Hours:</strong><br/>
+                      <em class="text-space-pre"><t t-esc="company.x_studio_store_hours"/></em><br/>
+                    </t></t>
+
+                    <t t-if="'x_studio_office_hours' in company"><t t-if="company.x_studio_office_hours">
+                      <strong>Office Hours:</strong><br/>
+                      <em class="text-space-pre"><t t-esc="company.x_studio_office_hours"/></em><br/>
+                    </t></t>
+
+                    <div class="mt-2">
+                      <t t-if="company.social_facebook">
+                        <a t-att-href="company.social_facebook" target="_blank"><span class="fa fa-facebook-square fa-2x pr-1"></span></a>
+                      </t>
+                      <t t-if="company.social_instagram">
+                        <a t-att-href="company.social_instagram" target="_blank"><span class="fa fa-instagram fa-2x pr-1"></span></a>
+                      </t>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </t>
+          </div>
+        </div>
+      </section>
     </xpath>
   </template>
 

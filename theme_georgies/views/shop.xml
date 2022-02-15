@@ -166,7 +166,7 @@
       <attribute name="class" add="mt-1" separator=" "/>
     </xpath>
     <!-- Change add to cart button to regular button -->
-    <xpath expr="//*[hasclass('btn-lg')]" position="attributes">
+    <xpath expr="//a[@id='add_to_cart']" position="attributes">
       <attribute name="class" remove="btn-lg" separator=" "/>
     </xpath>
     <!-- Add spacing between cart icon and add to cart text -->
@@ -224,15 +224,10 @@
     <!-- Remove default sales description for the front end editor -->
     <xpath expr ="//p[@t-field='product.description_sale']" position="replace"/>
 
-    <!-- Disable editability on the product details section-->
+    <!-- Disable editability on the product detail section-->
     <xpath expr="//section[@id='product_detail']" position="attributes">
       <attribute name="contenteditable" add="false" separator=" "/>      
     </xpath>
-    <!-- Disable editability on category name in breadcrumb -->
-    <!-- <xpath expr="//a[@t-field='category.name']" position="attributes">
-      <attribute name="contenteditable" add="false" separator=" "/>
-    </xpath> -->
-    <!-- TODO: DISABLE EDITABILITY OF ADD TO CART AND BUY NOW BUTTONS -->
 
   </template>
 
@@ -251,7 +246,7 @@
     <!-- Change size of buy now button to regular -->
     <xpath expr="//a[@id='buy_now']" position="attributes">
       <attribute name="class" remove="btn-lg" separator=" "/>
-    </xpath>
+    </xpath>`
     <!-- Add space between the icon and the text of the buy now button -->
     <xpath expr="//a[@id='buy_now']//i" position="attributes">
       <attribute name="class" add="mr-1" separator=" "/>

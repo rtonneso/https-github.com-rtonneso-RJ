@@ -3,8 +3,7 @@
 
   <!-- ||||||||||| Georgies Custom Snippets ||||||||||| -->
   <!-- Georgies Announcement Bar -->
-  <template id="s_georgies_full_width_announcement_bar" name="Georgies Announcement Bar">
-    
+  <template id="s_georgies_full_width_announcement_bar" name="Announcement Bar">
     <section class="bg-danger"> 
       <div class="container">
         <div class="row">
@@ -16,117 +15,11 @@
     </section>
   </template>
 
-  <!-- Georgies Store Locations -->
-  <template id="s_georgies_store_locations" name="Georgies Store Locations">
-    
-    <section>
-      <div class="container">
-        <h1 class="px-2 px-sm-0 mt-4">Serving the Pacific Northwest</h1>
-        <div class="li-locations">
-          <div class="mt-4 mb-5">
-            <div class="px-2 px-sm-0">
-              <h2>Portland Store</h2>
-              <div class="row mt-4">
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Monday - Saturday  9am - 5pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0"></div>
-              </div>
-              <div class="mt-1"><a href="https://www.google.com/maps/place/756+NE+Lombard,+Portland,+OR+97211" target="_blank">756 NE Lombard, Portland, OR 97211</a></div>
-              <div class="row mt-1">
-                <div class="col-sm-auto"><a href="tel:503.283.1353">503.283.1353</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><a href="tel:800.999.CLAY">800.999.CLAY</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><span>FAX 503.283.1387</span>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0"></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=756 NE Lombard, Portland, OR 97211"></iframe>
-            </div>
-          </div>
-          <div class="mt-4 mb-5">
-            <div class="px-2 px-sm-0">
-              <h2>Eugene Store</h2>
-              <div class="row mt-4">
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Tuesday - Friday  9am-5pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div>
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Saturday  10am-4pm</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0">&#8226;</div>
-                <div class="col-lg-auto"><em>
-                    <div class="h6"><strong>Sunday &amp;amp; Monday  CLOSED</strong></div></em></div>
-                <div class="col-lg-auto d-none d-lg-block px-0"></div>
-              </div>
-              <div class="mt-1"><a href="https://www.google.com/maps/place/1471+Railroad+Blvd+%239,+Eugene,+OR+97402" target="_blank">1471 Railroad Blvd #9, Eugene, OR 97402</a></div>
-              <div class="row mt-1">
-                <div class="col-sm-auto"><a href="tel:541.338.7654">541.338.7654</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><a href="tel:866.234.CLAY">866.234.CLAY</a>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0">&#8226;</div>
-                <div class="col-sm-auto"><span>FAX 541.338.7565</span>
-                </div>
-                <div class="col-sm-auto d-none d-sm-block px-0"></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1471 Railroad Blvd #9, Eugene, OR 97402"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-light py-5 px-2 px-sm-0">
-        <div class="container">
-          <h2>Deliveries from Portland?</h2>
-          <h6 class="text-uppercase"><em>All Georgies' deliveries are subject to change based on weather conditions. Salem and Seattle delivery routes may be rescheduled based on low demand or high demand for deliveries in other areas.</em></h6>
-          <div class="row pt-3">
-            <div class="col-md">
-              <div class="pr-md-3">
-                <p><strong>Portland metro area:</strong> Monday, Tuesday &amp; Friday of each week <br></br><strong>Salem area:</strong> every Wednesday <br></br>
-                  <strong>Seattle area:</strong> every other Thursday
-                </p>
-                <p><strong>Delivery charges to Portland and Salem areas:</strong><br></br>$40.00 up to 2,000 pounds. $60 for deliveries over 2,000 pounds.</p>
-                <p><strong>Delivery charge to the Eugene area (from Portland):</strong><br></br>$60. Fuel surcharges may apply on deliveries from Portland, depending on market factors.</p>
-              </div>
-            </div>
-            <div class="col-md">
-              <p><strong>Bend area:</strong> We make deliveries from Portland to Bend on the last Friday of each month, weather permitting. For best results, please place your orders on or before the last Monday of each month. We can accept add-on and last-minute orders through the last Wednesday (2 days before the delivery date). Order weight or space allocations may be limited by the capacity of our delivery vehicle. Ross delivers to a central location in Bend, and will be happy to help unload and move your order into your vehicle(s).</p>
-              <p><strong>Orders up to 500 pounds =</strong> $45.00 delivery charge. <br></br><strong>Orders 501 to 2000 pounds =</strong> $75.00 delivery charge.</p>
-            </div>
-          </div>
-          <div class="mt-3">
-            <div class="row pt-3">
-              <div class="col-sm-1">
-                <div class="li-attention-symbol">!</div>
-              </div>
-              <div class="col-sm-11">
-                <div class="pl-md-3 pl-lg-0">
-                  <h6 class="text-uppercase"><em>We know that many people can't receive deliveries during the week because of your own work schedules. Deliveries from Portland on Saturday or Sunday are possible with arrangements made in advance. We need at least 10 to 14 days lead time for weekend deliveries, please.</em></h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </template>
 
-
-
-
-  <!-- TODO: ADD EXTRA SMALL, AND DO THE SAME FOR MARGINS, TOP, BOTTOM, LEFT, RIGHT FOR IMAGES AND OTHER INNER ITEMS
-  ADD COLUMN SIZING COLLAPSE SECTIONS FOR COLUMN SIZE MANAGEMENT -->
-
-  <!-- ||||| Georgies Structural Snippets ||||| -->
+  <!-- ||||| Georgies Column Sizing Options ||||| -->
 
   <!-- Options for column sizing, provide this to any element that has a class that either has the col class or col-* -->
-  <template id="s_georgies_column_sizing" inherit_id="website.snippet_options" name="Georgies Column - Sizing">
+  <template id="s_georgies_column_sizing" inherit_id="website.snippet_options" name="Georgies - Column Sizing">
     <xpath expr="//div[@id='so_width']" position="after">
       <div id="s_georgies_column_sizing" data-selector=".row > div, .col, *[class^='col-'], *[class*=' col-']">
         <we-button data-toggle="collapse" data-target=".colxsScreen">Column Size - Extra Small Screens</we-button>
@@ -204,19 +97,10 @@
   </template>
 
 
-  <!-- Add all of our custom snippets to the snippet editor panel -->
-  <template id="georgies_snippets" inherit_id="website.snippets" name="Georgies Custom Snippets">
-    <xpath expr="//div[@id='snippet_content']" position="after">
-      <!-- Create our own Section for Georgies Snippets -->
-      <div id="snippet_georgies" class="o_panel">
-        <div class="o_panel_header">
-          <img class="li-snippet-header-icon" src="/theme_georgies/static/img/logos/georgies-logo-g.svg"/> Georgies
-        </div>
-        <div class="o_panel_body">
-          <t t-snippet="theme_georgies.s_georgies_full_width_announcement_bar"/>
-          <!-- <t t-snippet="theme_georgies.s_georgies_store_locations"/> -->
-        </div>
-      </div>
+  <!-- Add our alert bar snippet to the editor panel -->
+  <template id="georgies_snippets" inherit_id="website.snippets" name="Georgies - Custom Snippets">
+    <xpath expr="//t[@t-snippet='website.s_showcase']" position="after">
+          <t t-snippet="theme_georgies.s_georgies_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/snippet_thumbnails/s_alert_bar.svg"/>
     </xpath>
   </template>
 

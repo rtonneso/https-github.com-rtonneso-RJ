@@ -160,9 +160,9 @@
   <template id="s_georgies_overrides_text" inherit_id="website.s_text_block" name="Odoo Text - Georgies Overrides">
   <xpath expr="//section" position="replace">
     <section class="s_text_block pt48 pb48">
-    <div class="container s_allow_columns">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
+      <div class="container s_allow_columns">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
     </div>
     </section>
   </xpath>
@@ -364,9 +364,9 @@
 
   <!-- Alert -->
   <template id="s_georgies_overrides_alert" inherit_id="website.s_alert" name="Odoo Inner Alert - Georgies Overrides">
-  <!-- Align items vertically -->
+  <!-- Align items vertically and have alert go into a column format on small devices-->
   <xpath expr="//div[hasclass('s_alert')]" position="attributes">
-    <attribute name="class" add="d-flex align-items-center" separator=" "/>
+    <attribute name="class" add="d-flex align-items-center flex-column flex-sm-row" separator=" "/>
   </xpath>
   <!-- Create bold text for the default -->
   <xpath expr="//p" position="replace">
@@ -549,6 +549,16 @@
   </template>
 
 
+
+  <!-- Google Maps-->
+  <template id="s_georgies_overrides_google_maps" inherit_id="website.s_google_map" name="Odoo Google Maps - Georgies Overrides">
+    <!-- Wrap the Google Mpas snippet in a section with padding, since the implimentation they use for the main snippet prevents us from using the top and bottom padding for actual padding, instead it's used to change the height of the map itself. So we fix that by wraping it in a section-->
+    <!-- <xpath expr="//section" position="replace">
+      <section class="pt24 pb24">
+        <t>$0</t>
+      </section>
+    </xpath> -->
+  </template>
   
 
 
@@ -557,85 +567,91 @@
 
   <!-- ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS ODOO SNIPPET OPTIONS -->
   <template id="georgies_overrides_snippet_options" inherit_id="website.snippet_options" name="Odoo Snippet Options - Georgies Override">
-  <!-- Change color picker for cards so that you can select from the theme options and get button styling as well with the selection -->
-  <xpath expr="//div[@data-selector='.s_card, .accordion .card']/we-colorpicker" position="replace">
-    <we-row string="Colors">
-      <t t-call="web_editor.snippet_options_background_color_widget">
-        <t t-set="with_color_combinations" t-value="True"/>
-      </t>
-    </we-row>
-  </xpath>
-  <!-- Add Auto option for width on cards, quotes, and alerts, so that you're not stuck on an option if you've selected one -->
-  <xpath expr="//div[@id='so_width']//we-button[@data-select-class='w-100']" position="after">
-    <we-button data-select-class="">Auto</we-button>
-  </xpath>
-  <!-- Remove the body color and image background options -->
-  <xpath expr="//we-select[@data-variable='layout']/following-sibling::we-row[1]" position="replace"/> 
-  <!-- Remove Page Layout Option -->
-  <xpath expr="//we-select[@data-variable='layout']" position="replace"/>
-  <!-- Remove button border radius option -->
-  <xpath expr="//we-input[@data-variable='btn-border-width']/following-sibling::we-collapse[1]" position="replace"/>
-  <!-- Remove button ripple effect option-->
-  <xpath expr="//we-checkbox[@data-customize-website-views='website.option_ripple_effect']" position="replace"/>
-  <!-- Remove input border radius option -->
-  <xpath expr="//we-input[@data-variable='input-border-width']/following-sibling::we-collapse[1]" position="replace"/>
-  <!-- Remove shadow on Columns and Comparisons-->
-  <xpath expr="//div[@data-selector='.s_three_columns .row > div, .s_comparisons .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-  <!-- Remove shadow on Divs -->
-  <xpath expr="//div[@data-exclude='.s_col_no_bgcolor, .s_col_no_bgcolor.row > div, .s_image_gallery .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-  <!-- Remove shadow on Header -->
-  <xpath expr="//div[@data-js='HeaderBox']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-  <!-- Remove shadow on Footer -->
-  <xpath expr="//div[@data-selector='#wrapwrap > footer']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
-  <!-- Carosel - Remove rounded and bordered styles -->
-  <xpath expr="//we-button[@data-select-class='s_carousel_rounded']" position="replace"/>
-  <xpath expr="//we-button[@data-select-class='s_carousel_bordered']" position="replace"/>
-  <!-- Remove Container Small Option -->
-  <xpath expr="//we-button[@data-select-class='o_container_small']" position="replace"/>
-  <!-- Remove additional background selector on carousel -->
-  <xpath expr="//t[@t-call='web_editor.snippet_options_background_options']" position="replace"/>
-  <!-- Remove style optin for quotes carousel -->
-  <xpath expr="//div[@data-target='> .carousel']/we-select[1]" position="replace"/>
-  <!-- Text Image Options -->
-  <xpath expr="//div[@id='so_width']" position="after">
-    <!-- Text Image - Direction-->
-    <div id="s_georgies_overrides_image_text_options" data-selector=".s_text_image" data-target=".row">
-    <we-select string="Text Image Order">
-      <we-button data-select-class="">Text First</we-button>
-      <we-button data-select-class="flex-row-reverse">Text Last</we-button>
-    </we-select>
-    </div>
-  </xpath>
-  <!-- Add More Advanced Image Options to Images -->
-  <xpath expr="//div[@id='so_width']" position="after">
-    <!-- Provide width options for images -->
-    <div id="s_georgies_image_options_width" data-selector="img">
-    <we-select string="Image Width">
-      <we-button data-select-class="w-100">100%</we-button>
-      <we-button data-select-class="w-75">75%</we-button>
-      <we-button data-select-class="w-50">50%</we-button>
-      <we-button data-select-class="w-25">25%</we-button>
+    <!-- Change color picker for cards so that you can select from the theme options and get button styling as well with the selection -->
+    <xpath expr="//div[@data-selector='.s_card, .accordion .card']/we-colorpicker" position="replace">
+      <we-row string="Colors">
+        <t t-call="web_editor.snippet_options_background_color_widget">
+          <t t-set="with_color_combinations" t-value="True"/>
+        </t>
+      </we-row>
+    </xpath>
+    <!-- Add Auto option for width on cards, quotes, and alerts, so that you're not stuck on an option if you've selected one -->
+    <xpath expr="//div[@id='so_width']//we-button[@data-select-class='w-100']" position="after">
       <we-button data-select-class="">Auto</we-button>
-    </we-select>
-    </div>
-    <div id="s_georgies_image_options_Height" data-selector="img">
-    <we-select string="Image Height">
-      <we-button data-select-class="">Auto</we-button>
-      <we-button data-select-class="h-100">100%</we-button>
-      <we-button data-select-class="h-75">75%</we-button>
-      <we-button data-select-class="h-50">50%</we-button>
-      <we-button data-select-class="h-25">25%</we-button>
-    </we-select>
-    </div>
-    <div id="s_georgies_image_options_fit" data-selector="img">
-    <we-select string="Image Fit">
-      <we-button data-select-class="">Auto / Stretch</we-button>
-      <we-button data-select-class="media-fit-cover">Cover</we-button>
-      <we-button data-select-class="media-fit-contain">Contain</we-button>
-      <we-button data-select-class="media-fit-full">Full</we-button>
-    </we-select>
-    </div>
-  </xpath>
+    </xpath>
+    <!-- Remove the body color and image background options -->
+    <xpath expr="//we-select[@data-variable='layout']/following-sibling::we-row[1]" position="replace"/> 
+    <!-- Remove Page Layout Option -->
+    <xpath expr="//we-select[@data-variable='layout']" position="replace"/>
+    <!-- Remove button border radius option -->
+    <xpath expr="//we-input[@data-variable='btn-border-width']/following-sibling::we-collapse[1]" position="replace"/>
+    <!-- Remove button ripple effect option-->
+    <xpath expr="//we-checkbox[@data-customize-website-views='website.option_ripple_effect']" position="replace"/>
+    <!-- Remove input border radius option -->
+    <xpath expr="//we-input[@data-variable='input-border-width']/following-sibling::we-collapse[1]" position="replace"/>
+    <!-- Remove shadow on Columns and Comparisons-->
+    <xpath expr="//div[@data-selector='.s_three_columns .row > div, .s_comparisons .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+    <!-- Remove shadow on Divs -->
+    <xpath expr="//div[@data-exclude='.s_col_no_bgcolor, .s_col_no_bgcolor.row > div, .s_image_gallery .row > div']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+    <!-- Remove shadow on Header -->
+    <xpath expr="//div[@data-js='HeaderBox']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+    <!-- Remove shadow on Footer -->
+    <xpath expr="//div[@data-selector='#wrapwrap > footer']/t[@t-call='website.snippet_options_shadow_widgets']" position="replace"/>
+    <!-- Carosel - Remove rounded and bordered styles -->
+    <xpath expr="//we-button[@data-select-class='s_carousel_rounded']" position="replace"/>
+    <xpath expr="//we-button[@data-select-class='s_carousel_bordered']" position="replace"/>
+    <!-- Remove Container Small Option -->
+    <xpath expr="//we-button[@data-select-class='o_container_small']" position="replace"/>
+    <!-- Remove additional background selector on carousel -->
+    <xpath expr="//t[@t-call='web_editor.snippet_options_background_options']" position="replace"/>
+    <!-- Remove style optin for quotes carousel -->
+    <xpath expr="//div[@data-target='> .carousel']/we-select[1]" position="replace"/>
+    <!-- Text Image Options -->
+    <xpath expr="//div[@id='so_width']" position="after">
+      <!-- Text Image - Direction-->
+      <div id="s_georgies_overrides_image_text_options" data-selector=".s_text_image" data-target=".row">
+      <we-select string="Text Image Order">
+        <we-button data-select-class="">Text First</we-button>
+        <we-button data-select-class="flex-row-reverse">Text Last</we-button>
+      </we-select>
+      </div>
+    </xpath>
+    <!-- Add More Advanced Image Options to Images -->
+    <xpath expr="//div[@id='so_width']" position="after">
+      <!-- Provide width options for images -->
+      <div id="s_georgies_image_options_width" data-selector="img">
+      <we-select string="Image Width">
+        <we-button data-select-class="w-100">100%</we-button>
+        <we-button data-select-class="w-75">75%</we-button>
+        <we-button data-select-class="w-50">50%</we-button>
+        <we-button data-select-class="w-25">25%</we-button>
+        <we-button data-select-class="">Auto</we-button>
+      </we-select>
+      </div>
+      <div id="s_georgies_image_options_Height" data-selector="img">
+      <we-select string="Image Height">
+        <we-button data-select-class="">Auto</we-button>
+        <we-button data-select-class="h-100">100%</we-button>
+        <we-button data-select-class="h-75">75%</we-button>
+        <we-button data-select-class="h-50">50%</we-button>
+        <we-button data-select-class="h-25">25%</we-button>
+      </we-select>
+      </div>
+      <div id="s_georgies_image_options_fit" data-selector="img">
+      <we-select string="Image Fit">
+        <we-button data-select-class="">Auto / Stretch</we-button>
+        <we-button data-select-class="media-fit-cover">Cover</we-button>
+        <we-button data-select-class="media-fit-contain">Contain</we-button>
+        <we-button data-select-class="media-fit-full">Full</we-button>
+      </we-select>
+      </div>
+    </xpath>
+
+    <!-- Add vertical alignment option to .s_text snippet -->
+    <xpath expr="//div[@data-option-name='vAlignment']" position="attributes">
+      <attribute name="data-selector" add=".s_text_block" separator=", "/>
+    </xpath>
+
   </template>
 
 
@@ -685,7 +701,7 @@
 
   <!-- Odoo Google Maps - Hide show description option (description is poorly implimented and padding makes it diffcult to select it)-->
   <template id="georgies_overrides_google_map_options" inherit_id="website.s_google_map_options" name="Odoo Google Map Options - Georgies Override">
-  <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
+    <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
   </template>
 
 
@@ -719,8 +735,6 @@
   <xpath expr="//t[@t-snippet='website.s_dynamic_snippet_carousel']" position="replace"/>
   <!-- Facebook - Remove -->
   <xpath expr="//t[@t-snippet='website.s_facebook_page']" position="replace"/>
-
-  <!-- Temportarily remove Until they can be styled properly -->
   <!-- Dynamic Products-->
   <xpath expr="//t[@t-snippet='website_sale.s_dynamic_snippet_products']" position="replace"/>
   </template>
