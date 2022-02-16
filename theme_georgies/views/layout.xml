@@ -10,13 +10,14 @@
     </xpath>
   </template>
 
-  <!-- <template id="georgies_website_sale_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies - Website Sale Search Box"> -->
-      <!-- FIXME: ODOO.SH -->
+
+
+  <template id="georgies_website_sale_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies - Website Sale Search Box">
     <!-- Change the placeholder for the products search site-wide -->
-    <!-- <xpath expr="//t" position="before">
-      <t t-set="placeholder">Search products...</t>
+    <xpath expr="//div[@role='search']" position="before">
+      <t t-set="placeholder" t-value="'Search prodcucts...'"/>
     </xpath>
-  </template> -->
+  </template>
 
 
   <!-- HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER -->
@@ -33,6 +34,8 @@
     </xpath>
   </template>
 
+
+
   <!-- Adjust padding on header cart button (remove mx-lg-3) -->
   <template id="georgies_header_cart" inherit_id="website_sale.template_header_default" name="Georgies - Cart Nav Link">
     <xpath expr="//t[@t-set='_item_class']" position="attributes">
@@ -40,9 +43,10 @@
     </xpath>
   </template>
   
+
+
   <!-- Adjust product search used below in the navbar search -->
   <template id="georgies_product_navbar_search" inherit_id="website_sale.website_sale_products_search_box" primary="True" name="Georgies - Product Navbar Search">
-
     <!-- Adjust input sizing to sm -->
     <xpath expr="//div[@role='search']" position="attributes">
       <attribute name="t-attf-class" add="input-group-sm" separator=" "/>
@@ -53,6 +57,8 @@
       <attribute name="class" add="btn-sm" separator=" "/>
     </xpath>
   </template>
+
+
 
   <!-- Add search above header nav -->
   <template id="georgies_navbar_nav" inherit_id="website.navbar_nav" name="Georgies - Navbar Nav">
@@ -73,6 +79,7 @@
   </template>
 
 
+
   <!-- Add oe_structure aread in the header for adding snippets like the announcement bar -->
   <template id="georgies_layout" inherit_id="website.layout" name="Georgies - Website Layout (Main Template)">
     <!-- Insert snippet area for announcement bar -->
@@ -82,8 +89,10 @@
     </xpath>
   </template>
 
-  <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 
+
+
+  <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
   <!-- Georgies Default Footer -->
   <template id="georgies_footer" inherit_id="website.footer_custom" name="Georgies - Default Footer">
     <xpath expr="//div[@id='footer']" position="replace">
@@ -111,6 +120,8 @@
         </div>
     </xpath>
   </template>
+
+
 
   <!-- Georgies Footer Locations -->
   <template id="georgies_footer_locations" inherit_id="theme_georgies.georgies_footer" name="Georgies - Footer Locations">
@@ -212,8 +223,9 @@
   </template>
 
 
-  <!-- 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 -->
 
+
+  <!-- 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 404 -->
   <!-- Tweak the message seen as an administrator on a 404 page -->
   <template id="georgies_404_admin" inherit_id="website.page_404" name="Georgies - 404 Admin">
     <!-- Replace the alert with our nicer one -->

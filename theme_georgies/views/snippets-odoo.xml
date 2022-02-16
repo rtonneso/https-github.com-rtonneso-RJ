@@ -30,7 +30,7 @@
                 <div class="row">
                   <t t-foreach="[1,2,3,4]" t-as="i">
                     <div class="col-sm-6 col-md-3">
-                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.gray-placeholder-wide" alt="BRAND NAME"></img></a></div>
+                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.placeholder_brand-image" alt="BRAND NAME"></img></a></div>
                     </div>
                   </t>
                 </div>       
@@ -163,7 +163,7 @@
       <div class="container s_allow_columns">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
-    </div>
+      </div>
     </section>
   </xpath>
   </template>

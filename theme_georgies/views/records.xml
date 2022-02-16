@@ -33,6 +33,10 @@
   <record id="website_sale.products_add_to_cart" model="ir.ui.view">
     <field name="active" eval="True"/>
   </record>
+  <!-- Disable default Terms and Conditions section on the product page. It is the same across all products and therefore isn't all that useful. -->
+  <record id="website_sale.product_custom_text" model="ir.ui.view">
+    <field name="active" eval="False"/>
+  </record>
 
 
   <!-- Product -->
@@ -158,7 +162,13 @@
     <field name="type">url</field>
     <field name="url">/theme_georgies/static/img/placeholders/wide-storefront.jpg</field>
   </record>
+
   <!-- Georgies Brand Placeholder Image -->
-  <!-- TODO: ADD GENERIC PLACEHOLDER IMAGE FOR BRANDS IN SUPER MENU SHOP -->
+  <record id="theme_georgies.placeholder_brand-image" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">brand-image-placeholder.png</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/brand-image-placeholder.png</field>
+  </record>
 
 </odoo>
