@@ -1209,7 +1209,7 @@
               <div class="col-xl-3 distributorListColumn">
                 <div class="pt-3 pt-lg-0">
 
-                  <t t-if="request.env['ir.module.module'].search([['name', '=', 'x_distributors']])">
+                  <t t-if="request.env['ir.model'].search([['model', '=', 'x_distributors']])">
                     <!-- Odoo.sh specific code -->
                     <!-- For each state in the US -->
                     <t t-foreach="request.env['res.country.state'].search([['country_id.code','=','US']])" t-as="state">
@@ -1279,7 +1279,7 @@
           </section>
         </div>
 
-        <t t-if="request.env['ir.module.module'].search([['name', '=', 'x_distributors']])">
+        <t t-if="request.env['ir.model'].search([['model', '=', 'x_distributors']])">
           <section class="o_cc o_cc1 pt48 pb48">
             <div class="container">
               <div class="row mb-n2" contenteditable="false">

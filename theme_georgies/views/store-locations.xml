@@ -73,7 +73,7 @@
               <!-- Conditional on whether google maps gps coordinates are present -->
               <t t-if="'x_studio_gps_coordinates' in company"><t t-if="company.x_studio_gps_coordinates">
                 <section class="pt24 pb24">
-                  <section class="s_google_map pt256 pb256" data-map-type="ROADMAP" data-map-color="" data-map-zoom="12" t-attf-data-map-gps="({{company.x_studio_gps_coordinates}})" data-pin-style="flat">
+                  <section class="s_google_map pt256 pb256" data-map-type="ROADMAP" data-map-color="" data-map-zoom="15" t-attf-data-map-gps="({{company.x_studio_gps_coordinates}})" data-pin-style="default">
                     <div class="map_container"/>
                   </section>
                 </section>

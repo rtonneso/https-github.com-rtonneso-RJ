@@ -3,7 +3,7 @@
 
   <!-- ||||||||||| Georgies Custom Snippets ||||||||||| -->
   <!-- Georgies Announcement Bar -->
-  <template id="s_georgies_full_width_announcement_bar" name="Announcement Bar">
+  <template id="s_georgies_full_width_announcement_bar" name="Alert Bar">
     <section class="bg-danger"> 
       <div class="container">
         <div class="row">

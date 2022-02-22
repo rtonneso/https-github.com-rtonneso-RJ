@@ -15,8 +15,13 @@
 
     <!-- Recently Viewed Products -->
     <t t-extend="website_sale.productsRecentlyViewed">
-      <t t-jquery="div[t-attf-class='o_carousel_product_card_wrap col-md-#{12 / productFrame}']" t-operation="attributes">
-        <attribute name="t-attf-class" value="o_carousel_product_card_wrap col-md-4 col-lg-3"/>
+      <!-- Hide price on medium devices since it doens't have enough space to be displayed -->
+      <t t-jquery="div.o_carousel_product_card_footer > div" t-operation="attributes">
+        <attribute name="class" value="d-block d-md-none d-lg-block font-weight-bold"/>
+      </t>
+      <!-- Remove left auto margins on button while price is hidden -->
+      <t t-jquery="div.o_carousel_product_card_footer > button" t-operation="attributes">
+        <attribute name="class" value="btn btn-primary js_add_cart ml-auto ml-md-0 ml-lg-auto"/>
       </t>
     </t>
 

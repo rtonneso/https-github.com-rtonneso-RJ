@@ -236,7 +236,7 @@
   <template id="georgies_shop_product_carousel" inherit_id="website_sale.shop_product_carousel" name="Georgies - Shop Product Carousel">
     <!-- Add spacing above product image carousel -->
     <xpath expr="//div[@id='o-carousel-product']" position="attributes">
-      <attribute name="class" add="mt-1" separator=" "/>
+      <attribute name="class" add="mt-1  pb-1 pb-md-3" separator=" "/>
     </xpath>
   </template>
 
@@ -359,12 +359,14 @@
   <!-- Replace the Terms and conditions on the product page with a product specific field -->
   <template id="georgies_terms_product_section" inherit_id="website_sale.product" name="Georgies - Terms and Conditions Product Section">
     <xpath expr="//div[@id='product_details']" position="inside">
-      <t t-if="'x_studio_terms_and_conditions' in product"><t t-if="product.x_studio_terms_and_conditions">
-        <p class="text-muted mb-2">
-          <a href="/shop/terms">General Terms and Conditions</a><br/>
+      <p class="text-muted mb-2">
+        <a class="h6" href="/shop/terms"> Click Here For General Terms and Conditions</a><br/>
+        <t t-if="'x_studio_terms_and_conditions' in product"><t t-if="product.x_studio_terms_and_conditions">
+          <br/>
+          <strong>Specific Terms and Conditions for<br/><t t-esc="product.name"/>:</strong><br/>
           <span class="text-space-pre"><t t-esc="product.x_studio_terms_and_conditions"/></span>
-        </p>
-      </t></t>
+        </t></t>
+      </p>
     </xpath>
   </template>
 

@@ -249,15 +249,15 @@
   <template id="s_georgies_overrides_features" inherit_id="website.s_features" name="Odoo Features - Georgies Overrides">
   <!-- Add smaller device column classes -->
   <xpath expr="//div[hasclass('col-lg-4')][1]" position="attributes">
-    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+    <attribute name="class" remove="pt32 pb32" add="pt16 pb16 col-sm-6 col-md-4" separator=" "/>
   </xpath>
   <!-- Add smaller device column classes -->
   <xpath expr="//div[hasclass('col-lg-4')][2]" position="attributes">
-    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+    <attribute name="class" remove="pt32 pb32" add="pt16 pb16 col-sm-6 col-md-4" separator=" "/>
   </xpath>
   <!-- Add smaller device column classes -->
   <xpath expr="//div[hasclass('col-lg-4')][3]" position="attributes">
-    <attribute name="class" add="col-sm-6 col-md-4" separator=" "/>
+    <attribute name="class" remove="pt32 pb32" add="pt16 pb16 col-sm-6 col-md-4" separator=" "/>
   </xpath>
   </template>
 
@@ -276,19 +276,19 @@
                 </div>
                 <div class="col-md-7 col-lg-6">
                     <div class="row h-100">
-                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc3" data-name="Block">
+                        <div class="col-md-6 col-lg-6 pt24 pb24 text-center o_cc o_cc3" data-name="Block">
                             <h3>A great title</h3>
                             <p>And a great subtitle</p>
                         </div>
-                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc5" data-name="Block">
+                        <div class="col-md-6 col-lg-6 pt24 pb24 text-center o_cc o_cc5" data-name="Block">
                             <h3>A great title</h3>
                             <p>And a great subtitle</p>
                         </div>
-                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc4" data-name="Block">
+                        <div class="col-md-6 col-lg-6 pt24 pb24 text-center o_cc o_cc4" data-name="Block">
                             <h3>A great title</h3>
                             <p>And a great subtitle</p>
                         </div>
-                        <div class="col-md-6 col-lg-6 pt24 pb8 text-center o_cc o_cc2" data-name="Block">
+                        <div class="col-md-6 col-lg-6 pt24 pb24 text-center o_cc o_cc2" data-name="Block">
                             <h3>A great title</h3>
                             <p>And a great subtitle</p>
                         </div>
@@ -361,6 +361,87 @@
   </template>
 
 
+  <!-- Comparisons - Adjust column sizing -->
+  <template id="s_geogies_overrides_comparisons" inherit_id="website.s_comparisons" name="Odoo Comparisons - Georgies Overrides">
+    <!-- Add medium column break class -->
+    <xpath expr="//div[hasclass('col-lg-4')][1]" position="attributes">
+        <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+    <!-- Add medium column break class -->
+    <xpath expr="//div[hasclass('col-lg-4')][2]" position="attributes">
+        <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+    <!-- Add medium column break class -->
+    <xpath expr="//div[hasclass('col-lg-4')][3]" position="attributes">
+        <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- Company Team - Adjust column sizing -->
+  <template id="s_georgies_company_team" inherit_id="website.s_company_team" name="Odoo Company Team - Georgies Overrides">
+    <!-- Add medium column sizing -->
+    <xpath expr="//div[hasclass('s_nb_column_fixed')]/div[hasclass('col-lg-6')][1]" position="attributes">
+      <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+    <!-- Add medium column sizing -->
+    <xpath expr="//div[hasclass('s_nb_column_fixed')]/div[hasclass('col-lg-6')][2]" position="attributes">
+      <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+    <!-- Add medium column sizing -->
+    <xpath expr="//div[hasclass('s_nb_column_fixed')]/div[hasclass('col-lg-6')][3]" position="attributes">
+      <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+    <!-- Add medium column sizing -->
+    <xpath expr="//div[hasclass('s_nb_column_fixed')]/div[hasclass('col-lg-6')][4]" position="attributes">
+      <attribute name="class" add="col-md-6" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <template id="s_georgies_references" inherit_id="website.s_references" name="Odoo References - Georgies Overrides">
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][1]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][2]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][3]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][4]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][5]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+    <!-- Add medium and small column sizing -->
+    <xpath expr="//div[hasclass('col-lg-2')][6]" position="attributes">
+      <attribute name="class" add="col-md-4 col-6" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- Tabs -->
+  <template id="s_georgies_tabs" inherit_id="website.s_tabs" name="Odoo Tabs - Georgies Overrides">
+    <xpath expr="//ul[hasclass('nav-pills')]" position="attributes">
+      <attribute name="class" remove="justify-content-center" separator=" "/>
+    </xpath>
+  </template>
+
+
+  <!-- Hr Snippet -->
+  <template id="s_georgies_hr" inherit_id="website.s_hr" name="Odoo Hr - Georgies Overrides">
+    <xpath expr="//div[hasclass('s_hr')]" position="attributes">
+      <attribute name="class" remove="pt32 pb32" separator=" "/>
+    </xpath>
+  </template>
+
 
   <!-- Alert -->
   <template id="s_georgies_overrides_alert" inherit_id="website.s_alert" name="Odoo Inner Alert - Georgies Overrides">
@@ -410,30 +491,41 @@
 
 
 
-  <!-- Media Item - Change background -->
+  <!-- Media Item -->
   <template id="s_georgies_overrides_media_item" inherit_id="website.s_media_list" name="Odoo Media Item - Georgies Override">
-  <!-- Remove background -->
-  <xpath expr="//section[hasclass('bg-200')]" position="attributes">
-    <attribute name="class" remove="bg-200" add="o_cc o_cc2" separator=" "/>
+  
+  <!-- Replace the whole snippet with a slightly modified version: column sizing, colors-->
+  <xpath expr="//section" position="replace">
+    <section class="s_media_list pt32 pb32 o_cc o_cc2" data-vcss="001">
+      <div class="container">
+        <div class="row s_nb_column_fixed s_col_no_bgcolor">
+
+          <!-- Store the images that we're going to use for our media items -->
+          <t t-set="mediaImages" t-value="['/web/image/theme_georgies.placeholder_fourthirds-clayboxes',
+          '/web/image/theme_georgies.placeholder_fourthirds-product',
+          '/web/image/theme_georgies.placeholder_fourthirds-tools']"/>
+          
+          <!-- Loop through our images above and add a media item for each -->
+          <t t-foreach="mediaImages" t-as="image">
+            <div class="col-lg-12 s_media_list_item pt16 pb16" data-name="Media item">
+              <div class="row s_col_no_resize s_col_no_bgcolor no-gutters align-items-center o_cc o_cc1">
+                <div class="col-md-4 col-lg-4 align-self-stretch s_media_list_img_wrapper">
+                  <img t-att-src="image" class="s_media_list_img h-100 w-100" alt=""/>
+                </div>
+                <div class="col-md-8 col-lg-8 s_media_list_body">
+                  <h3>Media heading</h3>
+                  <p>Use this snippet to build various types of components that feature a left- or right-aligned image alongside textual content. Duplicate the element to create a list that fits your needs.</p>
+                  <a href="#" class="btn btn-primary">Discover</a>
+                </div>
+              </div>
+            </div>
+          </t>
+
+        </div>
+      </div>
+    </section>
   </xpath>
-  <!-- Remove bottom margin on button -->
-  <xpath expr="//a[hasclass('btn')]" position="attributes">
-    <attribute name="class" remove="mb-2" separator=" "/>
-  </xpath>
-  <!-- Replace first image -->
-  <xpath expr="(//img)[1]" position="attributes">
-    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-clayboxes</attribute>
-  </xpath>
-  <!-- Replace second image -->
-  <xpath expr="(//img)[2]" position="attributes">
-    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-product</attribute>
-  </xpath>
-  <!-- Replace third image -->
-  <xpath expr="(//img)[3]" position="attributes">
-    <attribute name="src">/web/image/theme_georgies.placeholder_fourthirds-tools</attribute>
-  </xpath>
-  <!-- Remove link on third item -->
-  <xpath expr="//div[hasclass('s_media_list_item')][3]//a" position="replace"/>
+
   </template>
 
 
@@ -553,13 +645,20 @@
   <!-- Google Maps-->
   <template id="s_georgies_overrides_google_maps" inherit_id="website.s_google_map" name="Odoo Google Maps - Georgies Overrides">
     <!-- Wrap the Google Mpas snippet in a section with padding, since the implimentation they use for the main snippet prevents us from using the top and bottom padding for actual padding, instead it's used to change the height of the map itself. So we fix that by wraping it in a section-->
-    <!-- <xpath expr="//section" position="replace">
+    <xpath expr="//section" position="replace">
       <section class="pt24 pb24">
         <t>$0</t>
       </section>
-    </xpath> -->
+    </xpath>
   </template>
   
+
+  <!-- Text Highlight Snippet -->
+  <template id="s_georgies_text_highlight" inherit_id="website.s_text_highlight" name="Odoo Text Highlight - Georgies Overrides">
+    <xpath expr="//div[hasclass('s_text_highlight')]" position="attributes">
+      <attribute name="class" remove="my-3" separator=" "/>
+    </xpath>
+  </template>
 
 
 
@@ -702,6 +801,17 @@
   <!-- Odoo Google Maps - Hide show description option (description is poorly implimented and padding makes it diffcult to select it)-->
   <template id="georgies_overrides_google_map_options" inherit_id="website.s_google_map_options" name="Odoo Google Map Options - Georgies Override">
     <xpath expr="//we-checkbox[@data-show-description='true']" position="replace"/>
+  </template>
+
+
+  <!-- Odoo Blog Post Options -->
+  <template id="georgies_overrides_blog_posts_options" inherit_id="website_blog.s_latest_posts_options" name="Odoo Blog Posts - Display Options Georgies Overrides">
+    <!-- Remove ugly horizontal layout mess -->
+    <xpath expr="//we-button[@data-select-class='s_latest_posts_horizontal']" position="replace"/>
+    <!-- Remove Dexter hover effect -->
+    <xpath expr="//we-button[@data-select-class='s_latest_posts_effect_dexter']" position="replace"/>
+    <!-- Remove Silly-chico hover effect - wtf is up with that name? -->
+    <xpath expr="//we-button[@data-select-class='s_latest_posts_effect_chico']" position="replace"/>
   </template>
 
 

@@ -21,22 +21,6 @@
   border: 2px solid currentColor;
 }
 
-// Image carousel / gallery / quotes arrows
-.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-next .fa,
-.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-next .fa,
-.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-prev .fa,
-.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-prev .fa,
-.s_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_carousel.s_carousel_default .carousel-control-next-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-next-icon:before {
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
-}
-
-// Image Gallery thumbnails - Remove bottom margin to give more space between thumbnails and the image above
-.carousel-indicators {
-  margin-bottom: 0;
-  // background: red;
-}
-
-
 
 // Search results adjustment
 .o_search_product_item {
@@ -70,10 +54,6 @@
 
 // ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS 
 
-// Alert snippet, adjust padding between alert and text
-.s_alert_icon {
-  margin-right: spacer(2);
-}
 
 // Media Item Snippet
 .s_media_list[data-vcss="001"] .s_media_list_body {
@@ -100,18 +80,116 @@
   @include button-variant($primary, $primary);
 }
 
+
+// Image carousel / gallery / quotes arrows
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-next .fa,
+.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-next .fa,
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-prev .fa,
+.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-prev .fa,
+.s_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_carousel.s_carousel_default .carousel-control-next-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-next-icon:before {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+// Set carosel background shadow on bottom indicators
+.s_carousel.s_carousel_default .carousel-indicators li,
+.s_quotes_carousel.s_carousel_default .carousel-indicators li {
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, .75);
+}
+
+// Disable underline on left and right arrows
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-next,
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-prev {
+  text-decoration: none;
+}
+
+// Remove bottom margin on image indicators for image gallery to give more space between them and the image
+.s_image_gallery[data-vcss="001"].o_slideshow ul.carousel-indicators {
+  margin-bottom: 0;
+}
+
+// Upcoming events list snippet 
+.s_country_events_list {
+  margin-bottom: $spacer * .75;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+
+
+// Alert snippet, adjust padding between alert and text
+.s_alert_icon {
+  margin-right: spacer(2);
+}
+
+// Add bottom margins to alert snippet
+.s_alert {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Card Inner Snippet
 .s_card {
   margin-top: 0;
-  margin-bottom: $spacer * .5;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
+// Add bottom margins to share snippet
 .s_share {
-  margin-bottom: $spacer * .5;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
+// Add bottom margins to chart snippet
+.s_chart {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Add bottom margins to store search snippet
 .s_wsale_products_searchbar_input {
-  margin-bottom: $spacer * .5;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust text highlight snippet margins
+.s_text_highlight {
+  margin-top: 0;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust block quote snippet margins
+.s_blockquote {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust hr snippet padding
+.s_hr {
+  margin-bottom: $spacer * .75 !important;
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+.editor_enable .s_hr {
+  min-height: $spacer;
+  display: flex;
+  align-items: center;
 }
 
 // Undo Odoo's custom padding here
@@ -126,3 +204,4 @@
 .o_mega_menu {
   border: none;
 }
+

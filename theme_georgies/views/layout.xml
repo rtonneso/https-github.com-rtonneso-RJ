@@ -15,7 +15,7 @@
   <template id="georgies_website_sale_search_box" inherit_id="website_sale.website_sale_products_search_box" name="Georgies - Website Sale Search Box">
     <!-- Change the placeholder for the products search site-wide -->
     <xpath expr="//div[@role='search']" position="before">
-      <t t-set="placeholder" t-value="'Search prodcucts...'"/>
+      <t t-set="placeholder" t-value="'Search products...'"/>
     </xpath>
   </template>
 
