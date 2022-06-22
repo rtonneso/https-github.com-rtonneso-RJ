@@ -39,9 +39,9 @@ $spacer: 2rem;
 // Buttons and Inputs
 // TODO: Disable shadow
 // Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
-$li-btn-padding-y: $spacer * .35;
-$li-btn-padding-x: $spacer * .75;
-$li-input-padding-x: $spacer * .25;
+$georgies-btn-padding-y: $spacer * .35;
+$georgies-btn-padding-x: $spacer * .75;
+$georgies-input-padding-x: $spacer * .25;
 
 // Alerts
 $alert-bg-level: 0;
@@ -51,8 +51,8 @@ $alert-link-font-weight: 700;
 
 // Buttons and Inputs
 // Regular size
-$input-btn-padding-y: $li-btn-padding-y;
-$input-btn-padding-x: $li-btn-padding-x;
+$input-btn-padding-y: $georgies-btn-padding-y;
+$input-btn-padding-x: $georgies-btn-padding-x;
 // Large size
 $input-btn-padding-y-lg: $input-btn-padding-y * 1.2;
 $input-btn-padding-x-lg: $input-btn-padding-x * 1.2;
@@ -61,24 +61,24 @@ $input-btn-padding-y-sm: $input-btn-padding-y * .85;
 $input-btn-padding-x-sm: $input-btn-padding-x * .75;
 
 // Input Specific Padding
-$input-padding-x: $li-input-padding-x;
-$input-padding-x-sm: $li-input-padding-x * .75;
-$input-padding-x-lg: $li-input-padding-x * 1.2;
+$input-padding-x: $georgies-input-padding-x;
+$input-padding-x-sm: $georgies-input-padding-x * .75;
+$input-padding-x-lg: $georgies-input-padding-x * 1.2;
 
 // Button typography
 $btn-font-weight: 700;
 
 // Breadcrumbs
 $breadcrumb-padding-y: $input-btn-padding-y;
-$breadcrumb-padding-x: $li-input-padding-x;
+$breadcrumb-padding-x: $georgies-input-padding-x;
 
 // Pagination
 $pagination-padding-y:              $input-btn-padding-y;
-$pagination-padding-x:              $li-btn-padding-x;
+$pagination-padding-x:              $georgies-btn-padding-x;
 $pagination-padding-y-sm:           $input-btn-padding-y * .75;
-$pagination-padding-x-sm:           $li-btn-padding-x * .75;
+$pagination-padding-x-sm:           $georgies-btn-padding-x * .75;
 $pagination-padding-y-lg:           $input-btn-padding-y * 1.25;
-$pagination-padding-x-lg:           $li-btn-padding-x * 1.25;
+$pagination-padding-x-lg:           $georgies-btn-padding-x * 1.25;
 $pagination-line-height:            $line-height-base;
 
 // Badges

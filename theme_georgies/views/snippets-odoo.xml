@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <div class="container mb-2 mb-md-0 li-shop-mega-buttons">
+            <div class="container mb-2 mb-md-0 georgies-shop-mega-buttons">
               <a class="btn btn-primary btn-sm" href="/shop">Shop Now &gt;</a>
               <a class="btn btn-primary btn-sm" href="/catalog">Georgies Catalog &gt;</a>
               <a class="btn btn-primary btn-sm" href="#">Gift Certificates &gt;</a>
@@ -30,7 +30,7 @@
                 <div class="row">
                   <t t-foreach="[1,2,3,4]" t-as="i">
                     <div class="col-sm-6 col-md-3">
-                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 li-shop-mega-brand" src="/web/image/theme_georgies.placeholder_brand-image" alt="BRAND NAME"></img></a></div>
+                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 georgies-shop-mega-brand" src="/web/image/theme_georgies.placeholder_brand-image" alt="BRAND NAME"></img></a></div>
                     </div>
                   </t>
                 </div>       
@@ -52,7 +52,8 @@
       <div class="px-3 pt-3 pb-3">
         <h2>Heading here</h2>
         <h6><em><strong>THIS IS A SUB HEADING</strong></em></h6>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p><a class="btn btn-primary" href="#">Button Text Here</a>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aspernatur, beatae nesciunt cumque, voluptas expedita laborum consequuntur rem officiis repudiandae natus alias et, repellat quam sint provident accusantium. Aliquid, quis?</p>
+        <p><a class="btn btn-primary" href="#">Button Text Here</a></p>
       </div>
     </div>
   </xpath>
@@ -126,7 +127,7 @@
       <div class="col-lg-7 jumbotron o_cc o_cc1 pt24 pb24" data-name="Box">
         <h1>Here's a Heading Here Bud</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <a href="#" class="btn btn-primary">Contact Us</a>
+        <p><a href="#" class="btn btn-primary">Contact Us</a></p>
       </div>
       </div>
     </div>
@@ -145,9 +146,7 @@
       <div class="px-2 px-sm-0">
       <h1>Heading here. It can be decently long and will wrap around</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde eos deserunt nulla quaerat nobis fugiat dolore atque iusto nesciunt a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita excepturi consequatur doloribus quam libero debitis architecto aperiam porro ut, distinctio quibusdam quas, sequi hic fuga placeat dignissimos magni facere perspiciatis.</p>
-      <p>
-        <a class="btn btn-primary" href="#">Button here bud</a>
-      </p>
+      <p><a class="btn btn-primary" href="#">Button here bud</a></p>
       </div>
     </div>
     </section>
@@ -223,15 +222,11 @@
   <template id="s_georgies_overrides_big_boxes" inherit_id="website.s_color_blocks_2" name="Odoo Big Boxes - Georgies Overrides">
   <!-- Nest first link button inside a paragraph -->
   <xpath expr="(//a)[1]" position="replace">
-    <p>
-    <a href="#" class="btn btn-primary">More Details</a>
-    </p>
+    <p><a href="#" class="btn btn-primary">More Details</a></p>
   </xpath>
   <!-- Nest second link button inside a paragraph -->
   <xpath expr="(//a)[1]" position="replace">
-    <p>
-    <a href="#" class="btn btn-primary">More Details</a>
-    </p>
+    <p><a href="#" class="btn btn-primary">More Details</a></p>
   </xpath>
   <!-- Add smaller device column classes -->
   <xpath expr="//div[hasclass('col-lg-6')][1]" position="attributes">
@@ -312,9 +307,7 @@
       <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
         <h1>Slide Title Here</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\</p>
-        <p>
-        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-        </p>
+        <p><a href="#" class="btn btn-primary">Hey I'm a Button</a></p>
       </div>
       </div>
     </div>
@@ -326,9 +319,7 @@
       <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
         <h1>Slide Title Here</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>
-        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-        </p>
+        <p><a href="#" class="btn btn-primary">Hey I'm a Button</a></p>
       </div>
       </div>
     </div>
@@ -340,9 +331,7 @@
       <div class="carousel-content col-lg-7 jumbotron pt24 pb24 o_cc o_cc1">
         <h1>Slide Title Here</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>
-        <a href="#" class="btn btn-primary">Hey I'm a Button</a>
-        </p>
+        <p><a href="#" class="btn btn-primary">Hey I'm a Button</a></p>
       </div>
       </div>
     </div>
@@ -515,7 +504,7 @@
                 <div class="col-md-8 col-lg-8 s_media_list_body">
                   <h3>Media heading</h3>
                   <p>Use this snippet to build various types of components that feature a left- or right-aligned image alongside textual content. Duplicate the element to create a list that fits your needs.</p>
-                  <a href="#" class="btn btn-primary">Discover</a>
+                  <p><a href="#" class="btn btn-primary">Discover</a></p>
                 </div>
               </div>
             </div>
@@ -646,8 +635,10 @@
   <template id="s_georgies_overrides_google_maps" inherit_id="website.s_google_map" name="Odoo Google Maps - Georgies Overrides">
     <!-- Wrap the Google Mpas snippet in a section with padding, since the implimentation they use for the main snippet prevents us from using the top and bottom padding for actual padding, instead it's used to change the height of the map itself. So we fix that by wraping it in a section-->
     <xpath expr="//section" position="replace">
-      <section class="pt24 pb24">
-        <t>$0</t>
+      <section class="pt0 pb0">
+        <section class="s_google_map pt256 pb256" data-map-type="ROADMAP" data-map-color="" data-map-zoom="15" data-map-gps="(45.576958040435635, -122.65718158852205)" data-pin-style="default">
+          <div class="map_container"/>
+        </section>
       </section>
     </xpath>
   </template>
@@ -715,34 +706,40 @@
       </we-select>
       </div>
     </xpath>
+
+    <!-- Remove Hamburger Type option from header (Default vs Off-Canvas Off Canvas breaks and isn't optimized for megamenus) -->
+    <xpath expr="//we-select[@data-name='header_hamburger_type_opt']" position="replace"/>
+    <!-- Remove the off canvas logo image option as well since it relies on the header mobile menu being set to off canvas -->
+    <xpath expr="//we-select[@data-dependencies='off_canvas_menu_opt']" position="replace"/>
+
     <!-- Add More Advanced Image Options to Images -->
     <xpath expr="//div[@id='so_width']" position="after">
       <!-- Provide width options for images -->
       <div id="s_georgies_image_options_width" data-selector="img">
-      <we-select string="Image Width">
-        <we-button data-select-class="w-100">100%</we-button>
-        <we-button data-select-class="w-75">75%</we-button>
-        <we-button data-select-class="w-50">50%</we-button>
-        <we-button data-select-class="w-25">25%</we-button>
-        <we-button data-select-class="">Auto</we-button>
-      </we-select>
+        <we-select string="Image Width">
+          <we-button data-select-class="w-100">100%</we-button>
+          <we-button data-select-class="w-75">75%</we-button>
+          <we-button data-select-class="w-50">50%</we-button>
+          <we-button data-select-class="w-25">25%</we-button>
+          <we-button data-select-class="">Auto</we-button>
+        </we-select>
       </div>
       <div id="s_georgies_image_options_Height" data-selector="img">
-      <we-select string="Image Height">
-        <we-button data-select-class="">Auto</we-button>
-        <we-button data-select-class="h-100">100%</we-button>
-        <we-button data-select-class="h-75">75%</we-button>
-        <we-button data-select-class="h-50">50%</we-button>
-        <we-button data-select-class="h-25">25%</we-button>
-      </we-select>
+        <we-select string="Image Height">
+          <we-button data-select-class="">Auto</we-button>
+          <we-button data-select-class="h-100">100%</we-button>
+          <we-button data-select-class="h-75">75%</we-button>
+          <we-button data-select-class="h-50">50%</we-button>
+          <we-button data-select-class="h-25">25%</we-button>
+        </we-select>
       </div>
       <div id="s_georgies_image_options_fit" data-selector="img">
-      <we-select string="Image Fit">
-        <we-button data-select-class="">Auto / Stretch</we-button>
-        <we-button data-select-class="media-fit-cover">Cover</we-button>
-        <we-button data-select-class="media-fit-contain">Contain</we-button>
-        <we-button data-select-class="media-fit-full">Full</we-button>
-      </we-select>
+        <we-select string="Image Fit">
+          <we-button data-select-class="">Auto / Stretch</we-button>
+          <we-button data-select-class="media-fit-cover">Cover</we-button>
+          <we-button data-select-class="media-fit-contain">Contain</we-button>
+          <we-button data-select-class="media-fit-full">Full</we-button>
+        </we-select>
       </div>
     </xpath>
 
@@ -813,8 +810,6 @@
     <!-- Remove Silly-chico hover effect - wtf is up with that name? -->
     <xpath expr="//we-button[@data-select-class='s_latest_posts_effect_chico']" position="replace"/>
   </template>
-
-
 
 
 

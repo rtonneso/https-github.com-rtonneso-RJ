@@ -13,7 +13,7 @@
 // TYPOGRAPHY
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    letter-spacing: $li-letter-spacing;
+    letter-spacing: $georgies-letter-spacing;
 }
 
 // Display light classes
@@ -89,23 +89,23 @@ label {
 // NAVBAR
 // Main navbar menu
 // Margins for mobile navbar items
-$li-navbar-item-mobile-margins: $spacer * .5;
+$georgies-navbar-item-mobile-margins: $spacer * .5;
 header .navbar {
 
 
     // Adjusting logo sizing
     .navbar-brand {
         img { height: 4rem !important; }
-        @include media-breakpoint-down($li-navbar-collapse-point) {
-            margin-left: $li-navbar-item-mobile-margins;
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-left: $georgies-navbar-item-mobile-margins;
         }
     }
     
     .nav-item {
-        @include media-breakpoint-down($li-navbar-collapse-point) {
-            margin-left: $li-navbar-item-mobile-margins;
-            margin-right: $li-navbar-item-mobile-margins;
-            &:last-child { margin-right: $li-navbar-item-mobile-margins; } // TODO: See if this is neccesary
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-left: $georgies-navbar-item-mobile-margins;
+            margin-right: $georgies-navbar-item-mobile-margins;
+            &:last-child { margin-right: $georgies-navbar-item-mobile-margins; } // TODO: See if this is neccesary
         }
     }
 
@@ -118,7 +118,7 @@ header .navbar {
         margin-top: 0;
 
         // Set dropdown positioning to be below the navbar
-        @include media-breakpoint-down($li-navbar-collapse-point) {
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
             top: unset;
             left: unset;
             transform: unset;
@@ -127,7 +127,7 @@ header .navbar {
 
         // Adjust spacing on items below collapse point
         .dropdown-item {
-            @include media-breakpoint-down($li-navbar-collapse-point) {
+            @include media-breakpoint-down($georgies-navbar-collapse-point) {
                 padding: spacer(1) spacer(2);
             }
         }
@@ -147,7 +147,7 @@ header .navbar {
 
         // Override text color of all results button
         button {
-            letter-spacing: $li-letter-spacing;
+            letter-spacing: $georgies-letter-spacing;
         }
 
         // Remove shadow on focus
@@ -171,8 +171,8 @@ header .navbar {
     &-light .navbar-toggler {
         padding-left: $navbar-toggler-padding-x;
         padding-right: $navbar-toggler-padding-x;
-        @include media-breakpoint-down($li-navbar-collapse-point) {
-            margin-right: $li-navbar-item-mobile-margins;
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-right: $georgies-navbar-item-mobile-margins;
         }
     }
 
@@ -182,7 +182,7 @@ header .navbar {
 .nav-item {
     font-weight: $font-weight-bold !important;
     text-transform: uppercase;
-    letter-spacing: $li-letter-spacing;
+    letter-spacing: $georgies-letter-spacing;
     // .nav-link.active { @include media-breakpoint-up(md) { border-bottom: $border-width solid currentColor; }}
 }
 
@@ -195,9 +195,6 @@ header .navbar {
 .text-space-pre {
     white-space: pre-wrap;
 }
-
-
-
 
 
 
@@ -222,13 +219,13 @@ header .navbar {
 }
 
 // SHOP MEGA MENU
-.li-shop-mega-brand {
+.georgies-shop-mega-brand {
     background-color: white;
     padding: $spacer * .125;
     height: 4rem;
     object-fit: contain;
 }
-.li-shop-mega-buttons {
+.georgies-shop-mega-buttons {
     .btn {
         display: block;
         width: 100%;
@@ -242,12 +239,12 @@ header .navbar {
 
 
 // Disable pointer events on the map to prevent odoo from trying to edit it
-.li-distributor-map {
+.georgies-distributor-map {
     pointer-events: none;
 }
 
 // Map Styling
-.li-state {
+.georgies-state {
     path {
         fill: #FFFFFF;
         stroke: $black;
@@ -258,7 +255,7 @@ header .navbar {
         transition: opacity .2s;
     }
 }
-.li-state-enabled {
+.georgies-state-enabled {
     pointer-events: auto;
     cursor: pointer;
     path {
@@ -267,11 +264,11 @@ header .navbar {
     }
 }    
 
-.li-state-disabled text{
+.georgies-state-disabled text{
     opacity: 0;
 }
-.li-state-active {
-    .li-state-name {
+.georgies-state-active {
+    .georgies-state-name {
         fill: $primary;
     }
 
@@ -280,7 +277,7 @@ header .navbar {
         stroke-width: 3px;
     }  
 } 
-.li-state-name {
+.georgies-state-name {
     font-family:  "Open Sans", "Arial", sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -290,7 +287,7 @@ header .navbar {
 }
 
 
-.li-distributor-state {
+.georgies-distributor-state {
     overflow-wrap: break-word;
    
     @include media-breakpoint-up(sm) {
@@ -323,7 +320,7 @@ header .navbar {
         display: inline;
     }
 
-    .li-distributor-state {
+    .georgies-distributor-state {
         @include media-breakpoint-up(sm) {
             display: block;
         }

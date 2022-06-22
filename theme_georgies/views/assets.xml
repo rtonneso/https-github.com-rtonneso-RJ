@@ -19,7 +19,7 @@
     <xpath expr="//link[last()]" position="after">
       <!-- Insert our custom css-->
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
-      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_lichen.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_georgies.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-blog.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-events.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-general.scss"/>
@@ -27,7 +27,7 @@
     </xpath>
     <!-- Insert our custom JS -->
     <xpath expr="script[last()]" position="after">
-      <script type="text/javascript" src="/theme_georgies/static/js/li-georgies-v1.01.js" />
+      <script type="text/javascript" src="/theme_georgies/static/js/georgies-v1.01.js" />
     </xpath>
   </template>
 

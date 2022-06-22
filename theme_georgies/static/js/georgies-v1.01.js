@@ -122,16 +122,16 @@ function distMapInit(map) {
 
   debug('normal', 'Distributer map detected on current page.');
   // Distibutor Map Functionality
-  let stateSelector = 'li-state';
+  let stateSelector = 'georgies-state';
   let states = map.querySelectorAll('.' + stateSelector);
   debug('verbose', 'States detected:');
   debug('verbose', states);
-  let activeClass = 'li-state-active';
-  let enabledClass = 'li-state-enabled';
-  let disabledClass = 'li-state-disabled';
+  let activeClass = 'georgies-state-active';
+  let enabledClass = 'georgies-state-enabled';
+  let disabledClass = 'georgies-state-disabled';
 
-  // Get rows of states that match the .li-distributor-state class
-  let distributorClass = 'li-distributor-state';
+  // Get rows of states that match the .georgies-distributor-state class
+  let distributorClass = 'georgies-distributor-state';
   let distributorActiveClass = distributorClass + '__active';
   let distributorStates = document.querySelectorAll('.' + distributorClass);
 
@@ -170,7 +170,7 @@ function distMapInit(map) {
   function distMapSelectState (event) {
     // Get selected state name and set selectedState accordingly
     // debug('verbose', event.target);
-    let selectedState = event.target.closest('.li-state');
+    let selectedState = event.target.closest('.georgies-state');
     debug('verbose', 'Selected state: ');
     debug('verbose', selectedState);
     // // If activeState is set, check if it's the same as selectedState
@@ -222,6 +222,24 @@ function distMapInit(map) {
     });
   }
 }
+
+
+// [1[1]] [2[2]]
+// [1[3]]
+
+// [1[[1] <---
+// [1[3]] ---^
+// [2[3]]
+
+// Footer location masonry
+// Single Column Enabled
+// Get footer locations
+// Check if layout is wide enough for two columns
+  // If single column enabled
+  // Reorganize columns into two 
+// Check if layout is only wide enough for a single column
+  // If single column is not enabled
+  // Reorganize columns into single column order
 
 
 // Wait for document to finish loading

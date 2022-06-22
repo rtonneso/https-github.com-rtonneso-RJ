@@ -30,4 +30,12 @@
       <!-- Remove the hr element inbetween the review composer and the reviews -->
       <t t-jquery="div.o_portal_chatter_composer + hr" t-operation="replace"/> 
     </t>
+
+    <!-- Website Product Search -->
+    <t t-extend="website_sale.productsSearchBar.autocomplete">
+      <!-- Remove text muted class and add bold to search not found -->
+      <t t-jquery="span.dropdown-item-text.text-muted" t-operation="attributes">
+        <attribute name="class" value="dropdown-item-text font-weight-bold text-uppercase"/>
+      </t>
+    </t>
 </templates>

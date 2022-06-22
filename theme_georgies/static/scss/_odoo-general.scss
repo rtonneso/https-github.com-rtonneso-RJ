@@ -205,3 +205,7 @@
   border: none;
 }
 
+// Align tabs to the bottom so that if there are some tall tabs they'll always be aligned to the bottom of the tab container and look good
+.card-header-tabs {
+  align-items: end;
+}

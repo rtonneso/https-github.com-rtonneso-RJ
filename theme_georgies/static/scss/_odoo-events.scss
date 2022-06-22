@@ -71,7 +71,7 @@
   &_badge {
       border-radius: 0;
       font-weight: 600;
-      letter-spacing: $li-letter-spacing;
+      letter-spacing: $georgies-letter-spacing;
   }
 }
 
@@ -81,10 +81,10 @@
 }
 
 // Set flex shrink property of the qty / avilablility element of the event ticket registration bar
-.li-event-ticket-qty { flex-shrink: 0; }
+.georgies-event-ticket-qty { flex-shrink: 0; }
 
 // Remove the borders on the event ticket price on xs screens so that it looks purdy
-.li-event-ticket-price {
+.georgies-event-ticket-price {
   @include media-breakpoint-down(xs) {
       border-left: none !important;
       border-right: none !important;

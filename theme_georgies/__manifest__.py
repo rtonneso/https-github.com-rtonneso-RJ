@@ -1,8 +1,11 @@
 {
   'name':'Georgies.com',
-  'description': 'Georgies.com theme styling by Lichen',
-  'version':'1.4',
+  'description': 'Georgies.com theme by Lichen',
+  'category': 'Theme/Website',
+  'version':'1.5',
   'author':'Lichen',
+  'summary': 'Art, Ceramics',
+  'sequence': 110,
   'data': [
       'views/layout.xml',
       'views/shop.xml',
@@ -18,7 +21,6 @@
   'images': [
     'static/description/georgies_screenshot.jpg'
   ],
-  'category': 'Theme/website',
   'installable': True,
   'auto_install': False,
   'depends': [
@@ -28,4 +30,5 @@
     'website_event',
     'website_event_sale',
   ],
+  'license': 'LGPL-3',
 }

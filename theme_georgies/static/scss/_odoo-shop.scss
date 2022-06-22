@@ -137,9 +137,28 @@
 }
 
 
+// Display product name as uppercase
+// In website product search
+.o_wsale_products_searchbar_form h6,
+.o_carousel_product_card h6 {
+  text-transform: uppercase;
+}
 
 
 .oe_website_sale  {
+
+    // Display product name as uppercase
+    // In product details
+    h1[itemprop="name"],
+    .td-product_name,
+    // In shop product grid
+    a[itemprop="name"],
+    // In breadcrumbs
+    .breadcrumb-item span[data-oe-field="name"] {
+      text-transform: uppercase;
+    }
+
+
   // --Shopping Cart--
   // Adjust shopping cart item list spacing
   table#cart_products {
@@ -228,11 +247,7 @@
 
 //  PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE
 #product_detail {
-  // TODO: GET THIS DIALED IN SO THAT IMAGES LOOK +++
-  // #o-carousel-product .carousel-outer {
-  //   height: 450px;
-  //   max-height: auto;
-  // }
+
   // Product search on product page
   .o_wsale_products_searchbar_form { 
     // Add spacing below search
@@ -304,3 +319,14 @@
   width: auto;
   white-space: nowrap;
 };
+
+.wishlist-section #o_comparelist_table td {
+  @include media-breakpoint-down(xs) {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    &:nth-child(2) {
+      border-top: none;
+    }
+  }
+}

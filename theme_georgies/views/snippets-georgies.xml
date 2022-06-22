@@ -97,10 +97,11 @@
   </template>
 
 
-  <!-- Add our alert bar snippet to the editor panel -->
+  <!-- Add our custom snippets to the editor panel -->
   <template id="georgies_snippets" inherit_id="website.snippets" name="Georgies - Custom Snippets">
+    <!-- Add our alert bar snippet -->
     <xpath expr="//t[@t-snippet='website.s_showcase']" position="after">
-          <t t-snippet="theme_georgies.s_georgies_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/snippet_thumbnails/s_alert_bar.svg"/>
+      <t t-snippet="theme_georgies.s_georgies_full_width_announcement_bar" t-thumbnail="/theme_georgies/static/img/snippet_thumbnails/s_alert_bar.svg"/>
     </xpath>
   </template>
 

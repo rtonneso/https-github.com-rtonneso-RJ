@@ -2,7 +2,7 @@
 <odoo>
 
   <!-- Georgies Store Locations -->
-  <template id="s_georgies_store_locations_page" name="Georgies - Store Locations Page Template">
+  <template id="s_georgies_store_locations_page" name="Georgies - Store Locations">
     <t t-call="website.layout">
       <div id="wrap">
 
@@ -25,7 +25,7 @@
                 <div class="text-uppercase h2"><em><t t-esc="company.name"/></em></div>
 
                 <t t-if="company.street and company.city and company.state_id.code and company.zip">
-                  <span><t t-esc="company.street"/>, <t t-esc="company.city"/> <t t-esc="company.state_id.code"/>  <t t-esc="company.zip"/></span><br/>
+                  <span><t t-esc="company.street"/>, <t t-esc="company.city"/> <t t-esc="company.state_id.code"/> <t t-esc="company.zip"/></span><br/>
                 </t>
 
                 <t t-if="company.phone">
