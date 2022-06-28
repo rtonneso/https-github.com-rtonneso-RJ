@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Product (website) reviews / ratings section -->
+    <t t-extend="portal_rating.rating_card">
+      <!-- Change column sizing to accommodate for the remove from selection buttons on the right of the ratings -->
+      <!-- First column -->
+        <t t-jquery=".o_website_rating_card_container > .col-lg-3" t-operation="attributes">
+          <attribute name="class" value="col-lg-4"/>
+        </t>
+      <!-- Second Column -->
+      <t t-jquery=".o_website_rating_card_container > .col-lg-6" t-operation="attributes">
+        <attribute name="class" value="col-lg-8 pt-3 pt-lg-0"/>
+      </t>
+    </t>
+
+    <!-- Recently Viewed Products -->
+    <t t-extend="website_sale.productsRecentlyViewed">
+      <!-- Hide price on medium devices since it doens't have enough space to be displayed -->
+      <t t-jquery="div.o_carousel_product_card_footer > div" t-operation="attributes">
+        <attribute name="class" value="d-block d-md-none d-lg-block font-weight-bold"/>
+      </t>
+      <!-- Remove left auto margins on button while price is hidden -->
+      <t t-jquery="div.o_carousel_product_card_footer > button" t-operation="attributes">
+        <attribute name="class" value="btn btn-primary js_add_cart ml-auto ml-md-0 ml-lg-auto"/>
+      </t>
+    </t>
+
+    <!-- Product Reviews -->
+    <t t-extend="portal.Chatter">
+      <!-- Remove the hr element inbetween the review composer and the reviews -->
+      <t t-jquery="div.o_portal_chatter_composer + hr" t-operation="replace"/> 
+    </t>
+
+    <!-- Website Product Search -->
+    <t t-extend="website_sale.productsSearchBar.autocomplete">
+      <!-- Remove text muted class and add bold to search not found -->
+      <t t-jquery="span.dropdown-item-text.text-muted" t-operation="attributes">
+        <attribute name="class" value="dropdown-item-text font-weight-bold text-uppercase"/>
+      </t>
+    </t>
+</templates>

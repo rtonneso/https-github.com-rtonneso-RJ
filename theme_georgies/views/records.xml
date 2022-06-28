@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<!-- ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS ODOO RECORDS -->
+  <!-- Set various ui components to active by default -->
+  <!-- Shop -->
+  <!-- Shop categories filter -->
+  <record id="website_sale.products_categories" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop collapsable categories -->
+  <record id="website_sale.option_collapse_products_categories" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop attribute filters -->
+  <record id="website_sale.products_attributes" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop sort button -->
+  <record id="website_sale.sort" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Shop results layout button -->
+  <record id="website_sale.add_grid_or_list_option" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+  <!-- Product Description -->
+  <record id="website_sale.products_description" model="ir.ui.view">
+    <field name="active" eval="False"/>
+  </record>
+  <!-- Add to Cart button -->
+  <record id="website_sale.products_add_to_cart" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Disable default Terms and Conditions section on the product page. It is the same across all products and therefore isn't all that useful. -->
+  <record id="website_sale.product_custom_text" model="ir.ui.view">
+    <field name="active" eval="False"/>
+  </record>
+
+
+  <!-- Product -->
+  <!-- Buy now button -->
+  <record id="website_sale.product_buy_now" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Product image magnification -->
+  <record id="website_sale.product_picture_magnify_auto" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+  <!-- Blog -->
+  <!-- Show sidebar on blog index -->
+  <record id="website_blog.opt_blog_sidebar_show" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Show comment and view stats on blog posts -->
+  <record id="website_blog.opt_posts_loop_show_stats" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Enable blog post comments -->
+  <record id="website_blog.opt_blog_post_comment" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+  <!-- Show blog post sidebar -->
+  <record id="website_blog.opt_blog_post_sidebar" model="ir.ui.view">
+    <field name="active" eval="True"/>
+  </record>
+
+
+
+  <!-- PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES PLACEHOLDER IMAGES -->
+  <!-- Add Default Images that are used throughout the theme -->
+  <!-- Georgies Placeholder Images -->
+  <record id="theme_georgies.placeholder_fourthirds-backwall" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-backwall.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-backwall.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-clayboxes" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-clayboxes.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-clayboxes.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-product" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-product.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-product.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_fourthirds-tools" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">fourthirds-tools.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/fourthirds-tools.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_portrait-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">portrait-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/portrait-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_portrait-parking-sign" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">portrait-parking-sign.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/portrait-parking-sign.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-clayboxes" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-clayboxes.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-clayboxes.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-george" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-george.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-george.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_square-product" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">square-product.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/square-product.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-backwall" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-backwall.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-backwall.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-bowls" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-bowls.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-bowls.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-glaze" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-glaze.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-glaze.jpg</field>
+  </record>
+  <record id="theme_georgies.placeholder_wide-storefront" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">wide-storefront.jpg</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/wide-storefront.jpg</field>
+  </record>
+
+  <!-- Georgies Brand Placeholder Image -->
+  <record id="theme_georgies.placeholder_brand-image" model="ir.attachment">
+    <field name="public" eval="True"/>
+    <field name="name">brand-image-placeholder.png</field>
+    <field name="type">url</field>
+    <field name="url">/theme_georgies/static/img/placeholders/brand-image-placeholder.png</field>
+  </record>
+
+</odoo>
