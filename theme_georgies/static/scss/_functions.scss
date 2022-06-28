@@ -1,0 +1,3 @@
+@function spacer($spacer) {
+    @return map-get($spacers, $spacer);
+}

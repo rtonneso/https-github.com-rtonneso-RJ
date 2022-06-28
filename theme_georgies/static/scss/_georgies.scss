@@ -1,0 +1,334 @@
+// Georgies Color Pallet
+// #D4B771
+// #000000
+// #F6F6F6
+// #FFFFFF
+// #3B3F44
+
+
+// GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS GENERAL ADJUSTMENTS 
+// BORDER COLORS
+.border-current { border-color: currentColor !important; }
+
+// TYPOGRAPHY
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    letter-spacing: $georgies-letter-spacing;
+}
+
+// Display light classes
+.display-1-white { @extend .display-1; }
+.display-2-white { @extend .display-2; }
+.display-3-white { @extend .display-3; }
+.display-4-white { @extend .display-4; }
+.display-1-white,
+.display-2-white,
+.display-3-white,
+.display-4-white {
+    color: $white;
+}
+
+.display-3 {
+    @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+    }
+}
+
+p:last-child,
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: $font-weight-bold;
+}
+
+
+
+
+
+
+
+// BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS BOOTSTRAP ADJUSTMENTS
+// BUTTONS
+.btn {
+    text-transform: uppercase;
+    &-group {
+        flex: wrap;
+    }
+    //TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY TEMPORARY 
+    // FIXME: NEED TO GET TO WORK WITH BS, ODOO IS FUCKING IT UP THE WAY THEY IMPORT AND THEN OVERRIDE BUTTONS
+    &-sm, &-group-sm > & {
+        padding-top: $input-btn-padding-y-sm;
+        padding-bottom: $input-btn-padding-y-sm;
+        padding-right: $input-btn-padding-x-sm;
+        padding-left: $input-btn-padding-x-sm;
+
+    }
+}
+
+// Add left border for wrapped button (button that is wrapped around in a snippet button group (in the snippet options))
+.georgies-wrapped-button {
+    border-left: 1px solid #000000 !important;
+}
+#oe_snippets > .o_we_customize_panel we-button-group.o_we_user_value_widget we-selection-items {
+    flex-wrap: wrap;
+}
+// Adjust left and right padding of the selection buttons in a group, so that we can fit all twelve of our buttons on one line for column selection purposes
+#oe_snippets > .o_we_customize_panel we-button-group.o_we_user_value_widget we-selection-items we-button {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+
+// NAVBAR
+// Main navbar menu
+// Margins for mobile navbar items
+$georgies-navbar-item-mobile-margins: $spacer * .5;
+header .navbar {
+
+
+    // Adjusting logo sizing
+    .navbar-brand {
+        img { height: 4rem !important; }
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-left: $georgies-navbar-item-mobile-margins;
+        }
+    }
+    
+    .nav-item {
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-left: $georgies-navbar-item-mobile-margins;
+            margin-right: $georgies-navbar-item-mobile-margins;
+            &:last-child { margin-right: $georgies-navbar-item-mobile-margins; } // TODO: See if this is neccesary
+        }
+    }
+
+    // NAVBAR drop down customization
+    .dropdown-menu:not(.o_mega_menu){
+        right: unset;
+        top: calc( 100% + #{$navbar-padding-y});
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+
+        // Set dropdown positioning to be below the navbar
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            top: unset;
+            left: unset;
+            transform: unset;
+            text-align: right;
+        }
+
+        // Adjust spacing on items below collapse point
+        .dropdown-item {
+            @include media-breakpoint-down($georgies-navbar-collapse-point) {
+                padding: spacer(1) spacer(2);
+            }
+        }
+
+    }
+
+    // Unset general nav menu dropdown positioning
+    .dropdown-menu .dropdown-menu {
+        transform: translateX(0);
+        left: unset;
+    }
+
+    // -- Navbar search form --
+    .o_wsale_products_searchbar_form {
+        // Reset top placement for the navbar search form dropdown
+        .dropdown-menu { top: unset; }
+
+        // Override text color of all results button
+        button {
+            letter-spacing: $georgies-letter-spacing;
+        }
+
+        // Remove shadow on focus
+        .form-control:focus { box-shadow: none; }
+    }
+}
+
+// NAVBAR
+.navbar {
+    .nav-item {
+        font-size: .7rem;
+        &:last-child { margin-right: 0; } // TODO: See if this is neccesary
+
+        @include media-breakpoint-down(xs) {
+            margin-right: 0; // TODO: See if this is neccesary
+        }
+
+    }
+    // Reset Odoo's override in web/bootstrap_review.scss
+    &-dark .navbar-toggler,
+    &-light .navbar-toggler {
+        padding-left: $navbar-toggler-padding-x;
+        padding-right: $navbar-toggler-padding-x;
+        @include media-breakpoint-down($georgies-navbar-collapse-point) {
+            margin-right: $georgies-navbar-item-mobile-margins;
+        }
+    }
+
+}
+
+// NAV ITEM
+.nav-item {
+    font-weight: $font-weight-bold !important;
+    text-transform: uppercase;
+    letter-spacing: $georgies-letter-spacing;
+    // .nav-link.active { @include media-breakpoint-up(md) { border-bottom: $border-width solid currentColor; }}
+}
+
+// Remove lines in Odoo extra menu items dropdown
+.o_extra_menu_items li{
+    border-top: unset !important;
+}
+
+// Add text whitespace pre class for preserving text breaks
+.text-space-pre {
+    white-space: pre-wrap;
+}
+
+
+
+
+// GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES GEORGIES
+
+
+// Georgies Call to Action
+.georgies-call-to-action {
+    .btn {
+        @include media-breakpoint-down(lg) { width: 100%; }
+    }
+}
+
+// NAVBAR SEARCH
+.georgies-navbar-search {
+    .form-control {
+        width: 30rem;
+        max-width: 100%;
+        @include media-breakpoint-down(md) { width: 25rem; }
+    }
+}
+
+// SHOP MEGA MENU
+.georgies-shop-mega-brand {
+    background-color: white;
+    padding: $spacer * .125;
+    height: 4rem;
+    object-fit: contain;
+}
+.georgies-shop-mega-buttons {
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: spacer(1);
+    }
+}
+
+
+// DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET DISTRIBUTOR MAP SNIPPET
+
+
+
+// Disable pointer events on the map to prevent odoo from trying to edit it
+.georgies-distributor-map {
+    pointer-events: none;
+}
+
+// Map Styling
+.georgies-state {
+    path {
+        fill: #FFFFFF;
+        stroke: $black;
+        transition: fill .2s, stroke-width .2s;
+    }
+    text {
+        opacity: 1;
+        transition: opacity .2s;
+    }
+}
+.georgies-state-enabled {
+    pointer-events: auto;
+    cursor: pointer;
+    path {
+        fill: $primary;
+        stroke: $black;
+    }
+}    
+
+.georgies-state-disabled text{
+    opacity: 0;
+}
+.georgies-state-active {
+    .georgies-state-name {
+        fill: $primary;
+    }
+
+    path {
+        fill: var(--o-color-5);
+        stroke-width: 3px;
+    }  
+} 
+.georgies-state-name {
+    font-family:  "Open Sans", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.georgies-distributor-state {
+    overflow-wrap: break-word;
+   
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+
+    &__active {
+        display: block;
+    }
+}
+
+
+// Distributor map column settings
+.distributorMapColumn {
+    // Hide on xs devices
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+}
+// Hide this text by default
+.distributorListText {
+    display: none;
+}
+// This class is toggled on if the user wants to hide the map and show all of the distributors
+.distributorHideMap {
+    .distributorMapText {
+        display: none;
+    }
+    .distributorListText {
+        display: inline;
+    }
+
+    .georgies-distributor-state {
+        @include media-breakpoint-up(sm) {
+            display: block;
+        }
+    }
+
+    // Hide the map if the user has chosen to hide it
+    .distributorMapColumn {
+        display: none;
+    }
+
+}

@@ -1,0 +1,332 @@
+// SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP SHOP
+// Navbar cart icon spacing
+.o_wsale_my_cart i {
+  margin-right: spacer(1);
+}
+
+// Hide cart popover (it gets in the way of the other nav items, especially on a small display
+.mycart-popover {
+  display: none;
+}
+
+// -- Categories & Product Attributes --
+#o_shop_collapse_category,
+#wsale_products_attributes_collapse,
+#wsale_products_categories_collapse {
+  // Remove access margin on left of attribute checkboxes
+  ul ul { margin-left: unset; }
+  li {
+    position: relative;
+    margin-top: $spacer * .125;
+    .nav-link {
+      width: unset;
+      padding: .25rem 1rem .25rem 1rem;
+    }
+    i + .nav-link {
+    padding-left: 0;
+    width: 80%;
+    &.active { padding-left: 1rem; }
+    }
+  }
+}
+#wsale_products_attributes_collapse {
+  li {
+  margin-top: 0;
+  .nav-link {
+    display: flex;
+    align-items: center;
+    input[type='checkbox'] {
+    margin-right: .5rem;
+    }
+  }
+  }
+}
+.css_attribute_color {
+  cursor: pointer; // Add cursor pointer functionality
+  input {
+    cursor: pointer; // Add cursor pointer on the input as well
+  }
+  &.active { border: 3px dashed $gray-400; } // Change border style
+}
+
+
+// --Product Card 
+#products_grid { 
+  // Both grid and list view
+  .oe_product_cart {
+    // Hover style
+    &:hover  {
+      // Modify product card
+      overflow: visible;
+      box-shadow: none;
+    }
+    // Product card title
+    .o_wsale_products_item_title {
+      margin-bottom: spacer(1);
+      font-weight: bold;
+      a { text-decoration: none; }
+    }
+    // Change line height of product price to allow for more space for images
+    .product_price {
+      line-height: 1.4;
+    }
+    // Product image
+    .oe_product_image {
+      // Remove padding on wrapper
+      padding: 0;
+      // Add padding to link
+      a {
+        padding-top: spacer(1);
+        padding-right: spacer(1);
+        padding-left: spacer(1);
+      }
+      // Set object-fit to contain so we can maximize our image
+      img {
+        object-fit: contain;
+      }
+    }
+    
+    // Adjust cart button
+    .o_wsale_product_btn {
+      z-index: 9;
+      display: flex;
+      top: 100%;
+      left: -1 * $border-width;
+      right: -1 * $border-width;
+      bottom: unset;
+      padding-bottom: 0;
+      margin-bottom: -1 * $border-width;
+            
+      .btn {
+        @include button-variant($secondary, $secondary);
+        padding: spacer(1) spacer(2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+      }
+    }
+
+    // Ribbon wrapper that we'll use as a mask for the ribbon
+    .o_ribbon_wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+  }
+
+  // Product List View
+  &.o_wsale_layout_list .oe_product_cart {
+    .o_wsale_product_btn { margin-bottom: 0; }
+
+    // Center product info vertically
+    .o_wsale_product_information_text {
+      align-self: center;
+      // Override left spacing to image on list view
+      padding-left: spacer(2) !important;
+    } 
+    .oe_product_image a {
+      padding-bottom: spacer(1);
+    }
+  } 
+}
+
+
+// Display product name as uppercase
+// In website product search
+.o_wsale_products_searchbar_form h6,
+.o_carousel_product_card h6 {
+  text-transform: uppercase;
+}
+
+
+.oe_website_sale  {
+
+    // Display product name as uppercase
+    // In product details
+    h1[itemprop="name"],
+    .td-product_name,
+    // In shop product grid
+    a[itemprop="name"],
+    // In breadcrumbs
+    .breadcrumb-item span[data-oe-field="name"] {
+      text-transform: uppercase;
+    }
+
+
+  // --Shopping Cart--
+  // Adjust shopping cart item list spacing
+  table#cart_products {
+    // Add border
+    border: solid 2px #DEE2E6;
+
+    th {
+      padding-top: spacer(1);
+      padding-bottom: spacer(1);
+      border-bottom: none; // Remove th border so for consistancy with items below
+    }  
+
+    td { 
+      padding-top: spacer(2);
+      padding-bottom: spacer(2);
+
+      &:first-child { padding-left: spacer(2); }
+      &:last-child { padding-right: spacer(2); }
+    }  
+  }
+
+  // Adjust suggested accessories table
+  table#suggested_products {
+    // Add border
+    border: solid 2px #DEE2E6;
+  }
+
+  // Adjust top margin of optional products popup
+  .modal-dialog { margin-top: spacer(4); }
+
+  // Adjust optional products popup on product add to cart
+  .oe_optional_products_modal {
+    // Remove left and right padding around table
+    padding-left: 0;
+    padding-right: 0;
+    // Add padding to child elements first and last
+    tr {
+      > td:first-of-type,
+      > th:first-of-type {
+        padding-left: spacer(2);
+        @include media-breakpoint-down(xs) {
+          padding-left: spacer(1);
+        }
+      }
+      > td:last-of-type,
+      > th:last-of-type { 
+        padding-right: spacer(2);
+        @include media-breakpoint-down(xs) {
+          padding-right: spacer(1);
+        }
+      }
+    }
+    
+    .js_product {
+      td:not(.td-img) { vertical-align: middle; }
+      .td-product_name {
+        padding-left: spacer(2);
+        @include media-breakpoint-down(xs) {
+          padding-left: spacer(1);
+        }
+      }
+      .td-price { width: 140px; }
+    }
+  
+    .o_select_options + .js_product .oe_price {
+      margin-bottom: spacer(1);
+    }
+  }
+  
+
+  // Adjust promo code text style
+  .show_coupon {
+    font-weight: bold;
+    font-style: italic;
+  }  
+
+  // Breadcrumbs
+  .breadcrumb {
+    border: $border-width solid $gray-200;
+  }
+
+}  
+
+
+
+
+//  PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE PRODUCT PAGE
+#product_detail {
+
+  // Product search on product page
+  .o_wsale_products_searchbar_form { 
+    // Add spacing below search
+    margin-bottom: spacer(2);
+    
+    // Adjust search bar to be larger and fill the width of the column, and go full width on sm and xs screens
+    @include media-breakpoint-down(sm) { width: 100%; }
+    flex-grow: 1;
+  }
+  // Attributes spacing
+  .variant_attribute {
+    .col-form-label {
+      padding-top: unset;
+      padding-bottom: spacer(1);
+    }
+  }
+}
+
+// Add spacing around product images in recently viewed cards
+.s_wsale_products_recently_viewed .o_carousel_product_card_img_top {
+  padding: spacer(1);
+}
+// Theme left and right arrows for recently viewed items
+.o_carousel_product_control {
+  border-radius: unset;
+  background-color: $primary;
+}
+
+// Website rating remove selection button modifcations
+.o_website_rating_progress_table .o_website_rating_select_text{
+  // Reduce padding on invisible button
+  padding: 0 spacer(2);
+}
+
+// Set cursor to auto on small devices where the zoom feature is disabled
+@include media-breakpoint-down(sm) {
+  .ecom-zoomable:not(.ecom-autozoom) img[data-zoom] {
+    cursor: auto;
+  }
+}
+
+
+// PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON PRODUCT COMPARISON 
+// Remove rounded corners on the compare fixed button
+.o_product_feature_panel {
+  border-top-right-radius: unset;
+  border-top-left-radius: unset;
+}
+// remove the underline on the product links in the compare products popup
+.o_comparelist_products {
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+// Adjust padding of comparison popup
+.o_product_feature_panel .popover-body {
+  padding: spacer(2);
+
+  .o_remove {
+    font-size: $font-size-base;
+  }
+}
+
+
+
+// PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST PRODUCT WISH LIST 
+.oe_website_sale .td-wish-btn { 
+  width: auto;
+  white-space: nowrap;
+};
+
+.wishlist-section #o_comparelist_table td {
+  @include media-breakpoint-down(xs) {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    &:nth-child(2) {
+      border-top: none;
+    }
+  }
+}
