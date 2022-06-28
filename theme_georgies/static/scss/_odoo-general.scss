@@ -1,0 +1,211 @@
+// ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO ODOO 
+
+
+// ODOO SPECIFIC SNIPPET OPTIONS
+.media-fit {
+  &-cover { object-fit: cover; }
+  &-contain { object-fit: contain; }
+  &-full { object-fit: none; }
+
+}
+
+
+// === Odoo Theme Overrides ===
+// Navbar nested dropdown background color
+.navbar .o_extra_menu_items.show > ul > li > a.dropdown-toggle {
+  background-color: $color-1;
+}
+
+// Footer Scroll to top button
+#o_footer_scrolltop {
+  border: 2px solid currentColor;
+}
+
+
+// Search results adjustment
+.o_search_product_item {
+  .media-body h6 { margin-bottom: spacer(1); }
+}
+
+// Change the left hand padding of the buttons in the grid area that show the categories and options on smaller sized screens
+// #products_grid_before {
+//     & > button {
+//         @include media-breakpoint-down(xl) {
+//             padding-left: 0;
+//         }
+//     }
+// }
+
+// Set the flex-wrap propertie and spacing on this to allow for wrap around of pages on smaller screens
+.pagination {
+  flex-wrap: wrap;
+
+  // Change the left margins created to help with border doubling in-between pagination items
+  margin-left: $border-width !important;
+  margin-top: calc(#{$border-width} + #{spacer(2)}) !important;
+
+  .page-item > .page-link { 
+      margin-left: -1 * $border-width;
+      margin-top: -1 * $border-width; 
+  }
+
+}
+
+
+// ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS ODOO SNIPPETS 
+
+
+// Media Item Snippet
+.s_media_list[data-vcss="001"] .s_media_list_body {
+  padding: spacer(3);
+}
+
+// Hide image shape / shadow / and thumbnail buttons (they look like trash, and aren't consistant with the rest of the theme. Also hide the resizing buttons, as we've added that functionality in the snippet options for images, and it's a better location since that's where the resolution option, and quality is.
+#oe_snippets#oe_snippets .o_we_snippet_text_tools {
+  .btn[data-event='imageShape'][data-value='rounded'],
+  .btn[data-event='imageShape'][data-value='rounded-circle'],
+  .btn[data-event='imageShape'][data-value='shadow'],
+  .btn[data-event='imageShape'][data-value='img-thumbnail'],
+  .btn[data-event='resize'][data-value='auto'],
+  .btn[data-event='resize'][data-value='1'],
+  .btn[data-event='resize'][data-value='0.5'],
+  .btn[data-event='resize'][data-value='0.25'] {
+      display: none;
+  }
+}
+
+// Image Crop Editor
+// Set Primary Button to regular (not outline) for readability purposes
+.o_we_crop_buttons .btn.btn-primary{
+  @include button-variant($primary, $primary);
+}
+
+
+// Image carousel / gallery / quotes arrows
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-next .fa,
+.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-next .fa,
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-prev .fa,
+.s_gallery_lightbox .modal-body.o_slideshow .carousel .carousel-control-prev .fa,
+.s_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_carousel.s_carousel_default .carousel-control-next-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-prev-icon:before, .s_quotes_carousel.s_carousel_default .carousel-control-next-icon:before {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+// Set carosel background shadow on bottom indicators
+.s_carousel.s_carousel_default .carousel-indicators li,
+.s_quotes_carousel.s_carousel_default .carousel-indicators li {
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, .75);
+}
+
+// Disable underline on left and right arrows
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-next,
+.s_image_gallery.o_slideshow[data-vcss="001"] .carousel .carousel-control-prev {
+  text-decoration: none;
+}
+
+// Remove bottom margin on image indicators for image gallery to give more space between them and the image
+.s_image_gallery[data-vcss="001"].o_slideshow ul.carousel-indicators {
+  margin-bottom: 0;
+}
+
+// Upcoming events list snippet 
+.s_country_events_list {
+  margin-bottom: $spacer * .75;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+
+
+// Alert snippet, adjust padding between alert and text
+.s_alert_icon {
+  margin-right: spacer(2);
+}
+
+// Add bottom margins to alert snippet
+.s_alert {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Card Inner Snippet
+.s_card {
+  margin-top: 0;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Add bottom margins to share snippet
+.s_share {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Add bottom margins to chart snippet
+.s_chart {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Add bottom margins to store search snippet
+.s_wsale_products_searchbar_input {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust text highlight snippet margins
+.s_text_highlight {
+  margin-top: 0;
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust block quote snippet margins
+.s_blockquote {
+  margin-bottom: $spacer * .75;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Adjust hr snippet padding
+.s_hr {
+  margin-bottom: $spacer * .75 !important;
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+.editor_enable .s_hr {
+  min-height: $spacer;
+  display: flex;
+  align-items: center;
+}
+
+// Undo Odoo's custom padding here
+.s_color_blocks_2 [class*="col-lg-"] {
+  padding-top: unset;
+  padding-bottom: unset;
+  padding-left: $grid-gutter-width * .5;
+  padding-right: $grid-gutter-width * .5;
+}
+
+// Remove border from mega menu dropdown
+.o_mega_menu {
+  border: none;
+}
+
+// Align tabs to the bottom so that if there are some tall tabs they'll always be aligned to the bottom of the tab container and look good
+.card-header-tabs {
+  align-items: end;
+}

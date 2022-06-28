@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <!-- Insert our modified bootstrap variables -->
+  <template id="theme_georgies_bootstrap" inherit_id="website._assets_frontend_helpers" priority="1" name="Georgies Custom Variables - Used in boostrap and custom SCSS">
+    <xpath expr="//link" position="before">
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_variables.scss"/>
+    </xpath>
+  </template>
+
+  <!-- Insert our modified bootstrap variables -->
+  <template id="_assets_frontend_helpers" inherit_id="website._assets_frontend_helpers" name="Georgies Custom Boostrap Overrides">
+      <xpath expr="//link[last()]" position="after">
+          <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/bootstrap_overridden.scss"/>
+      </xpath>
+  </template>
+
+  <!-- Insert our custom assets -->
+  <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999" name="Georgies Custom SCSS and Javascript">
+    <xpath expr="//link[last()]" position="after">
+      <!-- Insert our custom css-->
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_georgies.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-blog.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-events.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-general.scss"/>
+      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-shop.scss"/>
+    </xpath>
+    <!-- Insert our custom JS -->
+    <xpath expr="script[last()]" position="after">
+      <script type="text/javascript" src="/theme_georgies/static/js/georgies-v1.01.js" />
+    </xpath>
+  </template>
+
+</odoo>
