@@ -26,20 +26,50 @@
           </div>
           <div class="col-md-8">
             <div class="container">
-              <t t-foreach="[1,2,3]" t-as="l">
-                <div class="row">
-                  <t t-foreach="[1,2,3,4]" t-as="i">
-                    <div class="col-sm-6 col-md-3">
-                      <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 georgies-shop-mega-brand" src="/web/image/theme_georgies.placeholder_brand-image" alt="BRAND NAME"></img></a></div>
-                    </div>
-                  </t>
-                </div>       
+
+              <!-- Check if website brands model exists, and if so display them -->
+              <t t-if="request.env['ir.model'].search([['model', '=', 'x_website_brands']])">
+                <!-- Odoo.sh specific code -->
+                <t t-set="brands" t-value="request.env['x_website_brands'].search([])"/>
+                <t t-if="brands">
+                  <div class="row">
+                    <t t-foreach="brands" t-as="brand">
+
+                      <t t-if="brand.x_studio_brand_category and brand.x_studio_brand_logo and brand.x_name">
+                        <div class="col-sm-6 col-md-3">
+                          <div class="d-block mb-2" href="#">
+                            <a t-attf-href="/shop/category/{{brand.x_studio_brand_category}}">
+                              <img class="w-100 georgies-shop-mega-brand" t-att-src="'data:image/png;base64,%s' % to_text(brand.x_studio_brand_logo)" t-att-alt="brand.x_name"></img>
+                            </a>
+                          </div>
+                        </div>
+                      </t>
+
+                    </t>
+                  </div>       
+                </t>
               </t>
+
+              <!-- If the website brands model doesn't exist, then display static images to be manually manipulated -->
+              <t t-else="">
+                <t t-foreach="[1,2,3]" t-as="l">
+                  <div class="row">
+                    <t t-foreach="[1,2,3,4]" t-as="i">
+                      <div class="col-sm-6 col-md-3">
+                        <div class="d-block mb-2" href="#"><a href="/shop"><img class="w-100 georgies-shop-mega-brand" src="/web/image/theme_georgies.placeholder_brand-image" alt="BRAND NAME"></img></a></div>
+                      </div>
+                    </t>
+                  </div>       
+                </t>
+              </t>
+              
+
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </xpath>
   </template>
 

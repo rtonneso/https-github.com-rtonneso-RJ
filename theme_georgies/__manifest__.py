@@ -2,7 +2,7 @@
   'name':'Georgies.com',
   'description': 'Georgies.com theme by Lichen',
   'category': 'Theme/Website',
-  'version':'1.5',
+  'version':'1.7',
   'author':'Lichen',
   'summary': 'Art, Ceramics',
   'sequence': 110,
