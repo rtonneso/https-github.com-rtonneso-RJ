@@ -101,8 +101,8 @@
           <section class="pt32 pb32" data-name="Call to Action">
             <div class="container">
               <div class="georgies-call-to-action border border-current pb16" data-name="Call to Action">
-                <div class="georgies-footer-locations row align-items-center">
-                  <div class="georgies-footer-location col-lg-8 pt16">
+                <div class="row align-items-center">
+                  <div class="col-lg-8 pt16">
                     <div class="px-2 px-lg-3">
                       <h5><i>HEY, GEORGIES HAS A SUPER AWESOME NEWSLETTER!</i></h5>
                     </div>
@@ -129,10 +129,11 @@
       <section class="pb32" data-name="Locations" contenteditable="false">
         <div class="container">
           <div class="row mb-n2">
-            <!-- For each company in companies, lets create a listing -->
-            <t t-foreach="request.env['res.company'].search([])" t-as="company">
-              <div class="col-md-6">
-                <div class="mb-2">
+            <!-- First column for masonry default layout -->
+            <div class="col-md-6 footer-location-column-one">
+              <!-- For each company in companies, lets create a listing -->
+              <t t-foreach="request.env['res.company'].search([])" t-as="company">
+                <div class="mb-2 georgies-footer-location" t-attf-data-location-order="{{company_index}}">
                   <div class="border border-current py-2 py-lg-3 px-2 px-lg-3">
                   
                     <div class="text-uppercase h6"><em><t t-esc="company.name"/></em></div>
@@ -178,8 +179,12 @@
                     
                   </div>
                 </div>
-              </div>
-            </t>
+              </t>
+            </div>
+            <!-- Second column for masonry wide layout (hidden by default)-->
+            <div class="col-md-6 footer-location-column-two d-none">
+            </div>
+
           </div>
         </div>
       </section>
