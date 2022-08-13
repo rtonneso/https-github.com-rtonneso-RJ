@@ -32,7 +32,7 @@
                 <!-- Odoo.sh specific code -->
                 <t t-set="brands" t-value="request.env['x_website_brands'].search([])"/>
                 <t t-if="brands">
-                  <div class="row">
+                  <div class="row" contenteditable="false">
                     <t t-foreach="brands" t-as="brand">
 
                       <t t-if="brand.x_studio_brand_category and brand.x_studio_brand_logo and brand.x_name">

@@ -3,7 +3,7 @@
 // TODO: ADD SPECIFIC FUNCTIONS ONLY IF THOSE ELEMENTS ARE DETECTED ON THE PAGE. DISTRIBUTOR MAP, IMAGE GALLERIES ETC.
 
 // Debugging messaging
-let debugEnabled = true;
+let debugEnabled = false;
 let debugLevel = 'verbose'; // normal or verbose
 
 function debug(level, message) {
@@ -227,20 +227,80 @@ function distMapInit(map) {
 // [1[1]] [2[2]]
 // [1[3]]
 
-// [1[[1] <---
-// [1[3]] ---^
-// [2[3]]
+// [1[1]] <---
+// [1[2]] ---^
+// [1[3]]
 
+// Single column enabled by default
+let locationsReorganized = false;
 // Footer location masonry
-// Single Column Enabled
-// Get footer locations
-// Check if layout is wide enough for two columns
-  // If single column enabled
-  // Reorganize columns into two 
-// Check if layout is only wide enough for a single column
-  // If single column is not enabled
-  // Reorganize columns into single column order
+function footerLocationMasonry (mediaQuery) {
+  debug('verbose', 'Checking on footer location masonry display...');
+  // Get footer locations
+  const locations = document.querySelectorAll('.georgies-footer-location');
+  debug('verbose', locations);
+  // Get first column
+  const firstColumn = document.querySelector('.footer-location-column-one');
+  debug('verbose', firstColumn);
+  // Get second column
+  const secondColumn = document.querySelector('.footer-location-column-two');
+  debug('verbose', secondColumn);
+  // Check if wide enough for two columns
+  if (mediaQuery.matches) {
+    // If haven't been reorganized yet
+    if (!locationsReorganized) {
+        debug('verbose', 'Window wide enough for two columns. Reorganizing...');
+        locations.forEach((location) => {
+          // Reorganize even locations into first column
+          if (location.dataset.locationOrder % 2 == 0) {
+            debug('verbose', 'appending location to first column');
+            firstColumn.append(location);
+          } else {
+            debug('verbose', 'appending location to second column');
+            // Reorganize odd locations into second column
+            secondColumn.append(location);
+            // Show second column
+            secondColumn.classList.remove('d-none');
+          }
+        });
+        locationsReorganized = true;
+      }
+  } else {
+    debug('verbose', 'Window only wide enough for one column. Reorganizing...');
+    // Only wide enough for one column
+    // Check if reorganized
+    if (locationsReorganized) {
+      debug('verbose', 'Window only wide enough for one column. Reorganizing...');
+      for (i = 0; i < locations.length; i++) {
+        // Reorganize locations into first column in order
+        locations.forEach((location) => {
+          if (location.dataset.locationOrder == i) {
+            firstColumn.append(location);
+          }
+        });
+      }
+      // Hide second column
+      debug('verbose', 'Hiding second column');
+      secondColumn.classList.add('d-none');
+      locationsReorganized = false;
+    }
+  }
+}
 
+// Check if IE is being used and show a non-supported warning and suggestion to upgrade the browser
+function checkIE() {
+  // Check if IE is being used
+  if (window.document.documentMode) {
+    // If so, display a message in the top bar (header) of the site
+    let header = document.querySelector('header#top');
+    // Create our little message
+    let messageElement = document.createElement('div');
+    let messageHTML = 'You are using Internet Explorer. This website won\'t look or function properly unless you upgrade your browser to Microsoft Edge, Google Chrome, or Mozilla Firefox.';
+    messageElement.classList.add('IEWarning');
+    messageElement.innerHTML = messageHTML;
+    header.prepend(messageElement);
+  }
+}
 
 // Wait for document to finish loading
 $(document).ready(function() {
@@ -260,6 +320,19 @@ $(document).ready(function() {
   if (map) {
     distMapInit(map);
   }
+
+  // Footer location masonry
+  // Break point for two columns
+  const locationBreakPoint = '(min-width: 768px)';
+  const locationMediaQuery = window.matchMedia(locationBreakPoint);
+  // Add an event listener to media query
+  locationMediaQuery.addEventListener('change', footerLocationMasonry);
+
+  // Initial footer location device width check
+  footerLocationMasonry(locationMediaQuery);
+
+  // Run our IE check
+  checkIE();
 });
 
 
