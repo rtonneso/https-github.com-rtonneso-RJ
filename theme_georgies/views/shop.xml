@@ -451,6 +451,12 @@
   </xpath>
 </template>
 
+<template id="georgies_shopping_cart_delivery_summary_total" inherit_id="website_sale_delivery.cart_delivery" name="Georgies - Shopping Cart Delivery Summary Total">
+  <xpath expr="//tr[@id='order_delivery']//span[hasclass('monetary_field')]" position="replace">
+    <span>TBD</span>
+  </xpath>
+</template>
+
 <template id="georgies_shopping_cart_payment_page" inherit_id="website_sale.payment" name="Georgies - Shopping Cart Payment Page">
   <!-- Need to hide the payment options and have the manual procesing option available -->
   <!-- Remove payment options header -->
