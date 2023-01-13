@@ -224,6 +224,9 @@ function distMapInit(map) {
 }
 
 
+
+
+// FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY FOOTER MASONRY
 // [1[1]] [2[2]]
 // [1[3]]
 
@@ -235,58 +238,63 @@ function distMapInit(map) {
 let locationsReorganized = false;
 // Footer location masonry
 function footerLocationMasonry (mediaQuery) {
-  debug('verbose', 'Checking on footer location masonry display...');
-  // Get footer locations
-  const locations = document.querySelectorAll('.georgies-footer-location');
-  debug('verbose', locations);
-  // Get first column
-  const firstColumn = document.querySelector('.footer-location-column-one');
-  debug('verbose', firstColumn);
-  // Get second column
-  const secondColumn = document.querySelector('.footer-location-column-two');
-  debug('verbose', secondColumn);
-  // Check if wide enough for two columns
-  if (mediaQuery.matches) {
-    // If haven't been reorganized yet
-    if (!locationsReorganized) {
-        debug('verbose', 'Window wide enough for two columns. Reorganizing...');
-        locations.forEach((location) => {
-          // Reorganize even locations into first column
-          if (location.dataset.locationOrder % 2 == 0) {
-            debug('verbose', 'appending location to first column');
-            firstColumn.append(location);
-          } else {
-            debug('verbose', 'appending location to second column');
-            // Reorganize odd locations into second column
-            secondColumn.append(location);
-            // Show second column
-            secondColumn.classList.remove('d-none');
-          }
-        });
-        locationsReorganized = true;
-      }
-  } else {
-    debug('verbose', 'Window only wide enough for one column. Reorganizing...');
-    // Only wide enough for one column
-    // Check if reorganized
-    if (locationsReorganized) {
+  debug('verbose', 'Checking for the presence of footer (hidden on checkout)');
+  let footerPresent = document.querySelector('footer');
+  if (footerPresent) {
+    debug('verbose', 'Checking on footer location masonry display...');
+    // Get footer locations
+    const locations = document.querySelectorAll('.georgies-footer-location');
+    debug('verbose', locations);
+    // Get first column
+    const firstColumn = document.querySelector('.footer-location-column-one');
+    debug('verbose', firstColumn);
+    // Get second column
+    const secondColumn = document.querySelector('.footer-location-column-two');
+    debug('verbose', secondColumn);
+    // Check if wide enough for two columns
+    if (mediaQuery.matches) {
+      // If haven't been reorganized yet
+      if (!locationsReorganized) {
+          debug('verbose', 'Window wide enough for two columns. Reorganizing...');
+          locations.forEach((location) => {
+            // Reorganize even locations into first column
+            if (location.dataset.locationOrder % 2 == 0) {
+              debug('verbose', 'appending location to first column');
+              firstColumn.append(location);
+            } else {
+              debug('verbose', 'appending location to second column');
+              // Reorganize odd locations into second column
+              secondColumn.append(location);
+              // Show second column
+              secondColumn.classList.remove('d-none');
+            }
+          });
+          locationsReorganized = true;
+        }
+    } else {
       debug('verbose', 'Window only wide enough for one column. Reorganizing...');
-      for (i = 0; i < locations.length; i++) {
-        // Reorganize locations into first column in order
-        locations.forEach((location) => {
-          if (location.dataset.locationOrder == i) {
-            firstColumn.append(location);
-          }
-        });
+      // Only wide enough for one column
+      // Check if reorganized
+      if (locationsReorganized) {
+        debug('verbose', 'Window only wide enough for one column. Reorganizing...');
+        for (i = 0; i < locations.length; i++) {
+          // Reorganize locations into first column in order
+          locations.forEach((location) => {
+            if (location.dataset.locationOrder == i) {
+              firstColumn.append(location);
+            }
+          });
+        }
+        // Hide second column
+        debug('verbose', 'Hiding second column');
+        secondColumn.classList.add('d-none');
+        locationsReorganized = false;
       }
-      // Hide second column
-      debug('verbose', 'Hiding second column');
-      secondColumn.classList.add('d-none');
-      locationsReorganized = false;
     }
   }
 }
 
+// IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK IE CHECK 
 // Check if IE is being used and show a non-supported warning and suggestion to upgrade the browser
 function checkIE() {
   // Check if IE is being used
