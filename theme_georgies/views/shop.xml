@@ -151,12 +151,10 @@
     <xpath expr="//t[@t-call='website_sale.pricelist_list']" position="replace"/>
     <!-- Enlarge breadcrumbs -->
     <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-4')]" position="attributes">
-      <attribute name="class" remove="col-md-4" add="col-md-5" separator=" "/>
+      <attribute name="class" remove="col-md-4" add="col-12" separator=" "/>
     </xpath>
-    <!-- Shrink Search bar / pricelist button column slightly -->
-    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-8')]" position="attributes">
-      <attribute name="class" remove="col-md-8" add="col-md-7" separator=" "/>
-    </xpath>
+    <!-- Remove Search bar / pricelist button column -->
+    <xpath expr="//section[contains(@t-attf-class, 'oe_website_sale')]//div[hasclass('col-md-8')]" position="replace"/>
     <!-- Adjust spacing of product section -->
     <xpath expr="//section[@id='product_detail']" position="attributes">
       <attribute name="t-attf-class" remove="py-2" add="pt-3" separator=" "/>
@@ -278,7 +276,7 @@
   -->
   <template id="georgies_unit_of_measure" inherit_id="website_sale.product_price" name="Georgies - Unit of Measure on product page">
     <xpath expr="//b[hasclass('oe_price')]" position="after">
-      <span t-field="product.uom_id.name"/>
+      <span>(<span t-field="product.uom_id.name"/>)</span>
     </xpath>
   </template>
 
@@ -425,24 +423,56 @@
     </li>
   </template>
 
-  <template id="additional_breadcrumbs" inherit_id="website_sale.product" name="Show breadcrumbs for additional categories" customize_show="True" active="True">
-    <xpath expr="//section[@id='product_detail']/div[hasclass('row')]" position="inside">
-      <div class="col-md-12">
-        <t t-if="product.public_categ_ids and ((not category) or (not category in product.public_categ_ids) or (category in product.public_categ_ids and len(product.public_categ_ids) &gt; 1))">
-          <p class="info">This product is also present in these categories:</p>
-          <t t-set="selected_category" t-value="category" />
-          <t t-foreach="product.public_categ_ids" t-as="category">
-            <ol t-if="category != selected_category" class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a t-att-href="keep(category=0)">Products</a>
-              </li>
-              <t t-call="theme_georgies.breadcrumb_recursive"/>
-            </ol>
-          </t>
-        </t>
-      </div>
-    </xpath>
-  </template>
+<!-- SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART SHOPPING CART -->
+
+<template id="georiges_shopping_cart" inherit_id="website_sale.cart" name="Georgies - Shopping Cart">
+  <!-- Change wording of checkout button in main section -->
+  <xpath expr="//div[hasclass('oe_cart')]//a[@href='/shop/checkout?express=1']/span[1]" position="replace">
+    <span>Start Order</span>
+  </xpath>
+  <!-- Change wording of checkout button in side section on displays smaller than xl-->
+  <xpath expr="//div[@id='o_cart_summary']//a[@href='/shop/checkout?express=1']/span[1]" position="replace">
+    <span>Start Order</span>
+  </xpath>
+</template>
+
+<template id="georgies_shopping_cart_short_summary" inherit_id="website_sale.short_cart_summary" name="Georgies - Shopping Cart Short Summary">
+  <!-- Change wording of checkout button in side section on displays xl and larger -->
+  <xpath expr="//a[@href='/shop/checkout?express=1']/span[1]" position="replace">
+    <span>Start Order</span>
+    <span class="fa fa-chevron-right" />
+  </xpath>
+</template>
+
+<template id="georgies_shopping_cart_delivery_cost_badge" inherit_id="website_sale_delivery.payment_delivery_methods" name="Georgies - Shopping Cart Delivery Cost Badge">
+  <!-- Change Free to TBD when delivery cost is 0 -->
+  <xpath expr="//t[starts-with(@t-if, 'delivery.delivery_typ')]/span[@t-else='']" position="replace">
+    <span t-else="" t-att-class="badge_class">TBD</span>
+  </xpath>
+</template>
+
+<template id="georgies_shopping_cart_delivery_summary_total" inherit_id="website_sale_delivery.cart_delivery" name="Georgies - Shopping Cart Delivery Summary Total">
+  <xpath expr="//tr[@id='order_delivery']//span[hasclass('monetary_field')]" position="replace">
+    <span>TBD</span>
+  </xpath>
+</template>
+
+<template id="georgies_shopping_cart_payment_page" inherit_id="website_sale.payment" name="Georgies - Shopping Cart Payment Page">
+  <!-- Need to hide the payment options and have the manual procesing option available -->
+  <!-- Remove payment options header -->
+  <xpath expr="//div[@id='payment_method']/h3" position="replace"/>
+  <!-- Change pay now button text -->
+  <xpath expr="//t[@t-set='submit_txt']" position="replace">
+    <t t-set="submit_txt">Place Order</t>
+  </xpath>
+  <!-- TODO: ENSURE RIGHT PAYMENT AQUIRER IS CHECKED -->
+  <!-- Ensure our manual payment aquirer is checked -->
+  <!-- <xpath expr="//t[@t-call='payment.payment_tokens_list']" position="inside">
+    <t t-set="checked_pm_id = '4'"/>
+  </xpath> -->
+</template>
+
+
 
   <!-- WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE WISHLIST PAGE -->
 
