@@ -1,117 +1,117 @@
-// Colors
-// Background .o_cc1
-// Background .o_cc2
-// Background .o_cc3
-// Background .o_cc4
-// Background .o_cc5
-$color-1: var(--o-color-1);
-$color-2: var(--o-color-2);
-$color-3: var(--o-color-3);
-$color-4: var(--o-color-4);
-$color-5: var(--o-color-5);
+// // Colors
+// // Background .o_cc1
+// // Background .o_cc2
+// // Background .o_cc3
+// // Background .o_cc4
+// // Background .o_cc5
+// $color-1: var(--o-color-1);
+// $color-2: var(--o-color-2);
+// $color-3: var(--o-color-3);
+// $color-4: var(--o-color-4);
+// $color-5: var(--o-color-5);
 
-// Typography
-$line-height-base: 1.8;
-// Headings
-$h1-font-size:                $font-size-base * 3.5;
-$h2-font-size:                $font-size-base * 2.5;
-$h3-font-size:                $font-size-base * 1.75;
-$h4-font-size:                $font-size-base * 1.5;
-$h5-font-size:                $font-size-base * 1.25;
-$h6-font-size:                $font-size-base;
-$headings-font-weight: 700;
-$headings-line-height: 1.4;
-$headings-margin-bottom: 1.5rem;
-$paragraph-margin-bottom: 1.5rem;
-// Displays
-$display-font-weight: $headings-font-weight;
-$display-line-height: $headings-line-height;
+// // Typography
+// $line-height-base: 1.8;
+// // Headings
+// $h1-font-size:                $font-size-base * 3.5;
+// $h2-font-size:                $font-size-base * 2.5;
+// $h3-font-size:                $font-size-base * 1.75;
+// $h4-font-size:                $font-size-base * 1.5;
+// $h5-font-size:                $font-size-base * 1.25;
+// $h6-font-size:                $font-size-base;
+// $headings-font-weight: 700;
+// $headings-line-height: 1.4;
+// $headings-margin-bottom: 1.5rem;
+// $paragraph-margin-bottom: 1.5rem;
+// // Displays
+// $display-font-weight: $headings-font-weight;
+// $display-line-height: $headings-line-height;
 
-// Style
-$enable-gradients: false;
-$enable-rounded: false;
-$border-width: 2px;
-$border-radius: 0rem;
+// // Style
+// $enable-gradients: false;
+// $enable-rounded: false;
+// $border-width: 2px;
+// $border-radius: 0rem;
 
-// Spacing
-$spacer: 2rem;
+// // Spacing
+// $spacer: 2rem;
 
-// Buttons and Inputs
-// TODO: Disable shadow
-// Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
-$georgies-btn-padding-y: $spacer * .35;
-$georgies-btn-padding-x: $spacer * .75;
-$georgies-input-padding-x: $spacer * .25;
+// // Buttons and Inputs
+// // TODO: Disable shadow
+// // Buttons inherit their padding from input elements. Creating a default value for padding to be used in the three size varients.
+// $georgies-btn-padding-y: $spacer * .35;
+// $georgies-btn-padding-x: $spacer * .75;
+// $georgies-input-padding-x: $spacer * .25;
 
-// Alerts
-$alert-bg-level: 0;
-$alert-border-level: -10;
-$alert-color-level: -10;
-$alert-link-font-weight: 700;
+// // Alerts
+// $alert-bg-level: 0;
+// $alert-border-level: -10;
+// $alert-color-level: -10;
+// $alert-link-font-weight: 700;
 
-// Buttons and Inputs
-// Regular size
-$input-btn-padding-y: $georgies-btn-padding-y;
-$input-btn-padding-x: $georgies-btn-padding-x;
-// Large size
-$input-btn-padding-y-lg: $input-btn-padding-y * 1.2;
-$input-btn-padding-x-lg: $input-btn-padding-x * 1.2;
-// Small size
-$input-btn-padding-y-sm: $input-btn-padding-y * .85;
-$input-btn-padding-x-sm: $input-btn-padding-x * .75;
+// // Buttons and Inputs
+// // Regular size
+// $input-btn-padding-y: $georgies-btn-padding-y;
+// $input-btn-padding-x: $georgies-btn-padding-x;
+// // Large size
+// $input-btn-padding-y-lg: $input-btn-padding-y * 1.2;
+// $input-btn-padding-x-lg: $input-btn-padding-x * 1.2;
+// // Small size
+// $input-btn-padding-y-sm: $input-btn-padding-y * .85;
+// $input-btn-padding-x-sm: $input-btn-padding-x * .75;
 
-// Input Specific Padding
-$input-padding-x: $georgies-input-padding-x;
-$input-padding-x-sm: $georgies-input-padding-x * .75;
-$input-padding-x-lg: $georgies-input-padding-x * 1.2;
+// // Input Specific Padding
+// $input-padding-x: $georgies-input-padding-x;
+// $input-padding-x-sm: $georgies-input-padding-x * .75;
+// $input-padding-x-lg: $georgies-input-padding-x * 1.2;
 
-// Button typography
-$btn-font-weight: 700;
+// // Button typography
+// $btn-font-weight: 700;
 
-// Breadcrumbs
-$breadcrumb-padding-y: $input-btn-padding-y;
-$breadcrumb-padding-x: $georgies-input-padding-x;
+// // Breadcrumbs
+// $breadcrumb-padding-y: $input-btn-padding-y;
+// $breadcrumb-padding-x: $georgies-input-padding-x;
 
-// Pagination
-$pagination-padding-y:              $input-btn-padding-y;
-$pagination-padding-x:              $georgies-btn-padding-x;
-$pagination-padding-y-sm:           $input-btn-padding-y * .75;
-$pagination-padding-x-sm:           $georgies-btn-padding-x * .75;
-$pagination-padding-y-lg:           $input-btn-padding-y * 1.25;
-$pagination-padding-x-lg:           $georgies-btn-padding-x * 1.25;
-$pagination-line-height:            $line-height-base;
+// // Pagination
+// $pagination-padding-y:              $input-btn-padding-y;
+// $pagination-padding-x:              $georgies-btn-padding-x;
+// $pagination-padding-y-sm:           $input-btn-padding-y * .75;
+// $pagination-padding-x-sm:           $georgies-btn-padding-x * .75;
+// $pagination-padding-y-lg:           $input-btn-padding-y * 1.25;
+// $pagination-padding-x-lg:           $georgies-btn-padding-x * 1.25;
+// $pagination-line-height:            $line-height-base;
 
-// Badges
-$badge-padding-y: .8em;
-$badge-padding-x: .6em;
+// // Badges
+// $badge-padding-y: .8em;
+// $badge-padding-x: .6em;
 
-// Nav bar
-$navbar-padding-y: $spacer * .5;
-$navbar-padding-x: 1rem;
-$navbar-nav-link-padding-y: $spacer * 0.25;
-$navbar-nav-link-padding-x: $spacer * 0.4;
-$navbar-brand-padding-y: 0;
+// // Nav bar
+// $navbar-padding-y: $spacer * .5;
+// $navbar-padding-x: 1rem;
+// $navbar-nav-link-padding-y: $spacer * 0.25;
+// $navbar-nav-link-padding-x: $spacer * 0.4;
+// $navbar-brand-padding-y: 0;
 
-$navbar-toggler-padding-y: .5rem;
-$navbar-toggler-padding-x: .6rem;
+// $navbar-toggler-padding-y: .5rem;
+// $navbar-toggler-padding-x: .6rem;
 
-// Drop downs
-$dropdown-min-width: 10rem;
-$dropdown-padding-x: 0;
-$dropdown-padding-y: 0;
-$dropdown-spacer: $border-width;
-$dropdown-font-size: $font-size-base * .9;
-$dropdown-border-color: $color-5;
-$dropdown-border-radius: $border-radius;
-$dropdown-border-width: $border-width;
-$dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width);
-$dropdown-divider-margin-y: 0;
-$dropdown-box-shadow: null;
+// // Drop downs
+// $dropdown-min-width: 10rem;
+// $dropdown-padding-x: 0;
+// $dropdown-padding-y: 0;
+// $dropdown-spacer: $border-width;
+// $dropdown-font-size: $font-size-base * .9;
+// $dropdown-border-color: $color-5;
+// $dropdown-border-radius: $border-radius;
+// $dropdown-border-width: $border-width;
+// $dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width);
+// $dropdown-divider-margin-y: 0;
+// $dropdown-box-shadow: null;
 
-$dropdown-item-padding-y: $spacer * .25;
-$dropdown-item-padding-x: $spacer * 1;
+// $dropdown-item-padding-y: $spacer * .25;
+// $dropdown-item-padding-x: $spacer * 1;
 
 
-$dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
+// $dropdown-header-padding: $dropdown-padding-y $dropdown-item-padding-x;
 
-$carousel-indicator-opacity: 1;
+// $carousel-indicator-opacity: 1;

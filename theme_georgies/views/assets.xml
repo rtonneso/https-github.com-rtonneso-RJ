@@ -15,7 +15,7 @@
       <field name="name">Bootstrap overridden SCSS</field>
       <field name="bundle">web._assets_frontend_helpers</field>
       <field name="directive">prepend</field>
-      <field name="path">theme_georgies/static/src/scss/bootstrap_overridden.scss</field>
+      <field name="path">theme_georgies/static/scss/bootstrap_overridden.scss</field>
   </record>
 
   <!-- TODO: V14 CODE DELETE IF NOT NEEDED -->
