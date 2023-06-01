@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-  <!-- Insert our modified bootstrap variables -->
-  <template id="theme_georgies_bootstrap" inherit_id="website._assets_frontend_helpers" priority="1" name="Georgies Custom Variables - Used in boostrap and custom SCSS">
-    <xpath expr="//link" position="before">
-      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_variables.scss"/>
-    </xpath>
-  </template>
+  <!-- TODO: V16 CODE NOT NECCESARILY NEEDED -->
+  <!-- Insert Odoo type SCSS variables -->
+  <!-- <record id="theme_georgies.primary_variables_scss" model="theme.ir.asset">
+      <field name="key">theme_georgies.primary_variables_scss</field>
+      <field name="name">Primary Odoo variables SCSS</field>
+      <field name="bundle">web._assets_primary_variables</field>
+      <field name="path">theme_georgies/static/src/scss/primary_variables.scss</field>
+  </record> -->
 
-  <!-- Insert our modified bootstrap variables -->
-  <template id="_assets_frontend_helpers" inherit_id="website._assets_frontend_helpers" name="Georgies Custom Boostrap Overrides">
-      <xpath expr="//link[last()]" position="after">
-          <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/bootstrap_overridden.scss"/>
-      </xpath>
-  </template>
+  <!-- Insert Boostrap Customizations -->
+  <record id="theme_georgies.bootstrap_overridden_scss" model="theme.ir.asset">
+      <field name="key">theme_georgies.bootstrap_overridden_scss</field>
+      <field name="name">Bootstrap overridden SCSS</field>
+      <field name="bundle">web._assets_frontend_helpers</field>
+      <field name="directive">prepend</field>
+      <field name="path">theme_georgies/static/scss/bootstrap_overridden.scss</field>
+  </record>
 
+  <!-- TODO: V14 CODE DELETE IF NOT NEEDED -->
   <!-- Insert our custom assets -->
-  <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999" name="Georgies Custom SCSS and Javascript">
-    <xpath expr="//link[last()]" position="after">
+  <!-- <template id="theme_georgies_assets_frontend" inherit_id="web.assets_frontend" priority="999" name="Georgies Custom SCSS and Javascript">
+    <xpath expr="//link[last()]" position="after"> -->
       <!-- Insert our custom css-->
-      <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
+      <!-- <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_functions.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_georgies.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-blog.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-events.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-general.scss"/>
       <link rel="stylesheet" type="text/scss" href="/theme_georgies/static/scss/_odoo-shop.scss"/>
-    </xpath>
+    </xpath> -->
     <!-- Insert our custom JS -->
-    <xpath expr="script[last()]" position="after">
+    <!-- <xpath expr="script[last()]" position="after">
       <script type="text/javascript" src="/theme_georgies/static/js/georgies-v1.01.js" />
     </xpath>
-  </template>
+  </template> -->
 
 </odoo>

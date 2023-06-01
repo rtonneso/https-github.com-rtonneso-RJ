@@ -2,21 +2,21 @@
   'name':'Georgies.com',
   'description': 'Georgies.com theme by Lichen',
   'category': 'Theme/Website',
-  'version':'2.2',
+  'version':'3.0',
   'author':'Lichen',
   'summary': 'Art, Ceramics',
   'sequence': 110,
   'data': [
-      'views/layout.xml',
-      'views/shop.xml',
-      'views/events.xml',
-      'views/blog.xml',
+      # 'views/layout.xml',
+      # 'views/shop.xml',
+      # 'views/events.xml',
+      # 'views/blog.xml',
       'views/assets.xml',
-      'views/snippets-georgies.xml',
-      'views/snippets-odoo.xml',
-      'views/records.xml',
-      'views/distributor-locations.xml',
-      'views/store-locations.xml'
+      # 'views/snippets-georgies.xml',
+      # 'views/snippets-odoo.xml',
+      # 'views/records.xml',
+      # 'views/distributor-locations.xml',
+      # 'views/store-locations.xml'
   ],
   'images': [
     'static/description/georgies_screenshot.jpg'
